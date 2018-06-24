@@ -51,7 +51,7 @@ servisi**
 
 Çıktıda beklenen minimum özellikler (MVP):
 
-- Anlamlı endpoint ve path'lere sahip olmalı
+- Geliştirici dostu olmalı (anlamlı endpoint ve metotlar)
 - Herbir servis versiyonlanabilir olmalı
 - Dokümantasyon olmalı ve API versiyonlarını takip ediyor olmalı
 - Authentication katmanı olmalı (LDAP-based ve/veya diğer)
