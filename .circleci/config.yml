@@ -6,4 +6,4 @@ jobs:
     steps:
       - checkout
       - run:
-          command: true
+          command: echo 'Hello world!'
