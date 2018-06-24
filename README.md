@@ -35,7 +35,7 @@ thread üzerinden katkı verilebilir.]
 - İstemciler servise IP bazlı izinlerle erişiyor ve bu kısıtlama kaynak kodda
   gerçeklenmiş. Yani her IP eklemesi için kaynak kod değişmekte
 - Kaynak kodda yapılan değişiklik FTP ile tekrar sunucuya gönderiliyor. Bu
-  sepeble sürüm kontrolü yok
+  sebeple sürüm kontrolü yok
 - Hiçbir noktada API dokümantasyonu mevcut değil
 - Metotlar ve çoğu zaman çağrı cevapları tutarsız
 - Herhangi bir loglama ve analitik tool kullanılmamış
@@ -47,18 +47,7 @@ Hedef
 -----
 
 Tüm bu servislere erişimin tek bir noktadan yapılmasına olanak sağlayan **API
-servisi**
-
-Çıktıda beklenen minimum özellikler (MVP):
-
-- Geliştirici dostu olmalı (anlamlı endpoint ve metotlar)
-- Herbir servis versiyonlanabilir olmalı
-- Dokümantasyon olmalı ve API versiyonlarını takip ediyor olmalı
-- Authentication katmanı olmalı (LDAP-based ve/veya diğer)
-- Security katmanı olmalı
-- Logging katmanı olmalı
-- Analytic katmanı olmalı
-- Eğer mümkünse ölçeklenebilir olmalı
+servisi** ve bunu takip eden **teknolojiler bütünü**.
 
 Filozofi
 --------
@@ -91,6 +80,54 @@ adaptasyon sürecinde harcayacağı eforu minimuma indirger. Katkı verilebilirl
 ve sürdürülebilirliği artırır. Tasarımı güvenli hale getirir ve kullanıcının
 işini kolaylaştırır.
 
+İdeal
+-----
+
+Çeşitli okumlar sonucu çıkarımlara göre ideal bir API servisinde olması gereken
+standartlar aşağıdaki gibi. Fakat bu standartların hepsini "codebase"de
+gerçeklemek oldukça maliyetli olduğu için sıklıkla "3rd-party tooling"
+kullanılmakta.
+
+- API conventions
+
+  - Naming
+  - Versioning
+  - Routing
+  - Error handling and true status codes
+  - Filtering
+
+- Authentication
+- Documentation
+- Security
+
+  - SSL
+  - IP restriction
+
+- Traffic Control
+
+  - Rate limiting
+
+- Logging
+- Analytics
+
+MVP
+---
+
+MVP'de beklenen çıktı şu şekilde
+
+- Harici servislerin tüm lojik pisliğini halı altına süpürüp, kullanıcıya daha
+  iyi bir API arayüzü sunan bir servis
+  
+  Bu servis şu 4 konvansiyona sahip olmalı
+
+  1. Naming convention
+  2. Versioning
+  3. Routing
+  4. Error handling
+
+- Test edilebilirlik
+- Güvenli bir "authentication" katmanı
+
 Mimari
 ------
 
@@ -104,9 +141,9 @@ gönderilen istek API gateway servisine ulaşır.
 API Gateway servisi bir "orchestrator" görevi görmektedir. Sıklıkla
 "microservice" mimarisinde kullanılmasına rağmen burada Authentication, Logging,
 Analytic ve Security katmanlarının yükünü API servisten alması yönüyle
-bulunmaktadır. Kendisine gelen isteği authorize ederek belirli yönergeleri takip
-eder ve backend servise gönderir. Ayrıca "Load Balancing" desteği ile isteği
-ölçeklenmiş backend servislere taşıyıp, cevap dönebilir.
+bulunmaktadır. Kendisine gelen isteği "authorize" ederek belirli yönergeleri
+takip eder ve backend servise gönderir. Ayrıca "Load Balancing" desteği ile
+isteği ölçeklenmiş backend servislere taşıyıp, cevap dönebilir.
 
 API servisi tüm alt servislere ait bilgi ve yöntemleri bulunduran "monolithic"
 bir uygulamadır. Tüm request-response lojiği bu katmanda yer almaktadır.
@@ -115,41 +152,60 @@ bir uygulamadır. Tüm request-response lojiği bu katmanda yer almaktadır.
 Gerçekleme
 ----------
 
-WIP
+### API servisi
 
-### Konvansiyonlar
+- Rails API only
+- Ruby, Rails ve kullanılan her kitaplık sürekli güncel
+- "Code quality" için [Codacy](https://www.codacy.com), "linter" için
+  [Rubocop](http://rubocop.readthedocs.io/en/latest)
+- VCS olarak Git ve servis olarak GitHub
+- CI olarak [Circle CI 2.0](https://circleci.com)
+- Serializer olarak [JSON-API](http://jsonapi.org)
+- Test için henüz karar yok, "minitest" ve "rspec" bakmak gerek
+- MVP konvansiyonlarını karşılayan
 
-Gerçeklemede aşağıdaki herbir API tasarım prensibindeki ilkeler uygulanacaktır.
+#### Naming (WIP)
 
-#### 1. İsimlendirme (naming)
+- Tek bir kök URL kullanılmalı
 
-WIP
+  ```txt
+  https://api.<domain>
+  ```
 
-#### 2. Versiyonlama (versioning)
+- Kök URL sonrası servis adı kullanılmalı. Version bilgisi, servis adı
+  sonrasında gelmeli
 
-WIP
+  ```txt
+  https://api.<domain>/<service>/<version>
+  ```
 
-#### 3. Metotlar (methods)
+- Çoğu zaman `GET` metodunun kullanmasını da göz önünde tutarak API
+  fonksiyonları "plural (çoğul)" olmalı
 
-WIP
+  ```txt
+  https://api.<domain>/<service>/<version>/<function>s
+  ```
 
 ### API Gateway
 
-WIP
-
-### API servis
-
-WIP
+API Gateway olarak [Kong](https://konghq.com) tercih edildi.
 
 ### Dokümantasyon
 
-WIP
+Dokümantasyon için [API BluePrint](https://apiblueprint.org) düşünülüyor.
 
-### DevOps
+İş akışı
+--------
 
-WIP
+- Harici servislere ait dokümanları [`doc`](/doc) dizini altında tut
+- Test betikleri [`scripts`](/scripts) dizini altında tut
+- Proje detaylarını [`README.md`](/README.md) dosyasında tut
+- Proje yönetimini [Tayga](https://tayga.omu.sh)'da yap
+- Geliştirmeyi "feature-branch"larda yap ve "master" dalına PR aç
+- Her PR'ın CI'dan geçiyor olmasına dikkat et
+- Her yeni özellik için mümkün oldukça test yaz
 
-Yol Haritası (WIP)
-------------------
+License
+-------
 
-- Test için Kong kur
+The MIT License - see [`LICENSE`](/LICENSE) for more details
