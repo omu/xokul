@@ -1,0 +1,8 @@
+# vim: ft=bash
+
+# Common variables
+export TEST_TC_NO=
+
+# OSYM variables
+export OSYM_USERNAME=
+export OSYM_PASSWORD=
