@@ -108,3 +108,21 @@ Birimler
   value" çiftleriyle dönüyor
 - `TarihtenBirimDegisiklikGetirv4` parametreler boş gönderilirse `Sistem Hatası`
   diye bir hata dönüyor
+
+Elektronik Kayıt
+----------------
+
+- Tüm istekler GET metodu
+- "Basic Auth" var, "client id" ve "client secret" gerekli. Bu bilgi KeePass'te
+- Versionlama var, şu an ki version `v1` olarak geçiyor
+
+### Operations
+
+|Operation                            |Parameters            |
+|-------------------------------------|----------------------|
+|**`BelirtilenGunOnlineKayitOlanOgrencileriGetirv1`** | `GUN (required)`, `AY (required)`, `YIL (required)`, `YOKSIS_UNIVERSITE_BIRIM_ID (required)`
+|**`TcKimlikNoileOnlineKayitOgrenciBilgiGetirv1`**    | `TCKN (required)`, `YOKSIS_UNIVERSITE_BIRIM_ID (required)`
+|**`VakifOgrenimUcretiv1`**                           | `TCKN (required)`, `OGRENIM_UCRETI_ODENDI_MI (required`, `OGRENIM_UCRETI_ODENDI_MI (required)`
+
+*WSDL URL* https://servisler.yok.gov.tr/ws/ekayitv1?wsdl
+
