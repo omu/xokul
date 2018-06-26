@@ -2,7 +2,6 @@ YOKSIS API
 ==========
 
 - Protocol olarak SOAP
-- "Basic Auth" var
 - Authentication için YOKSIS web servislerine erişebilen bir kullanıcı gerekli
   (şu an bu kişi İsmail Can) fakat İsmail Can, istekler için farklı YOKSIS
   kullanıcılarına da rol atanabiliyor
@@ -50,6 +49,7 @@ Akademik Personel
 -----------------
 
 - Tüm istekler GET metodu
+- "Basic Auth" var, İsmail Can'ın kullanıcı adı ve parolası gerekli
 - Versionlama var, şu an ki version `v1` olarak geçiyor
 
 ### Operations
@@ -67,12 +67,44 @@ Mezun Bilgileri
 ---------------
 
 - Tüm istekler GET metodu
+- "Basic Auth" var, "client id" ve "client secret" gerekiyor. Bu bilgi
+  KeePass'te
 - Versionlama var, şu an ki version `v2` olarak geçiyor ve `v1` kaldırılmış
 
 ### Operations
 
 |Operation                               |Parameters         |
 |----------------------------------------|-------------------|
-|**`TcKimlikNoilMezunOgrenciSorgulav2`** | `TCKNO (required)`
+|**`TcKimlikNoilMezunOgrenciSorgulav2`** | `TCKNO (optional)`
 
 *WSDL URL* https://servisler.yok.gov.tr/ws/TcKimlikNoileMezunOgrenciSorgulav2?WSDL
+
+### Durumlar
+
+- Parametre "optional". Cevap olarak değeri "nil" olan "key - value" çiftleri
+  dönüyor
+
+Birimler
+--------
+
+- Tüm istekler GET metodu
+- Versionlama var, şu an ki version `v4` olarak geçiyor diğerleri kaldırılmış
+
+### Operations
+
+|Operation                            |Parameters            |
+|-------------------------------------|----------------------|
+|**`UniversiteleriGetirv4`**          | -
+|**`AltBirimdekiProgramlariGetirv4`** | `BIRIM_ID (optional)`
+|**`AltBirimleriGetirv4`**            | `BIRIM_ID (optional)`
+|**`TarihtenBirimDegisiklikGetirv4`** | `GUN (required)`, `AY (required)`, `YIL (required)`
+|**`IDdenBirimAdiGetirv4`**           | `BIRIM_ID (optional)`
+
+*WSDL URL* https://servisler.yok.gov.tr/ws/UniversiteBirimlerv4?WSDL
+
+### Durumlar
+
+- "optional" parametreye sahip tüm isteklerde cevap değeri "nil" olan "key -
+  value" çiftleriyle dönüyor
+- `TarihtenBirimDegisiklikGetirv4` parametreler boş gönderilirse `Sistem Hatası`
+  diye bir hata dönüyor

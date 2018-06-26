@@ -31,7 +31,7 @@ module YOKSIS
       # [All methods have 'get' prefix]
       #
       # Method: GET (all)
-      # Parameters: il_kodu (string) - "ilce_getir" method
+      # Parameters: ILKODU (string) - "ilce_getir" method
       %i[
         aktiflik_durumu
         birim_turu
@@ -81,7 +81,7 @@ module YOKSIS
       attr_reader :client
 
       # Method: GET
-      # Parameters: page - page number, querier - identity number
+      # Parameters: SAYFA, SORGULAYAN_TC_KIMLIK_NO
       def kullaniciya_gore_universitedeki_akademik_personel_bilgisiv1(page, querier)
         client.call(
           __method__,
@@ -93,7 +93,7 @@ module YOKSIS
       end
 
       # Method: GET
-      # Parameters: queried - identity number, querier - identity number
+      # Parameters: AKPER_TC_KIMLIK_NO, SORGULAYAN_TC_KIMLIK_NO
       def kullaniciya_gore_tc_kimlik_nodan_akademik_personel_bilgisiv1(queried, querier)
         client.call(
           __method__,
@@ -105,7 +105,7 @@ module YOKSIS
       end
 
       # Method: GET
-      # Parameters: querier - identity number
+      # Parameters: SORGULAYAN_TC_KIMLIK_NO - identity number
       def kullaniciya_gore_universiteki_akademik_personel_sayfa_sayisiv1(querier)
         client.call(
           __method__,
@@ -125,6 +125,7 @@ module YOKSIS
   class MezunBilgileri
     WSDL_ENDPOINT = 'https://servisler.yok.gov.tr/ws/TcKimlikNoileMezunOgrenciSorgulav2?WSDL'.freeze
 
+    # YOKSIS MezunBilgileri client
     @client = Client.new(
       WSDL_ENDPOINT,
       basic_auth: [
@@ -136,13 +137,46 @@ module YOKSIS
       attr_reader :client
 
       # Method: GET
-      # Parameters: tc_no - queried id number
+      # Parameters: TCKNO - queried id number
       def tc_kimlik_noil_mezun_ogrenci_sorgulav2(tc_no)
+        client.call(__method__, message: { 'TCKNO' => tc_no }).body
+      end
+    end
+  end
+
+  # =>
+  class Birimler
+    WSDL_ENDPOINT = 'https://servisler.yok.gov.tr/ws/UniversiteBirimlerv4?WSDL'.freeze
+
+    # YOKSIS Birimler client
+    @client = Client.new(WSDL_ENDPOINT)
+
+    class << self
+      attr_reader :client
+
+      # Method: GET
+      # Parameters: parameter not required
+      def universiteleri_getirv4
+        client.call(__method__)
+      end
+
+      # Method: GET
+      # Parameters: GUN, AY, YIL
+      def tarihten_birim_degisiklik_getirv4(day, month, year)
         client.call(
           __method__,
-          message: { 'TCKNO' => tc_no }
-        )
+          message: { 'GUN' => day, 'AY' => month, 'YIL' => year }
+        ).body
       end
+
+      # Method: GET
+      # Parameters: BIRIM_ID
+      def alt_birimdeki_programlari_getirv4(unit_id)
+        client.call(__method__, message: { 'BIRIM_ID' => unit_id }).body
+      end
+
+      alias alt_birimleri_getirv4 alt_birimdeki_programlari_getirv4
+      alias idden_birim_adi_getirv4 alt_birimdeki_programlari_getirv4
     end
   end
 end
@@ -151,6 +185,7 @@ def main
   pp YOKSIS::Referanslar.get_ogrenim_turu
   pp YOKSIS::AkademikPersonel.get_mernis_uyruk
   pp YOKSIS::MezunBilgileri.tc_kimlik_noil_mezun_ogrenci_sorgulav2(ENV['TEST_TC_NO'])
+  pp YOKSIS::Birimler.universiteleri_getirv4
 end
 
 main if $PROGRAM_NAME == __FILE__
