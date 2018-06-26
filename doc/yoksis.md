@@ -126,3 +126,18 @@ Elektronik Kayıt
 
 *WSDL URL* https://servisler.yok.gov.tr/ws/ekayitv1?wsdl
 
+Öğrenci Sorgulama (Mezunlar hariç)
+----------------------------------
+
+- Tüm istekler GET metodu
+- "Basic Auth" var, "client id" ve "client secret" gerekli. Bu bilgi KeePass'te
+- Versionlama var, şu an ki version `v4` olarak geçiyor, diğer versionlar
+  kaldırılmış
+
+### Operations
+
+|Operation                                |Parameters            |
+|-----------------------------------------|----------------------|
+|**`TcKimlikNoileOgrenciSorgulaDetayv4`** | `TC_KIMLIK_NO (required)`
+
+*WSDL URL* https://servisler.yok.gov.tr/ws/TcKimlikNoileOgrenciSorgulaDetayv4?WSDL
