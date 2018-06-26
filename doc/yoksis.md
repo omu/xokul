@@ -141,3 +141,19 @@ Elektronik Kayıt
 |**`TcKimlikNoileOgrenciSorgulaDetayv4`** | `TC_KIMLIK_NO (required)`
 
 *WSDL URL* https://servisler.yok.gov.tr/ws/TcKimlikNoileOgrenciSorgulaDetayv4?WSDL
+
+Milli Eğitim Bakanlığı Mezun Sorgulama
+--------------------------------------
+
+- Tüm istekler GET metodu
+- Authentication yok
+- Versionlama yok
+
+### Operations
+
+|Operation                           |Parameters            |
+|------------------------------------|----------------------|
+|**`mezuniyetVerileriniGetir`**      | `TC_KIMLIK_NO (required)`, `ServicePassWord (optional)`
+|**`mezuniyetVerileriniGetirDetay`** | `TC_KIMLIK_NO (required)`, `ServicePassWord (optional)`
+
+*WSDL URL* https://servisler.yok.gov.tr/ws/mebmezunsorgulav2?WSDL
