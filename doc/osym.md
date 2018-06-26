@@ -5,6 +5,7 @@ OSYM VPS (Veri Paylaşım Sistemi)
 - "Basic Auth" ve "WSSE Auth" var
 - Tüm sorgular "GET" method
 - Kullanıcı adı ve parola KeePass'te
+- Version yok
 
 Operations
 ----------
