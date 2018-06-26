@@ -62,3 +62,17 @@ Akademik Personel
 |**`kullaniciyaGoreUniversiteki_Akademik_Personel_SayfaSayisiv1`**               | `SORGULAYAN_TC_KIMLIK_NO (required)`
 
 *WSDL URL* http://servisler.yok.gov.tr/ws/UniversiteAkademikPersonelv1?WSDL
+
+Mezun Bilgileri
+---------------
+
+- Tüm istekler GET metodu
+- Versionlama var, şu an ki version `v2` olarak geçiyor ve `v1` kaldırılmış
+
+### Operations
+
+|Operation                               |Parameters         |
+|----------------------------------------|-------------------|
+|**`TcKimlikNoilMezunOgrenciSorgulav2`** | `TCKNO (required)`
+
+*WSDL URL* https://servisler.yok.gov.tr/ws/TcKimlikNoileMezunOgrenciSorgulav2?WSDL

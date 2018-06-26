@@ -120,11 +120,37 @@ module YOKSIS
       end
     end
   end
+
+  # =>
+  class MezunBilgileri
+    WSDL_ENDPOINT = 'https://servisler.yok.gov.tr/ws/TcKimlikNoileMezunOgrenciSorgulav2?WSDL'.freeze
+
+    @client = Client.new(
+      WSDL_ENDPOINT,
+      basic_auth: [
+        ENV['YOKSIS_CLIENT_ID'], ENV['YOKSIS_CLIENT_SECRET']
+      ]
+    )
+
+    class << self
+      attr_reader :client
+
+      # Method: GET
+      # Parameters: tc_no - queried id number
+      def tc_kimlik_noil_mezun_ogrenci_sorgulav2(tc_no)
+        client.call(
+          __method__,
+          message: { 'TCKNO' => tc_no }
+        )
+      end
+    end
+  end
 end
 
 def main
   pp YOKSIS::Referanslar.get_ogrenim_turu
   pp YOKSIS::AkademikPersonel.get_mernis_uyruk
+  pp YOKSIS::MezunBilgileri.tc_kimlik_noil_mezun_ogrenci_sorgulav2(ENV['TEST_TC_NO'])
 end
 
 main if $PROGRAM_NAME == __FILE__
