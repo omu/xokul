@@ -6,6 +6,7 @@ require 'savon'
 module YOKSIS
   # Referanslar
   class Referanslar
+    # YOKSIS Referanslar Endpoint
     WSDL_ENDPOINT = 'https://servisler.yok.gov.tr/ws/Referanslarv1?WSDL'.freeze
 
     # API client
@@ -17,6 +18,10 @@ module YOKSIS
     )
 
     class << self
+      # [All methods have 'get' prefix]
+      #
+      # Method: GET (all)
+      # Parameters: il_kodu (string) - "ilce_getir" method
       %i[
         aktiflik_durumu
         birim_turu
@@ -45,12 +50,14 @@ module YOKSIS
         personel_gorev
         universite_turu
       ].each do |method|
-        define_method("get_#{method}") { |args = {}| send_request(__method__, args) }
+        define_method("get_#{method}") { |args = {}| request(__method__, args) }
       end
 
       attr_reader :client
 
-      def send_request(action_name, args)
+      private
+
+      def request(action_name, args)
         client.call(action_name, message: args).body
       end
     end
