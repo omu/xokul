@@ -45,3 +45,20 @@ Referanslar
 |**`getUniversiteTuru`**          | -
 
 *WSDL URL* https://servisler.yok.gov.tr/ws/Referanslarv1?WSDL
+
+Akademik Personel
+-----------------
+
+- Tüm istekler GET metodu
+- Versionlama var, şu an ki version `v1` olarak geçiyor
+
+### Operations
+
+|Operation                        |Parameters       |
+|---------------------------------|-----------------|
+|**`getMernisUyruk`**             | -
+|**`kullaniciyaGoreTcKimlikNodan_Akademik_Personel_Bilgisiv1`**                  | `AKPER_TC_KIMLIK_NO (required)`, `SORGULAYAN_TC_KIMLIK_NO (required)`
+|**`kullaniciyaGoreUniversitedeki_Akademik_Personel_Bilgisiv1`**                 | `SORGULAYAN_TC_KIMLIK_NO (required)`, `PAGE (required)`
+|**`kullaniciyaGoreUniversiteki_Akademik_Personel_SayfaSayisiv1`**               | `SORGULAYAN_TC_KIMLIK_NO (required)`
+
+*WSDL URL* http://servisler.yok.gov.tr/ws/UniversiteAkademikPersonelv1?WSDL
