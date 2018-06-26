@@ -6,3 +6,7 @@ export TEST_TC_NO=
 # OSYM variables
 export OSYM_USERNAME=
 export OSYM_PASSWORD=
+
+# YOKSIS variables
+export YOKSIS_USERNAME=
+export YOKSIS_PASSWORD=
