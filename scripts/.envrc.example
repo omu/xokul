@@ -2,6 +2,7 @@
 
 # Common variables
 export TEST_TC_NO=
+export TEST_DATE_OF_BIRTH=
 
 # OSYM variables
 export OSYM_USERNAME=
