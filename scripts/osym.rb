@@ -22,7 +22,7 @@ class OSYM
 
   # Action: SinavSonuclariGetir
   # Method: GET
-  # Paraleters: adayTcKimlikNo (optional), Yil (optional), grupId (optional)
+  # Parameters: adayTcKimlikNo, Yil, grupId
   def sinav_sonuclari_getir(tc_no = '', yil = '', grup_id = '')
     client.call(
       :sinav_sonuclari_getir,
@@ -32,7 +32,7 @@ class OSYM
 
   # Action: SinavSonucHtml
   # Method: GET
-  # Paraleters: adayTcKimlikNo (optional), sonucId (optional)
+  # Parameters: adayTcKimlikNo, sonucId
   def sinav_sonuc_html(tc_no = '', sonuc_id = '')
     client.call(
       :sinav_sonuc_html,
@@ -42,7 +42,7 @@ class OSYM
 
   # Action: SinavSonucXml
   # Method: GET
-  # Paraleters: adatTcKimlikNo (optional), sonucId (optional)
+  # Parameters: adayTcKimlikNo, sonucId
   def sinav_sonuc_xml(tc_no = '', sonuc_id = '')
     client.call(
       :sinav_sonuc_xml,
@@ -52,6 +52,7 @@ class OSYM
 
   # Action: SinavGrupBilgileriniGetir
   # Method: GET
+  # Parameters: parameter not required
   def sinav_grup_bilgilerini_getir
     client.call(:sinav_grup_bilgilerini_getir)
   end
