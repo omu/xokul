@@ -267,7 +267,7 @@ module YOKSIS
   class MEBMezunSorgulama
     WSDL_ENDPOINT = 'https://servisler.yok.gov.tr/ws/mebmezunsorgulav2?WSDL'.freeze
 
-    # YOKSIS ElektronikKayıt client
+    # YOKSIS MEBMezunSorgulama client
     @client = Client.new(WSDL_ENDPOINT, soap_version: 2)
 
     class << self
@@ -284,6 +284,9 @@ module YOKSIS
         ).body
       end
 
+      # Action: mezuniyetVerileriniGetirDetay
+      # Method: GET
+      # Parameters: TC_KIMLIK_NO, ServicePassWord
       alias mezuniyet_verilerini_getir_detay mezuniyet_verilerini_getir
     end
   end
