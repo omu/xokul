@@ -249,7 +249,7 @@ module YOKSIS
   class OgrenciSorgulama
     WSDL_ENDPOINT = 'https://servisler.yok.gov.tr/ws/TcKimlikNoileOgrenciSorgulaDetayv4?WSDL'.freeze
 
-    # YOKSIS ElektronikKayıt client
+    # YOKSIS OgrenciSorgulama client
     @client = Client.new(
       WSDL_ENDPOINT,
       basic_auth: [ENV['YOKSIS_CLIENT_ID'], ENV['YOKSIS_CLIENT_SECRET']]
@@ -259,7 +259,32 @@ module YOKSIS
     # Method: GET
     # Parameters: TC_KIMLIK_NO
     def self.tc_kimlik_noile_ogrenci_sorgula_detayv4(tc_no)
-      @client.call(__method__, message: { 'TC_KIMLIK_NO' => tc_no })
+      @client.call(__method__, message: { 'TC_KIMLIK_NO' => tc_no }).body
+    end
+  end
+
+  # =>
+  class MEBMezunSorgulama
+    WSDL_ENDPOINT = 'https://servisler.yok.gov.tr/ws/mebmezunsorgulav2?WSDL'.freeze
+
+    # YOKSIS ElektronikKayıt client
+    @client = Client.new(WSDL_ENDPOINT, soap_version: 2)
+
+    class << self
+      # Action: mezuniyetVerileriniGetir
+      # Method: GET
+      # Parameters: TC_KIMLIK_NO, ServicePassWord
+      def mezuniyet_verilerini_getir(tc_no, service_password = nil)
+        @client.call(
+          __method__,
+          message: {
+            'TC_KIMLIK_NO' => tc_no,
+            'ServicePassWord' => service_password
+          }
+        ).body
+      end
+
+      alias mezuniyet_verilerini_getir_detay mezuniyet_verilerini_getir
     end
   end
 end
@@ -271,6 +296,7 @@ def main
   pp YOKSIS::Birimler.universiteleri_getirv4
   pp YOKSIS::ElektronikKayit.vakif_ogrenim_ucretiv1(ENV['TEST_TC_NO'], false)
   pp YOKSIS::OgrenciSorgulama.tc_kimlik_noile_ogrenci_sorgula_detayv4(ENV['TEST_TC_NO'])
+  pp YOKSIS::MEBMezunSorgulama.mezuniyet_verilerini_getir(ENV['TEST_TC_NO'])
 end
 
 main if $PROGRAM_NAME == __FILE__
