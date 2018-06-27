@@ -196,7 +196,7 @@ module YOKSIS
   end
 
   # =>
-  class ElektronikKayıt
+  class ElektronikKayit
     WSDL_ENDPOINT = 'https://servisler.yok.gov.tr/ws/ekayitv1?wsdl'.freeze
 
     # YOKSIS ElektronikKayıt client
@@ -244,6 +244,24 @@ module YOKSIS
       end
     end
   end
+
+  # =>
+  class OgrenciSorgulama
+    WSDL_ENDPOINT = 'https://servisler.yok.gov.tr/ws/TcKimlikNoileOgrenciSorgulaDetayv4?WSDL'.freeze
+
+    # YOKSIS ElektronikKayıt client
+    @client = Client.new(
+      WSDL_ENDPOINT,
+      basic_auth: [ENV['YOKSIS_CLIENT_ID'], ENV['YOKSIS_CLIENT_SECRET']]
+    )
+
+    # Action: TcKimlikNoileOgrenciSorgulaDetayv4
+    # Method: GET
+    # Parameters: TC_KIMLIK_NO
+    def self.tc_kimlik_noile_ogrenci_sorgula_detayv4(tc_no)
+      @client.call(__method__, message: { 'TC_KIMLIK_NO' => tc_no })
+    end
+  end
 end
 
 def main
@@ -251,7 +269,8 @@ def main
   pp YOKSIS::AkademikPersonel.get_mernis_uyruk
   pp YOKSIS::MezunBilgileri.tc_kimlik_noil_mezun_ogrenci_sorgulav2(ENV['TEST_TC_NO'])
   pp YOKSIS::Birimler.universiteleri_getirv4
-  pp YOKSIS::ElektronikKayıt.vakif_ogrenim_ucretiv1(ENV['TEST_TC_NO'], false)
+  pp YOKSIS::ElektronikKayit.vakif_ogrenim_ucretiv1(ENV['TEST_TC_NO'], false)
+  pp YOKSIS::OgrenciSorgulama.tc_kimlik_noile_ogrenci_sorgula_detayv4(ENV['TEST_TC_NO'])
 end
 
 main if $PROGRAM_NAME == __FILE__
