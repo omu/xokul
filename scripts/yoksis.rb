@@ -80,6 +80,7 @@ module YOKSIS
     class << self
       attr_reader :client
 
+      # Action: kullaniciyaGoreUniversitedeki_Akademik_Personel_Bilgisiv1
       # Method: GET
       # Parameters: SAYFA, SORGULAYAN_TC_KIMLIK_NO
       def kullaniciya_gore_universitedeki_akademik_personel_bilgisiv1(page, querier)
@@ -92,6 +93,7 @@ module YOKSIS
         ).body
       end
 
+      # Action: kullaniciyaGoreTcKimlikNodan_Akademik_Personel_Bilgisiv1
       # Method: GET
       # Parameters: AKPER_TC_KIMLIK_NO, SORGULAYAN_TC_KIMLIK_NO
       def kullaniciya_gore_tc_kimlik_nodan_akademik_personel_bilgisiv1(queried, querier)
@@ -104,8 +106,9 @@ module YOKSIS
         ).body
       end
 
+      # Action: kullaniciyaGoreUniversiteki_Akademik_Personel_SayfaSayisiv1
       # Method: GET
-      # Parameters: SORGULAYAN_TC_KIMLIK_NO - identity number
+      # Parameters: SORGULAYAN_TC_KIMLIK_NO
       def kullaniciya_gore_universiteki_akademik_personel_sayfa_sayisiv1(querier)
         client.call(
           __method__,
@@ -113,6 +116,7 @@ module YOKSIS
         ).body
       end
 
+      # Action: getMernisUyruk
       # Method: GET
       # Parameters: parameter not required
       def get_mernis_uyruk
@@ -136,8 +140,9 @@ module YOKSIS
     class << self
       attr_reader :client
 
+      # Action: TcKimlikNoilMezunOgrenciSorgulav2
       # Method: GET
-      # Parameters: TCKNO - queried id number
+      # Parameters: TCKNO
       def tc_kimlik_noil_mezun_ogrenci_sorgulav2(tc_no)
         client.call(__method__, message: { 'TCKNO' => tc_no }).body
       end
@@ -154,12 +159,14 @@ module YOKSIS
     class << self
       attr_reader :client
 
+      # Action: UniversiteleriGetirv4
       # Method: GET
       # Parameters: parameter not required
       def universiteleri_getirv4
         client.call(__method__)
       end
 
+      # Action TarihtenBirimDegisiklikGetirv4
       # Method: GET
       # Parameters: GUN, AY, YIL
       def tarihten_birim_degisiklik_getirv4(day, month, year)
@@ -169,14 +176,72 @@ module YOKSIS
         ).body
       end
 
+      # Action: AltBirimdekiProgramlariGetirv4
       # Method: GET
       # Parameters: BIRIM_ID
       def alt_birimdeki_programlari_getirv4(unit_id)
         client.call(__method__, message: { 'BIRIM_ID' => unit_id }).body
       end
 
+      # Action: AltBirimleriGetirv4
+      # Method: GET
+      # Parameters: BIRIM_ID
       alias alt_birimleri_getirv4 alt_birimdeki_programlari_getirv4
+
+      # Action: IDdenBirimAdiGetirv4
+      # Method: GET
+      # Parameters: BIRIM_ID
       alias idden_birim_adi_getirv4 alt_birimdeki_programlari_getirv4
+    end
+  end
+
+  # =>
+  class ElektronikKayıt
+    WSDL_ENDPOINT = 'https://servisler.yok.gov.tr/ws/ekayitv1?wsdl'.freeze
+
+    # YOKSIS ElektronikKayıt client
+    @client = Client.new(
+      WSDL_ENDPOINT,
+      basic_auth: [ENV['YOKSIS_CLIENT_ID'], ENV['YOKSIS_CLIENT_SECRET']]
+    )
+
+    class << self
+      attr_reader :client
+
+      # Action: BelirtilenGunOnlineKayitOlanOgrencileriGetirv1
+      # Method: GET
+      # Parameters: GUN, AY, YIL, YOKSIS_UNIVERSITE_BIRIM_ID
+      def belirtilen_gun_online_kayit_olan_ogrenciler_getirv1(day, month, year, unit_id)
+        client.call(
+          __method__,
+          message: {
+            'GUN' => day,
+            'AY' => month,
+            'YIL' => year,
+            'YOKSIS_UNIVERSITE_BIRIM_ID' => unit_id
+          }
+        ).body
+      end
+
+      # Action: TcKimlikNoileOnlineKayitOgrenciBilgiGetirv1
+      # Method: GET
+      # Parameters: TCKN, YOKSIS_UNIVERSITE_BIRIM_ID
+      def tc_kimlik_no_ile_online_kayit_ogrenci_bilgi_getirv1(tc_no, unit_id)
+        client.call(
+          __method__,
+          message: { 'TCKN' => tc_no, 'YOKSIS_UNIVERSITE_BIRIM_ID' => unit_id }
+        ).body
+      end
+
+      # Action: VakifOgrenimUcretiv1
+      # Method: GET
+      # Parameters: TCKN, OGRENIM_UCRETI_ODENDI_MI
+      def vakif_ogrenim_ucretiv1(tc_no, paid)
+        client.call(
+          __method__,
+          message: { 'TCKN' => tc_no, 'OGRENIM_UCRETI_ODENDI_MI' => paid }
+        ).body
+      end
     end
   end
 end
@@ -186,6 +251,7 @@ def main
   pp YOKSIS::AkademikPersonel.get_mernis_uyruk
   pp YOKSIS::MezunBilgileri.tc_kimlik_noil_mezun_ogrenci_sorgulav2(ENV['TEST_TC_NO'])
   pp YOKSIS::Birimler.universiteleri_getirv4
+  pp YOKSIS::ElektronikKayıt.vakif_ogrenim_ucretiv1(ENV['TEST_TC_NO'], false)
 end
 
 main if $PROGRAM_NAME == __FILE__
