@@ -95,7 +95,7 @@ module KPS
 
       def token
         uri = URI.parse(STS_URL)
-        http = Net::HTTP.neKPSClientw(uri.host, uri.port)
+        http = Net::HTTP.new(uri.host, uri.port)
         http.use_ssl = true
         http.verify_mode =OpenSSL::SSL::VERIFY_PEER
         req = Net::HTTP::Post.new(uri.path)
