@@ -162,7 +162,7 @@ module KPS
         saml_assertion_id = doc.xpath('/s:Envelope/s:Body/trust:RequestSecurityTokenResponseCollection/trust:RequestSecurityTokenResponse/trust:RequestedAttachedReference/o:SecurityTokenReference/o:KeyIdentifier').text
         proof_key = doc.xpath('/s:Envelope/s:Body/wst:RequestSecurityTokenResponseCollection/wst:RequestSecurityTokenResponse/wst:RequestedProofToken/wst:BinarySecret').text
 
-        timestamp_header = doc.xpath('/s:Envelope/s:Header/o:Security/u:Timestamp').first.canonicalize
+        timestamp_header = doc.xpath('/s:Envelope/s:Header/o:Security/u:Timestamp').first
         digest_value = Base64.encode64(Digest::SHA1.hexdigest(timestamp_header)).strip
 
         signed_info_text = <<~SIGNED_INFO
@@ -178,7 +178,7 @@ module KPS
         SIGNED_INFO
 
         signed_doc = Nokogiri::XML(signed_info_text)
-        signature_value = Base64.encode64(OpenSSL::HMAC.digest(OpenSSL::Digest.new('sha1'), proof_key, signed_doc.canonicalize)).strip()
+        signature_value = Base64.encode64(OpenSSL::HMAC.digest(OpenSSL::Digest.new('sha1'), proof_key, signed_doc.to_s)).strip()
 
         tmpl = ERB.new(KPS_TEMPLATE).result(binding)
 
@@ -188,8 +188,9 @@ module KPS
         http.verify_mode = OpenSSL::SSL::VERIFY_PEER
         req = Net::HTTP::Post.new(uri.path)
         req['Content-Type'] = 'application/soap+xml; charset=utf-8'
+        req['Connection'] = 'keep-alive'
         req.body = tmpl
-        http.request(req).body
+        http.request(req)
       end
 
       private
@@ -213,7 +214,7 @@ def main
   </Sorgula>
   BODY
   pp client.call('http://kps.nvi.gov.tr/2011/01/01/BilesikKutukSorgulaKimlikNoServis/Sorgula', body)
-  pp KPS::Public.tc_kimlik_no_dogrula(ENV['TEST_TC_NO'], ENV['TEST_DATE_OF_BIRTH'])
+  # pp KPS::Public.tc_kimlik_no_dogrula(ENV['TEST_TC_NO'], ENV['TEST_DATE_OF_BIRTH'])
 end
 
 main if $PROGRAM_NAME == __FILE__
