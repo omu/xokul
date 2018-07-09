@@ -1,0 +1,17 @@
+AllCops:
+  Exclude:
+    - bin/**/*
+    - config/puma.rb
+    - vendor/bundle/**/*
+    - db/schema.rb
+    - db/migrate/*.rb
+    - config/environments/development.rb
+    - config/environments/production.rb
+    - config/environments/test.rb
+    - config/routes.rb
+    - scripts/*
+    - doc/*
+Documentation:
+  Enabled: false
+Metrics/LineLength:
+  Max: 120
