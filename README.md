@@ -1,7 +1,9 @@
 Xokul
 =====
 
-[![Beta](https://assets.omu.sh/badge/beta.svg)](https://baum.omu.edu.tr "BAUM Beta") [![CircleCI](https://circleci.com/gh/omu/xokul/tree/master.svg?style=svg&circle-token=35d56d8f2a30dabd31232fa0426841724b2e5789)](https://circleci.com/gh/omu/xokul/tree/master)
+[![Beta](https://assets.omu.sh/badge/beta.svg)](https://baum.omu.edu.tr "BAUM
+Beta")
+[![CircleCI](https://circleci.com/gh/omu/xokul/tree/master.svg?style=svg&circle-token=35d56d8f2a30dabd31232fa0426841724b2e5789)](https://circleci.com/gh/omu/xokul/tree/master)
 
 Nokul projesi kapsamında geliştirilen bir alt projedir ve kullanılan dış
 servislerin tek bir noktadan API olarak hizmet vermesini hedeflemektedir.
