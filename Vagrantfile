@@ -13,7 +13,7 @@ Vagrant.configure('2') do |config|
 
   # Provisioning the container
   config.vm.provision 'shell', inline: <<-SHELL
-  cd /vagrant && export $(cat .env.beta)
+  cd /vagrant && export $(<.env.beta)
 
   systemctl enable postgresql
   systemctl start postgresql
