@@ -1,11 +1,8 @@
 # frozen_string_literal: true
 
-require 'forwardable'
-
 module Services
   class Client
-    extend Forwardable
-    def_delegator :@client, :call
+    delegate :call, to: :@client
 
     def initialize(wsdl_url, **extra_args)
       @client = Savon.client(
