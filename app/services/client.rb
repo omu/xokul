@@ -5,11 +5,8 @@ module Services
     attr_reader :client
 
     def initialize(document_url)
-      @client = Savon.client do |config|
-        config.convert_request_keys_to 'camelcase'
-        config.encoding 'UTF-8'
-        config.wsdl document_url
-      end
+      @client = Savon.client(wsdl: document_url)
+      configure_with_defaults
     end
 
     # WIP
@@ -29,6 +26,15 @@ module Services
 
     def configure
       yield client.globals if block_given?
+    end
+
+    private
+
+    def configure_with_defaults
+      configure do |config|
+        config.convert_request_keys_to 'camelcase'
+        config.encoding 'UTF-8'
+      end
     end
   end
 end

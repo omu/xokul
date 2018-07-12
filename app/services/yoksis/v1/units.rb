@@ -10,14 +10,10 @@ module Services
           @client = Client.new(WSDL_URL)
         end
 
-        def changes(day, month, year)
+        def changes_in_unit(day, month, year)
           client.call(
             UNITS_METHODS[__method__], GUN: day, AY: month, YIL: year
           )
-        end
-
-        def universities
-          client.call(UNITS_METHODS[__method__])
         end
 
         def subunits(unit_id)
@@ -25,6 +21,13 @@ module Services
             UNITS_METHODS[__method__], BIRIM_ID: unit_id
           )
         end
+
+        def universities
+          client.call(UNITS_METHODS[__method__])
+        end
+
+        alias_method programs_under_subunit subunits
+        alias_method unitname subunits
 
         attr_reader :client
       end

@@ -11,7 +11,7 @@ module Services
           @client.basic_auth client_id, client_secret
         end
 
-        def student(tck_no)
+        def status(tck_no)
           client.call(GRADUATES_METHODS[__method__], TCKNO: tck_no)
         end
 

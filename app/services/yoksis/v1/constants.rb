@@ -4,13 +4,15 @@ module Services
   module YOKSIS
     module V1
       GRADUATES_METHODS = {
-        student: :tc_kimlik_noil_mezun_ogrenci_sorgulav2
+        status: :tc_kimlik_noil_mezun_ogrenci_sorgulav2
       }.freeze
 
       UNITS_METHODS = {
-        changes: :alt_birimdeki_programlari_getirv4,
+        changes_in_unit: :tarihten_birim_degisiklik_getirv4,
         subunits: :alt_birimleri_getirv4,
-        universities: :universiteleri_getirv4
+        universities: :universiteleri_getirv4,
+        programs_under_subunit: :alt_birimdeki_programlari_getirv4,
+        unitname: :idden_birim_adi_getirv4
       }.freeze
     end
   end
