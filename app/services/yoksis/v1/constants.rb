@@ -7,6 +7,10 @@ module Services
         status: :tc_kimlik_noil_mezun_ogrenci_sorgulav2
       }.freeze
 
+      STAFFS_METHODS = {
+        nationalities: :get_mernis_uyruk
+      }.freeze
+
       STUDENTS_METHODS = {
         details: :tc_kimlik_noile_ogrenci_sorgula_detayv4
       }.freeze
