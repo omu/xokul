@@ -26,8 +26,8 @@ module Services
           client.call(UNITS_METHODS[__method__])
         end
 
-        alias_method programs_under_subunit subunits
-        alias_method unitname subunits
+        alias programs_under_subunit subunits
+        alias unitname subunits
 
         attr_reader :client
       end

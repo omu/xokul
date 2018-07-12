@@ -7,6 +7,10 @@ module Services
         status: :tc_kimlik_noil_mezun_ogrenci_sorgulav2
       }.freeze
 
+      STUDENTS_METHODS = {
+        details: :tc_kimlik_noile_ogrenci_sorgula_detayv4
+      }.freeze
+
       UNITS_METHODS = {
         changes_in_unit: :tarihten_birim_degisiklik_getirv4,
         subunits: :alt_birimleri_getirv4,
