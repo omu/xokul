@@ -12,8 +12,7 @@ module Services
 
         def changes(day, month, year)
           client.call(
-            UNITS_METHODS[__method__],
-            message: { 'GUN' => day, 'AY' => month, 'YIL' => year }
+            UNITS_METHODS[__method__], GUN: day, AY: month, YIL: year
           )
         end
 
@@ -23,8 +22,7 @@ module Services
 
         def subunits(unit_id)
           client.call(
-            UNITS_METHODS[__method__],
-            message: { 'BIRIM_ID' => unit_id }
+            UNITS_METHODS[__method__], BIRIM_ID: unit_id
           )
         end
 
