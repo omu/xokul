@@ -2,7 +2,7 @@
 
 module Services
   class Client
-    attr_reader :client
+    attr_reader :client, :error
 
     def initialize(document_url)
       @client = Savon.client(wsdl: document_url)
@@ -12,8 +12,10 @@ module Services
     # WIP
     def call(action, **arguments)
       client.call(action, message: arguments.stringify_keys)
-    rescue StandardError
-      raise
+    rescue Savon::HTTPError => err
+      @error = HTTPError.new(err)
+    rescue Savon::SOAPError => err
+      @error = SOAPError.new(err)
     end
 
     def basic_auth(username, password)
