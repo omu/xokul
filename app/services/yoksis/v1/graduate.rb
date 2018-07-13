@@ -3,7 +3,7 @@
 module Services
   module YOKSIS
     module V1
-      class Graduates
+      class Graduate
         WSDL_URL = 'https://servisler.yok.gov.tr/ws/TcKimlikNoileMezunOgrenciSorgulav2?WSDL'
 
         def initialize(client_id, client_secret)

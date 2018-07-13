@@ -3,16 +3,16 @@
 module Services
   module YOKSIS
     module V1
-      class Staffs
-        WSDL_URL = 'http://servisler.yok.gov.tr/ws/UniversiteAkademikPersonelv1?WSDL'
+      class Student
+        WSDL_URL = 'https://servisler.yok.gov.tr/ws/TcKimlikNoileOgrenciSorgulaDetayv4?WSDL'
 
         def initialize(username, password)
           @client = Client.new(WSDL_URL)
           @client.basic_auth username, password
         end
 
-        def nationalities
-          client.call(STAFFS_METHODS[__method__])
+        def details(tck_no)
+          client.call(STUDENTS_METHODS[__method__], TC_KIMLIK_NO: tck_no)
         end
 
         attr_reader :client
