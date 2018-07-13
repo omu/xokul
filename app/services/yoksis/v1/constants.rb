@@ -7,6 +7,11 @@ module Services
         status: :tc_kimlik_noil_mezun_ogrenci_sorgulav2
       }.freeze
 
+      MEB_METHODS = {
+        graduation_data: :mezuniyet_verilerini_getir,
+        detailed_graduation_data: :mezuniyet_verilerini_getir_detay
+      }.freeze
+
       REFERENCES_METHODS = {
         unit_status: :get_aktiflik_durumu,
         unit_type: :get_birim_turu,
