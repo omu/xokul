@@ -16,5 +16,3 @@ Documentation:
   Enabled: false
 Metrics/LineLength:
   Max: 120
-Style/TrailingCommaInHashLiteral:
-  Enabled: false
