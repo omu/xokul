@@ -2,6 +2,11 @@
 
 module Services
   class Error < StandardError
+    def initialize(object)
+      @object = object
+      super
+    end
+
     def details
       [message]
     end
@@ -12,11 +17,6 @@ module Services
   end
 
   class HTTPError < Error
-    def initialize(object)
-      @object = object
-      super
-    end
-
     def code
       @object.http.code
     end
@@ -27,17 +27,12 @@ module Services
   end
 
   class SOAPError < Error
-    def initialize(object)
-      @object = object.to_hash[:fault]
-      super
-    end
-
     def code
-      @object[:faultcode].to_i
+      @object.to_hash[:fault][:faultcode].to_i
     end
 
     def string
-      @object[:faultstring]
+      @object.to_hash[:fault][:faultstring]
     end
   end
 end
