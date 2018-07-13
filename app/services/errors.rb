@@ -12,8 +12,10 @@ module Services
     end
 
     def message
-      "#{code} #{string}"
+      "#{code} #{self}"
     end
+
+    protected
 
     attr_reader :object
   end
@@ -27,7 +29,7 @@ module Services
       http_object.code
     end
 
-    def string
+    def to_s
       Rack::Utils::HTTP_STATUS_CODES[code]
     end
   end
@@ -41,7 +43,7 @@ module Services
       fault_object[:faultcode].to_i
     end
 
-    def string
+    def to_s
       fault_object[:faultstring]
     end
   end
