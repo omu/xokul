@@ -13,14 +13,14 @@ module Services
 
         def foundation_tuition(tck_no, paid)
           client.call(
-            STAFFS_METHODS[__method__],
+            REGISTRATIONS_METHODS[__method__],
             TCKN: tck_no, OGRENIM_UCRETI_ODENDI_MI: paid
           )
         end
 
         def query_according_to_specific_day(day, month, year, unit_id)
           client.call(
-            STAFFS_METHODS[__method__],
+            REGISTRATIONS_METHODS[__method__],
             GUN: day,
             AY: month,
             YIL: year,
@@ -30,7 +30,7 @@ module Services
 
         def query_with_tck(tck_no, unit_id)
           client.call(
-            STAFFS_METHODS[__method__],
+            REGISTRATIONS_METHODS[__method__],
             TCKN: tck_no, YOKSIS_UNIVERSITE_BIRIM_ID: unit_id
           )
         end
