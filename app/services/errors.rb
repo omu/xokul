@@ -14,11 +14,17 @@ module Services
     def message
       "#{code} #{string}"
     end
+
+    attr_reader :object
   end
 
   class HTTPError < Error
+    def http_object
+      object
+    end
+
     def code
-      @object.http.code
+      http_object.http.code
     end
 
     def string
@@ -27,12 +33,16 @@ module Services
   end
 
   class SOAPError < Error
+    def soap_object
+      object
+    end
+
     def code
-      @object.to_hash[:fault][:faultcode].to_i
+      soap_object.to_hash[:fault][:faultcode].to_i
     end
 
     def string
-      @object.to_hash[:fault][:faultstring]
+      soap_object.to_hash[:fault][:faultstring]
     end
   end
 end
