@@ -2,14 +2,16 @@
 
 module Services
   class Client
+    attr_reader :wsdl
+
     def initialize(document_url)
-      @client = Savon.client(wsdl: document_url)
+      @wsdl = Savon.client(wsdl: document_url)
       configure_with_defaults
     end
 
     # Still WIP
     def call(action, **arguments)
-      Response.new(@client.call(action, message: arguments.stringify_keys))
+      Response.new(wsdl.call(action, message: arguments.stringify_keys))
     rescue Savon::HTTPError => err
       raise HTTPError, err
     rescue Savon::SOAPFault => err
@@ -25,7 +27,7 @@ module Services
     end
 
     def configure
-      yield @client.globals if block_given?
+      yield wsdl.globals if block_given?
     end
 
     private
