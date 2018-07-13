@@ -11,7 +11,10 @@ AllCops:
     - config/routes.rb
     - scripts/*
     - doc/*
+    - app/services/**/constants.rb
 Documentation:
   Enabled: false
 Metrics/LineLength:
   Max: 120
+Style/TrailingCommaInHashLiteral:
+  Enabled: false
