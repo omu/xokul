@@ -20,11 +20,11 @@ module Services
 
   class HTTPError < Error
     def http_object
-      object
+      object.http
     end
 
     def code
-      http_object.http.code
+      http_object.code
     end
 
     def string
@@ -33,16 +33,16 @@ module Services
   end
 
   class SOAPError < Error
-    def soap_object
-      object
+    def fault_object
+      object.to_hash[:fault]
     end
 
     def code
-      soap_object.to_hash[:fault][:faultcode].to_i
+      fault_object[:faultcode].to_i
     end
 
     def string
-      soap_object.to_hash[:fault][:faultstring]
+      fault_object[:faultstring]
     end
   end
 end
