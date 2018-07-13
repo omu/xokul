@@ -7,6 +7,12 @@ module Services
         status: :tc_kimlik_noil_mezun_ogrenci_sorgulav2
       }.freeze
 
+      REGISTRATIONS_METHODS = {
+        foundation_tuition: :vakif_ogrenim_ucretiv1,
+        query_according_to_specific_day: :belirtilen_gun_online_kayit_olan_ogrenciler_getirv1,
+        query_with_tck: :tc_kimlik_no_ile_online_kayit_ogrenci_bilgi_getirv1
+      }.freeze
+
       STAFF_METHODS = {
         information: :kullaniciya_gore_universitedeki_akademik_personel_bilgisiv1,
         information_by_tck: :kullaniciya_gore_tc_kimlik_nodan_akademik_personel_bilgisiv1,
