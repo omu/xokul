@@ -14,7 +14,7 @@ module Services
       client.call(action, message: arguments.stringify_keys)
     rescue Savon::HTTPError => err
       @error = HTTPError.new(err)
-    rescue Savon::SOAPError => err
+    rescue Savon::SOAPFault => err
       @error = SOAPError.new(err)
     end
 

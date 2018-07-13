@@ -5,16 +5,16 @@ module Services
     def details
       [message]
     end
+
+    def message
+      "#{code} #{string}"
+    end
   end
 
   class HTTPError < Error
     def initialize(object)
       @object = object
       super
-    end
-
-    def message
-      "#{code} #{string}"
     end
 
     def code
@@ -30,10 +30,6 @@ module Services
     def initialize(object)
       @object = object.to_hash[:fault]
       super
-    end
-
-    def message
-      "(#{code}) #{string}"
     end
 
     def code
