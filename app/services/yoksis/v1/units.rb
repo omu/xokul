@@ -17,9 +17,7 @@ module Services
         end
 
         def subunits(unit_id)
-          client.call(
-            UNITS_METHODS[__method__], BIRIM_ID: unit_id
-          )
+          client.call(UNITS_METHODS[__method__], BIRIM_ID: unit_id)
         end
 
         def universities
