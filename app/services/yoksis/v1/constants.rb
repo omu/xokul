@@ -7,6 +7,34 @@ module Services
         status: :tc_kimlik_noil_mezun_ogrenci_sorgulav2
       }.freeze
 
+      REFERENCES_METHODS = {
+        unit_status: :get_aktiflik_durumu,
+        unit_type: :get_birim_turu,
+        student_punishment_type: :get_ceza_turu,
+        entrance_type: :get_giris_turu,
+        administrative_units: :get_idari_birimler,
+        province: :get_il_getir,
+        staff_title: :get_kadro_gorev_unvan,
+        kod_bid: :get_kod_bid,
+        gender: :get_mernis_cinsiyet,
+        country: :get_mernis_ulke,
+        nationality: :get_mernis_uyruk,
+        student_dropout_type: :get_ogrenci_ayrilma_nedeni,
+        student_grading_system: :get_ogrenci_diploma_not_sistemi,
+        student_education_level: :get_ogrenci_doykm,
+        student_disability_type: :get_ogrenci_engel_turu,
+        martyrs_relatives: :get_ogrenci_sehit_gazi_yakini,
+        student_entrance_point_type: :get_ogrenci_giris_puan_turu,
+        student_entrance_type: :get_ogrenci_giris_turu,
+        studentship_status: :get_ogrencilik_statusu,
+        studentship_right: :get_ogrenci_ogrencilik_hakki,
+        student_grade: :get_ogrenci_sinif,
+        unit_instruction_language: :get_ogrenim_dili,
+        unit_instruction_type: :get_ogrenim_turu,
+        administrative_function: :get_personel_gorev,
+        university_type: :get_universite_turu
+      }.freeze
+
       REGISTRATIONS_METHODS = {
         foundation_tuition: :vakif_ogrenim_ucretiv1,
         query_according_to_specific_day: :belirtilen_gun_online_kayit_olan_ogrenciler_getirv1,
