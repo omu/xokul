@@ -3,14 +3,15 @@
 # WIP
 module Services
   class Response
-    delegate :to_hash, :to_json, to: :@soap_object
-
-    attr_reader :header, :body
+    delegate :http_fault?, :soap_fault?, :successful?, :to_hash, :to_json,
+             to: :@soap_object
 
     def initialize(soap_object)
       @soap_object = soap_object
-      @header      = soap_object.header
       @body        = soap_object.body
+      @status      = soap_object.status
     end
+
+    attr_reader :body, :status
   end
 end

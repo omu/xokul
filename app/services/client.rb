@@ -11,9 +11,9 @@ module Services
     def call(action, **arguments)
       Response.new(@client.call(action, message: arguments.stringify_keys))
     rescue Savon::HTTPError => err
-      HTTPError.new(err)
+      raise HTTPError, err
     rescue Savon::SOAPFault => err
-      SOAPError.new(err)
+      raise SOAPError, err
     end
 
     def basic_auth(username, password)
