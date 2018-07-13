@@ -11,8 +11,28 @@ module Services
           @client.basic_auth username, password
         end
 
+        def information(page, querier)
+          client.call(
+            STAFFS_METHODS[__method__],
+            PAGE: page, SORGULAYAN_TC_KIMLIK_NO: querier
+          )
+        end
+
+        def information_by_tck(queried, querier)
+          client.call(
+            STAFFS_METHODS[__method__],
+            AKPER_TC_KIMLIK_NO: queried, SORGULAYAN_TC_KIMLIK_NO: querier
+          )
+        end
+
         def nationalities
           client.call(STAFFS_METHODS[__method__])
+        end
+
+        def page_number(querier)
+          client.call(
+            STAFFS_METHODS[__method__], SORGULAYAN_TC_KIMLIK_NO: querier
+          )
         end
 
         attr_reader :client

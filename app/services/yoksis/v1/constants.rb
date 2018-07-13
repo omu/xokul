@@ -3,15 +3,18 @@
 module Services
   module YOKSIS
     module V1
-      GRADUATES_METHODS = {
+      GRADUATE_METHODS = {
         status: :tc_kimlik_noil_mezun_ogrenci_sorgulav2
       }.freeze
 
-      STAFFS_METHODS = {
-        nationalities: :get_mernis_uyruk
+      STAFF_METHODS = {
+        information: :kullaniciya_gore_universitedeki_akademik_personel_bilgisiv1,
+        information_by_tck: :kullaniciya_gore_tc_kimlik_nodan_akademik_personel_bilgisiv1,
+        nationalities: :get_mernis_uyruk,
+        page_number: :kullaniciya_gore_universiteki_akademik_personel_sayfa_sayisiv1
       }.freeze
 
-      STUDENTS_METHODS = {
+      STUDENT_METHODS = {
         details: :tc_kimlik_noile_ogrenci_sorgula_detayv4
       }.freeze
 
