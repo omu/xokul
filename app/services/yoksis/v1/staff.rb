@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Services
-  module YOKSIS
+  module Yoksis
     module V1
       class Staff
         WSDL_URL = 'http://servisler.yok.gov.tr/ws/UniversiteAkademikPersonelv1?WSDL'

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Services
-  module YOKSIS
+  module Yoksis
     module V1
       GRADUATE_METHODS = {
         status:                            :tc_kimlik_noil_mezun_ogrenci_sorgulav2,

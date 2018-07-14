@@ -9,6 +9,11 @@ module Services
       @object = object
     end
 
+    # WIP
+    def collection(key)
+      to_hash.first.last[key]
+    end
+
     # In future
     def mapper; end
   end

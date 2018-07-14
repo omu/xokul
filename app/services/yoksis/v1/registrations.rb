@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Services
-  module YOKSIS
+  module Yoksis
     module V1
       class Registrations
         WSDL_ENDPOINT = 'https://servisler.yok.gov.tr/ws/ekayitv1?wsdl'

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Services
-  module YOKSIS
+  module Yoksis
     module V1
       class MEB
         WSDL_URL = 'https://servisler.yok.gov.tr/ws/mebmezunsorgulav2?WSDL'
