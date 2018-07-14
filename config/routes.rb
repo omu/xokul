@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   namespace :yoksis do
-    resources :units do
+    resources :references do
       collection do
-        get :universities
+        get :district
       end
     end
   end
