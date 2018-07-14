@@ -4,7 +4,7 @@ module Services
   module Yoksis
     module V1
       class Registrations
-        WSDL_ENDPOINT = 'https://servisler.yok.gov.tr/ws/ekayitv1?wsdl'
+        WSDL_URL = 'https://servisler.yok.gov.tr/ws/ekayitv1?wsdl'
 
         def initialize(username, password)
           @client = Client.new(WSDL_URL)
