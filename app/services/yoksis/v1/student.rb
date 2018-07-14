@@ -6,9 +6,9 @@ module Services
       class Student
         WSDL_URL = 'https://servisler.yok.gov.tr/ws/TcKimlikNoileOgrenciSorgulaDetayv4?WSDL'
 
-        def initialize(username, password)
+        def initialize(client_id, client_secret)
           @client = Client.new(WSDL_URL)
-          @client.basic_auth username, password
+          @client.basic_auth client_id, client_secret
         end
 
         def detailed(tck_no)
