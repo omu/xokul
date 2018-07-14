@@ -45,7 +45,7 @@ module Services
         page_number:                       :kullaniciya_gore_universiteki_akademik_personel_sayfa_sayisiv1,
       }.freeze
       STUDENT_METHODS = {
-        details:                           :tc_kimlik_noile_ogrenci_sorgula_detayv4,
+        detailed:                          :tc_kimlik_noile_ogrenci_sorgula_detayv4,
       }.freeze
       UNITS_METHODS = {
         changes_in_unit:                   :tarihten_birim_degisiklik_getirv4,

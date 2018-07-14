@@ -11,7 +11,7 @@ module Services
           @client.basic_auth username, password
         end
 
-        def details(tck_no)
+        def detailed(tck_no)
           client.call(STUDENT_METHODS[__method__], TC_KIMLIK_NO: tck_no)
         end
 
