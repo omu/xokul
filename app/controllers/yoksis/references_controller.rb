@@ -4,10 +4,6 @@ module Yoksis
   class ReferencesController < ApplicationController
     before_action :set_references
 
-    rescue_from(Service::HTTPError, Service::SOAPError) do |error|
-      render json: error, each_serializer: ErrorSerializer
-    end
-
     # Test
     def district
       response = @references.district(params.require(:province_code))
