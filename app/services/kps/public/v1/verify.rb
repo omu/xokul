@@ -4,7 +4,7 @@ module Services
   module Kps
     module Public
       module V1
-        class Verify
+        class Verification
           WSDL_URL = 'https://tckimlik.nvi.gov.tr/Service/KPSPublic.asmx?WSDL'
 
           def initialize
