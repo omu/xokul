@@ -2,19 +2,16 @@
 
 module Services
   class Response
-    delegate :body, :http_fault?, :soap_fault?, :successful?, :to_hash,
-             :to_json, to: :@object
+    delegate :successful?, :to_hash, to: :@soap_response
 
-    def initialize(object)
-      @object = object
+    def initialize(action, soap_response)
+      @action = action
+      @soap_response = soap_response
     end
 
-    # WIP
-    def collection(key)
-      to_hash.first.last[key]
+    def response
+      _, value = to_hash[:"#{@action}_response"].first
+      value || {}
     end
-
-    # In future
-    def mapper; end
   end
 end
