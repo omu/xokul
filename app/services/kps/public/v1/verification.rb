@@ -19,6 +19,8 @@ module Services
             )
           end
 
+          protected
+
           attr_reader :client
         end
       end

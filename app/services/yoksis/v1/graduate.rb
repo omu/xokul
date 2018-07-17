@@ -15,6 +15,8 @@ module Services
           client.call(GRADUATE_METHODS[__method__], TCKNO: tck_no)
         end
 
+        protected
+
         attr_reader :client
       end
     end

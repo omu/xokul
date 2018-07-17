@@ -15,6 +15,8 @@ module Services
           client.call(STUDENT_METHODS[__method__], TC_KIMLIK_NO: tck_no)
         end
 
+        protected
+
         attr_reader :client
       end
     end

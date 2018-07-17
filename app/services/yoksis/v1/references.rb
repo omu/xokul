@@ -18,6 +18,8 @@ module Services
           client.call(:get_ilce_getir, ILKODU: province_code)
         end
 
+        protected
+
         attr_reader :client
       end
     end

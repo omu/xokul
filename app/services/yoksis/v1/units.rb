@@ -27,6 +27,8 @@ module Services
         alias programs_under_subunit subunits
         alias unitname subunits
 
+        protected
+
         attr_reader :client
       end
     end

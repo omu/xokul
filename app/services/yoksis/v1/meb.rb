@@ -20,6 +20,8 @@ module Services
 
         alias detailed_graduation_data graduation_data
 
+        protected
+
         attr_reader :client
       end
     end
