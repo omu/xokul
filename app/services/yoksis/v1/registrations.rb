@@ -18,7 +18,7 @@ module Services
           )
         end
 
-        def query_according_to_specific_day(day, month, year, unit_id)
+        def query_by_date(day, month, year, unit_id)
           client.call(
             REGISTRATIONS_METHODS[__method__],
             GUN: day,
@@ -28,7 +28,7 @@ module Services
           )
         end
 
-        def query_with_tck(tck_no, unit_id)
+        def query_by_tck(tck_no, unit_id)
           client.call(
             REGISTRATIONS_METHODS[__method__],
             TCKN: tck_no, YOKSIS_UNIVERSITE_BIRIM_ID: unit_id
