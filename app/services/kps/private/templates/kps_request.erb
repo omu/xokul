@@ -8,8 +8,12 @@
   <s:Header>
     <wsse:Security>
       <wsu:Timestamp xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="_0">
-        <wsu:Created><%= created %></wsu:Created>
-        <wsu:Expires><%= expires %></wsu:Expires>
+        <wsu:Created>
+          <%= Utils.created_time %>
+        </wsu:Created>
+        <wsu:Expires>
+          <%= Utils.expires_time %>
+        </wsu:Expires>
       </wsu:Timestamp>
       <%= encrypted_data %>
       <dsig:Signature>
@@ -18,22 +22,34 @@
           <dsig:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#hmac-sha1"/>
           <dsig:Reference URI="#_0">
             <dsig:Transforms>
-              <dsig:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"></dsig:Transform>
+              <dsig:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
             </dsig:Transforms>
             <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
-            <dsig:DigestValue><%= digest_value %></dsig:DigestValue>
+            <dsig:DigestValue>
+              <%= digest_value %>
+            </dsig:DigestValue>
           </dsig:Reference>
         </dsig:SignedInfo>
-        <dsig:SignatureValue><%= signature_value %></dsig:SignatureValue>
+        <dsig:SignatureValue>
+          <%= signature_value %>
+        </dsig:SignatureValue>
         <dsig:KeyInfo>
           <wsse:SecurityTokenReference b:TokenType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV1.1">
-            <wsse:KeyIdentifier ValueType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.0#SAMLAssertionID"><%= saml_assertion_id %></wsse:KeyIdentifier>
+            <wsse:KeyIdentifier ValueType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.0#SAMLAssertionID">
+              <%= saml_assertion_id %>
+            </wsse:KeyIdentifier>
           </wsse:SecurityTokenReference>
         </dsig:KeyInfo>
       </dsig:Signature>
     </wsse:Security>
-    <wsa:To>https://kpsv2.nvi.gov.tr/Services/RoutingService.svc</wsa:To>
-    <wsa:Action><%= action %></wsa:Action>
+    <wsa:To>
+      <%= endpoint_reference %>
+    </wsa:To>
+    <wsa:Action>
+      <%= action %>
+    </wsa:Action>
   </s:Header>
-  <s:Body><%= body %></s:Body>
+  <s:Body>
+    <%= body %>
+  </s:Body>
 </s:Envelope>
