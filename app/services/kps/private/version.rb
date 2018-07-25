@@ -2,7 +2,7 @@
 
 module Services
   module Kps
-    class Private
+    module Private
       VERSION = 'v1'
     end
   end

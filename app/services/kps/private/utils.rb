@@ -2,7 +2,7 @@
 
 module Services
   module Kps
-    class Private
+    module Private
       module Utils
         TIME_FORMAT = "%Y-%m-%d\T%H:%M:%S\Z"
         private_constant :TIME_FORMAT
@@ -16,7 +16,17 @@ module Services
         end
 
         def self.erb(file)
-          ERB.new(file).result(binding)
+          ERB.new(File.read(file)).result(binding)
+        end
+
+        def self.http_get(url, header: {}, body: nil)
+          uri = URI.parse(url)
+          http = Net::HTTP.new(uri.host, uri.port)
+          http.use_ssl = true
+          http.verify_mode = OpenSSL::SSL::VERIFY_PEER
+          req = Net::HTTP::Get.new(uri.path, header)
+          req.body = body
+          http.request(req)
         end
 
         # Workaround
