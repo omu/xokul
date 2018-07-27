@@ -4,13 +4,9 @@ module Services
   module Kps
     module Private
       class Template
-        # WIP
-        ROOT_PATH = 'app/services/kps/private'
-        private_constant :ROOT_PATH
-
         def initialize(partial)
           path, file = File.split(partial)
-          @filepath = File.join(ROOT_PATH, path, "_#{file}.erb")
+          @filepath = File.join(__dir__, path, "_#{file}.erb")
         end
 
         def compile
