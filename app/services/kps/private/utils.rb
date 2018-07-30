@@ -24,12 +24,6 @@ module Services
           req.body = body
           http.request(req)
         end
-
-        # Workaround
-        def self.uuid
-          require 'securerandom' if defined?(SecureRandom)
-          SecureRandom.uuid
-        end
       end
     end
   end
