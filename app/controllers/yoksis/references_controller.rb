@@ -8,7 +8,7 @@ module Yoksis
     def district
       response = @references.district(params.require(:province_code))
       render(
-        json: response.collection(:ilce_kodlari),
+        json: response.response,
         each_serializer: Yoksis::References::DistrictSerializer
       )
     end
