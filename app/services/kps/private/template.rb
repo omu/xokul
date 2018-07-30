@@ -117,7 +117,7 @@ module Services
                 </dsig:Signature>
               </wsse:Security>
               <wsa:To>
-                #{endpint_reference}
+                #{endpoint_reference}
               </wsa:To>
               <wsa:Action>
                 #{action}
