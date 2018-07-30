@@ -70,7 +70,7 @@ module Services
         # It returns a beautified XML template. There is a lot of uncalled
         # attribute in it. It will be used to send a service request to kps
         # endpoints.
-        def kps_request(action, body, encrypted_data, digest, signature, assertion_id)
+        def kps_request(**params)
           <<-TEMPLATE
           <s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope"
             xmlns:wsa="http://www.w3.org/2005/08/addressing"
@@ -89,7 +89,7 @@ module Services
                     #{expires_time}
                   </wsu:Expires>
                 </wsu:Timestamp>
-                #{encrypted_data}
+                #{params[:encrypted_data]}
                 <dsig:Signature>
                   <dsig:SignedInfo xmlns:dsig="http://www.w3.org/2000/09/xmldsig#">
                     <dsig:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
@@ -100,17 +100,17 @@ module Services
                       </dsig:Transforms>
                       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
                       <dsig:DigestValue>
-                        #{digest}
+                        #{params[:digest]}
                       </dsig:DigestValue>
                     </dsig:Reference>
                   </dsig:SignedInfo>
                   <dsig:SignatureValue>
-                    #{signature}
+                    #{params[:signature]}
                   </dsig:SignatureValue>
                   <dsig:KeyInfo>
                     <wsse:SecurityTokenReference b:TokenType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV1.1">
                       <wsse:KeyIdentifier ValueType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.0#SAMLAssertionID">
-                        #{assertion_id}
+                        #{params[:assertion_id]}
                       </wsse:KeyIdentifier>
                     </wsse:SecurityTokenReference>
                   </dsig:KeyInfo>
@@ -120,11 +120,11 @@ module Services
                 #{endpoint_reference}
               </wsa:To>
               <wsa:Action>
-                #{action}
+                #{params[:action]}
               </wsa:Action>
             </s:Header>
             <s:Body>
-              #{body}
+              #{params[:body]}
             </s:Body>
           </s:Envelope>
           TEMPLATE
