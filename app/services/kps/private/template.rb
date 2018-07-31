@@ -5,6 +5,7 @@ require 'securerandom'
 module Services
   module Kps
     module Private
+      # rubocop:disable Metrics/ClassLength
       class Template
         attr_reader :endpoint_reference
 
@@ -143,6 +144,7 @@ module Services
           (Time.zone.now + duration).strftime(TIME_FORMAT)
         end
       end
+      # rubocop:enable Metrics/ClassLength
     end
   end
 end
