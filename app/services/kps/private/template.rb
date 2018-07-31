@@ -7,9 +7,7 @@ module Services
     module Private
       # rubocop:disable Metrics/ClassLength
       class Template
-        attr_reader :endpoint_reference
-
-        def initilize(endpoint_reference)
+        def initialize(endpoint_reference)
           @endpoint_reference = endpoint_reference
         end
 
@@ -57,7 +55,7 @@ module Services
                 <wsp:AppliesTo xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
                   <a:EndpointReference>
                     <a:Address>
-                      #{endpoint_reference}
+                      #{@endpoint_reference}
                     </a:Address>
                   </a:EndpointReference>
                 </wsp:AppliesTo>
@@ -118,7 +116,7 @@ module Services
                 </dsig:Signature>
               </wsse:Security>
               <wsa:To>
-                #{endpoint_reference}
+                #{@endpoint_reference}
               </wsa:To>
               <wsa:Action>
                 #{params[:action]}
