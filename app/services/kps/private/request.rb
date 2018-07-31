@@ -9,7 +9,12 @@ module Services
           @action  = params[:action]
           @body    = params[:body]
 
-          sts = Sts.new(params[:sts_url], params[:username], params[:password], params[:endpoint])
+          sts = Sts.new(
+            username:  params[:username],
+            password:  params[:password],
+            endpoint:  params[:sts_endpoint],
+            reference: params[:reference]
+          )
           @xml_doc = Nokogiri::XML(sts.token)
         end
       end
