@@ -7,11 +7,7 @@ module Services
         TIME_FORMAT = "%Y-%m-%d\T%H:%M:%S\Z"
         private_constant :TIME_FORMAT
 
-        def self.created_time
-          Time.zone.now.strftime(TIME_FORMAT)
-        end
-
-        def self.expires_time(duration = 600)
+        def self.timestamp(duration = 0)
           (Time.zone.now + duration).strftime(TIME_FORMAT)
         end
 
