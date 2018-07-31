@@ -6,7 +6,7 @@ module Services
   module Kps
     module Private
       # rubocop:disable Metrics/BlockLength
-      Sts = Struct.new(:username, :password, :url, :endpoint_reference) do
+      Sts = Struct.new(:url, :username, :password, :endpoint_reference) do
         def token
           Utils.http_get(url, body: request_template)
         end
