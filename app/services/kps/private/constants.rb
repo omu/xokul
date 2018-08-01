@@ -6,6 +6,7 @@ module Services
       ASSERTION_ID_XPATH   = '/s:Envelope/s:Body/trust:RequestSecurityTokenResponseCollection/trust:RequestSecurityTokenResponse/trust:RequestedAttachedReference/o:SecurityTokenReference/o:KeyIdentifier'
       ENCRYPTED_DATA_XPATH = '/s:Envelope/s:Body/wst:RequestSecurityTokenResponseCollection/wst:RequestSecurityTokenResponse/wst:RequestedSecurityToken'
       PROOF_KEY_XPATH      = '/s:Envelope/s:Body/wst:RequestSecurityTokenResponseCollection/wst:RequestSecurityTokenResponse/wst:RequestedProofToken/wst:BinarySecret'
+      SIGNED_INFO          = '<dsig:SignedInfo xmlns:dsig="http://www.w3.org/2000/09/xmldsig#"><dsig:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><dsig:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#hmac-sha1" /><dsig:Reference URI="#_0"><dsig:Transforms><dsig:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></dsig:Transforms><dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><dsig:DigestValue>%<digest>s</dsig:DigestValue></dsig:Reference></dsig:SignedInfo>'
       STS_NAMESPACES       = {
         o:                   'http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd',
         s:                   'http://www.w3.org/2003/05/soap-envelope',

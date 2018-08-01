@@ -10,6 +10,7 @@ module Services
           @xml_doc   = Nokogiri::XML(token)
         end
 
+        # rubocop:disable Metrics/MethodLength
         def request(action:, body:)
           STS_NAMESPACES.each { |key, value| @xml_doc.root.add_namespace(key, value) }
           Utils.http_get(
@@ -28,11 +29,17 @@ module Services
             )
           )
         end
+        # rubocop:enable Metrics/MethodLength
 
         private
 
         def assertion_id
           @xml_doc.xpath(ASSERTION_ID_XPATH).text
+        end
+
+        def digest
+          timestamp_block = @xml_doc.xpath(TIMESTAMP_XPATH)
+          Base64.encode64(Digest::SHA1.hexdigest(timestamp_block))
         end
 
         def encrypted_data
@@ -41,6 +48,15 @@ module Services
 
         def proof_key
           @xml_doc.xpath(PROOF_KEY_XPATH).text
+        end
+
+        def signature
+          signed_info = format(SIGNED_INFO, digest: digest)
+          Base64.encode64(
+            OpenSSL::HMAC.digest(
+              OpenSSL::Digest.new('sha1'), proof_key, signed_info
+            )
+          )
         end
       end
     end

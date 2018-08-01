@@ -40,7 +40,7 @@ module KPS
       STS_URL = 'https://kimlikdogrulama.nvi.gov.tr/Services/Issuer.svc/IWSTrust13'.freeze
 
       # Default sts request template
-      REQUEST_TEMPLATE = <<~TEMPLATE.freeze
+      REQUEST_TEMPLATE = <<-TEMPLATE.freeze
       <?xml version="1.0"?>
       <s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
         <s:Header>
