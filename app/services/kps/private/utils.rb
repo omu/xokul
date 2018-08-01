@@ -11,7 +11,7 @@ module Services
           (Time.zone.now + duration).strftime(TIME_FORMAT)
         end
 
-        def self.http_get(url, header: {}, body: nil)
+        def self.http_get(url, header: {}, body:)
           uri = URI.parse(url)
           http = Net::HTTP.new(uri.host, uri.port)
           http.use_ssl = true
