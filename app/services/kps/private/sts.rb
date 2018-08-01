@@ -5,7 +5,7 @@ require 'securerandom'
 module Services
   module Kps
     module Private
-      Sts = Struct.new(:username, :password, :endpoint, :reference, keyword_argument: true) do
+      Sts = Struct.new(:username, :password, :endpoint, :reference, keyword_init: true) do
         def token
           Utils.http_get(
             url,
