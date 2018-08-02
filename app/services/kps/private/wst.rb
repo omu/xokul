@@ -23,7 +23,7 @@ module Services
               created_time:   Utils.timestamp,
               digest:         digest,
               encrypted_data: encrypted_data,
-              expires_time:   Utils.timestamp,
+              expires_time:   Utils.timestamp(600),
               reference:      reference,
               signature:      signature
             )
