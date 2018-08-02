@@ -25,7 +25,7 @@ jobs:
             - gem-cache-{{ .Branch }}
             - gem-cache
       - run:
-          name: Install Ruby Dependencies
+          name: Check and install all dependencies
           command: bundle install --deployment
       - save_cache:
           key: gem-cache-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
@@ -39,7 +39,6 @@ jobs:
           key: gem-cache
           paths:
             - vendor/bundle
-
       - run: bundle exec rake code:quality:all
       - run: bundle exec rake code:security:all
       - run: bundle exec rake db:create
