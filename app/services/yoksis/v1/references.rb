@@ -15,7 +15,7 @@ module Services
         # end
 
         def district(province_code)
-          client.call(:get_ilce_getir, ILKODU: province_code)
+          client.call(:get_ilce_gsetir, ILKODU: province_code)
         end
 
         protected

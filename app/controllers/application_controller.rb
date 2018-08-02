@@ -11,7 +11,7 @@ class ApplicationController < ActionController::API
   rescue_from ActionController::UnknownFormat,          with: :not_acceptable
   rescue_from ActionController::NotImplemented,         with: :not_implemented
   rescue_from Services::HTTPError,                      with: :services_error
-  rescue_from Services::SOAPFault,                      with: :services_error
+  rescue_from Services::SOAPError,                      with: :services_error
   rescue_from Services::UnknownOperationError,          with: :services_error
   rescue_from Services::TCPError,                       with: :services_error
 

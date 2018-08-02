@@ -12,7 +12,7 @@ module Services
       Response.new(action, @wsdl.call(action, message: arguments.stringify_keys))
     rescue Savon::HTTPError => err
       raise HTTPError, err
-    rescue Savon::SOAPFault => err
+    rescue Savon::SOAPClient => err
       raise SOAPFault, err
     rescue Savon::UnknownOperationError => err
       raise UnknownOperationError, err

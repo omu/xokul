@@ -34,7 +34,7 @@ module Services
     end
   end
 
-  class SOAPFault < Error
+  class SOAPError < Error
     def fault_object
       object.to_hash[:fault]
     end
