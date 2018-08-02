@@ -34,7 +34,7 @@ module Services
     end
   end
 
-  class SOAPError < Error
+  class SOAPFault < Error
     def fault_object
       object.to_hash[:fault]
     end
@@ -45,6 +45,26 @@ module Services
 
     def to_s
       fault_object[:faultstring]
+    end
+  end
+
+  class UnknownOperationError < Error
+    def code
+      500
+    end
+
+    def to_s
+      'unable to find soap operation (it may have changed or removed)'
+    end
+  end
+
+  class TCPError < Error
+    def code
+      500
+    end
+
+    def to_s
+      'failed to connect to the external service'
     end
   end
 end
