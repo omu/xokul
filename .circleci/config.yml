@@ -19,11 +19,15 @@ jobs:
           POSTGRES_PASSWORD: xokul
     steps:
       - checkout
+      - run:
+          name: Install Ruby Dependencies
+          command: bundle install --deployment
       - restore_cache:
           keys:
             - gem-cache-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
             - gem-cache-{{ .Branch }}
             - gem-cache
+      - run: bundle install --path vendor/bundle
       - save_cache:
           key: gem-cache-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
           paths:
@@ -41,4 +45,3 @@ jobs:
       - run: bundle exec rake code:security:all
       - run: bundle exec rake db:create
       - run: bundle exec rake db:migrate
-      - run: bundle exec rake test
