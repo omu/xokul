@@ -10,12 +10,12 @@ module Services
           @client = Client.new(WSDL_URL)
         end
 
-        # REFERENCES_METHODS.each do |name, action|
-        #   define_method(name) { client.call(action) }
-        # end
+        REFERENCES_METHODS.each do |name, action|
+          define_method(name) { client.call(action) }
+        end
 
         def district(province_code)
-          client.call(:get_ilce_gsetir, ILKODU: province_code)
+          client.call(:get_ilce_getir, ILKODU: province_code)
         end
 
         protected
