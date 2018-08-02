@@ -13,6 +13,7 @@ gem 'rails', '~> 5.2.0'
 gem 'savon'
 
 group :development, :test do
+  gem 'brakeman', require: false
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'pry-rails'
   gem 'reek'
@@ -20,6 +21,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'bundler-audit'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'web-console', '>= 3.3.0'
 end
