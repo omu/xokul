@@ -6,9 +6,11 @@ module Services
   module Kps
     module Private
       Sts = Struct.new(:username, :password, :endpoint, :reference, keyword_init: true) do
+        attr_reader :token
+
         # rubocop:disable Metrics/MethodLength
-        def token
-          Utils.http_get(
+        def token_request
+          @token = Utils.http_get(
             endpoint,
             body: format(
               STS_TEMPLATE,
