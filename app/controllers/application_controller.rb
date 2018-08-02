@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::API
-  rescue_from ActionDispatch::ParamsParser::ParseError, with: :bad_request
   rescue_from ActionController::BadRequest,             with: :bad_request
   rescue_from Rack::Utils::ParameterTypeError,          with: :bad_request
   rescue_from ActionController::ParameterMissing,       with: :bad_request
