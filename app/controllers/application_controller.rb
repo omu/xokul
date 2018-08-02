@@ -18,8 +18,8 @@ class ApplicationController < ActionController::API
   private
 
   def render_json(**params)
-    documentation_url = { documentation_url: 'https://developer.omu.edu.tr' }
+    params[:documentation_url] = 'https://developer.omu.edu.tr'
     status = params.delete(:status)
-    render json: params.merge(documentation_url), status: status
+    render json: params, status: status
   end
 end
