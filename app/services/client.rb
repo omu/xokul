@@ -13,7 +13,11 @@ module Services
     rescue Savon::HTTPError => err
       raise HTTPError, err
     rescue Savon::SOAPFault => err
-      raise SOAPError, err
+      raise SOAPFault, err
+    rescue Savon::UnknownOperationError => err
+      raise UnknownOperationError, err
+    rescue SocketError => err
+      raise TCPError, err
     end
 
     def basic_auth(username, password)
