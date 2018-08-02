@@ -9,8 +9,6 @@ AllCops:
     - config/environments/production.rb
     - config/environments/test.rb
     - config/routes.rb
-    - scripts/*
-    - doc/*
     - app/services/**/constants.rb
 Documentation:
   Enabled: false
