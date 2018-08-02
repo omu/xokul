@@ -1,9 +1,44 @@
 version: 2
 jobs:
   build:
+    working_directory: ~/xokul
     docker:
-      - image: debian:stretch
+      - image: circleci/ruby:latest-node-browsers
+        environment:
+          TZ: '/usr/share/zoneinfo/Asia/Baghdad'
+          RAILS_ENV: beta
+          RACK_ENV: beta
+          RDS_USERNAME: xokul
+          RDS_PASSWORD: xokul
+          RDS_HOSTNAME: localhost
+          RDS_PORT: 5432
+      - image: circleci/postgres:9.6.7
+        environment:
+          POSTGRES_DB: xokul_beta
+          POSTGRES_USER: xokul
+          POSTGRES_PASSWORD: xokul
     steps:
       - checkout
-      - run:
-          command: echo 'Hello world!'
+      - restore_cache:
+          keys:
+            - gem-cache-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+            - gem-cache-{{ .Branch }}
+            - gem-cache
+      - save_cache:
+          key: gem-cache-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - save_cache:
+          key: gem-cache-{{ .Branch }}
+          paths:
+            - vendor/bundle
+      - save_cache:
+          key: gem-cache
+          paths:
+            - vendor/bundle
+
+      - run: bundle exec rake code:quality:all
+      - run: bundle exec rake code:security:all
+      - run: bundle exec rake db:create
+      - run: bundle exec rake db:migrate
+      - run: bundle exec rake test
