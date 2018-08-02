@@ -19,7 +19,6 @@ module Yoksis
       @references = references_klass.new
     end
 
-    # Must be a concern in the futur  e
     def references_klass
       "Services::Yoksis::#{version}::References".constantize
     end
