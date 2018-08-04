@@ -12,7 +12,7 @@ module Services
         end
 
         def detailed(tck_no)
-          client.call(STUDENT_METHODS[__method__], TC_KIMLIK_NO: tck_no)
+          client.call(METHODS[__method__], TC_KIMLIK_NO: tck_no)
         end
 
         protected

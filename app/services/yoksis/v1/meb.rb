@@ -13,7 +13,7 @@ module Services
 
         def graduation_data(tck_no, service_password)
           client.call(
-            MEB_METHODS[__method__],
+            METHODS[__method__],
             TC_KIMLIK_NO: tck_no, ServicePassWord: service_password
           )
         end

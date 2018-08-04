@@ -9,7 +9,7 @@ module Yoksis
     ReferencesClass   = "Services::Yoksis::#{ReferencesVersion}::References".constantize
     # rubocop:enable Naming/ConstantName
 
-    ReferencesClass::REFERENCES_METHODS.each_key do |method|
+    ReferencesClass::METHODS.each_key do |method|
       define_method(method) do
         serializer = "#{method.to_s.camelize}Serializer"
         request = @references.send(method)

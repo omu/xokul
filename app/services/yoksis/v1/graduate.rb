@@ -12,7 +12,7 @@ module Services
         end
 
         def status(tck_no)
-          client.call(GRADUATE_METHODS[__method__], TCKNO: tck_no)
+          client.call(METHODS[__method__], TCKNO: tck_no)
         end
 
         protected

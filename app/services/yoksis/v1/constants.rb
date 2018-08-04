@@ -4,13 +4,13 @@ module Services
   module Yoksis
     module V1
       class Graduate
-        GRADUATE_METHODS = {
+        METHODS = {
           status:                            :tc_kimlik_noil_mezun_ogrenci_sorgulav2,
         }.freeze
       end
 
       class References
-        REFERENCES_METHODS = {
+        METHODS = {
           administrative_function:           :get_personel_gorev,
           administrative_units:              :get_idari_birimler,
           country:                           :get_mernis_ulke,
@@ -40,7 +40,7 @@ module Services
       end
 
       class Registrations
-        REGISTRATIONS_METHODS = {
+        METHODS = {
           foundation_tuition:                :vakif_ogrenim_ucretiv1,
           query_by_date:                     :belirtilen_gun_online_kayit_olan_ogrenciler_getirv1,
           query_by_tck:                      :tc_kimlik_no_ile_online_kayit_ogrenci_bilgi_getirv1,
@@ -48,7 +48,7 @@ module Services
       end
 
       class Staff
-        STAFF_METHODS = {
+        METHODS = {
           information_by_tck:                :kullaniciya_gore_tc_kimlik_nodan_akademik_personel_bilgisiv1,
           information:                       :kullaniciya_gore_universitedeki_akademik_personel_bilgisiv1,
           nationalities:                     :get_mernis_uyruk,
@@ -57,13 +57,13 @@ module Services
       end
 
       class Student
-        STUDENT_METHODS = {
+        METHODS = {
           detailed:                          :tc_kimlik_noile_ogrenci_sorgula_detayv4,
         }.freeze
       end
 
       class Units
-        UNITS_METHODS = {
+        METHODS = {
           changes_in_unit:                   :tarihten_birim_degisiklik_getirv4,
           programs_under_subunit:            :alt_birimdeki_programlari_getirv4,
           subunits:                          :alt_birimleri_getirv4,

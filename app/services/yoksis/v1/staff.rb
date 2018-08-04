@@ -13,25 +13,25 @@ module Services
 
         def information(page, querier)
           client.call(
-            STAFF_METHODS[__method__],
+            METHODS[__method__],
             PAGE: page, SORGULAYAN_TC_KIMLIK_NO: querier
           )
         end
 
         def information_by_tck(queried, querier)
           client.call(
-            STAFF_METHODS[__method__],
+            METHODS[__method__],
             AKPER_TC_KIMLIK_NO: queried, SORGULAYAN_TC_KIMLIK_NO: querier
           )
         end
 
         def nationalities
-          client.call(STAFF_METHODS[__method__])
+          client.call(METHODS[__method__])
         end
 
         def page_number(querier)
           client.call(
-            STAFF_METHODS[__method__], SORGULAYAN_TC_KIMLIK_NO: querier
+            METHODS[__method__], SORGULAYAN_TC_KIMLIK_NO: querier
           )
         end
 
