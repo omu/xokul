@@ -1,16 +1,12 @@
 # frozen_string_literal: true
 
 module Services
-  module Yoksis
+  class Yoksis
     module V1
-      class References
+      class References < Base
         WSDL_URL = 'https://servisler.yok.gov.tr/ws/Referanslarv1?WSDL'
 
-        def initialize
-          @client = Client.new(WSDL_URL)
-        end
-
-        METHODS.each do |name, action|
+        REFERENCES_METHODS.each do |name, action|
           define_method(name) { client.call(action) }
         end
 

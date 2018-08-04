@@ -36,8 +36,8 @@ module Api
 
     reloader.to_prepare do
       Dir[
-        Rails.root.join('app', 'services', 'yoksis', 'v1', 'constants.rb'), # Workaround
-        Rails.root.join('app', 'services', '**', '*.rb')
+        Rails.root.join('app', 'services', 'support', 'support.rb'),
+        Rails.root.join('app', 'services', 'yoksis',  'yoksis.rb')
       ].each { |file| require_dependency file }
     end
   end

@@ -4,18 +4,13 @@ module Yoksis
   class ReferencesController < ApplicationController
     before_action :set_references
 
-    # rubocop:disable Naming/ConstantName
-    ReferencesVersion = Services::Yoksis::VERSION.upcase
-    ReferencesClass   = "Services::Yoksis::#{ReferencesVersion}::References".constantize
-    # rubocop:enable Naming/ConstantName
-
-    ReferencesClass::METHODS.each_key do |method|
+    # In flux
+    Services::Yoksis.module::REFERENCES_METHODS.each_key do |method|
       define_method(method) do
-        serializer = "#{method.to_s.camelize}Serializer"
-        request = @references.send(method)
+        serializer = "Yoksis::References::#{method.to_s.camelize}Serializer"
         render(
-          json: request.response,
-          each_serializer: "Yoksis::References::#{serializer}".constantize
+          json: @references.send(method).response,
+          each_serializer: serializer.constantize
         )
       end
     end
@@ -31,7 +26,7 @@ module Yoksis
     private
 
     def set_references
-      @references = ReferencesClass.new
+      @references = Services::Yoksis.module::References.new
     end
   end
 end
