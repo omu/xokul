@@ -15,7 +15,7 @@ module Services
     require_relative "lib/#{VERSION}/units"
 
     def self.module
-      "Services::Yoksis::#{VERSION.upcase}".constantize
+      "#{inspect}::#{VERSION.upcase}".constantize
     end
   end
 end

@@ -9,16 +9,16 @@ module Yoksis
       define_method(method) do
         serializer = "Yoksis::References::#{method.to_s.camelize}Serializer"
         render(
-          json: @references.send(method).response,
+          json: @references.send(method).purify,
           each_serializer: serializer.constantize
         )
       end
     end
 
     def district
-      request = @references.district(params.require(:province_code))
+      response = @references.district(params.require(:province_code))
       render(
-        json: request.response,
+        json: response.purify,
         each_serializer: Yoksis::References::DistrictSerializer
       )
     end

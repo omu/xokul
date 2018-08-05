@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 module Services
-  module Osym
+  class Osym
     module V1
       class Examination
         WSDL_URL = 'https://vps.osym.gov.tr/Ext/Provider/BilgiServisi/Sonuc?wsdl'
 
         def initialize(username, password)
-          @client = Client.new(WSDL_URL)
+          @client = Support::Client.new(WSDL_URL)
           @client.basic_auth username, password
           @client.wsse_auth username, password
         end
@@ -28,6 +28,8 @@ module Services
             adayTcKimlikNo: tck_no, yil: year, grupId: group_id
           )
         end
+
+        protected
 
         attr_reader :client
       end

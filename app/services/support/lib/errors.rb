@@ -49,23 +49,23 @@ module Services
       end
     end
 
-    class UnknownOperationError < Error
-      def code
-        500
-      end
-
-      def to_s
-        'unable to find soap operation (it may have changed or removed)'
-      end
-    end
-
     class TCPError < Error
       def code
         500
       end
 
       def to_s
-        'failed to connect to the external service'
+        'Failed to connect to the external service'
+      end
+    end
+
+    class UnknownOperationError < Error
+      def code
+        500
+      end
+
+      def to_s
+        'Unable to find soap operation (it may have changed or removed)'
       end
     end
   end

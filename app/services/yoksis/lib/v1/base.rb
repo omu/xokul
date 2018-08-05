@@ -14,7 +14,7 @@ module Services
 
         attr_reader :client
 
-        def after_initialize(*); end
+        def after_initialize; end
       end
     end
   end
