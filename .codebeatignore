@@ -1,0 +1,4 @@
+app/services/kps/private/sts.rb
+app/services/kps/private/wst.rb
+app/services/yoksis/lib/v1/registrations.rb
+app/services/kps/public/v1/verification.rb
