@@ -8,12 +8,8 @@ module Services
         super
       end
 
-      def details
-        [message]
-      end
-
       def message
-        "#{code} #{self}"
+        to_s
       end
 
       protected
@@ -22,36 +18,52 @@ module Services
     end
 
     class HTTPError < Error
-      def http_object
-        object.http
-      end
-
       def code
         http_object.code
       end
 
-      def to_s
+      def identifier
+        'savon_http_error'
+      end
+
+      def detailed
         Rack::Utils::HTTP_STATUS_CODES[code]
+      end
+
+      private
+
+      def http_object
+        object.http
       end
     end
 
     class SOAPError < Error
-      def fault_object
-        object.to_hash[:fault]
+      def code
+        500
       end
 
-      def code
-        fault_object[:faultcode].to_i
+      def identifier
+        'savon_soap_error'
       end
 
       def to_s
         fault_object[:faultstring]
+      end
+
+      private
+
+      def fault_object
+        object.to_hash[:fault]
       end
     end
 
     class TCPError < Error
       def code
         500
+      end
+
+      def identifier
+        'savon_tcp_error'
       end
 
       def to_s
@@ -62,6 +74,10 @@ module Services
     class UnknownOperationError < Error
       def code
         500
+      end
+
+      def identifier
+        'savon_unknown_operation_error'
       end
 
       def to_s
