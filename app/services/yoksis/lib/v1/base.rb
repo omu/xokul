@@ -16,6 +16,8 @@ module Services
 
         def after_initialize; end
       end
+
+      private_constant :Base
     end
   end
 end

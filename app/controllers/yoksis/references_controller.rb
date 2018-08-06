@@ -30,7 +30,7 @@ module Yoksis
     end
 
     def serializer(method)
-      "Yoksis::References::#{method.camelize}Serializer"
+      "Yoksis::References::#{method.camelize}Serializer".constantize
     end
 
     def api_version
