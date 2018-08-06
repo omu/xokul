@@ -2,43 +2,25 @@
 
 class ApplicationController < ActionController::API
   rescue_from ActionController::BadRequest,             with: :bad_request
-  rescue_from Rack::Utils::ParameterTypeError,          with: :bad_request
   rescue_from ActionController::ParameterMissing,       with: :bad_request
-  rescue_from Rack::Utils::InvalidParameterError,       with: :bad_request
   rescue_from ActionController::RoutingError,           with: :not_found
-  rescue_from AbstractController::ActionNotFound,       with: :not_found
-  rescue_from ActionController::UnknownFormat,          with: :not_acceptable
-  rescue_from ActionController::NotImplemented,         with: :not_implemented
   rescue_from Services::Support::HTTPError,             with: :services_error
   rescue_from Services::Support::SOAPError,             with: :services_error
   rescue_from Services::Support::UnknownOperationError, with: :services_error
   rescue_from Services::Support::TCPError,              with: :services_error
 
   def bad_request(exception)
-    render_json message: exception, status: :bad_request
-  end
-
-  def not_acceptable(exception)
-    render_json message: exception, status: :not_acceptable
+    render json:   { identifier: 'api_bad_request', message: exception },
+           status: :bad_request
   end
 
   def not_found(exception)
-    render_json message: exception, status: :bad_request
-  end
-
-  def not_implemented(exception)
-    render_json message: exception, status: :not_implemented
+    render json:   { identifier: 'api_not_found', message: exception },
+           status: :not_found
   end
 
   def services_error(exception)
-    render_json message: exception, status: exception.code
-  end
-
-  private
-
-  def render_json(**params)
-    params[:documentation_url] = 'https://developer.omu.edu.tr'
-    status = params.delete(:status)
-    render json: params, status: status
+    render json:   { identifier: exception.identifier, message: exception },
+           status: exception.code
   end
 end

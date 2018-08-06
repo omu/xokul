@@ -4,13 +4,13 @@ module Yoksis
   class ReferencesController < ApplicationController
     before_action :set_references
 
-    # In flux
+    include ActionsResource
+
     Services::Yoksis.module::REFERENCES_METHODS.each_key do |method|
       define_method(method) do
-        serializer = "Yoksis::References::#{method.to_s.camelize}Serializer"
         render(
-          json: @references.send(method).purify,
-          each_serializer: serializer.constantize
+          json: @references.send(method).absolute_data,
+          each_serializer: serializer(method)
         )
       end
     end
@@ -18,8 +18,8 @@ module Yoksis
     def district
       response = @references.district(params.require(:province_code))
       render(
-        json: response.purify,
-        each_serializer: Yoksis::References::DistrictSerializer
+        json: response.absolute_data,
+        each_serializer: serializer(:district)
       )
     end
 
@@ -27,6 +27,14 @@ module Yoksis
 
     def set_references
       @references = Services::Yoksis.module::References.new
+    end
+
+    def serializer(method)
+      "Yoksis::References::#{method.camelize}Serializer"
+    end
+
+    def api_version
+      Services::Yoksis::VERSION
     end
   end
 end
