@@ -16,9 +16,9 @@ module Services
           to_hash.stringify_keys
         end
 
-        def purify
-          real_data = body.values.first
-          real_data.first.last || {}
+        def absolute_data
+          data = body.values.first
+          data.first.last || {}
         end
       end
     end
