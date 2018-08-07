@@ -18,8 +18,9 @@ module Services
         end
 
         def absolute
-          abs = body.dig(*[@result_path].flatten)
-          raise Support::UnknownResultPathError unless abs.present?
+          data = body.dig(*[@result_path].flatten)
+          raise Support::UnknownResultPathError if data.blank?
+          data
         end
       end
     end
