@@ -3,13 +3,14 @@
 module Services
   class Yoksis
     module V1
-      class MEB
+      class MEB < Base
         WSDL_URL = 'https://servisler.yok.gov.tr/ws/mebmezunsorgulav2?WSDL'
 
-        def graduation_data(tck_no, service_password)
+        def graduation_data(tck_no, service_password = nil)
           client.call(
-            __method__,
-            TC_KIMLIK_NO: tck_no, ServicePassWord: service_password
+            MEB_METHODS[__callee__],
+            result_path: MEB_RESULT_PATHS[__callee__],
+            TCKIMLIKNO: tck_no, ServicePassWord: service_password
           )
         end
 
@@ -20,7 +21,7 @@ module Services
         attr_reader :client
 
         def after_initialize
-          @client.configure { |config| config.soap_version 2 }
+          client.configure { |config| config.soap_version 2 }
         end
       end
     end

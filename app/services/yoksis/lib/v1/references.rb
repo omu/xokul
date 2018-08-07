@@ -7,11 +7,17 @@ module Services
         WSDL_URL = 'https://servisler.yok.gov.tr/ws/Referanslarv1?WSDL'
 
         REFERENCES_METHODS.each do |name, action|
-          define_method(name) { client.call(action) }
+          define_method(name) do
+            client.call(action, result_path: REFERENCES_RESULT_PATHS[__method__])
+          end
         end
 
         def district(province_code)
-          client.call(:get_ilce_getir, ILKODU: province_code)
+          client.call(
+            :get_ilce_getir,
+            result_path: REFERENCES_RESULT_PATHS[__method__],
+            ILKODU: province_code
+          )
         end
 
         protected

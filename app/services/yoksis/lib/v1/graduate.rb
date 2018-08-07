@@ -7,7 +7,11 @@ module Services
         WSDL_URL = 'https://servisler.yok.gov.tr/ws/TcKimlikNoileMezunOgrenciSorgulav2?WSDL'
 
         def status(tck_no)
-          client.call(GRADUATE_METHODS[__method__], TCKNO: tck_no)
+          client.call(
+            GRADUATE_METHODS[__method__],
+            result_path: GRADUATE_RESULT_PATHS[__method__],
+            TCKNO: tck_no
+          )
         end
 
         protected
