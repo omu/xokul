@@ -10,8 +10,8 @@ module Services
         configure_with_defaults
       end
 
-      def call(action, **arguments)
-        Response.new(savon.call(action, message: arguments.stringify_keys))
+      def call(action, result_path:, **query_args)
+        Response.new(savon.call(action, message: query_args.stringify_keys), result_path: result_path)
       rescue Savon::HTTPError => err
         raise HTTPError, err
       rescue Savon::SOAPFault => err

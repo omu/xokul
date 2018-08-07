@@ -7,18 +7,19 @@ module Services
         delegate :to_hash, to: :@soap_response
         delegate :code, :headers, to: :@http
 
-        def initialize(soap_response)
+        def initialize(soap_response, result_path:)
           @soap_response = soap_response
+          @result_path = result_path
           @http = soap_response.http
         end
 
         def body
-          to_hash.stringify_keys
+          to_hash.symbolize_keys
         end
 
-        def absolute_data
-          data = body.values.first
-          data.first.last || {}
+        def absolute
+          abs = body.dig(*[@result_path].flatten)
+          raise Support::UnknownResultPathError unless abs.present?
         end
       end
     end
