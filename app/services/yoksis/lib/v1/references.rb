@@ -8,7 +8,7 @@ module Services
 
         REFERENCES_METHODS.each do |name, action|
           define_method(name) do
-            client.call(action, result_path: REFERENCES_RESULT_PATHS[__method__])
+            client.request(action, result_path: REFERENCES_RESULT_PATHS[__method__])
           end
         end
 

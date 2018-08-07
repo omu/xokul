@@ -7,7 +7,7 @@ module Services
         WSDL_URL = 'http://servisler.yok.gov.tr/ws/UniversiteAkademikPersonelv1?WSDL'
 
         def information(page, querier)
-          client.call(
+          client.request(
             STAFF_METHODS[__method__],
             result_path: STAFF_RESULT_PATHS[__method__],
             PAGE: page, SORGULAYAN_TC_KIMLIK_NO: querier
@@ -15,7 +15,7 @@ module Services
         end
 
         def information_by_tck(queried, querier)
-          client.call(
+          client.request(
             STAFF_METHODS[__method__],
             result_path: STAFF_RESULT_PATHS[__method__],
             AKPER_TC_KIMLIK_NO: queried, SORGULAYAN_TC_KIMLIK_NO: querier
@@ -23,14 +23,14 @@ module Services
         end
 
         def nationalities
-          client.call(
+          client.request(
             STAFF_METHODS[__method__],
             result_path: STAFF_RESULT_PATHS[__method__]
           )
         end
 
         def page_number(querier)
-          client.call(
+          client.request(
             STAFF_METHODS[__method__],
             result_path: STAFF_RESULT_PATHS[__method__],
             SORGULAYAN_TC_KIMLIK_NO: querier

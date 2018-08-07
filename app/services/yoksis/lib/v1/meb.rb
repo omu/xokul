@@ -7,7 +7,7 @@ module Services
         WSDL_URL = 'https://servisler.yok.gov.tr/ws/mebmezunsorgulav2?WSDL'
 
         def graduation_data(tck_no, service_password = nil)
-          client.call(
+          client.request(
             MEB_METHODS[__callee__],
             result_path: MEB_RESULT_PATHS[__callee__],
             TCKIMLIKNO: tck_no, ServicePassWord: service_password

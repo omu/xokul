@@ -13,17 +13,17 @@ module Services
         end
 
         def groups
-          client.call(:sinav_grup_bilgilerini_getir)
+          client.request(:sinav_grup_bilgilerini_getir)
         end
 
         def result(tck_no, result_id)
-          client.call(
+          client.request(
             :sinav_sonuc_xml, adayTcKimlikNo: tck_no, sonucId: result_id
           )
         end
 
         def results(tck_no, year, group_id)
-          client.call(
+          client.request(
             :sinav_sonuclari_getir,
             adayTcKimlikNo: tck_no, yil: year, grupId: group_id
           )

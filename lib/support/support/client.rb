@@ -2,7 +2,6 @@
 
 require_relative 'client/errors'
 require_relative 'client/response'
-require_relative 'client/request'
 
 module Support
   class Client
@@ -11,6 +10,18 @@ module Support
     def initialize(document_url)
       @savon = Savon.client(wsdl: document_url)
       configure_with_defaults
+    end
+
+    def request(action, result_path:, **query_args)
+      Response.new(savon.call(action, message: query_args.stringify_keys), result_path: result_path)
+    rescue Savon::HTTPError => err
+      raise HTTPError, err
+    rescue Savon::SOAPFault => err
+      raise SOAPError, err
+    rescue Savon::UnknownOperationError => err
+      raise UnknownOperationError, err
+    rescue SocketError => err
+      raise TCPError, err
     end
 
     def basic_auth(username, password)

@@ -7,7 +7,7 @@ module Services
         WSDL_URL = 'https://servisler.yok.gov.tr/ws/UniversiteBirimlerv4?WSDL'
 
         def changes_in_unit(day, month, year)
-          client.call(
+          client.request(
             UNITS_METHODS[__method__],
             result_path: UNITS_RESULT_PATHS[__method__],
             GUN: day, AY: month, YIL: year
@@ -15,7 +15,7 @@ module Services
         end
 
         def subunits(unit_id)
-          client.call(
+          client.request(
             UNITS_METHODS[__callee__],
             result_path: UNITS_RESULT_PATHS[__callee__],
             BIRIM_ID: unit_id
@@ -23,7 +23,7 @@ module Services
         end
 
         def universities
-          client.call(
+          client.request(
             UNITS_METHODS[__method__], result_path: UNITS_RESULT_PATHS[__method__]
           )
         end

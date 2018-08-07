@@ -7,7 +7,7 @@ module Services
         WSDL_URL = 'https://servisler.yok.gov.tr/ws/ekayitv1?wsdl'
 
         def foundation_tuition(tck_no, paid)
-          client.call(
+          client.request(
             REGISTRATIONS_METHODS[__method__],
             result_path: REGISTRATIONS_RESULT_PATHS[__method__],
             TCKN: tck_no,
@@ -16,7 +16,7 @@ module Services
         end
 
         def query_by_date(day, month, year, unit_id)
-          client.call(
+          client.request(
             REGISTRATIONS_METHODS[__method__],
             result_path: REGISTRATIONS_RESULT_PATHS[__method__],
             GUN: day,
@@ -27,7 +27,7 @@ module Services
         end
 
         def query_by_tck(tck_no, unit_id)
-          client.call(
+          client.request(
             REGISTRATIONS_METHODS[__method__],
             result_path: REGISTRATIONS_RESULT_PATHS[__method__],
             TCKN: tck_no,
