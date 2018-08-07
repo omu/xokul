@@ -100,7 +100,7 @@ module Services
         query_by_date:                   [ :tc_kimlik_no_ile_online_kayit_ogrenci_bilgi_getirv1_response, :sonuc ],
         query_by_tck:                    [ :belirtilen_gun_online_kayit_olan_ogrenciler_getirv1_response, :sonuc ],
       }.freeze
-      STAFF_RESULT_PATH = {
+      STAFF_RESULT_PATHS = {
         information_by_tck:              [ :kullaniciya_gore_tc_kimlik_nodan_akademik_personel_bilgisiv1_response,
                                            :akademik_personel                                                        ],
         information:                     [ :kullaniciya_gore_universitedeki_akademik_personel_bilgisiv1_response,

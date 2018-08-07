@@ -24,7 +24,7 @@ module Services
 
         def universities
           client.call(
-            UNITS_METHODS[__method__], result_path: S_RESULT_PATHS[__method__]
+            UNITS_METHODS[__method__], result_path: UNITS_RESULT_PATHS[__method__]
           )
         end
 

@@ -25,7 +25,7 @@ module Services
         def nationalities
           client.call(
             STAFF_METHODS[__method__],
-            result_path: REGISTRATIONS_RESULT_PATHS[__method__]
+            result_path: STAFF_RESULT_PATHS[__method__]
           )
         end
 
