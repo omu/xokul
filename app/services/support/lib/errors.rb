@@ -3,7 +3,7 @@
 module Services
   module Support
     class Error < StandardError
-      def initialize(object)
+      def initialize(object = nil)
         @object = object
         super
       end
@@ -82,6 +82,20 @@ module Services
 
       def to_s
         'Unable to find soap operation (it may have changed or removed)'
+      end
+    end
+
+    class UnknownResultPathError < Error
+      def code
+        500
+      end
+
+      def identifier
+        'savon_unknown_result_path_error'
+      end
+
+      def to_s
+        'invalid result path to to read absolute data from the response'
       end
     end
   end
