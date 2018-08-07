@@ -30,5 +30,12 @@ Rails.application.routes.draw do
         get :university_type
       end
     end
+
+    resources :meb, controller: :meb do
+      collection do
+        get :graduation_data
+        get :detailed_graduation_data
+      end
+    end
   end
 end
