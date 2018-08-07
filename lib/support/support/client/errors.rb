@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-module Services
-  module Support
+module Support
+  class Client
     class Error < StandardError
       def initialize(object = nil)
         @object = object
