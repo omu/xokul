@@ -4,10 +4,10 @@ class ApplicationController < ActionController::API
   rescue_from ActionController::BadRequest,             with: :bad_request
   rescue_from ActionController::ParameterMissing,       with: :bad_request
   rescue_from ActionController::RoutingError,           with: :not_found
-  rescue_from Services::Support::HTTPError,             with: :services_error
-  rescue_from Services::Support::SOAPError,             with: :services_error
-  rescue_from Services::Support::UnknownOperationError, with: :services_error
-  rescue_from Services::Support::TCPError,              with: :services_error
+  rescue_from Support::Client::HTTPError,             with: :services_error
+  rescue_from Support::Client::SOAPError,             with: :services_error
+  rescue_from Support::Client::UnknownOperationError, with: :services_error
+  rescue_from Support::Client::TCPError,              with: :services_error
 
   def bad_request(exception)
     render json:   { identifier: 'api_bad_request', message: exception },
