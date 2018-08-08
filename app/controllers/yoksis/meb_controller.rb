@@ -10,7 +10,7 @@ module Yoksis
     def graduation_data
       response = @meb.send(
         action_name,
-        params.require(:tck_no), service_password: params[:service_password]
+        params.require(:tck_no), params[:service_password]
       )
       render(
         json: response.absolute,
