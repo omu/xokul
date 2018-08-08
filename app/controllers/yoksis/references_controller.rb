@@ -17,9 +17,8 @@ module Yoksis
     end
 
     def district
-      response = @references.district(params.require(:province_code))
       render(
-        json: response.absolute,
+        json: @references.district(params.require(:province_code)).absolute,
         each_serializer: serializer(:district)
       )
     end

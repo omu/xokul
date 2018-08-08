@@ -8,12 +8,8 @@ module Yoksis
     include YoksisResource
 
     def graduation_data
-      response = @meb.send(
-        action_name,
-        params.require(:tck_no), params[:service_password]
-      )
       render(
-        json: response.absolute,
+        json: @meb.send(action_name, params.require(:tck_no)).absolute,
         serializer: "Yoksis::Meb::#{action_name.camelize}Serializer".constantize
       )
     end
