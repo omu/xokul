@@ -31,7 +31,15 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :meb, controller: :meb do
+    resources :registrations do
+      collection do
+        get :foundation_tuition
+        get :query_by_date
+        get :query_by_tck
+      end
+    end
+
+    resources :meb do
       collection do
         get :graduation_data
         get :detailed_graduation_data
