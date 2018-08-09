@@ -18,7 +18,7 @@ module Support
 
       def absolute
         data = body.dig(*[@result_path].flatten)
-        raise UnknownResultPathError if data.blank?
+        raise ResultError if data.blank?
         data
       end
     end

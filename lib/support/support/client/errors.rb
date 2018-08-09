@@ -85,17 +85,17 @@ module Support
       end
     end
 
-    class UnknownResultPathError < Error
+    class ResultError < Error
       def code
         500
       end
 
       def identifier
-        'savon_unknown_result_path_error'
+        'savon_result_error'
       end
 
       def to_s
-        'invalid result path to to read absolute data from the response'
+        'invalid result value (check the result path)'
       end
     end
   end
