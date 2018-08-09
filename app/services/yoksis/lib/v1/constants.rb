@@ -39,7 +39,7 @@ module Services
       }.freeze
       REGISTRATIONS_METHODS = {
         foundation_tuition:                :vakif_ogrenim_ucretiv1,
-        query_by_date:                     :belirtilen_gun_online_kayit_olan_ogrenciler_getirv1,
+        query_by_date:                     :belirtilen_gun_online_kayit_olan_ogrencileri_getirv1,
         query_by_tck:                      :tc_kimlik_no_ile_online_kayit_ogrenci_bilgi_getirv1,
       }.freeze
       STAFF_METHODS = {
@@ -97,8 +97,9 @@ module Services
       }.freeze
       REGISTRATIONS_RESULT_PATHS = {
         foundation_tuition:              [ :vakif_ogrenim_ucretiv1_response, :sonuc                              ],
-        query_by_date:                   [ :tc_kimlik_no_ile_online_kayit_ogrenci_bilgi_getirv1_response, :sonuc ],
-        query_by_tck:                    [ :belirtilen_gun_online_kayit_olan_ogrenciler_getirv1_response, :sonuc ],
+        query_by_tck:                    [ :tc_kimlik_no_ile_online_kayit_ogrenci_bilgi_getirv1_response, :sonuc ],
+        query_by_date:                   [ :belirtilen_gun_online_kayit_olan_ogrencileri_getirv1_response,
+                                           :universite_online_kayit_olan_ogrenciler                              ],
       }.freeze
       STAFF_RESULT_PATHS = {
         information_by_tck:              [ :kullaniciya_gore_tc_kimlik_nodan_akademik_personel_bilgisiv1_response,
