@@ -11,7 +11,7 @@ module Yoksis
       define_method(method) do
         render(
           json: @references.send(method).absolute,
-          each_serializer: serializer(method)
+          each_serializer: action_serializer
         )
       end
     end
@@ -19,7 +19,7 @@ module Yoksis
     def district
       render(
         json: @references.district(params.require(:province_code)).absolute,
-        each_serializer: serializer(:district)
+        each_serializer: action_serializer
       )
     end
 
@@ -27,10 +27,6 @@ module Yoksis
 
     def set_references
       @references = Services::Yoksis.module::References.new
-    end
-
-    def serializer(method)
-      "Yoksis::References::#{method.camelize}Serializer".constantize
     end
   end
 end

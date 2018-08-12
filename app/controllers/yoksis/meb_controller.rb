@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Yoksis
+  module Boolean; end
   class MebController < ApplicationController
     before_action :set_meb
 
@@ -9,12 +10,10 @@ module Yoksis
 
     def graduation_data
       render(
-        json: @meb.send(action_name, params.require(:tck_no)).absolute,
-        serializer: "Yoksis::Meb::#{action_name.camelize}Serializer".constantize
+        json: @meb.send(method, params.require(:id_number)).absolute,
+        serializer: action_serializer
       )
     end
-
-    alias detailed_graduation_data graduation_data
 
     private
 
