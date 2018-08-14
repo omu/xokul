@@ -8,12 +8,14 @@ module Yoksis
     include ActionsResource
     include YoksisResource
 
-    def graduation_data
+    def grad_informations
       render(
-        json: @meb.send(method, params.require(:id_number)).absolute,
+        json: @meb.send(action_name, params.require(:id_number)).absolute,
         serializer: action_serializer
       )
     end
+
+    alias detailed_grad_informations grad_informations
 
     private
 

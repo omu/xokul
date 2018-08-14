@@ -6,11 +6,11 @@ module Services
       class Student < Base
         WSDL_URL = 'https://servisler.yok.gov.tr/ws/TcKimlikNoileOgrenciSorgulaDetayv4?WSDL'
 
-        def detailed(tck_no)
+        def details(id_number)
           client.request(
             STUDENT_METHODS[__method__],
             result_path: STUDENT_RESULT_PATHS[__method__],
-            TC_KIMLIK_NO: tck_no
+            TC_KIMLIK_NO: id_number
           )
         end
 

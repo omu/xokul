@@ -4,28 +4,31 @@ module Yoksis
   class RegistrationsController < ApplicationController
     before_action :set_registrations
 
-    def foundation_tuition
+    include ActionsResource
+    include YoksisResource
+
+    def foundation_tuitions
       render(
-        json: @registrations.foundation_tuition(
-          *params.require(%i[tck_no paid])
+        json: @registrations.foundation_tuitions(
+          *params.require(%i[id_number paid])
         ).absolute,
         serializer: action_serializer
       )
     end
 
-    def query_by_date
+    def queries_by_date
       render(
-        json: @registrations.query_by_date(
+        json: @registrations.queries_by_date(
           *params.require(%i[day month year unit_id])
         ).absolute,
         serializer: action_serializer
       )
     end
 
-    def query_by_tck
+    def queries_by_id_number
       render(
-        json: @registrations.query_by_tck(
-          *params.require(%i[tck_no unit_id])
+        json: @registrations.queries_by_id_number(
+          *params.require(%i[id_number unit_id])
         ).absolute,
         serializer: action_serializer
       )

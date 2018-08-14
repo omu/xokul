@@ -6,16 +6,16 @@ module Services
       class Registrations < Base
         WSDL_URL = 'https://servisler.yok.gov.tr/ws/ekayitv1?wsdl'
 
-        def foundation_tuition(tck_no, paid)
+        def foundation_tuitions(id_number, paid)
           client.request(
             REGISTRATIONS_METHODS[__method__],
             result_path: REGISTRATIONS_RESULT_PATHS[__method__],
-            TCKN: tck_no,
+            TCKN: id_number,
             OGRENIM_UCRETI_ODENDI_MI: paid
           )
         end
 
-        def query_by_date(day, month, year, unit_id)
+        def queries_by_date(day, month, year, unit_id)
           client.request(
             REGISTRATIONS_METHODS[__method__],
             result_path: REGISTRATIONS_RESULT_PATHS[__method__],
@@ -26,11 +26,11 @@ module Services
           )
         end
 
-        def query_by_tck(tck_no, unit_id)
+        def queries_by_id_number(id_number, unit_id)
           client.request(
             REGISTRATIONS_METHODS[__method__],
             result_path: REGISTRATIONS_RESULT_PATHS[__method__],
-            TCKN: tck_no,
+            TCKN: id_number,
             YOKSIS_UNIVERSITE_BIRIM_ID: unit_id
           )
         end

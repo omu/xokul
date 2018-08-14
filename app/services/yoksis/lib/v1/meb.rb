@@ -6,15 +6,15 @@ module Services
       class MEB < Base
         WSDL_URL = 'https://servisler.yok.gov.tr/ws/mebmezunsorgulav2?WSDL'
 
-        def graduation_data(tck_no, service_password = nil)
+        def grad_informations(id_number, service_password = nil)
           client.request(
             MEB_METHODS[__callee__],
             result_path: MEB_RESULT_PATHS[__callee__],
-            TCKIMLIKNO: tck_no, ServicePassWord: service_password
+            TCKIMLIKNO: id_number, ServicePassWord: service_password
           )
         end
 
-        alias detailed_graduation_data graduation_data
+        alias detailed_grad_informations grad_informations
 
         protected
 

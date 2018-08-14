@@ -12,11 +12,11 @@ module Services
           end
         end
 
-        def district(province_code)
+        def districts(city_code)
           client.request(
             :get_ilce_getir,
             result_path: REFERENCES_RESULT_PATHS[__method__],
-            ILKODU: province_code
+            ILKODU: city_code
           )
         end
 
