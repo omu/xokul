@@ -3,7 +3,7 @@
 module Services
   class Yoksis
     module V1
-      GRADUATE_METHODS = {
+      GRADUATIONS_METHODS = {
         students:                          :tc_kimlik_noil_mezun_ogrenci_sorgulav2,
       }.freeze
       MEB_METHODS = {
@@ -57,8 +57,9 @@ module Services
         subunits:                          :alt_birimleri_getirv4,
         universities:                      :universiteleri_getirv4,
       }.freeze
-      GRADUATE_RESULT_PATHS = {
-        students:                          :tc_kimlik_noil_mezun_ogrenci_sorgulav2_response,
+      GRADUATIONS_RESULT_PATHS = {
+        students:                        [ :tc_kimlik_noil_mezun_ogrenci_sorgulav2_response,
+                                           :mezun_ogrenci_kayitlari                                     ],
       }.freeze
       MEB_RESULT_PATHS = {
         grad_informations:               [ :mezuniyet_verilerini_getir_response,

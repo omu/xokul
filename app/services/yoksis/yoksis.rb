@@ -6,7 +6,7 @@ module Services
   class Yoksis
     require_relative "lib/#{VERSION}/base"
     require_relative "lib/#{VERSION}/constants"
-    require_relative "lib/#{VERSION}/graduate"
+    require_relative "lib/#{VERSION}/graduations"
     require_relative "lib/#{VERSION}/meb"
     require_relative "lib/#{VERSION}/references"
     require_relative "lib/#{VERSION}/registrations"

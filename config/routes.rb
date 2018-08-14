@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   namespace :yoksis do
+    resources(:graduations) { collection { get :students } }
+    
     resources :references do
       collection do
         get :administrative_functions
