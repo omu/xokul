@@ -3,7 +3,7 @@
 module Yoksis
   module Meb
     class GradInformationsSerializer < ActiveModel::Serializer
-      attribute(:description) { object[:aciklama] }
+      attribute(:status) { object[:aciklama] }
     end
   end
 end
