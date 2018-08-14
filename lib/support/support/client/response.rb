@@ -3,8 +3,8 @@
 module Support
   class Client
     class Response
+      delegate :code, :headers, :body, to: :@http
       delegate :to_hash, to: :@soap_response
-      delegate :code, :headers, to: :@http
 
       def initialize(soap_response, result_path:)
         @soap_response = soap_response
@@ -12,14 +12,15 @@ module Support
         @http = soap_response.http
       end
 
-      def body
-        to_hash.symbolize_keys
-      end
-
       def result
-        data = body.dig(*[@result_path].flatten)
-        raise ResultError if data.blank?
-        data
+        value = to_hash.symbolize_keys.dig(*[@result_path].flatten)
+        return value if value.present?
+        Rails.logger.error <<~MESSAGE
+          ResultError (invalid response or result path)
+          [HTTP] Code: #{code} Headers: #{headers} Body: #{body}
+          [SOAP] Response: #{@soap_response}
+        MESSAGE
+        raise ResultError
       end
     end
 

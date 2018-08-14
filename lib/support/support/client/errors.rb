@@ -81,7 +81,7 @@ module Support
       end
 
       def to_s
-        'Unable to find soap operation (it may have changed or removed)'
+        'Unable to find soap operation'
       end
     end
 
@@ -95,7 +95,7 @@ module Support
       end
 
       def to_s
-        'invalid result value (check the result path)'
+        'invalid response or result path'
       end
     end
   end
