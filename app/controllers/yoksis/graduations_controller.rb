@@ -9,7 +9,7 @@ module Yoksis
 
     def students
       render(
-        json: @graduations.students(params.require(:id_number)).absolute,
+        json: @graduations.students(params.require(:id_number)),
         serializer: action_serializer
       )
     end

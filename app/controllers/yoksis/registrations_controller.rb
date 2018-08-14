@@ -12,7 +12,7 @@ module Yoksis
       render(
         json: @registrations.foundation_tuitions(
           *params.require(%i[id_number paid])
-        ).absolute,
+        ),
         serializer: action_serializer
       )
     end
@@ -22,7 +22,7 @@ module Yoksis
       render(
         json: @registrations.queries_by_date(
           *params.require(%i[day month year unit_id])
-        ).absolute,
+        ),
         serializer: action_serializer
       )
     end
@@ -32,7 +32,7 @@ module Yoksis
       render(
         json: @registrations.queries_by_id_number(
           *params.require(%i[id_number unit_id])
-        ).absolute,
+        ),
         serializer: action_serializer
       )
     end

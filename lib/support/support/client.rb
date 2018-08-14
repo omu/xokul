@@ -12,8 +12,12 @@ module Support
       configure_with_defaults
     end
 
+    # rubocop:disable Metrics/MethodLength
     def request(action, result_path:, **query_args)
-      Response.new(savon.call(action, message: query_args.stringify_keys), result_path: result_path)
+      Response.new(
+        savon.call(action, message: query_args.stringify_keys),
+        result_path: result_path
+      ).result
     rescue Savon::HTTPError => err
       raise HTTPError, err
     rescue Savon::SOAPFault => err
@@ -23,6 +27,7 @@ module Support
     rescue SocketError => err
       raise TCPError, err
     end
+    # rubocop:enable Metrics/MethodLength
 
     def basic_auth(username, password)
       configure { |config| config.basic_auth [username, password] }

@@ -16,7 +16,7 @@ module Support
         to_hash.symbolize_keys
       end
 
-      def absolute
+      def result
         data = body.dig(*[@result_path].flatten)
         raise ResultError if data.blank?
         data

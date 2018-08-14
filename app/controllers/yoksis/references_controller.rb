@@ -10,7 +10,7 @@ module Yoksis
     Services::Yoksis.module::REFERENCES_METHODS.each_key do |method|
       define_method(method) do
         render(
-          json: @references.send(method).absolute,
+          json: @references.send(method),
           each_serializer: action_serializer
         )
       end
@@ -18,7 +18,7 @@ module Yoksis
 
     def districts
       render(
-        json: @references.districts(params.require(:city_code)).absolute,
+        json: @references.districts(params.require(:city_code)),
         each_serializer: action_serializer
       )
     end
