@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module Yoksis
-  module Boolean; end
   class MebController < ApplicationController
     before_action :set_meb
 
