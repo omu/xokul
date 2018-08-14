@@ -2,7 +2,7 @@
 
 module Yoksis
   module References
-    class AdministrativeFunctionSerializer < BaseSerializer
+    class AdministrativeFunctionsSerializer < BaseSerializer
     end
   end
 end
