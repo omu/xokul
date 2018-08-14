@@ -2,7 +2,7 @@
 
 module Yoksis
   module Registrations
-    class QueryByDateSerializer < ActiveModel::Serializer
+    class FoundationTuitionsSerializer < ActiveModel::Serializer
     end
   end
 end

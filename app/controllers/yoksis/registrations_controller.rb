@@ -7,6 +7,7 @@ module Yoksis
     include ActionsResource
     include YoksisResource
 
+    # TODO: Populate its serializer based on what yoksis returns
     def foundation_tuitions
       render(
         json: @registrations.foundation_tuitions(
@@ -16,6 +17,7 @@ module Yoksis
       )
     end
 
+    # TODO: Populate its serializer based on what yoksis returns
     def queries_by_date
       render(
         json: @registrations.queries_by_date(
@@ -25,6 +27,7 @@ module Yoksis
       )
     end
 
+    # TODO: Populate its serializer based on what yoksis returns
     def queries_by_id_number
       render(
         json: @registrations.queries_by_id_number(

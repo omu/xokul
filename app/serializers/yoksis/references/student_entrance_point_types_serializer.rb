@@ -2,7 +2,7 @@
 
 module Yoksis
   module References
-    class CountrySerializer < BaseSerializer
+    class StudentEntrancePointTypesSerializer < BaseSerializer
     end
   end
 end

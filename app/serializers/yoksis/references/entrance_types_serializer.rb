@@ -2,7 +2,7 @@
 
 module Yoksis
   module References
-    class DistrictSerializer < BaseSerializer
+    class EntranceTypesSerializer < BaseSerializer
     end
   end
 end

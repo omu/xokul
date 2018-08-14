@@ -2,7 +2,7 @@
 
 module Yoksis
   module References
-    class UnitInstructionLanguageSerializer < BaseSerializer
+    class StudentEntranceTypesSerializer < BaseSerializer
     end
   end
 end

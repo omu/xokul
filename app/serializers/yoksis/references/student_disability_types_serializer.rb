@@ -2,7 +2,7 @@
 
 module Yoksis
   module References
-    class StudentshipStatusSerializer < BaseSerializer
+    class StudentDisabilityTypesSerializer < BaseSerializer
     end
   end
 end

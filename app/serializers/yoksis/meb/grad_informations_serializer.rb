@@ -2,8 +2,7 @@
 
 module Yoksis
   module Meb
-    class GraduationDataSerializer < ActiveModel::Serializer
-      attribute(:code)        { object[:sonuckodu] }
+    class GradInformationsSerializer < ActiveModel::Serializer
       attribute(:description) { object[:aciklama]  }
     end
   end

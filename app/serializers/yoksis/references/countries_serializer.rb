@@ -2,7 +2,7 @@
 
 module Yoksis
   module References
-    class UniversityTypeSerializer < BaseSerializer
+    class CountriesSerializer < BaseSerializer
     end
   end
 end

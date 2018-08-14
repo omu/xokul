@@ -2,7 +2,7 @@
 
 module Yoksis
   module References
-    class ProvinceSerializer < BaseSerializer
+    class DistrictsSerializer < BaseSerializer
     end
   end
 end

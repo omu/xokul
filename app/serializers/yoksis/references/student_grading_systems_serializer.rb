@@ -2,7 +2,7 @@
 
 module Yoksis
   module References
-    class StudentshipRightSerializer < BaseSerializer
+    class StudentGradingSystemsSerializer < BaseSerializer
     end
   end
 end

@@ -2,7 +2,7 @@
 
 module Yoksis
   module Meb
-    class DetailedGraduationDataSerializer < ActiveModel::Serializer
+    class DetailedGradInformationsSerializer < ActiveModel::Serializer
       attribute(:id_number)           { object[:tckimlikno]       }
       attribute(:first_name)          { object[:adi]              }
       attribute(:last_name)           { object[:soyadi]           }

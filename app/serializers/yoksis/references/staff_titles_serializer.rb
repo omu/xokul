@@ -2,7 +2,7 @@
 
 module Yoksis
   module References
-    class StaffTitleSerializer < BaseSerializer
+    class StaffTitlesSerializer < BaseSerializer
     end
   end
 end

@@ -2,7 +2,7 @@
 
 module Yoksis
   module References
-    class EntranceTypeSerializer < BaseSerializer
+    class UnitStatusesSerializer < BaseSerializer
     end
   end
 end
