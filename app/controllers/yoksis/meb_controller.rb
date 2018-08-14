@@ -9,8 +9,11 @@ module Yoksis
 
     def grad_informations
       render(
-        json: @meb.send(action_name, params.require(:id_number)),
-        serializer: action_serializer
+        serializer: action_serializer,
+        json: @meb.send(
+          action_name,
+          params.permit(:id_number, :service_password).require(:id_number)
+        )
       )
     end
 
