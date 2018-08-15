@@ -42,5 +42,14 @@ Rails.application.routes.draw do
     end
 
     resources(:meb) { collection { get :students } }
+
+    resources :staff do
+      collection do
+        get :lists
+        get :nationalities
+        get :pages
+        get :profiles
+      end
+    end
   end
 end
