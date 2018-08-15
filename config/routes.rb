@@ -41,11 +41,6 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :meb do
-      collection do
-        get :grad_informations
-        get :detailed_grad_informations
-      end
-    end
+    resources(:meb) { collection { get :students } }
   end
 end

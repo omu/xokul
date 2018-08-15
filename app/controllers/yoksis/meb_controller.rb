@@ -7,22 +7,21 @@ module Yoksis
     include ActionsResource
     include YoksisResource
 
-    def grad_informations
+    def students
       render(
         serializer: action_serializer,
-        json: @meb.send(
-          action_name,
-          params.permit(:id_number, :service_password).require(:id_number)
-        )
+        json: @meb.send(action_name, secure_params.require(:id_number))
       )
     end
-
-    alias detailed_grad_informations grad_informations
 
     private
 
     def set_meb
       @meb = Services::Yoksis.module::MEB.new
+    end
+
+    def secure_params
+      params.require(:meb).permit(:id_number, :detailed, :service_password)
     end
   end
 end

@@ -7,8 +7,7 @@ module Services
         students:                          :tc_kimlik_noil_mezun_ogrenci_sorgulav2,
       }.freeze
       MEB_METHODS = {
-        grad_informations:                 :mezuniyet_verilerini_getir,
-        detailed_grad_informations:        :mezuniyet_verilerini_getir_detay,
+        students:                          :mezuniyet_verilerini_getir_detay,
       }
       REFERENCES_METHODS = {
         administrative_functions:          :get_personel_gorev,
@@ -62,9 +61,7 @@ module Services
                                            :mezun_ogrenci_kayitlari                                     ],
       }.freeze
       MEB_RESULT_PATHS = {
-        grad_informations:               [ :mezuniyet_verilerini_getir_response,
-                                           :mezuniyet_verilerini_getir_result                           ],
-        detailed_grad_informations:      [ :mezuniyet_verilerini_getir_detay_response,
+        students:                        [ :mezuniyet_verilerini_getir_detay_response,
                                            :mezuniyet_verilerini_getir_detay_result,
                                            :mezuniyet_veri_listesi_detay, :mezuniyet_veri_listesi_detay ],
       }.freeze
