@@ -21,7 +21,7 @@ module Yoksis
     end
 
     def secure_params
-      params.require(:meb).permit(:id_number, :detailed, :service_password)
+      params.require(:meb).permit(:id_number, :service_password)
     end
   end
 end
