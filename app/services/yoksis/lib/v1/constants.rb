@@ -42,8 +42,8 @@ module Services
         queries_by_id_number:              :tc_kimlik_no_ile_online_kayit_ogrenci_bilgi_getirv1,
       }.freeze
       STAFF_METHODS = {
-        informations_by_id_number:         :kullaniciya_gore_tc_kimlik_nodan_akademik_personel_bilgisiv1,
-        informations:                      :kullaniciya_gore_universitedeki_akademik_personel_bilgisiv1,
+        profiles:                          :kullaniciya_gore_tc_kimlik_nodan_akademik_personel_bilgisiv1,
+        lists:                             :kullaniciya_gore_universitedeki_akademik_personel_bilgisiv1,
         nationalities:                     :get_mernis_uyruk,
         pages:                             :kullaniciya_gore_universiteki_akademik_personel_sayfa_sayisiv1,
       }.freeze
@@ -100,9 +100,9 @@ module Services
                                            :universite_online_kayit_olan_ogrenciler                              ],
       }.freeze
       STAFF_RESULT_PATHS = {
-        informations_by_id_number:       [ :kullaniciya_gore_tc_kimlik_nodan_akademik_personel_bilgisiv1_response,
+        profiles:                        [ :kullaniciya_gore_tc_kimlik_nodan_akademik_personel_bilgisiv1_response,
                                            :akademik_personel                                                        ],
-        informations:                    [ :kullaniciya_gore_universitedeki_akademik_personel_bilgisiv1_response,
+        lists:                           [ :kullaniciya_gore_universitedeki_akademik_personel_bilgisiv1_response,
                                            :akademik_personeller                                                     ],
         nationalities:                   [ :get_mernis_uyruk_response, :referanslar                                  ],
         pages:                           [ :kullaniciya_gore_universiteki_akademik_personel_sayfa_sayisiv1_response,
