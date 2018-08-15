@@ -7,32 +7,29 @@ module Yoksis
     include ActionsResource
     include YoksisResource
 
-    # TODO: Populate its serializer based on what yoksis returns
     def foundation_tuitions
       render(
         serializer: action_serializer,
         json: @registrations.foundation_tuitions(
-          *params.permit(:id_number, :paid).require(%i[id_number paid])
+          *foundation_tuitions_params.require(%i[id_number paid])
         )
       )
     end
 
-    # TODO: Populate its serializer based on what yoksis returns
     def queries_by_date
       render(
         serializer: action_serializer,
         json: @registrations.queries_by_date(
-          *params.permit(:day, :month, :year, :unit_id).require(%i[day month year unit_id])
+          *queries_by_date_params.require(%i[day month year unit_id])
         )
       )
     end
 
-    # TODO: Populate its serializer based on what yoksis returns
     def queries_by_id_number
       render(
         serializer: action_serializer,
         json: @registrations.queries_by_id_number(
-          *params.permit(:id_number, :unit_id).require(%i[id_number unit_id])
+          *queries_by_id_number_params.require(%i[id_number unit_id])
         )
       )
     end
@@ -44,6 +41,18 @@ module Yoksis
         Rails.application.credentials.yoksis[:client_id],
         Rails.application.credentials.yoksis[:client_secret]
       )
+    end
+
+    def foundation_tuitions_params
+      params.require(:registration).permit(:id_number, :paid)
+    end
+
+    def queries_by_date_params
+      params.require(:registration).permit(:day, :month, :year, :unit_id)
+    end
+
+    def queries_by_id_number_params
+      params.require(:registration).permit(:id_number, :unit_id)
     end
   end
 end

@@ -10,9 +10,7 @@ module Yoksis
     def students
       render(
         serializer: action_serializer,
-        json: @graduations.students(
-          params.permit(:id_number).require(:id_number)
-        )
+        json: @graduations.students(secure_params.require(:id_number))
       )
     end
 
@@ -23,6 +21,10 @@ module Yoksis
         Rails.application.credentials.yoksis[:client_id],
         Rails.application.credentials.yoksis[:client_secret]
       )
+    end
+
+    def secure_params
+      params.require(:graduation).permit(:id_number)
     end
   end
 end

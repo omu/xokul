@@ -19,9 +19,7 @@ module Yoksis
     def districts
       render(
         each_serializer: action_serializer,
-        json: @references.districts(
-          params.permit(:city_code).require(:city_code)
-        )
+        json: @references.districts(secure_params.require(:city_code))
       )
     end
 
@@ -29,6 +27,10 @@ module Yoksis
 
     def set_references
       @references = Services::Yoksis.module::References.new
+    end
+
+    def secure_params
+      params.require(:reference).permit(:city_code)
     end
   end
 end
