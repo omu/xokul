@@ -1,3 +1,0 @@
-app/services/kps/private/**
-app/services/yoksis/lib/v1/registrations.rb
-app/services/kps/public/v1/verification.rb
