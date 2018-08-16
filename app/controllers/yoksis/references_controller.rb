@@ -7,7 +7,7 @@ module Yoksis
     include ActionsResource
     include YoksisResource
 
-    Services::Yoksis.module::REFERENCES_METHODS.each_key do |method|
+    Services::Yoksis.module_path::REFERENCES_METHODS.each_key do |method|
       define_method(method) do
         render(
           each_serializer: action_serializer,
@@ -26,7 +26,7 @@ module Yoksis
     private
 
     def set_references
-      @references = Services::Yoksis.module::References.new
+      @references = Services::Yoksis.module_path::References.new
     end
 
     def secure_params

@@ -17,7 +17,7 @@ module Yoksis
     private
 
     def set_meb
-      @meb = Services::Yoksis.module::MEB.new
+      @meb = Services::Yoksis.module_path::MEB.new
     end
 
     def secure_params

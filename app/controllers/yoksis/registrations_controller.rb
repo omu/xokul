@@ -37,7 +37,7 @@ module Yoksis
     private
 
     def set_registrations
-      @registrations = Services::Yoksis.module::Registrations.new(
+      @registrations = Services::Yoksis.module_path::Registrations.new(
         Rails.application.credentials.yoksis[:client_id],
         Rails.application.credentials.yoksis[:client_secret]
       )

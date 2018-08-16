@@ -44,7 +44,7 @@ module Yoksis
     private
 
     def set_staff
-      @staff = Services::Yoksis.module::Staff.new(
+      @staff = Services::Yoksis.module_path::Staff.new(
         Rails.application.credentials.yoksis[:client_id],
         Rails.application.credentials.yoksis[:client_secret]
       )

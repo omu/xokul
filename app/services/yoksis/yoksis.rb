@@ -14,7 +14,7 @@ module Services
     require_relative "lib/#{VERSION}/student"
     require_relative "lib/#{VERSION}/units"
 
-    def self.module
+    def self.module_path
       "#{inspect}::#{VERSION.upcase}".constantize
     end
   end
