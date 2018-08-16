@@ -1,45 +1,72 @@
+docker: &docker
+  docker:
+    - image: circleci/ruby:2.5.1-node-browsers
+      environment:
+        TZ: '/usr/share/zoneinfo/Asia/Istanbul'
+        RAILS_ENV: beta
+        RACK_ENV: beta
+        RDS_USERNAME: xokul
+        RDS_PASSWORD: xokul
+        RDS_HOSTNAME: localhost
+        RDS_PORT: 5432
+        BUNDLE_JOBS: 4
+    - image: circleci/postgres:10.5-alpine
+      environment:
+        POSTGRES_DB: xokul_beta
+        POSTGRES_USER: xokul
+        POSTGRES_PASSWORD: xokul
 version: 2
 jobs:
-  build:
-    working_directory: ~/xokul
-    docker:
-      - image: circleci/ruby:latest-node-browsers
-        environment:
-          TZ: '/usr/share/zoneinfo/Asia/Baghdad'
-          RAILS_ENV: beta
-          RACK_ENV: beta
-          RDS_USERNAME: xokul
-          RDS_PASSWORD: xokul
-          RDS_HOSTNAME: localhost
-          RDS_PORT: 5432
-      - image: circleci/postgres:9.6.7
-        environment:
-          POSTGRES_DB: xokul_beta
-          POSTGRES_USER: xokul
-          POSTGRES_PASSWORD: xokul
+  checkout_code:
+    <<: *docker
     steps:
       - checkout
+      - save_cache:
+          key: xokul-repo-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - ~/project
+  bundle_dependencies:
+    <<: *docker
+    steps:
+      - restore_cache:
+          key: xokul-repo-{{ .Environment.CIRCLE_SHA1 }}
       - restore_cache:
           keys:
-            - gem-cache-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-            - gem-cache-{{ .Branch }}
-            - gem-cache
-      - run:
-          name: Check and install all dependencies
-          command: bundle install --deployment
+            - xokul-bundle-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+            - xokul-bundle-{{ .Branch }}
+            - xokul-bundle
+      - run: bundle install --path vendor/bundle
       - save_cache:
-          key: gem-cache-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          key: xokul-bundle-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
-      - save_cache:
-          key: gem-cache-{{ .Branch }}
-          paths:
-            - vendor/bundle
-      - save_cache:
-          key: gem-cache
-          paths:
-            - vendor/bundle
-      - run: bundle exec rake code:quality:all
-      - run: bundle exec rake code:security:all
-      - run: bundle exec rake db:create
-      - run: bundle exec rake db:migrate
+    karma:
+      <<: *docker
+      steps:
+        - restore_cache:
+           key: xokul-repo-{{ .Environment.CIRCLE_SHA1 }}
+        - restore_cache:
+            keys:
+              - xokul-bundle-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+              - xokul-bundle-{{ .Branch }}
+              - xokul-bundle
+        - run:
+            name: Installing gems into bundle path
+            command: bundle --path vendor/bundle
+        - run:
+            name: Running code quality tasks
+            command: bundle exec rake code:quality:all
+        - run:
+            name: Running code security tasks
+            command: bundle exec rake code:security:all
+workflows:
+  version: 2
+  build:
+    jobs:
+      - checkout_code
+      - bundle_dependencies:
+          requires:
+            - checkout_code
+      - karma:
+          requires:
+            - bundle_dependencies
