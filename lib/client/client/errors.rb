@@ -84,7 +84,7 @@ class Client
     end
   end
 
-  class ResultError < Error
+  class ResponseError < Error
     def code
       500
     end

@@ -19,7 +19,7 @@ class Client
         [HTTP] Code: #{code} Headers: #{headers} Body: #{body}
         [SOAP] Response: #{@soap_response}
       MESSAGE
-      raise ResultError
+      raise ResponseError
     end
   end
 
