@@ -5,7 +5,7 @@ module Services
     module V1
       class Base
         def initialize(*args)
-          @client = Support::Client.new(self.class::WSDL_URL)
+          @client = Client.new(self.class::WSDL_URL)
           client.basic_auth(*args) unless args.empty?
           after_initialize
         end
