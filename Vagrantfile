@@ -3,17 +3,14 @@
 Vagrant.configure('2') do |config|
   config.vm.box = 'omu/debian-stable-server'
 
-  # Set up provider's limits
   config.vm.provider 'lxc' do |provider|
     provider.customize 'cgroup.memory.limit_in_bytes', '2048M'
   end
 
-  # Set up ports to expose application
   config.vm.network 'forwarded_port', guest: 3000, host: 3000
 
-  # Provisioning the container
   config.vm.provision 'shell', inline: <<-SHELL
-  cd /vagrant && export $(<.env.beta)
+  cd /vagrant && export $(<.env.dev)
 
   systemctl enable postgresql
   systemctl start postgresql
@@ -29,7 +26,7 @@ Vagrant.configure('2') do |config|
   bundle exec rake db:migrate
   bundle exec rake db:seed
 
-  foreman export -p3000 --app xokul --user op --env .env.beta systemd /etc/systemd/system/
+  foreman export -p3000 --app xokul --user op --env .env.dev systemd /etc/systemd/system/
 
   systemctl enable xokul.target
   systemctl start xokul.target
