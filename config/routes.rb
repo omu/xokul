@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   namespace :yoksis do
     resources(:graduations) { collection { get :students } }
-    
+    resources(:meb) { collection { get :students } }
+
     resources :references do
       collection do
         get :administrative_functions
@@ -40,8 +41,6 @@ Rails.application.routes.draw do
         get :queries_by_id_number
       end
     end
-
-    resources(:meb) { collection { get :students } }
 
     resources :staff do
       collection do
