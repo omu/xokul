@@ -9,26 +9,39 @@ Vagrant.configure('2') do |config|
 
   config.vm.network 'forwarded_port', guest: 3000, host: 3000
 
-  config.vm.provision 'shell', inline: <<-SHELL
-  cd /vagrant && export $(<.env.dev)
+  config.vm.provision 'shell', inline: <<~SHELL
+    pushd /tmp
+	cat <<-EOF >.foreman.env
+	RAILS_ENV=development
+	RDS_HOSTNAME=localhost
+	RDS_USERNAME=xokul
+	RDS_PASSWORD=xokul
+	EOF
+    popd
 
-  systemctl enable postgresql
-  systemctl start postgresql
+    export  $(</tmp/.foreman.env)
 
-  sudo -u postgres psql <<<"CREATE USER $RDS_USERNAME WITH ENCRYPTED PASSWORD '$RDS_PASSWORD';"
-  sudo -u postgres psql <<<"ALTER ROLE $RDS_USERNAME LOGIN CREATEDB SUPERUSER;"
+    systemctl enable postgresql
+    systemctl start postgresql
 
-  gem install bundler foreman
+    sudo -u postgres psql <<<"CREATE USER $RDS_USERNAME WITH ENCRYPTED PASSWORD '$RDS_PASSWORD';"
+    sudo -u postgres psql <<<"ALTER ROLE $RDS_USERNAME LOGIN CREATEDB SUPERUSER;"
 
-  bundle install --deployment
+    gem install bundler foreman
 
-  bundle exec rake db:create
-  bundle exec rake db:migrate
-  bundle exec rake db:seed
+    cd /vagrant
 
-  foreman export -p3000 --app xokul --user op --env .env.dev systemd /etc/systemd/system/
+    bundle install --deployment
 
-  systemctl enable xokul.target
-  systemctl start xokul.target
+    bundle exec rake db:create
+    bundle exec rake db:migrate
+    bundle exec rake db:seed
+
+    foreman export -p3000 --app xokul --user op --env /tmp/.foreman.env systemd /etc/systemd/system/
+
+    systemctl enable xokul.target
+    systemctl start xokul.target
+
+    rm /tmp/.foreman.env
   SHELL
 end
