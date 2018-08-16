@@ -33,11 +33,14 @@ jobs:
       - restore_cache:
           keys:
             - xokul-bundle-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-            - xokul-bundle-{{ .Branch }}
-            - xokul-bundle
+            - xokul-bundle-{{ checksum "Gemfile.lock" }}
       - run: bundle install --path vendor/bundle
       - save_cache:
           key: xokul-bundle-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - save_cache:
+          key: xokul-bundle-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
   karma:
@@ -48,8 +51,7 @@ jobs:
       - restore_cache:
           keys:
             - xokul-bundle-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-            - xokul-bundle-{{ .Branch }}
-            - xokul-bundle
+            - xokul-bundle-{{ checksum "Gemfile.lock" }}
       - run:
           name: Installing gems into bundle path
           command: bundle --path vendor/bundle
