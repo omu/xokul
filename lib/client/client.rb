@@ -12,9 +12,9 @@ class Client
   end
 
   # rubocop:disable Metrics/MethodLength
-  def request(action, result_path:, **query_args)
+  def request(operation:, result_path:, **query_args)
     Response.new(
-      savon.call(action, message: query_args.stringify_keys),
+      savon.call(operation, message: query_args.stringify_keys),
       result_path: result_path
     ).result
   rescue Savon::HTTPError => err

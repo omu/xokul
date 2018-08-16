@@ -8,7 +8,7 @@ module Services
 
         def details(id_number)
           client.request(
-            STUDENT_METHODS[__method__],
+            operation: STUDENT_METHODS[__method__],
             result_path: STUDENT_RESULT_PATHS[__method__],
             TC_KIMLIK_NO: id_number
           )

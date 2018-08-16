@@ -6,15 +6,18 @@ module Services
       class References < Base
         WSDL_URL = 'https://servisler.yok.gov.tr/ws/Referanslarv1?WSDL'
 
-        REFERENCES_METHODS.each do |name, action|
+        REFERENCES_METHODS.each do |name, operation|
           define_method(name) do
-            client.request(action, result_path: REFERENCES_RESULT_PATHS[__method__])
+            client.request(
+              operation: operation,
+              result_path: REFERENCES_RESULT_PATHS[__method__]
+            )
           end
         end
 
         def districts(city_code)
           client.request(
-            :get_ilce_getir,
+            operation: REFERENCES_METHODS[__method__],
             result_path: REFERENCES_RESULT_PATHS[__method__],
             ILKODU: city_code
           )

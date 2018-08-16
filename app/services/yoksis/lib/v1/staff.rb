@@ -8,15 +8,16 @@ module Services
 
         def lists(querier, page)
           client.request(
-            STAFF_METHODS[__method__],
+            operation: STAFF_METHODS[__method__],
             result_path: STAFF_RESULT_PATHS[__method__],
-            SAYFA: page, SORGULAYAN_TC_KIMLIK_NO: querier
+            SAYFA: page,
+            SORGULAYAN_TC_KIMLIK_NO: querier
           )
         end
 
         def profiles(querier, queried)
           client.request(
-            STAFF_METHODS[__method__],
+            operation: STAFF_METHODS[__method__],
             result_path: STAFF_RESULT_PATHS[__method__],
             SORGULAYAN_TC_KIMLIK_NO: querier,
             AKPER_TC_KIMLIK_NO: queried
@@ -25,14 +26,14 @@ module Services
 
         def nationalities
           client.request(
-            STAFF_METHODS[__method__],
+            operation: STAFF_METHODS[__method__],
             result_path: STAFF_RESULT_PATHS[__method__]
           )
         end
 
         def pages(querier)
           client.request(
-            STAFF_METHODS[__method__],
+            operation: STAFF_METHODS[__method__],
             result_path: STAFF_RESULT_PATHS[__method__],
             SORGULAYAN_TC_KIMLIK_NO: querier
           )

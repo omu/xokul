@@ -8,9 +8,10 @@ module Services
 
         def students(id_number, service_password = nil)
           client.request(
-            MEB_METHODS[__callee__],
+            operation: MEB_METHODS[__callee__],
             result_path: MEB_RESULT_PATHS[__callee__],
-            TCKIMLIKNO: id_number, ServicePassWord: service_password
+            TCKIMLIKNO: id_number,
+            ServicePassWord: service_password
           )
         end
 

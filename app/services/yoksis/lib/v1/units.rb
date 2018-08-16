@@ -8,7 +8,7 @@ module Services
 
         def changes_by_date(day, month, year)
           client.request(
-            UNITS_METHODS[__method__],
+            operation: UNITS_METHODS[__method__],
             result_path: UNITS_RESULT_PATHS[__method__],
             GUN: day, AY: month, YIL: year
           )
@@ -16,7 +16,7 @@ module Services
 
         def subunits(unit_id)
           client.request(
-            UNITS_METHODS[__callee__],
+            operation: UNITS_METHODS[__callee__],
             result_path: UNITS_RESULT_PATHS[__callee__],
             BIRIM_ID: unit_id
           )
@@ -24,7 +24,8 @@ module Services
 
         def universities
           client.request(
-            UNITS_METHODS[__method__], result_path: UNITS_RESULT_PATHS[__method__]
+            operation: UNITS_METHODS[__method__],
+            result_path: UNITS_RESULT_PATHS[__method__]
           )
         end
 
