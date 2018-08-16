@@ -54,10 +54,10 @@ jobs:
           name: Installing gems into bundle path
           command: bundle --path vendor/bundle
       - run:
-          name: Running code quality tasks
+          name: Running quality tasks
           command: bundle exec rake code:quality:all
       - run:
-          name: Running code security tasks
+          name: Running security tasks
           command: bundle exec rake code:security:all
 workflows:
   version: 2
