@@ -7,25 +7,29 @@ module Services
         WSDL_URL = 'https://vps.osym.gov.tr/Ext/Provider/BilgiServisi/Sonuc?wsdl'
 
         def initialize(username, password)
-          @client = Support::Client.new(WSDL_URL)
+          @client = Client.new(WSDL_URL)
           @client.basic_auth username, password
           @client.wsse_auth username, password
         end
 
         def groups
-          client.request(:sinav_grup_bilgilerini_getir)
+          client.request(operation: :sinav_grup_bilgilerini_getir)
         end
 
-        def result(tck_no, result_id)
+        def result(id_number, result_id)
           client.request(
-            :sinav_sonuc_xml, adayTcKimlikNo: tck_no, sonucId: result_id
+            operation: :sinav_sonuc_xml,
+            adayTcKimlikNo: id_number,
+            sonucId: result_id
           )
         end
 
-        def results(tck_no, year, group_id)
+        def results(id_number, year, group_id)
           client.request(
-            :sinav_sonuclari_getir,
-            adayTcKimlikNo: tck_no, yil: year, grupId: group_id
+            operation: :sinav_sonuclari_getir,
+            adayTcKimlikNo: id_number,
+            yil: year,
+            grupId: group_id
           )
         end
 
