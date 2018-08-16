@@ -10,6 +10,7 @@ AllCops:
     - config/environments/test.rb
     - config/routes.rb
     - app/services/**/constants.rb
+    - Vagrantfile
 Documentation:
   Enabled: false
 Metrics/LineLength:
