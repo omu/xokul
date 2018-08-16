@@ -7,7 +7,7 @@ Beta")
 [![codebeat badge](https://codebeat.co/badges/bf0292b6-8863-4423-b4c0-64285a3cb33c)](https://codebeat.co/a/htkaslan/projects/github-com-omu-xokul-master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1da70385874743ac8034f89b7a17adff)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=omu/xokul&amp;utm_campaign=Badge_Grade)
 
-Xokul is an API project. It aims to organize our externally services and provide
+Xokul is an API project. It aims to organize our external services and provide
 a maintainable codebase. Also it presents a developer friendly API interface.
 
 Prerequisites
