@@ -2,7 +2,7 @@
 
 module Yoksis
   module Registrations
-    class QueriesByIdNumberSerializer < ActiveModel::Serializer
+    class QueriesByIdNumberSerializer < Serializer
     end
   end
 end

@@ -2,7 +2,7 @@
 
 module Yoksis
   module Registrations
-    class FoundationTuitionsSerializer < ActiveModel::Serializer
+    class FoundationTuitionsSerializer < Serializer
     end
   end
 end

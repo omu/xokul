@@ -2,7 +2,7 @@
 
 module Yoksis
   module Meb
-    class StudentsSerializer < ActiveModel::Serializer
+    class StudentsSerializer < Serializer
       attribute(:id_number)           { object[:tckimlikno].try(:to_i)                   }
       attribute(:first_name)          { object[:adi]                                     }
       attribute(:last_name)           { object[:soyadi]                                  }

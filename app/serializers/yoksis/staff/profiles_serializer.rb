@@ -2,7 +2,7 @@
 
 module Yoksis
   module Staff
-    class ProfilesSerializer < ActiveModel::Serializer
+    class ProfilesSerializer < Serializer
       attribute(:id_number)  { object[:tc_kimlik_no].try(:to_i) }
       attribute(:first_name) { object[:adi]                     }
       attribute(:last_name)  { object[:soyadi]                  }

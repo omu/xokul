@@ -2,7 +2,7 @@
 
 module Yoksis
   module References
-    class BaseSerializer < ActiveModel::Serializer
+    class BaseSerializer < Serializer
       attribute(:code) { object[:kod].try(:to_i) }
       attribute(:name) { object[:ad]             }
     end
