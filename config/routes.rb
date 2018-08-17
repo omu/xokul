@@ -50,5 +50,14 @@ Rails.application.routes.draw do
         get :profiles
       end
     end
+
+    resources(:students) do
+      collection do
+        get :personal_informations
+        get :studentship_informations
+        get :unit_informations
+        get :undergrad_transfer_informations
+      end
+    end
   end
 end
