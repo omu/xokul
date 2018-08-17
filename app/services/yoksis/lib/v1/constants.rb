@@ -48,8 +48,8 @@ module Services
         nationalities:                     :get_mernis_uyruk,
         pages:                             :kullaniciya_gore_universiteki_akademik_personel_sayfa_sayisiv1,
       }.freeze
-      STUDENT_METHODS = {
-        details:                           :tc_kimlik_noile_ogrenci_sorgula_detayv4,
+      STUDENTS_METHODS = {
+        informations:                      :tc_kimlik_noile_ogrenci_sorgula_detayv4,
       }.freeze
       UNITS_METHODS = {
         changes_by_date:                   :tarihten_birim_degisiklik_getirv4,
@@ -110,8 +110,11 @@ module Services
         pages:                            %i[kullaniciya_gore_universiteki_akademik_personel_sayfa_sayisiv1_response
                                              toplam_sayfa_sayisi                                                    ],
       }.freeze
-      STUDENT_RESULT_PATHS = {
-        details:                          %i[tc_kimlik_noile_ogrenci_sorgula_detayv4_response ogrenci_kayitlari],
+      STUDENTS_RESULT_PATHS = {
+        personal_informations:            %i[tc_kimlik_noile_ogrenci_sorgula_detayv4_response ogrenci_kayitlari kisisel_bilgiler    ],
+        studentship_informations:         %i[tc_kimlik_noile_ogrenci_sorgula_detayv4_response ogrenci_kayitlari ogrencilik_bilgileri],
+        unit_informations:                %i[tc_kimlik_noile_ogrenci_sorgula_detayv4_response ogrenci_kayitlari birim               ],
+        undergrad_transfer_informations:  %i[tc_kimlik_noile_ogrenci_sorgula_detayv4_response ogrenci_kayitlari ygecis_birim_id     ],
       }.freeze
       UNITS_RESULT_PATHS = {
         changes_by_date:                  %i[tarihten_birim_degisiklik_getirv4_response birimler],
