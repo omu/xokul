@@ -28,7 +28,6 @@ module Yoksis
     end
 
     def secure_params
-      p params
       params.require(:student).permit(:id_number)
     end
   end
