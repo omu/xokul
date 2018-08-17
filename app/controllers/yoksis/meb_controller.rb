@@ -10,7 +10,7 @@ module Yoksis
     def students
       render(
         serializer: action_serializer,
-        json: @meb.send(action_name, secure_params.require(:id_number))
+        json: @meb.students(secure_params.require(:id_number))
       )
     end
 
