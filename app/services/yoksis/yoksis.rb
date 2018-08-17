@@ -11,7 +11,7 @@ module Services
     require_relative "lib/#{VERSION}/references"
     require_relative "lib/#{VERSION}/registrations"
     require_relative "lib/#{VERSION}/staff"
-    require_relative "lib/#{VERSION}/student"
+    require_relative "lib/#{VERSION}/students"
     require_relative "lib/#{VERSION}/units"
 
     def self.module_path
