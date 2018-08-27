@@ -1,7 +1,11 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
-class Yoksis::ResumesControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+module Yoksis
+  class ResumesControllerTest < ActionDispatch::IntegrationTest
+    # test "the truth" do
+    #   assert true
+    # end
+  end
 end
