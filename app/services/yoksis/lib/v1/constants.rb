@@ -3,7 +3,7 @@
 module Services
   class Yoksis
     module V1
-      GRADUATIONS_METHODS = {
+      GRADUATES_METHODS = {
         students:                          :tc_kimlik_noil_mezun_ogrenci_sorgulav2,
       }.freeze
       MEB_METHODS = {
@@ -42,9 +42,14 @@ module Services
         queries_by_date:                   :belirtilen_gun_online_kayit_olan_ogrencileri_getirv1,
         queries_by_id_number:              :tc_kimlik_no_ile_online_kayit_ogrenci_bilgi_getirv1,
       }.freeze
+      RESUMES_METHODS = {
+        certifications:                    :get_arastirma_sertifka_bilgisi_v1,
+        articles:                          :get_makale_bilgisi_v1,
+        projects:                          :getir_proje_listesi,
+      }.freeze
       STAFF_METHODS = {
-        profiles:                          :kullaniciya_gore_tc_kimlik_nodan_akademik_personel_bilgisiv1,
-        lists:                             :kullaniciya_gore_universitedeki_akademik_personel_bilgisiv1,
+        academicians_by_id_number:         :kullaniciya_gore_tc_kimlik_nodan_akademik_personel_bilgisiv1,
+        academicians_by_page:              :kullaniciya_gore_universitedeki_akademik_personel_bilgisiv1,
         nationalities:                     :get_mernis_uyruk,
         pages:                             :kullaniciya_gore_universiteki_akademik_personel_sayfa_sayisiv1,
       }.freeze
@@ -52,12 +57,12 @@ module Services
         informations:                      :tc_kimlik_noile_ogrenci_sorgula_detayv4,
       }.freeze
       UNITS_METHODS = {
-        changes_by_date:                   :tarihten_birim_degisiklik_getirv4,
-        programs_under_subunit:            :alt_birimdeki_programlari_getirv4,
+        changes:                           :tarihten_birim_degisiklik_getirv4,
+        programs:                          :alt_birimdeki_programlari_getirv4,
         subunits:                          :alt_birimleri_getirv4,
         universities:                      :universiteleri_getirv4,
       }.freeze
-      GRADUATIONS_RESULT_PATHS = {
+      GRADUATES_RESULT_PATHS = {
         students:                         %i[tc_kimlik_noil_mezun_ogrenci_sorgulav2_response
                                              mezun_ogrenci_kayitlari],
       }.freeze
@@ -101,10 +106,15 @@ module Services
         queries_by_date:                  %i[belirtilen_gun_online_kayit_olan_ogrencileri_getirv1_response
                                              universite_online_kayit_olan_ogrenciler                     ],
       }.freeze
+      RESUMES_RESULT_PATHS = {
+        certifications:                   %i[get_arastirma_sertifka_bilgisi_v1_response arastirma_liste],
+        articles:                         %i[get_makale_bilgisi_v1_response makale_liste],
+        projects:                         %i[getir_proje_listesi_response proje_listesi],
+      }.freeze
       STAFF_RESULT_PATHS = {
-        profiles:                         %i[kullaniciya_gore_tc_kimlik_nodan_akademik_personel_bilgisiv1_response
+        academicians_by_id_number:        %i[kullaniciya_gore_tc_kimlik_nodan_akademik_personel_bilgisiv1_response
                                              akademik_personel                                                      ],
-        lists:                            %i[kullaniciya_gore_universitedeki_akademik_personel_bilgisiv1_response
+        academicians_by_page:             %i[kullaniciya_gore_universitedeki_akademik_personel_bilgisiv1_response
                                              akademik_personeller                                                   ],
         nationalities:                    %i[get_mernis_uyruk_response referanslar                                  ],
         pages:                            %i[kullaniciya_gore_universiteki_akademik_personel_sayfa_sayisiv1_response
@@ -117,10 +127,10 @@ module Services
         undergrad_transfer_informations:  %i[tc_kimlik_noile_ogrenci_sorgula_detayv4_response ogrenci_kayitlari ygecis_birim_id     ],
       }.freeze
       UNITS_RESULT_PATHS = {
-        changes_by_date:                  %i[tarihten_birim_degisiklik_getirv4_response birimler],
+        changes:                          %i[tarihten_birim_degisiklik_getirv4_response birimler],
         subunits:                         %i[alt_birimleri_getirv4_response birimler            ],
         universities:                     %i[universiteleri_getirv4_response universiteler      ],
-        programs_under_subunit:           %i[alt_birimdeki_programlari_getirv4_response birimler],
+        programs:                         %i[alt_birimdeki_programlari_getirv4_response birimler],
       }.freeze
     end
   end
