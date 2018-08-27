@@ -7,14 +7,12 @@ module Yoksis
     include ActionsResource
     include YoksisResource
 
-    def lists
-      render(
-        each_serializer: action_serializer,
-        json: @staff.lists(
-          Rails.application.credentials.yoksis[:client_id],
-          lists_params.require(:page)
-        )
-      )
+    def academicians
+      if secure_params[:id_number].present?
+        render_academicians_by_id_number
+      else
+        render_academicians_by_page
+      end
     end
 
     def nationalities
@@ -50,12 +48,28 @@ module Yoksis
       )
     end
 
-    def lists_params
-      params.require(:staff).permit(:page)
+    def secure_params
+      params.require(:staff).permit(:id_number, :page)
     end
 
-    def profiles_params
-      params.require(:staff).permit(:id_number)
+    def render_academicians_by_id_number
+      render(
+        serializer: action_serializer,
+        json: @staff.academicians_by_id_number(
+          Rails.application.credentials.yoksis[:client_id],
+          secure_params[:id_number]
+        )
+      )
+    end
+
+    def render_academicians_by_page
+      render(
+        each_serializer: action_serializer,
+        json: @staff.academicians_by_page(
+          Rails.application.credentials.yoksis[:client_id],
+          secure_params[:page]
+        )
+      )
     end
   end
 end
