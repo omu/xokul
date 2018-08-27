@@ -6,7 +6,7 @@ module Services
       class Units < Base
         WSDL_URL = 'https://servisler.yok.gov.tr/ws/UniversiteBirimlerv4?WSDL'
 
-        def changes_by_date(day, month, year)
+        def changes(day, month, year)
           client.request(
             operation: UNITS_METHODS[__method__],
             result_path: UNITS_RESULT_PATHS[__method__],
@@ -29,7 +29,7 @@ module Services
           )
         end
 
-        alias programs_under_subunit subunits
+        alias programs subunits
 
         protected
 
