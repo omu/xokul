@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Yoksis
-  module Graduations
+  module Graduates
     class StudentsSerializer < Serializer
       attribute(:id_number)              { object[:tckno].try(:to_i) }
       attribute(:first_name)             { object[:adi]              }

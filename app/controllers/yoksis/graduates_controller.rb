@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Yoksis
-  class GraduationsController < ApplicationController
+  class GraduatesController < ApplicationController
     before_action :set_graduations
 
     include ActionsResource
@@ -17,14 +17,14 @@ module Yoksis
     private
 
     def set_graduations
-      @graduations = Services::Yoksis.module_path::Graduations.new(
+      @graduations = Services::Yoksis.module_path::Graduates.new(
         Rails.application.credentials.yoksis[:client_id],
         Rails.application.credentials.yoksis[:client_secret]
       )
     end
 
     def secure_params
-      params.require(:graduation).permit(:id_number)
+      params.require(:graduate).permit(:id_number)
     end
   end
 end
