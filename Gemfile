@@ -7,10 +7,9 @@ ruby '2.5.1'
 
 gem 'active_model_serializers'
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'pg'
+gem 'pg', '~> 0.18.2'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.1'
-gem 'redis'
 gem 'savon'
 
 group :beta, :development, :test do

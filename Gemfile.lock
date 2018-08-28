@@ -116,7 +116,7 @@ GEM
     parallel (1.12.1)
     parser (2.5.1.2)
       ast (~> 2.4.0)
-    pg (1.1.0)
+    pg (0.18.4)
     powerpack (0.1.2)
     pry (0.11.3)
       coderay (~> 1.1.0)
@@ -156,7 +156,6 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-    redis (4.0.2)
     reek (5.0.2)
       codeclimate-engine-rb (~> 0.4.0)
       kwalify (~> 0.7.0)
@@ -220,11 +219,10 @@ DEPENDENCIES
   bundler-audit
   byebug
   listen (>= 3.0.5, < 3.2)
-  pg
+  pg (~> 0.18.2)
   pry-rails
   puma (~> 3.11)
   rails (~> 5.2.1)
-  redis
   reek
   rubocop
   savon
