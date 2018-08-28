@@ -19,6 +19,8 @@ group :beta, :development, :test do
   gem 'pry-rails'
   gem 'reek'
   gem 'rubocop'
+  gem 'webmock'
+  gem 'vcr'
 end
 
 group :development do
