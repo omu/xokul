@@ -21,7 +21,7 @@ Installation
 
 Check out the `INSTALLATION` file under the documentation directory for more detailed instructions.
 
-If you want to try using `Vagrantfile`, you can see [here](https://www.vagrantup.com/intro/index.html).
+If you want to try it using `Vagrantfile`, you can see [here](https://www.vagrantup.com/intro/index.html).
 
 Contributing
 -------------
