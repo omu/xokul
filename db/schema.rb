@@ -15,17 +15,12 @@ ActiveRecord::Schema.define(version: 2018_08_28_065206) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "references_districts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "service_responses", force: :cascade do |t|
-    t.string "name", null: false, comment: "API name"
-    t.string "endpoint", null: false, comment: "API endpoint"
-    t.string "action", null: false, comment: "Endpoint action"
-    t.string "params", null: false, comment: "Request params"
-    t.string "sha1", null: false, comment: "Hash of the response"
+    t.string "name", comment: "API name"
+    t.string "endpoint", comment: "API endpoint"
+    t.string "action", comment: "Endpoint action"
+    t.string "params", comment: "Request params"
+    t.string "sha1", comment: "Hash of the response"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
