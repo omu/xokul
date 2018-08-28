@@ -12,32 +12,27 @@ module Services
             args: {
               SORGULAYAN_TC_KIMLIK_NO: querier,
               AKPER_TC_KIMLIK_NO: queried
-            },
-            result_path: STAFF_RESULT_PATHS[__method__]
-          )
+            }
+          ).read_from_body(STAFF_RESULT_PATHS[__method__])
         end
 
         def academicians_by_page(querier, page = 1)
           client.request(
             operation: STAFF_METHODS[__method__],
-            args: { SAYFA: page, SORGULAYAN_TC_KIMLIK_NO: querier },
-            result_path: STAFF_RESULT_PATHS[__method__]
-          )
+            args: { SAYFA: page, SORGULAYAN_TC_KIMLIK_NO: querier }
+          ).read_from_body(STAFF_RESULT_PATHS[__method__])
         end
 
         def nationalities
-          client.request(
-            operation: STAFF_METHODS[__method__],
-            result_path: STAFF_RESULT_PATHS[__method__]
-          )
+          client.request(operation: STAFF_METHODS[__method__])
+                .read_from_body(STAFF_RESULT_PATHS[__method__])
         end
 
         def pages(querier)
           client.request(
             operation: STAFF_METHODS[__method__],
-            args: { SORGULAYAN_TC_KIMLIK_NO: querier },
-            result_path: STAFF_RESULT_PATHS[__method__]
-          )
+            args: { SORGULAYAN_TC_KIMLIK_NO: querier }
+          ).read_from_body(STAFF_RESULT_PATHS[__method__])
         end
 
         protected

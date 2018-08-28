@@ -8,19 +8,16 @@ module Services
 
         REFERENCES_METHODS.each do |name, operation|
           define_method(name) do
-            client.request(
-              operation: operation,
-              result_path: REFERENCES_RESULT_PATHS[__method__]
-            )
+            client.request(operation: operation)
+                  .read_from_body(REFERENCES_RESULT_PATHS[__method__])
           end
         end
 
         def districts(city_code)
           client.request(
             operation: REFERENCES_METHODS[__method__],
-            args: { ILKODU: city_code },
-            result_path: REFERENCES_RESULT_PATHS[__method__]
-          )
+            args: { ILKODU: city_code }
+          ).read_from_body(REFERENCES_RESULT_PATHS[__method__])
         end
 
         protected

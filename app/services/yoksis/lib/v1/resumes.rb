@@ -15,9 +15,8 @@ module Services
                   P_KULLANICI_ID: username, P_SIFRE: password,
                   P_TC_KIMLIK_NO: id_number
                 }
-              },
-              result_path: RESUMES_RESULT_PATHS[name]
-            )
+              }
+            ).read_from_body(RESUMES_RESULT_PATHS[name])
           end
         end
 

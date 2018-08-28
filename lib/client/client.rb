@@ -11,12 +11,8 @@ class Client
     configure_with_defaults
   end
 
-  # rubocop:disable Metrics/MethodLength
-  def request(operation:, args: {}, result_path:)
-    Response.new(
-      savon.call(operation, message: args.deep_stringify_keys),
-      result_path: result_path
-    ).result
+  def request(operation:, args: {})
+    Response.new(savon.call(operation, message: args.deep_stringify_keys))
   rescue Savon::HTTPError => err
     raise HTTPError, err
   rescue Savon::SOAPFault => err
@@ -26,7 +22,6 @@ class Client
   rescue SocketError => err
     raise TCPError, err
   end
-  # rubocop:enable Metrics/MethodLength
 
   def basic_auth(username, password)
     configure { |config| config.basic_auth [username, password] }
