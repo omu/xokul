@@ -9,27 +9,27 @@ module Services
         def foundation_tuitions(id_number, paid)
           client.request(
             operation: REGISTRATIONS_METHODS[__method__],
-            result_path: REGISTRATIONS_RESULT_PATHS[__method__],
-            TCKN: id_number,
-            OGRENIM_UCRETI_ODENDI_MI: paid
+            args: { TCKN: id_number, OGRENIM_UCRETI_ODENDI_MI: paid },
+            result_path: REGISTRATIONS_RESULT_PATHS[__method__]
           )
         end
 
         def queries_by_date(day, month, year, unit_id)
           client.request(
             operation: REGISTRATIONS_METHODS[__method__],
-            result_path: REGISTRATIONS_RESULT_PATHS[__method__],
-            GUN: day, AY: month, YIL: year,
-            YOKSIS_UNIVERSITE_BIRIM_ID: unit_id
+            args: {
+              GUN: day, AY: month, YIL: year,
+              YOKSIS_UNIVERSITE_BIRIM_ID: unit_id
+            },
+            result_path: REGISTRATIONS_RESULT_PATHS[__method__]
           )
         end
 
         def queries_by_id_number(id_number, unit_id)
           client.request(
             operation: REGISTRATIONS_METHODS[__method__],
-            result_path: REGISTRATIONS_RESULT_PATHS[__method__],
-            TCKN: id_number,
-            YOKSIS_UNIVERSITE_BIRIM_ID: unit_id
+            args: { TCKN: id_number, YOKSIS_UNIVERSITE_BIRIM_ID: unit_id },
+            result_path: REGISTRATIONS_RESULT_PATHS[__method__]
           )
         end
 

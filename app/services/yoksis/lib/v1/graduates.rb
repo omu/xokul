@@ -9,8 +9,8 @@ module Services
         def students(id_number)
           client.request(
             operation: GRADUATES_METHODS[__method__],
-            result_path: GRADUATES_RESULT_PATHS[__method__],
-            TCKNO: id_number
+            args: { TCKNO: id_number },
+            result_path: GRADUATES_RESULT_PATHS[__method__]
           )
         end
 

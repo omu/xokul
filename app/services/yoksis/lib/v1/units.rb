@@ -9,16 +9,16 @@ module Services
         def changes(day, month, year)
           client.request(
             operation: UNITS_METHODS[__method__],
-            result_path: UNITS_RESULT_PATHS[__method__],
-            GUN: day, AY: month, YIL: year
+            args: { GUN: day, AY: month, YIL: year },
+            result_path: UNITS_RESULT_PATHS[__method__]
           )
         end
 
         def subunits(unit_id)
           client.request(
             operation: UNITS_METHODS[__callee__],
-            result_path: UNITS_RESULT_PATHS[__callee__],
-            BIRIM_ID: unit_id
+            args: { BIRIM_ID: unit_id },
+            result_path: UNITS_RESULT_PATHS[__callee__]
           )
         end
 

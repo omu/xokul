@@ -18,8 +18,8 @@ module Services
         def districts(city_code)
           client.request(
             operation: REFERENCES_METHODS[__method__],
-            result_path: REFERENCES_RESULT_PATHS[__method__],
-            ILKODU: city_code
+            args: { ILKODU: city_code },
+            result_path: REFERENCES_RESULT_PATHS[__method__]
           )
         end
 

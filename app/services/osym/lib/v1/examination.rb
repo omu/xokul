@@ -19,17 +19,18 @@ module Services
         def result(id_number, result_id)
           client.request(
             operation: :sinav_sonuc_xml,
-            adayTcKimlikNo: id_number,
-            sonucId: result_id
+            args: { adayTcKimlikNo: id_number, sonucId: result_id }
           )
         end
 
         def results(id_number, year, group_id)
           client.request(
             operation: :sinav_sonuclari_getir,
-            adayTcKimlikNo: id_number,
-            yil: year,
-            grupId: group_id
+            args: {
+              adayTcKimlikNo: id_number,
+              yil: year,
+              grupId: group_id
+            }
           )
         end
 

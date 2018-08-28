@@ -10,12 +10,13 @@ module Services
           define_method(name) do |username, password, id_number|
             client.request(
               operation: operation,
-              result_path: RESUMES_RESULT_PATHS[name],
-              parametre: {
-                P_KULLANICI_ID: username,
-                P_SIFRE: password,
-                P_TC_KIMLIK_NO: id_number
-              }
+              args: {
+                parametre: {
+                  P_KULLANICI_ID: username, P_SIFRE: password,
+                  P_TC_KIMLIK_NO: id_number
+                }
+              },
+              result_path: RESUMES_RESULT_PATHS[name]
             )
           end
         end
