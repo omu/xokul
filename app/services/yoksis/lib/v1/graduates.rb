@@ -10,7 +10,7 @@ module Services
           client.request(
             operation: GRADUATES_METHODS[__method__],
             args: { TCKNO: id_number }
-          ).read_from_body(GRADUATES_RESULT_PATHS[__method__])
+          ).result_by_path(GRADUATES_RESULT_PATHS[__method__])
         end
 
         protected

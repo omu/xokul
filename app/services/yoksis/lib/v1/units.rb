@@ -10,19 +10,19 @@ module Services
           client.request(
             operation: UNITS_METHODS[__method__],
             args: { GUN: day, AY: month, YIL: year }
-          ).read_from_body(UNITS_RESULT_PATHS[__method__])
+          ).result_by_path(UNITS_RESULT_PATHS[__method__])
         end
 
         def subunits(unit_id)
           client.request(
             operation: UNITS_METHODS[__callee__],
             args: { BIRIM_ID: unit_id }
-          ).read_from_body(UNITS_RESULT_PATHS[__method__])
+          ).result_by_path(UNITS_RESULT_PATHS[__method__])
         end
 
         def universities
           client.request(operation: UNITS_METHODS[__method__])
-                .read_from_body(UNITS_RESULT_PATHS[__method__])
+                .result_by_path(UNITS_RESULT_PATHS[__method__])
         end
 
         alias programs subunits

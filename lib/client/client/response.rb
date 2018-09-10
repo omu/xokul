@@ -10,8 +10,7 @@ class Client
       @http = soap_response.http
     end
 
-    # TODO: The method name will change in the future.
-    def read_from_body(path)
+    def result_by_path(path)
       value = to_hash.symbolize_keys.dig(*[path].flatten)
       return value if value.present?
       Rails.logger.error <<~MESSAGE

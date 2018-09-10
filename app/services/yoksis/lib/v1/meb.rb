@@ -10,7 +10,7 @@ module Services
           client.request(
             operation: MEB_METHODS[__callee__],
             args: { TCKIMLIKNO: id_number, ServicePassWord: service_password }
-          ).read_from_body(MEB_RESULT_PATHS[__callee__])
+          ).result_by_path(MEB_RESULT_PATHS[__callee__])
         end
 
         protected

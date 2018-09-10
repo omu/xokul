@@ -16,7 +16,7 @@ module Services
                   P_TC_KIMLIK_NO: id_number
                 }
               }
-            ).read_from_body(RESUMES_RESULT_PATHS[name])
+            ).result_by_path(RESUMES_RESULT_PATHS[name])
           end
         end
 

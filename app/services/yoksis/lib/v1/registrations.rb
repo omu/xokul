@@ -10,7 +10,7 @@ module Services
           client.request(
             operation: REGISTRATIONS_METHODS[__method__],
             args: { TCKN: id_number, OGRENIM_UCRETI_ODENDI_MI: paid }
-          ).read_from_body(REGISTRATIONS_RESULT_PATHS[__method__])
+          ).result_by_path(REGISTRATIONS_RESULT_PATHS[__method__])
         end
 
         def queries_by_date(day, month, year, unit_id)
@@ -20,14 +20,14 @@ module Services
               GUN: day, AY: month, YIL: year,
               YOKSIS_UNIVERSITE_BIRIM_ID: unit_id
             }
-          ).read_from_body(REGISTRATIONS_RESULT_PATHS[__method__])
+          ).result_by_path(REGISTRATIONS_RESULT_PATHS[__method__])
         end
 
         def queries_by_id_number(id_number, unit_id)
           client.request(
             operation: REGISTRATIONS_METHODS[__method__],
             args: { TCKN: id_number, YOKSIS_UNIVERSITE_BIRIM_ID: unit_id }
-          ).read_from_body(REGISTRATIONS_RESULT_PATHS[__method__])
+          ).result_by_path(REGISTRATIONS_RESULT_PATHS[__method__])
         end
 
         protected

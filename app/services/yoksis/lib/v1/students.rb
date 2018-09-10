@@ -10,7 +10,7 @@ module Services
           client.request(
             operation: STUDENTS_METHODS[__method__],
             args: { TC_KIMLIK_NO: id_number }
-          ).read_from_body(STUDENTS_RESULT_PATHS[__callee__])
+          ).result_by_path(STUDENTS_RESULT_PATHS[__callee__])
         end
 
         alias personal_informations informations

@@ -19,7 +19,7 @@ module Yoksis
     def districts
       render(
         each_serializer: action_serializer,
-        json: @references.districts(secure_params.require(:city_code))
+        json: @references.districts(city_code: secure_params.require(:city_code))
       )
     end
 
