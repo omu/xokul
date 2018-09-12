@@ -7,7 +7,7 @@ module Services
 
       def students(id_number:, service_password: nil)
         safe_request(
-          __callee__,
+          __method__,
           args: { TCKIMLIKNO: id_number, ServicePassWord: service_password }
         )
       end
