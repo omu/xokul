@@ -25,7 +25,7 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Tue, 28 Aug 2018 09:17:06 GMT
+      - Wed, 12 Sep 2018 14:17:32 GMT
     body:
       encoding: UTF-8
       string: "<wsdl:definitions name=\"Referanslar\" targetNamespace=\"http://servisler.yok.gov.tr/Referanslar/v1\"
@@ -87,7 +87,19 @@ http_interactions:
         type=\"tns:getAktiflikDurumu\"/>\n          <xsd:element name=\"getAktiflikDurumuResponse\"
         type=\"tns:getAktiflikDurumuResponse\"/>\n          <xsd:element name=\"getKadroGorevUnvan\"
         type=\"tns:getKadroGorevUnvan\"/>\n          <xsd:element name=\"getKadroGorevUnvanResponse\"
-        type=\"tns:getKadroGorevUnvanResponse\"/>\n          <xsd:complexType name=\"getGirisTuru\">\n
+        type=\"tns:getKadroGorevUnvanResponse\"/>\n          <xsd:element name=\"getPersonelAyrilma\"
+        type=\"tns:getPersonelAyrilma\"/>\n          <xsd:element name=\"getPersonelAyrilmaResponse\"
+        type=\"tns:getPersonelAyrilmaResponse\"/>\n          <xsd:element name=\"getYoksisUlke\"
+        type=\"tns:getYoksisUlke\"/>\n          <xsd:element name=\"getYoksisUlkeResponse\"
+        type=\"tns:getYoksisUlkeResponse\"/>\n          <xsd:element name=\"getOzgecmisYabanciDil\"
+        type=\"tns:getOzgecmisYabanciDil\"/>\n          <xsd:element name=\"getOzgecmisYabanciDilResponse\"
+        type=\"tns:getOzgecmisYabanciDilResponse\"/>\n          <xsd:element name=\"getEndeksListesi\"
+        type=\"tns:getEndeksListesi\"/>\n          <xsd:element name=\"getEndeksListesiResponse\"
+        type=\"tns:getEndeksListesiResponse\"/>\n          <xsd:element name=\"getPersonelAtanma\"
+        type=\"tns:getPersonelAtanma\"/>\n          <xsd:element name=\"getPersonelAtanmaResponse\"
+        type=\"tns:getPersonelAtanmaResponse\"/>\n          <xsd:element name=\"getFormasyonAlanlar\"
+        type=\"tns:getFormasyonAlanlar\"/>\n          <xsd:element name=\"getFormasyonAlanlarResponse\"
+        type=\"tns:getFormasyonAlanlarResponse\"/>\n          <xsd:complexType name=\"getGirisTuru\">\n
         \           <xsd:sequence>\n            </xsd:sequence>\n          </xsd:complexType>\n
         \         <xsd:complexType name=\"getGirisTuruResponse\">\n            <xsd:sequence>\n
         \             <xsd:element maxOccurs=\"unbounded\" name=\"REFERANSLAR\" nillable=\"true\"
@@ -246,16 +258,61 @@ http_interactions:
         name=\"getKadroGorevUnvanResponse\">\n            <xsd:sequence>\n              <xsd:element
         maxOccurs=\"unbounded\" name=\"REFERANSLAR\" nillable=\"true\" type=\"tns:Referans\"/>\n
         \             <xsd:element name=\"SONUC\" nillable=\"true\" type=\"tns:Sonuc\"/>\n
-        \           </xsd:sequence>\n          </xsd:complexType>\n        \t</xsd:schema>\n
-        \ </wsdl:types>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenciAyrilmaNedeniResponse\">\n
-        \   <wsdl:part element=\"tns1:getOgrenciAyrilmaNedeniResponse\" name=\"parameters\">\n
-        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenciGirisPuanTuru\">\n
+        \           </xsd:sequence>\n          </xsd:complexType>\n          <xsd:complexType
+        name=\"getPersonelAyrilma\">\n            <xsd:sequence>\n            </xsd:sequence>\n
+        \         </xsd:complexType>\n          <xsd:complexType name=\"getPersonelAyrilmaResponse\">\n
+        \           <xsd:sequence>\n              <xsd:element maxOccurs=\"unbounded\"
+        name=\"REFERANSLAR\" nillable=\"true\" type=\"tns:Referans\"/>\n              <xsd:element
+        name=\"SONUC\" nillable=\"true\" type=\"tns:Sonuc\"/>\n            </xsd:sequence>\n
+        \         </xsd:complexType>\n          <xsd:complexType name=\"getYoksisUlke\">\n
+        \           <xsd:sequence>\n            </xsd:sequence>\n          </xsd:complexType>\n
+        \         <xsd:complexType name=\"getYoksisUlkeResponse\">\n            <xsd:sequence>\n
+        \             <xsd:element maxOccurs=\"unbounded\" name=\"REFERANSLAR\" nillable=\"true\"
+        type=\"tns:ReferansDetay\"/>\n              <xsd:element name=\"SONUC\" nillable=\"true\"
+        type=\"tns:Sonuc\"/>\n            </xsd:sequence>\n          </xsd:complexType>\n
+        \         <xsd:complexType name=\"ReferansDetay\">\n            <xsd:sequence>\n
+        \             <xsd:element name=\"KOD\" nillable=\"true\" type=\"xsd:long\"/>\n
+        \             <xsd:element name=\"AD\" nillable=\"true\" type=\"xsd:string\"/>\n
+        \             <xsd:element name=\"AD_EN\" nillable=\"true\" type=\"xsd:string\"/>\n
+        \           </xsd:sequence>\n          </xsd:complexType>\n          <xsd:complexType
+        name=\"getOzgecmisYabanciDil\">\n            <xsd:sequence>\n            </xsd:sequence>\n
+        \         </xsd:complexType>\n          <xsd:complexType name=\"getOzgecmisYabanciDilResponse\">\n
+        \           <xsd:sequence>\n              <xsd:element maxOccurs=\"unbounded\"
+        name=\"REFERANSLAR\" nillable=\"true\" type=\"tns:ReferansDetay\"/>\n              <xsd:element
+        name=\"SONUC\" nillable=\"true\" type=\"tns:Sonuc\"/>\n            </xsd:sequence>\n
+        \         </xsd:complexType>\n          <xsd:complexType name=\"getEndeksListesi\">\n
+        \           <xsd:sequence>\n            </xsd:sequence>\n          </xsd:complexType>\n
+        \         <xsd:complexType name=\"getEndeksListesiResponse\">\n            <xsd:sequence>\n
+        \             <xsd:element maxOccurs=\"unbounded\" name=\"REFERANSLAR\" nillable=\"true\"
+        type=\"tns:ReferansDetay\"/>\n              <xsd:element name=\"SONUC\" nillable=\"true\"
+        type=\"tns:Sonuc\"/>\n            </xsd:sequence>\n          </xsd:complexType>\n
+        \         <xsd:complexType name=\"getPersonelAtanma\">\n            <xsd:sequence>\n
+        \           </xsd:sequence>\n          </xsd:complexType>\n          <xsd:complexType
+        name=\"getPersonelAtanmaResponse\">\n            <xsd:sequence>\n              <xsd:element
+        maxOccurs=\"unbounded\" name=\"REFERANSLAR\" nillable=\"true\" type=\"tns:Referans\"/>\n
+        \             <xsd:element name=\"SONUC\" nillable=\"true\" type=\"tns:Sonuc\"/>\n
+        \           </xsd:sequence>\n          </xsd:complexType>\n          <xsd:complexType
+        name=\"getFormasyonAlanlar\">\n            <xsd:sequence>\n            </xsd:sequence>\n
+        \         </xsd:complexType>\n          <xsd:complexType name=\"getFormasyonAlanlarResponse\">\n
+        \           <xsd:sequence>\n              <xsd:element maxOccurs=\"unbounded\"
+        name=\"REFERANSLAR\" nillable=\"true\" type=\"tns:Referans\"/>\n              <xsd:element
+        name=\"SONUC\" nillable=\"true\" type=\"tns:Sonuc\"/>\n            </xsd:sequence>\n
+        \         </xsd:complexType>\n        \t</xsd:schema>\n  </wsdl:types>\n  <wsdl:message
+        name=\"Referanslar_PortType_getOgrenciAyrilmaNedeniResponse\">\n    <wsdl:part
+        element=\"tns1:getOgrenciAyrilmaNedeniResponse\" name=\"parameters\">\n    </wsdl:part>\n
+        \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenciGirisPuanTuru\">\n
         \   <wsdl:part element=\"tns1:getOgrenciGirisPuanTuru\" name=\"parameters\">\n
-        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getIlGetirResponse\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getYoksisUlke\">\n
+        \   <wsdl:part element=\"tns1:getYoksisUlke\" name=\"parameters\">\n    </wsdl:part>\n
+        \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getIlGetirResponse\">\n
         \   <wsdl:part element=\"tns1:getIlGetirResponse\" name=\"parameters\">\n
         \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getIlceGetirResponse\">\n
         \   <wsdl:part element=\"tns1:getIlceGetirResponse\" name=\"parameters\">\n
-        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenciSinif\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getFormasyonAlanlar\">\n
+        \   <wsdl:part element=\"tns1:getFormasyonAlanlar\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getEndeksListesi\">\n
+        \   <wsdl:part element=\"tns1:getEndeksListesi\" name=\"parameters\">\n    </wsdl:part>\n
+        \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenciSinif\">\n
         \   <wsdl:part element=\"tns1:getOgrenciSinif\" name=\"parameters\">\n    </wsdl:part>\n
         \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getMernisUyrukResponse\">\n
         \   <wsdl:part element=\"tns1:getMernisUyrukResponse\" name=\"parameters\">\n
@@ -273,6 +330,8 @@ http_interactions:
         \   <wsdl:part element=\"tns1:getPersonelGorevResponse\" name=\"parameters\">\n
         \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenciGaziSehitYakini\">\n
         \   <wsdl:part element=\"tns1:getOgrenciGaziSehitYakini\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getPersonelAtanmaResponse\">\n
+        \   <wsdl:part element=\"tns1:getPersonelAtanmaResponse\" name=\"parameters\">\n
         \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getGirisTuruResponse\">\n
         \   <wsdl:part element=\"tns1:getGirisTuruResponse\" name=\"parameters\">\n
         \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getIlGetir\">\n
@@ -291,13 +350,17 @@ http_interactions:
         \   <wsdl:part element=\"tns1:getUniversiteTuru\" name=\"parameters\">\n    </wsdl:part>\n
         \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenciDiplomaNotSistemi\">\n
         \   <wsdl:part element=\"tns1:getOgrenciDiplomaNotSistemi\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getFormasyonAlanlarResponse\">\n
+        \   <wsdl:part element=\"tns1:getFormasyonAlanlarResponse\" name=\"parameters\">\n
         \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getIlceGetir\">\n
         \   <wsdl:part element=\"tns1:getIlceGetir\" name=\"parameters\">\n    </wsdl:part>\n
         \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenciGirisPuanTuruResponse\">\n
         \   <wsdl:part element=\"tns1:getOgrenciGirisPuanTuruResponse\" name=\"parameters\">\n
         \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getKodBidResponse\">\n
         \   <wsdl:part element=\"tns1:getKodBidResponse\" name=\"parameters\">\n    </wsdl:part>\n
-        \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenimDili\">\n
+        \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getPersonelAyrilmaResponse\">\n
+        \   <wsdl:part element=\"tns1:getPersonelAyrilmaResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenimDili\">\n
         \   <wsdl:part element=\"tns1:getOgrenimDili\" name=\"parameters\">\n    </wsdl:part>\n
         \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getBirimTuru\">\n
         \   <wsdl:part element=\"tns1:getBirimTuru\" name=\"parameters\">\n    </wsdl:part>\n
@@ -311,14 +374,22 @@ http_interactions:
         \   <wsdl:part element=\"tns1:getMernisCinsiyetResponse\" name=\"parameters\">\n
         \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenciGirisTuruResponse\">\n
         \   <wsdl:part element=\"tns1:getOgrenciGirisTuruResponse\" name=\"parameters\">\n
-        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrencilikStatusu\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getPersonelAtanma\">\n
+        \   <wsdl:part element=\"tns1:getPersonelAtanma\" name=\"parameters\">\n    </wsdl:part>\n
+        \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrencilikStatusu\">\n
         \   <wsdl:part element=\"tns1:getOgrencilikStatusu\" name=\"parameters\">\n
         \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getIdariBirimlerResponse\">\n
         \   <wsdl:part element=\"tns1:getIdariBirimlerResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOzgecmisYabanciDil\">\n
+        \   <wsdl:part element=\"tns1:getOzgecmisYabanciDil\" name=\"parameters\">\n
         \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenciEngelTuruResponse\">\n
         \   <wsdl:part element=\"tns1:getOgrenciEngelTuruResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getPersonelAyrilma\">\n
+        \   <wsdl:part element=\"tns1:getPersonelAyrilma\" name=\"parameters\">\n
         \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenciGaziSehitYakiniResponse\">\n
         \   <wsdl:part element=\"tns1:getOgrenciGaziSehitYakiniResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOzgecmisYabanciDilResponse\">\n
+        \   <wsdl:part element=\"tns1:getOzgecmisYabanciDilResponse\" name=\"parameters\">\n
         \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getKadroGorevUnvan\">\n
         \   <wsdl:part element=\"tns1:getKadroGorevUnvan\" name=\"parameters\">\n
         \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenciOgrencilikHakkiResponse\">\n
@@ -329,6 +400,10 @@ http_interactions:
         \   <wsdl:part element=\"tns1:getAktiflikDurumuResponse\" name=\"parameters\">\n
         \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenimDiliResponse\">\n
         \   <wsdl:part element=\"tns1:getOgrenimDiliResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getYoksisUlkeResponse\">\n
+        \   <wsdl:part element=\"tns1:getYoksisUlkeResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getEndeksListesiResponse\">\n
+        \   <wsdl:part element=\"tns1:getEndeksListesiResponse\" name=\"parameters\">\n
         \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getMernisUlke\">\n
         \   <wsdl:part element=\"tns1:getMernisUlke\" name=\"parameters\">\n    </wsdl:part>\n
         \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenciAyrilmaNedeni\">\n
@@ -363,6 +438,9 @@ http_interactions:
         \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getCezaTuru\">\n
         \     <wsdl:input message=\"tns1:Referanslar_PortType_getCezaTuru\">\n    </wsdl:input>\n
         \     <wsdl:output message=\"tns1:Referanslar_PortType_getCezaTuruResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getPersonelAyrilma\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getPersonelAyrilma\">\n
+        \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getPersonelAyrilmaResponse\">\n
         \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getOgrenciDOYKM\">\n
         \     <wsdl:input message=\"tns1:Referanslar_PortType_getOgrenciDOYKM\">\n
         \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getOgrenciDOYKMResponse\">\n
@@ -384,24 +462,39 @@ http_interactions:
         \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getKadroGorevUnvan\">\n
         \     <wsdl:input message=\"tns1:Referanslar_PortType_getKadroGorevUnvan\">\n
         \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getKadroGorevUnvanResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getEndeksListesi\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getEndeksListesi\">\n
+        \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getEndeksListesiResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getOzgecmisYabanciDil\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getOzgecmisYabanciDil\">\n
+        \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getOzgecmisYabanciDilResponse\">\n
         \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getOgrenciAyrilmaNedeni\">\n
         \     <wsdl:input message=\"tns1:Referanslar_PortType_getOgrenciAyrilmaNedeni\">\n
         \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getOgrenciAyrilmaNedeniResponse\">\n
         \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getUniversiteTuru\">\n
         \     <wsdl:input message=\"tns1:Referanslar_PortType_getUniversiteTuru\">\n
         \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getUniversiteTuruResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getFormasyonAlanlar\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getFormasyonAlanlar\">\n
+        \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getFormasyonAlanlarResponse\">\n
         \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getGirisTuru\">\n
         \     <wsdl:input message=\"tns1:Referanslar_PortType_getGirisTuru\">\n    </wsdl:input>\n
         \     <wsdl:output message=\"tns1:Referanslar_PortType_getGirisTuruResponse\">\n
         \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getOgrenciGirisTuru\">\n
         \     <wsdl:input message=\"tns1:Referanslar_PortType_getOgrenciGirisTuru\">\n
         \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getOgrenciGirisTuruResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getYoksisUlke\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getYoksisUlke\">\n    </wsdl:input>\n
+        \     <wsdl:output message=\"tns1:Referanslar_PortType_getYoksisUlkeResponse\">\n
         \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getBirimTuru\">\n
         \     <wsdl:input message=\"tns1:Referanslar_PortType_getBirimTuru\">\n    </wsdl:input>\n
         \     <wsdl:output message=\"tns1:Referanslar_PortType_getBirimTuruResponse\">\n
         \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getOgrenciOgrencilikHakki\">\n
         \     <wsdl:input message=\"tns1:Referanslar_PortType_getOgrenciOgrencilikHakki\">\n
         \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getOgrenciOgrencilikHakkiResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getPersonelAtanma\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getPersonelAtanma\">\n
+        \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getPersonelAtanmaResponse\">\n
         \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getIlceGetir\">\n
         \     <wsdl:input message=\"tns1:Referanslar_PortType_getIlceGetir\">\n    </wsdl:input>\n
         \     <wsdl:output message=\"tns1:Referanslar_PortType_getIlceGetirResponse\">\n
@@ -448,6 +541,10 @@ http_interactions:
         style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
         use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
         parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getPersonelAyrilma\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getPersonelAyrilma\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
         \   <wsdl:operation name=\"getOgrenciDOYKM\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getOgrenciDOYKM\"
         style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
         use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
@@ -478,12 +575,24 @@ http_interactions:
         style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
         use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
         parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
-        \   <wsdl:operation name=\"getOgrenciAyrilmaNedeni\">\n      <soap:operation
-        soapAction=\"WSDLs_Referans_Referanslar_Binder_getOgrenciAyrilmaNedeni\" style=\"document\"/>\n
+        \   <wsdl:operation name=\"getEndeksListesi\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getEndeksListesi\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getOzgecmisYabanciDil\">\n      <soap:operation
+        soapAction=\"WSDLs_Referans_Referanslar_Binder_getOzgecmisYabanciDil\" style=\"document\"/>\n
         \     <wsdl:input>\n        <soap:body parts=\"parameters\" use=\"literal\"/>\n
         \     </wsdl:input>\n      <wsdl:output>\n        <soap:body parts=\"parameters\"
         use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation
-        name=\"getUniversiteTuru\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getUniversiteTuru\"
+        name=\"getOgrenciAyrilmaNedeni\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getOgrenciAyrilmaNedeni\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getUniversiteTuru\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getUniversiteTuru\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getFormasyonAlanlar\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getFormasyonAlanlar\"
         style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
         use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
         parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
@@ -495,12 +604,20 @@ http_interactions:
         style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
         use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
         parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getYoksisUlke\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getYoksisUlke\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
         \   <wsdl:operation name=\"getBirimTuru\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getBirimTuru\"
         style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
         use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
         parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
         \   <wsdl:operation name=\"getOgrenciOgrencilikHakki\">\n      <soap:operation
         soapAction=\"WSDLs_Referans_Referanslar_Binder_getOgrenciOgrencilikHakki\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getPersonelAtanma\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getPersonelAtanma\"
         style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
         use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
         parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
@@ -547,5 +664,47 @@ http_interactions:
         \     <soap:address location=\"http://servisler.yok.gov.tr/ws/Referanslarv1\"/>\n
         \   </wsdl:port>\n  </wsdl:service>\n</wsdl:definitions>"
     http_version: 
-  recorded_at: Tue, 28 Aug 2018 09:17:06 GMT
+  recorded_at: Wed, 12 Sep 2018 14:17:32 GMT
+- request:
+    method: post
+    uri: http://servisler.yok.gov.tr/ws/Referanslarv1
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns1="http://servisler.yok.gov.tr/Referanslar/v1"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><tns1:getPersonelGorev></tns1:getPersonelGorev></env:Body></env:Envelope>
+    headers:
+      Soapaction:
+      - '"WSDLs_Referans_Referanslar_Binder_getPersonelGorev"'
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Length:
+      - '344'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Set-Cookie:
+      - ssnid=37492d2004f9100d8edefffffd458973; Path=/ws; HttpOnly; Domain=servisler.yok.gov.tr
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Length:
+      - '4120'
+      Date:
+      - Wed, 12 Sep 2018 14:17:31 GMT
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz48c29hcGVudjpFbnZlbG9wZSB4bWxuczpzb2FwZW52PSJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy9zb2FwL2VudmVsb3BlLyI+PHNvYXBlbnY6Qm9keT48c2VyLXJvb3Q6Z2V0UGVyc29uZWxHb3JldlJlc3BvbnNlIHhtbG5zOnNlci1yb290PSJodHRwOi8vc2VydmlzbGVyLnlvay5nb3YudHIvUmVmZXJhbnNsYXIvdjEiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiPjxSRUZFUkFOU0xBUj48S09EPjE8L0tPRD48QUQ+QW5hYmlsaW0gRGFsxLEgQmHFn2thbsSxPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjU0PC9LT0Q+PEFEPkFuYXNhbmF0IERhbMSxIEJhxZ9rYW7EsTwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD4yOTwvS09EPjxBRD5BcsWfLiBVeWcuIE1lcmtlemkgTcO8ZMO8ciBZYXJkxLFtY8Sxc8SxPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjExPC9LT0Q+PEFEPkFyxZ8uIFV5Zy4gTWVya2V6aSBNw7xkw7xyw7w8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+MTA8L0tPRD48QUQ+QmHFn2hla2ltPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk8L0tPRD48QUQ+QmHFn2hla2ltIFlhcmTEsW1jxLFzxLE8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+MjM8L0tPRD48QUQ+QmVrIEJhxZ9rYW7EsTwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD4zNDwvS09EPjxBRD5CaWxpbSBEYWzEsSBCYcWfa2FuxLE8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+Mzc8L0tPRD48QUQ+QmlsaW1zZWwgQXJhxZ90xLFybWFsYXIgUHJvamVsZXJpIEtvb3JkaW5hc3lvbiBCaXJpbWkgS29vcmRpbmF0w7Zyw7w8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+Mzg8L0tPRD48QUQ+Qm9sb2duYSBLb29yZGluYXTDtnLDvDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD4yMTwvS09EPjxBRD5Cw7Zsw7xtIEJhxZ9rYW4gWWFyZMSxbWPEsXPEsTwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD4yPC9LT0Q+PEFEPkLDtmzDvG0gQsWfay48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+NDg8L0tPRD48QUQ+RGFpcmUgQmHFn2thbsSxPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjEzPC9LT0Q+PEFEPkRla2FuPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjEyPC9LT0Q+PEFEPkRla2FuIFlhcmTEsW1jxLFzxLE8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+NTI8L0tPRD48QUQ+RGnEn2VyPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjQ1PC9LT0Q+PEFEPkRpcGxvbWEgVGV5aWRpIFNvcnVtbHVzdTwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD4zMzwvS09EPjxBRD5FxJ9pdGltIEtvb3JkaW5hdMO2csO8PC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjU3PC9LT0Q+PEFEPkVuZ2VsbGkgQmlyaW0gU29ydW1sdXN1PC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjM8L0tPRD48QUQ+RW5zdGl0w7wgTcO8ZMO8ciBZYXJkxLFtY8Sxc8SxPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjY8L0tPRD48QUQ+RW5zdGl0w7wgTcO8ZMO8csO8PC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjQxPC9LT0Q+PEFEPkVuc3RpdMO8IFnDtm5ldGltIEt1cnVsdSDDvHllbGnEn2k8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+MzU8L0tPRD48QUQ+RXJhc211cyBLb29yZGluYXTDtnLDvCA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+NTM8L0tPRD48QUQ+RmFrw7xsdGUgS3VydWx1IMOceWVsacSfaTwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD4yMDwvS09EPjxBRD5GYWvDvGx0ZSBTZWtyZXRlcmk8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+NDA8L0tPRD48QUQ+RmFrw7xsdGUgWcO2bmV0aW0gS3VydWx1IMOceWVsacSfaTwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD4zMDwvS09EPjxBRD5GYXJhYmkgS29vcmRpbmF0w7Zyw7w8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+MjI8L0tPRD48QUQ+R2VuZWwgU2VrcmV0ZXI8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+Mjg8L0tPRD48QUQ+R2VuZWwgU2VrcmV0ZXIgWWFyZMSxbWPEsXPEsTwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD41NjwvS09EPjxBRD5LYWxpdGUgS3VydWx1IMOceWVsacSfaTwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD4zOTwvS09EPjxBRD5Lb21pc3lvbiBCYcWfa2FubMSxxJ/EsTwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD40MjwvS09EPjxBRD5Lb21pc3lvbiDDnHllbGnEn2k8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+NTwvS09EPjxBRD5Lb25zZXJ2YXR1dmFyIE3DvGTDvHIgWWFyZMSxbWPEsXPEsTwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44PC9LT0Q+PEFEPktvbnNlcnZhdHV2YXIgTcO8ZMO8csO8PC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjM2PC9LT0Q+PEFEPk1ldmxhbmEgRGXEn2nFn2ltIFByb2dyYW3EsSBLdXJ1bSBLb29yZGluYXTDtnLDvCA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+NDwvS09EPjxBRD5NWU8vWcO8a3Nla29rdWwgTcO8ZMO8ciBZYXJkxLFtY8Sxc8SxPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjc8L0tPRD48QUQ+TVlPL1nDvGtzZWtva3VsIE3DvGTDvHLDvDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD40NjwvS09EPjxBRD7DlllQIEtvb3JkaW5hdMO2csO8PC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjQ3PC9LT0Q+PEFEPsOWWVAgU29ydW1sdXN1PC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjI0PC9LT0Q+PEFEPlByb2dyYW0gQmHFn2thbsSxPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjE1PC9LT0Q+PEFEPlJla3TDtnI8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+NDQ8L0tPRD48QUQ+UmVrdMO2ciBEYW7EscWfbWFuxLE8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+MTQ8L0tPRD48QUQ+UmVrdMO2ciBZYXJkxLFtY8Sxc8SxPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjU1PC9LT0Q+PEFEPlVoZGU8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+NDk8L0tPRD48QUQ+VXptYW48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+NTE8L0tPRD48QUQ+VXptYW4gWWFyZMSxbWPEsXPEsTwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD4zMjwvS09EPjxBRD5ZYWJhbmPEsSBEaWxsZXIgQmlyaW0gS29vcmRpbmF0w7Zyw7w8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+MTk8L0tPRD48QUQ+WcOWSyBCYcWfa2FuxLE8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+MTc8L0tPRD48QUQ+WcOWSyBEZW5ldGxlbWUgS3VydWx1IEJhxZ9rYW7EsTwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD4xNjwvS09EPjxBRD5Zw5ZLIERlbmV0bGVtZSBLdXJ1bHUgw5x5ZXNpPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjE4PC9LT0Q+PEFEPlnDlksgw5x5ZXNpPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjQzPC9LT0Q+PEFEPlnDtm5ldGltIEt1cnVsdSDDnHllbGnEn2k8L0FEPjwvUkVGRVJBTlNMQVI+PFNPTlVDPjxEdXJ1bUFjaWtsYW1hPkJhxZ9hcsSxbMSxPC9EdXJ1bUFjaWtsYW1hPjwvU09OVUM+PC9zZXItcm9vdDpnZXRQZXJzb25lbEdvcmV2UmVzcG9uc2U+PC9zb2FwZW52OkJvZHk+PC9zb2FwZW52OkVudmVsb3BlPg==
+    http_version: 
+  recorded_at: Wed, 12 Sep 2018 14:17:32 GMT
 recorded_with: VCR 4.0.0
