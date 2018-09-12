@@ -25,10 +25,6 @@ class Client
       'savon_http_error'
     end
 
-    def detailed
-      Rack::Utils::HTTP_STATUS_CODES[code]
-    end
-
     private
 
     def http_object
@@ -46,13 +42,7 @@ class Client
     end
 
     def to_s
-      fault_object[:faultstring]
-    end
-
-    private
-
-    def fault_object
-      object.to_hash[:fault]
+      'Server was unable to process soap request'
     end
   end
 
@@ -66,7 +56,7 @@ class Client
     end
 
     def to_s
-      'Failed to connect to the external service'
+      'There was a problem connecting to the server'
     end
   end
 
@@ -84,17 +74,17 @@ class Client
     end
   end
 
-  class ResponseError < Error
+  class InvalidResponseError < Error
     def code
       500
     end
 
     def identifier
-      'savon_result_error'
+      'savon_invalid_response'
     end
 
     def to_s
-      'invalid response or result path'
+      'Server has sent an invalid response'
     end
   end
 end

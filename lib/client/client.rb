@@ -6,8 +6,8 @@ require_relative 'client/response'
 class Client
   attr_reader :savon
 
-  def initialize(document_url)
-    @savon = Savon.client(wsdl: document_url)
+  def initialize(wsdl_url)
+    @savon = Savon.client(wsdl: wsdl_url)
     configure_with_defaults
   end
 
@@ -29,6 +29,14 @@ class Client
 
   def wsse_auth(username, password)
     configure { |config| config.wsse_auth [username, password] }
+  end
+
+  def add_soap_header(key, value)
+    configure { |config| config.soap_header.deep_merge!("#{key}": value) }
+  end
+
+  def add_namespace(key, value)
+    configure { |config| config.namespaces.deep_merge!("#{key}": value) }
   end
 
   def configure
