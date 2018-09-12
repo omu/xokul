@@ -8,8 +8,8 @@ module Yoksis
       attribute(:subject)                { object[:proje_konusu]                       }
       attribute(:status_id)              { object[:proje_durumu_id].try(:to_i)         }
       attribute(:status_text)            { object[:proje_durumu_ad]                    }
-      attribute(:started_at)             { build_date(*object[:bas_tar].split('.').reverse.collect(&:to_i)) }
-      attribute(:ended_at)               { build_date(*object[:bit_tar].split('.').reverse.collect(&:to_i)) }
+      attribute(:started_at)             { build_date(*(date = object[:bas_tar]).nil? ? date : date.split('.').reverse.collect(&:to_i)) }
+      attribute(:ended_at)               { build_date(*(date = object[:bit_tar]).nil? ? date : date.split('.').reverse.collect(&:to_i)) }
       attribute(:updated_at)             { Time.zone.parse(object[:guncelleme_tarihi]) }
       attribute(:budget)                 { object[:butce].try(:to_i)                   }
       attribute(:konumu_id)              { object[:proje_konumu_id].try(:to_i)         } # TODO

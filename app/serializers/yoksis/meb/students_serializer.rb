@@ -22,7 +22,7 @@ module Yoksis
       attribute(:grad_status)         { object[:mezundurumu]                             }
       attribute(:graduation_date)     { object[:mezuniyettarih]                          }
       attribute(:grading_system)      { object[:notsistemi].try(:to_i)                   }
-      attribute(:diploma_grade)       { object[:diplomanotupuani].tr(',', '.').to_f      }
+      attribute(:diploma_grade)       { (point = object[:diplomanotupuani]).nil? ? point : point.tr(',', '.').to_f }
     end
   end
 end
