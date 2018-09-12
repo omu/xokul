@@ -8,37 +8,26 @@ module Yoksis
     include YoksisResource
 
     def changes
-      render(
-        serializer: action_serializer,
-        json: @units.changes(*changes_params.require(%i[day month year]))
-      )
+      day, month, year = *changes_params.require(%i[day month year])
+      render_as_json @units.changes(day: day, month: month, year: year)
     end
 
     def subunits
-      render(
-        serializer: action_serializer,
-        json: @units.subunits(unit_params.require(:unit_id))
-      )
+      render_as_json @units.subunits(unit_id: unit_params.require(:unit_id))
     end
 
     def programs
-      render(
-        serializer: action_serializer,
-        json: @units.programs(unit_params.require(:unit_id))
-      )
+      render_as_json @units.programs(unit_id: unit_params.require(:unit_id))
     end
 
     def universities
-      render(
-        each_serializer: action_serializer,
-        json: @units.universities
-      )
+      render_as_json @units.universities
     end
 
     private
 
     def set_units
-      @units = Services::Yoksis.module_path::Units.new
+      @units = Services::Yoksis::Units.new
     end
 
     def changes_params

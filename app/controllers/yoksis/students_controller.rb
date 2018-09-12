@@ -7,21 +7,14 @@ module Yoksis
     include ActionsResource
     include YoksisResource
 
-    def personal_informations
-      render(
-        serializer: action_serializer,
-        json: @students.send(action_name, secure_params.require(:id_number))
-      )
+    def informations
+      render_as_json @students.send(action_name, id_number: secure_params.require(:id_number))
     end
-
-    alias studentship_informations personal_informations
-    alias undergrad_transfer_informations personal_informations
-    alias unit_informations personal_informations
 
     private
 
     def set_students
-      @students = Services::Yoksis.module_path::Students.new(
+      @students = Services::Yoksis::Students.new(
         Rails.application.credentials.yoksis[:client_id],
         Rails.application.credentials.yoksis[:client_secret]
       )

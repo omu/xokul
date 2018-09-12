@@ -8,20 +8,17 @@ module Yoksis
     include YoksisResource
 
     def students
-      render(
-        serializer: action_serializer,
-        json: @meb.students(secure_params.require(:id_number))
-      )
+      render_as_json @meb.students(id_number: secure_params.require(:id_number))
     end
 
     private
 
     def set_meb
-      @meb = Services::Yoksis.module_path::MEB.new
+      @meb = Services::Yoksis::MEB.new
     end
 
     def secure_params
-      params.require(:meb).permit(:id_number, :service_password)
+      params.require(:meb).permit(:id_number)
     end
   end
 end

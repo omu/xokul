@@ -8,16 +8,13 @@ module Yoksis
     include YoksisResource
 
     def students
-      render(
-        serializer: action_serializer,
-        json: @graduations.students(secure_params.require(:id_number))
-      )
+      render_as_json @graduations.students(id_number: secure_params.require(:id_number))
     end
 
     private
 
     def set_graduations
-      @graduations = Services::Yoksis.module_path::Graduates.new(
+      @graduations = Services::Yoksis::Graduates.new(
         Rails.application.credentials.yoksis[:client_id],
         Rails.application.credentials.yoksis[:client_secret]
       )
