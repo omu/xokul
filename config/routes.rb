@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :osym do
+    resources(:examination) { collection { get :groups } }
+  end
+  
   namespace :yoksis do
     resources(:graduates) { collection { get :informations } }
     resources(:meb)       { collection { get :students     } }
