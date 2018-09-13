@@ -11,6 +11,7 @@ module Yoksis
       )
     end
 
+    # rubocop:disable Metrics/BlockLength
     test 'Check presence of required keys in students response' do
       VCR.use_cassette('yoksis/graduates/students') do
         required_keys = %i[
@@ -43,5 +44,6 @@ module Yoksis
         test_data2.each { |data| assert data.keys == required_keys }
       end
     end
+    # rubocop:enable Metrics/BlockLength
   end
 end
