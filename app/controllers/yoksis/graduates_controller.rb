@@ -7,8 +7,8 @@ module Yoksis
     include ActionsResource
     include YoksisResource
 
-    def students
-      render_as_json @graduations.students(id_number: secure_params.require(:id_number))
+    def informations
+      render_as_json @graduations.informations(id_number: secure_params.require(:id_number))
     end
 
     private
