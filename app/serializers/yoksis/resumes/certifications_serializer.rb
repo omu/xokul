@@ -31,7 +31,7 @@ module Yoksis
 
       attribute :ended_at  do
         next unless object[:bittar]
-        build_date(*object[:bittar].split('.').reverse.collect(&:to_i))
+        build_date(*object[:bittar].split('.').reverse.collect(&:safe_to_i))
       end
     end
   end
