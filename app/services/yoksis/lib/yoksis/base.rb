@@ -3,17 +3,17 @@
 module Services
   module Yoksis
     class Base
-      def initialize(*args)
-        @client = Client.new(self.class::WSDL_URL)
-        client.basic_auth(*args) unless args.empty?
+      def initialize(**options)
+        @client = Client.new(self.class::WSDL_URL, savon_options: options)
         after_initialize
       end
 
-      def safe_request(method_name, **args)
-        vars = self.class::METHOD_VARIABLES[method_name]
-        resp = client.request(operation: vars[:soap_operation], **args)
-        raise Client::InvalidResponseError if resp.error?(*vars[:status_path])
-        resp.safe_dig(*vars[:data_path])
+      def safe_request(method, args: {})
+        variables = self.class::METHOD_VARIABLES[method]
+        response = client.request(variables[:operation], args: args)
+        response.status_body = variables[:status_body]
+        raise Client::InvalidResponseError unless response.successful?
+        response.body.dig(*variables[:special_body])
       end
 
       protected
