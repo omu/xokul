@@ -6,12 +6,12 @@ require_relative 'client/response'
 class Client
   attr_reader :savon
 
-  def initialize(wsdl_url)
-    @savon = Savon.client(wsdl: wsdl_url)
+  def initialize(wsdl_url, savon_options: {})
+    @savon = Savon.client(wsdl: wsdl_url, **savon_options)
     configure_with_defaults
   end
 
-  def request(operation:, args: {})
+  def request(operation, args: {})
     Response.new(savon.call(operation, message: args.deep_stringify_keys))
   rescue Savon::HTTPError => err
     raise HTTPError, err
@@ -21,14 +21,6 @@ class Client
     raise UnknownOperationError, err
   rescue SocketError => err
     raise TCPError, err
-  end
-
-  def basic_auth(username, password)
-    configure { |config| config.basic_auth [username, password] }
-  end
-
-  def wsse_auth(username, password)
-    configure { |config| config.wsse_auth [username, password] }
   end
 
   def add_soap_header(key, value)
