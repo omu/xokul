@@ -8,7 +8,7 @@ module Yoksis
     include YoksisResource
 
     def certifications
-      render_as_json [@resumes.send(action_name, @username, @password, secure_params.require(:id_number))].flatten
+      render_as_json @resumes.send(action_name, @username, @password, secure_params.require(:id_number))
     end
 
     alias projects certifications
@@ -22,7 +22,7 @@ module Yoksis
     end
 
     def set_resumes
-      @resumes = Services::Yoksis::Resumes.new(@username, @password)
+      @resumes = Services::Yoksis::Resumes.new(basic_auth: [@username, @password])
     end
 
     def secure_params

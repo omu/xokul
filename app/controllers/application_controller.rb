@@ -24,11 +24,11 @@ class ApplicationController < ActionController::API
   end
 
   def render_as_json(data)
-    if data.empty?
-      render json: '', status: :no_content
-    else
+    if data
       serializer_type = data.is_a?(Array) ? :each_serializer : :serializer
       render json: data, "#{serializer_type}": action_serializer
+    else
+      render json: data, status: :no_content
     end
   end
 end

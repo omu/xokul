@@ -15,8 +15,10 @@ module Yoksis
 
     def set_graduations
       @graduations = Services::Yoksis::Graduates.new(
-        Rails.application.credentials.yoksis[:client_id],
-        Rails.application.credentials.yoksis[:client_secret]
+        basic_auth: [
+          Rails.application.credentials.yoksis[:client_id],
+          Rails.application.credentials.yoksis[:client_secret]
+        ]
       )
     end
 

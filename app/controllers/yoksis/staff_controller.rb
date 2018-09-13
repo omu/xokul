@@ -27,7 +27,7 @@ module Yoksis
     end
 
     def set_staff
-      @staff = Services::Yoksis::Staff.new(@client_id, @client_secret)
+      @staff = Services::Yoksis::Staff.new(basic_auth: [@client_id, @client_secret])
     end
 
     def secure_params
