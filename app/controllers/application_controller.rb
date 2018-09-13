@@ -11,22 +11,26 @@ class ApplicationController < ActionController::API
   rescue_from Client::InvalidResponseError,       with: :services_error
 
   def bad_request(exception)
-    render json: { identifier: 'api_bad_request', message: exception },
+    render json: { status: 400, error: exception },
            status: :bad_request
   end
 
   def not_found(exception)
-    render json: { identifier: 'api_not_found', message: exception },
+    render json: { status: 404, error: exception },
            status: :not_found
   end
 
   def services_error(exception)
-    render json: { identifier: exception.identifier, message: exception },
+    render json: { status: exception.code, error: exception },
            status: exception.code
   end
 
-  def render_as_json(json)
-    serializer_type = json.is_a?(Array) ? :each_serializer : :serializer
-    render json: json, "#{serializer_type}": action_serializer
+  def render_as_json(data)
+    if data.empty?
+      render json: '', status: :no_content
+    else
+      serializer_type = data.is_a?(Array) ? :each_serializer : :serializer
+      render json: data, "#{serializer_type}": action_serializer
+    end
   end
 end

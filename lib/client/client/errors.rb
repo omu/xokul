@@ -21,10 +21,6 @@ class Client
       http_object.code
     end
 
-    def identifier
-      'savon_http_error'
-    end
-
     private
 
     def http_object
@@ -37,10 +33,6 @@ class Client
       500
     end
 
-    def identifier
-      'savon_soap_error'
-    end
-
     def to_s
       'Server was unable to process soap request'
     end
@@ -51,22 +43,14 @@ class Client
       500
     end
 
-    def identifier
-      'savon_tcp_error'
-    end
-
     def to_s
-      'There was a problem connecting to the server'
+      'There was a problem connecting to external server'
     end
   end
 
   class UnknownOperationError < Error
     def code
       500
-    end
-
-    def identifier
-      'savon_unknown_operation_error'
     end
 
     def to_s
@@ -77,10 +61,6 @@ class Client
   class InvalidResponseError < Error
     def code
       500
-    end
-
-    def identifier
-      'savon_invalid_response'
     end
 
     def to_s
