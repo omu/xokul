@@ -12,8 +12,8 @@ module Yoksis
     end
 
     # rubocop:disable Metrics/BlockLength
-    test 'Check presence of required keys in students response' do
-      VCR.use_cassette('yoksis/graduates/students') do
+    test 'Check presence of required keys in informations response' do
+      VCR.use_cassette('yoksis/graduates/informations') do
         required_keys = %i[
           tckno
           adi
@@ -33,10 +33,10 @@ module Yoksis
           alt_program
           durum
         ]
-        test_data1 = @graduates.students(
+        test_data1 = @graduates.informations(
           id_number: Rails.application.credentials.tests[:graduated_id_number1]
         )
-        test_data2 = @graduates.students(
+        test_data2 = @graduates.informations(
           id_number: Rails.application.credentials.tests[:graduated_id_number2]
         )
 

@@ -14,9 +14,9 @@ Rails.application.routes.draw do
         get :gender
         get :kod_bid
         get :martyrs_relatives
-        get :nationalitiestudentss
-        get :citiesstudents
-        get :staff_titlesstudents
+        get :nationalities
+        get :cities
+        get :staff_titles
         get :student_disability_types
         get :student_dropout_types
         get :student_education_levels
