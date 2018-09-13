@@ -6,10 +6,16 @@ module Yoksis
   class References < ActiveSupport::TestCase
     setup do
       @references = Services::Yoksis::References.new
+      VCR.configure do |config|
+        config.default_cassette_options = {
+          record: :new_episodes,
+          re_record_interval: 3.days
+        }
+      end
     end
 
-    test 'Check response of administrative_units' do
-      VCR.use_cassette('yoksis/references/administrative_units_cassette') do
+    test 'Check presence of required keys in administrative_units response' do
+      VCR.use_cassette('yoksis/references/administrative_units') do
         @references.administrative_units.each do |unit|
           assert unit.key?(:birim_id)
           assert unit.key?(:birim_adi)
@@ -18,8 +24,8 @@ module Yoksis
       end
     end
 
-    test 'Check response of districts' do
-      VCR.use_cassette('yoksis/references/districts_cassette') do
+    test 'Check presence of required keys in districts response' do
+      VCR.use_cassette('yoksis/references/districts') do
         @references.districts(city_code: 33).each do |district|
           assert_kod_ad district
         end
@@ -27,10 +33,12 @@ module Yoksis
     end
 
     Services::Yoksis::References::METHOD_VARIABLES.each_key do |method|
-      next if %i[districts administrative_units].include?(method)
-      test "Check response of #{method}" do
-        VCR.use_cassette("yoksis/references/#{method}_cassette") do
-          @references.send(method).each { |city| assert_kod_ad city }
+      next if method.in?(%i[administrative_units districts])
+      test "Check presence of required keys in #{method} response" do
+        VCR.use_cassette("yoksis/references/#{method}") do
+          @references.send(method).each do |object|
+            assert_kod_ad object
+          end
         end
       end
     end

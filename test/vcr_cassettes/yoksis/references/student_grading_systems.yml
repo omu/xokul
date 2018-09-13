@@ -25,7 +25,7 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Wed, 12 Sep 2018 14:17:28 GMT
+      - Thu, 13 Sep 2018 07:59:29 GMT
     body:
       encoding: UTF-8
       string: "<wsdl:definitions name=\"Referanslar\" targetNamespace=\"http://servisler.yok.gov.tr/Referanslar/v1\"
@@ -664,7 +664,7 @@ http_interactions:
         \     <soap:address location=\"http://servisler.yok.gov.tr/ws/Referanslarv1\"/>\n
         \   </wsdl:port>\n  </wsdl:service>\n</wsdl:definitions>"
     http_version: 
-  recorded_at: Wed, 12 Sep 2018 14:17:28 GMT
+  recorded_at: Thu, 13 Sep 2018 07:59:29 GMT
 - request:
     method: post
     uri: http://servisler.yok.gov.tr/ws/Referanslarv1
@@ -672,14 +672,14 @@ http_interactions:
       encoding: UTF-8
       string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns1="http://servisler.yok.gov.tr/Referanslar/v1"
-        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><tns1:getOgrenciSinif></tns1:getOgrenciSinif></env:Body></env:Envelope>
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><tns1:getOgrenciDiplomaNotSistemi></tns1:getOgrenciDiplomaNotSistemi></env:Body></env:Envelope>
     headers:
       Soapaction:
-      - '"WSDLs_Referans_Referanslar_Binder_getOgrenciSinif"'
+      - '"WSDLs_Referans_Referanslar_Binder_getOgrenciDiplomaNotSistemi"'
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '342'
+      - '366'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -694,17 +694,17 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Set-Cookie:
-      - ssnid=75a64a905437109d8ff0ffffe5b98e25; Path=/ws; HttpOnly; Domain=servisler.yok.gov.tr
+      - ssnid=dd9db5f0f23518d5b9daffffe58770b8; Path=/ws; HttpOnly; Domain=servisler.yok.gov.tr
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '1412'
+      - '919'
       Date:
-      - Wed, 12 Sep 2018 14:17:27 GMT
+      - Thu, 13 Sep 2018 07:59:29 GMT
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz48c29hcGVudjpFbnZlbG9wZSB4bWxuczpzb2FwZW52PSJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy9zb2FwL2VudmVsb3BlLyI+PHNvYXBlbnY6Qm9keT48c2VyLXJvb3Q6Z2V0T2dyZW5jaVNpbmlmUmVzcG9uc2UgeG1sbnM6c2VyLXJvb3Q9Imh0dHA6Ly9zZXJ2aXNsZXIueW9rLmdvdi50ci9SZWZlcmFuc2xhci92MSIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSI+PFJFRkVSQU5TTEFSPjxLT0Q+OTwvS09EPjxBRD5ERVJTIEHFnkFNQVNJPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjExPC9LT0Q+PEFEPkRPS1RPUkEgWUVURVJMxLBMxLBLPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg8L0tPRD48QUQ+xLBOVMSwQkFLPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjE2PC9LT0Q+PEFEPkzEsFNBTlMgQsSwTMSwTVNFTCBIQVpJUkxJSzwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD4xMjwvS09EPjxBRD5MxLBTQU5Tw5xTVMOcIELEsEzEsE1TRUwgSEFaSVJMSUs8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+MTM8L0tPRD48QUQ+w5ZaRUwgw5bEnlJFTkPEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD4xNDwvS09EPjxBRD5QUk9KRSBBxZ5BTUFTSTwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD4xMDwvS09EPjxBRD5URVogQcWeQU1BU0k8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+MTU8L0tPRD48QUQ+VMOcUkvDh0UgRMSwTCBIQVpJUkxJSzwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD4xPC9LT0Q+PEFEPllBQkFOQ0kgRMSwTCBIQVpJUkxJSzwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD4yPC9LT0Q+PEFEPjEuIFNJTklGPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjM8L0tPRD48QUQ+Mi4gU0lOSUY8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+NDwvS09EPjxBRD4zLiBTSU5JRjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD41PC9LT0Q+PEFEPjQuIFNJTklGPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjY8L0tPRD48QUQ+NS4gU0lOSUY8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+NzwvS09EPjxBRD42LiBTSU5JRjwvQUQ+PC9SRUZFUkFOU0xBUj48U09OVUM+PER1cnVtQWNpa2xhbWE+QmHFn2FyxLFsxLE8L0R1cnVtQWNpa2xhbWE+PC9TT05VQz48L3Nlci1yb290OmdldE9ncmVuY2lTaW5pZlJlc3BvbnNlPjwvc29hcGVudjpCb2R5Pjwvc29hcGVudjpFbnZlbG9wZT4=
+        PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz48c29hcGVudjpFbnZlbG9wZSB4bWxuczpzb2FwZW52PSJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy9zb2FwL2VudmVsb3BlLyI+PHNvYXBlbnY6Qm9keT48c2VyLXJvb3Q6Z2V0T2dyZW5jaURpcGxvbWFOb3RTaXN0ZW1pUmVzcG9uc2UgeG1sbnM6c2VyLXJvb3Q9Imh0dHA6Ly9zZXJ2aXNsZXIueW9rLmdvdi50ci9SZWZlcmFuc2xhci92MSIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSI+PFJFRkVSQU5TTEFSPjxLT0Q+ODk5PC9LT0Q+PEFEPsSwWcSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjc5OTwvS09EPjxBRD5PUlRBPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk5OTwvS09EPjxBRD5QRUvEsFnEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD42OTk8L0tPRD48QUQ+WUVURVJMxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+MTA8L0tPRD48QUQ+MTAgbHVrIE5vdCBTaXN0ZW1pPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjEwMDwvS09EPjxBRD4xMDAgbMO8ayBOb3QgU2lzdGVtaTwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD40PC9LT0Q+PEFEPjQgbMO8ayBOb3QgU2lzdGVtaTwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD41PC9LT0Q+PEFEPjUgbGlrIE5vdCBTaXN0ZW1pPC9BRD48L1JFRkVSQU5TTEFSPjxTT05VQz48RHVydW1BY2lrbGFtYT5CYcWfYXLEsWzEsTwvRHVydW1BY2lrbGFtYT48L1NPTlVDPjwvc2VyLXJvb3Q6Z2V0T2dyZW5jaURpcGxvbWFOb3RTaXN0ZW1pUmVzcG9uc2U+PC9zb2FwZW52OkJvZHk+PC9zb2FwZW52OkVudmVsb3BlPg==
     http_version: 
-  recorded_at: Wed, 12 Sep 2018 14:17:28 GMT
+  recorded_at: Thu, 13 Sep 2018 07:59:29 GMT
 recorded_with: VCR 4.0.0
