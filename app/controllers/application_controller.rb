@@ -11,13 +11,11 @@ class ApplicationController < ActionController::API
   rescue_from Client::InvalidResponseError,       with: :services_error
 
   def bad_request(exception)
-    render json: { status: 400, error: exception },
-           status: :bad_request
+    render json: { status: 400, error: exception }, status: :bad_request
   end
 
   def not_found(exception)
-    render json: { status: 404, error: exception },
-           status: :not_found
+    render json: { status: 404, error: exception }, status: :not_found
   end
 
   def services_error(exception)
