@@ -24,7 +24,7 @@ module Yoksis
       attribute(:diploma_grade)       { object[:diplomanotupuani].safe_to_f }
 
       attribute :top_scoring_student do
-        object[:okulbirincisi] && object[:okulbirincisi].safe_to_i.zero? ? false : true
+        object[:okulbirincisi] && !object[:okulbirincisi].safe_to_i.zero?
       end
     end
   end
