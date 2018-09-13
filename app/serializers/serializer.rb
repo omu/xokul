@@ -2,12 +2,12 @@
 
 class Serializer < ActiveModel::Serializer
   def build_date(*args)
-    return nil if args.index(nil)
-    Date.new(*args.collect(&:to_i))
+    return if nil.in?(args)
+    Date.new(*args.collect(&:safe_to_i))
   end
 
   def build_time(*args)
-    return nil if args.index(nil)
-    Time.new(*args.collect(&:to_i))
+    return if nil.in?(args)
+    Time.utc(*args.collect(&:safe_to_i))
   end
 end
