@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   namespace :yoksis do
-    resources(:graduates) { collection { get :students     } }
+    resources(:graduates) { collection { get :informations } }
     resources(:meb)       { collection { get :students     } }
     resources(:students)  { collection { get :informations } }
 
@@ -14,9 +14,9 @@ Rails.application.routes.draw do
         get :gender
         get :kod_bid
         get :martyrs_relatives
-        get :nationalities
-        get :cities
-        get :staff_titles
+        get :nationalitiestudentss
+        get :citiesstudents
+        get :staff_titlesstudents
         get :student_disability_types
         get :student_dropout_types
         get :student_education_levels

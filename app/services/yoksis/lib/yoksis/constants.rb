@@ -4,7 +4,7 @@ module Services
   module Yoksis
     class Graduates < Base
       METHOD_VARIABLES = {
-        students: {
+        informations: {
           soap_operation: :tc_kimlik_noil_mezun_ogrenci_sorgulav2,
           status_path:    %i[tc_kimlik_noil_mezun_ogrenci_sorgulav2_response sonuc durum_aciklama],
           data_path:      %i[tc_kimlik_noil_mezun_ogrenci_sorgulav2_response mezun_ogrenci_kayitlari],
