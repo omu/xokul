@@ -6,8 +6,10 @@ module Yoksis
   class Graduates < ActiveSupport::TestCase
     setup do
       @graduates = Services::Yoksis::Graduates.new(
-        Rails.application.credentials.yoksis[:client_id],
-        Rails.application.credentials.yoksis[:client_secret]
+        basic_auth: [
+          Rails.application.credentials.yoksis[:client_id],
+          Rails.application.credentials.yoksis[:client_secret]
+        ]
       )
     end
 
