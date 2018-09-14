@@ -35,7 +35,7 @@ module Api
     config.api_only = true
 
     reloader.to_prepare do
-      require_dependency Rails.root.join('app', 'services', 'lib','services.rb')
+      require_dependency Rails.root.join('app', 'services', 'lib', 'services.rb')
     end
   end
 end
