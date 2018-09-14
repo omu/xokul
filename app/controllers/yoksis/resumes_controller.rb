@@ -5,7 +5,6 @@ module Yoksis
     before_action :set_client_variables, :set_resumes
 
     include ActionsResource
-    include YoksisResource
 
     def certifications
       render_as_json @resumes.send(action_name, @username, @password, secure_params.require(:id_number))

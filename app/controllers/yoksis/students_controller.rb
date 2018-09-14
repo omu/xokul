@@ -5,7 +5,6 @@ module Yoksis
     before_action :set_students
 
     include ActionsResource
-    include YoksisResource
 
     def informations
       render_as_json @students.send(action_name, id_number: secure_params.require(:id_number))

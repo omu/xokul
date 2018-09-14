@@ -5,7 +5,6 @@ module Yoksis
     before_action :set_units
 
     include ActionsResource
-    include YoksisResource
 
     def changes
       day, month, year = *changes_params.require(%i[day month year])

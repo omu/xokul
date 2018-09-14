@@ -5,7 +5,6 @@ module Yoksis
     before_action :set_graduations
 
     include ActionsResource
-    include YoksisResource
 
     def informations
       render_as_json @graduations.informations(id_number: secure_params.require(:id_number))

@@ -5,7 +5,6 @@ module Osym
     before_action :set_examination
 
     include ActionsResource
-    include OsymResource
 
     def groups
       render_as_json @examination.groups

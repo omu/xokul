@@ -5,7 +5,6 @@ module Yoksis
     before_action :set_client_variables, :set_staff
 
     include ActionsResource
-    include YoksisResource
 
     def academicians
       render_as_json @staff.academicians(querier: @client_id, queried: secure_params[:id_number])
