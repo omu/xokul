@@ -1,0 +1,13 @@
+# frozen_string_literal: true
+
+require_relative 'services/yoksis'
+require_relative 'services/osym'
+require_relative 'services/version'
+
+module Services
+  AVAILABLE_SERVICES = { version: VERSION, services: %i[osym yoksis] }.freeze
+
+  def self.service_endpoints(service)
+    const_get "#{service}::ENDPOINTS"
+  end
+end

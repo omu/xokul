@@ -1,0 +1,710 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://servisler.yok.gov.tr/ws/Referanslarv1?WSDL
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Content-Type:
+      - text/xml;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Thu, 13 Sep 2018 07:59:30 GMT
+    body:
+      encoding: UTF-8
+      string: "<wsdl:definitions name=\"Referanslar\" targetNamespace=\"http://servisler.yok.gov.tr/Referanslar/v1\"
+        xmlns:http=\"http://schemas.xmlsoap.org/wsdl/http/\" xmlns:mime=\"http://schemas.xmlsoap.org/wsdl/mime/\"
+        xmlns:soap=\"http://schemas.xmlsoap.org/wsdl/soap/\" xmlns:soap12=\"http://schemas.xmlsoap.org/wsdl/soap12/\"
+        xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:soapjms=\"http://www.w3.org/2010/soapjms/\"
+        xmlns:tns=\"http://localhost/WSDLs.Referans:Referanslar\" xmlns:tns1=\"http://servisler.yok.gov.tr/Referanslar/v1\"
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\n
+        \ <wsdl:types>\n    <xsd:schema targetNamespace=\"http://servisler.yok.gov.tr/Referanslar/v1\"
+        xmlns:tns=\"http://servisler.yok.gov.tr/Referanslar/v1\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\n
+        \         <xsd:element name=\"getGirisTuru\" type=\"tns:getGirisTuru\"/>\n
+        \         <xsd:element name=\"getGirisTuruResponse\" type=\"tns:getGirisTuruResponse\"/>\n
+        \         <xsd:element name=\"getIdariBirimler\" type=\"tns:getIdariBirimler\"/>\n
+        \         <xsd:element name=\"getIdariBirimlerResponse\" type=\"tns:getIdariBirimlerResponse\"/>\n
+        \         <xsd:element name=\"getMernisCinsiyet\" type=\"tns:getMernisCinsiyet\"/>\n
+        \         <xsd:element name=\"getMernisCinsiyetResponse\" type=\"tns:getMernisCinsiyetResponse\"/>\n
+        \         <xsd:element name=\"getMernisUlke\" type=\"tns:getMernisUlke\"/>\n
+        \         <xsd:element name=\"getMernisUlkeResponse\" type=\"tns:getMernisUlkeResponse\"/>\n
+        \         <xsd:element name=\"getMernisUyruk\" type=\"tns:getMernisUyruk\"/>\n
+        \         <xsd:element name=\"getMernisUyrukResponse\" type=\"tns:getMernisUyrukResponse\"/>\n
+        \         <xsd:element name=\"getOgrenciAyrilmaNedeni\" type=\"tns:getOgrenciAyrilmaNedeni\"/>\n
+        \         <xsd:element name=\"getOgrenciAyrilmaNedeniResponse\" type=\"tns:getOgrenciAyrilmaNedeniResponse\"/>\n
+        \         <xsd:element name=\"getOgrenciEngelTuru\" type=\"tns:getOgrenciEngelTuru\"/>\n
+        \         <xsd:element name=\"getOgrenciEngelTuruResponse\" type=\"tns:getOgrenciEngelTuruResponse\"/>\n
+        \         <xsd:element name=\"getOgrencilikStatusu\" type=\"tns:getOgrencilikStatusu\"/>\n
+        \         <xsd:element name=\"getOgrencilikStatusuResponse\" type=\"tns:getOgrencilikStatusuResponse\"/>\n
+        \         <xsd:element name=\"getOgrenciSinif\" type=\"tns:getOgrenciSinif\"/>\n
+        \         <xsd:element name=\"getOgrenciSinifResponse\" type=\"tns:getOgrenciSinifResponse\"/>\n
+        \         <xsd:element name=\"getOgrenciDOYKM\" type=\"tns:getOgrenciDOYKM\"/>\n
+        \         <xsd:element name=\"getOgrenciDOYKMResponse\" type=\"tns:getOgrenciDOYKMResponse\"/>\n
+        \         <xsd:element name=\"getOgrenciGirisPuanTuru\" type=\"tns:getOgrenciGirisPuanTuru\"/>\n
+        \         <xsd:element name=\"getOgrenciGirisPuanTuruResponse\" type=\"tns:getOgrenciGirisPuanTuruResponse\"/>\n
+        \         <xsd:element name=\"getOgrenciOgrencilikHakki\" type=\"tns:getOgrenciOgrencilikHakki\"/>\n
+        \         <xsd:element name=\"getOgrenciOgrencilikHakkiResponse\" type=\"tns:getOgrenciOgrencilikHakkiResponse\"/>\n
+        \         <xsd:element name=\"getOgrenciGirisTuru\" type=\"tns:getOgrenciGirisTuru\"/>\n
+        \         <xsd:element name=\"getOgrenciGirisTuruResponse\" type=\"tns:getOgrenciGirisTuruResponse\"/>\n
+        \         <xsd:element name=\"getPersonelGorev\" type=\"tns:getPersonelGorev\"/>\n
+        \         <xsd:element name=\"getPersonelGorevResponse\" type=\"tns:getPersonelGorevResponse\"/>\n
+        \         <xsd:element name=\"getOgrenciGaziSehitYakini\" type=\"tns:getOgrenciGaziSehitYakini\"/>\n
+        \         <xsd:element name=\"getOgrenciGaziSehitYakiniResponse\" type=\"tns:getOgrenciGaziSehitYakiniResponse\"/>\n
+        \         <xsd:element name=\"getOgrenciDiplomaNotSistemi\" type=\"tns:getOgrenciDiplomaNotSistemi\"/>\n
+        \         <xsd:element name=\"getOgrenciDiplomaNotSistemiResponse\" type=\"tns:getOgrenciDiplomaNotSistemiResponse\"/>\n
+        \         <xsd:element name=\"getKodBid\" type=\"tns:getKodBid\"/>\n          <xsd:element
+        name=\"getKodBidResponse\" type=\"tns:getKodBidResponse\"/>\n          <xsd:element
+        name=\"getBirimTuru\" type=\"tns:getBirimTuru\"/>\n          <xsd:element
+        name=\"getBirimTuruResponse\" type=\"tns:getBirimTuruResponse\"/>\n          <xsd:element
+        name=\"getCezaTuru\" type=\"tns:getCezaTuru\"/>\n          <xsd:element name=\"getCezaTuruResponse\"
+        type=\"tns:getCezaTuruResponse\"/>\n          <xsd:element name=\"getIlceGetir\"
+        type=\"tns:getIlceGetir\"/>\n          <xsd:element name=\"getIlceGetirResponse\"
+        type=\"tns:getIlceGetirResponse\"/>\n          <xsd:element name=\"getIlGetir\"
+        type=\"tns:getIlGetir\"/>\n          <xsd:element name=\"getIlGetirResponse\"
+        type=\"tns:getIlGetirResponse\"/>\n          <xsd:element name=\"getOgrenimDili\"
+        type=\"tns:getOgrenimDili\"/>\n          <xsd:element name=\"getOgrenimDiliResponse\"
+        type=\"tns:getOgrenimDiliResponse\"/>\n          <xsd:element name=\"getOgrenimTuru\"
+        type=\"tns:getOgrenimTuru\"/>\n          <xsd:element name=\"getOgrenimTuruResponse\"
+        type=\"tns:getOgrenimTuruResponse\"/>\n          <xsd:element name=\"getUniversiteTuru\"
+        type=\"tns:getUniversiteTuru\"/>\n          <xsd:element name=\"getUniversiteTuruResponse\"
+        type=\"tns:getUniversiteTuruResponse\"/>\n          <xsd:element name=\"getAktiflikDurumu\"
+        type=\"tns:getAktiflikDurumu\"/>\n          <xsd:element name=\"getAktiflikDurumuResponse\"
+        type=\"tns:getAktiflikDurumuResponse\"/>\n          <xsd:element name=\"getKadroGorevUnvan\"
+        type=\"tns:getKadroGorevUnvan\"/>\n          <xsd:element name=\"getKadroGorevUnvanResponse\"
+        type=\"tns:getKadroGorevUnvanResponse\"/>\n          <xsd:element name=\"getPersonelAyrilma\"
+        type=\"tns:getPersonelAyrilma\"/>\n          <xsd:element name=\"getPersonelAyrilmaResponse\"
+        type=\"tns:getPersonelAyrilmaResponse\"/>\n          <xsd:element name=\"getYoksisUlke\"
+        type=\"tns:getYoksisUlke\"/>\n          <xsd:element name=\"getYoksisUlkeResponse\"
+        type=\"tns:getYoksisUlkeResponse\"/>\n          <xsd:element name=\"getOzgecmisYabanciDil\"
+        type=\"tns:getOzgecmisYabanciDil\"/>\n          <xsd:element name=\"getOzgecmisYabanciDilResponse\"
+        type=\"tns:getOzgecmisYabanciDilResponse\"/>\n          <xsd:element name=\"getEndeksListesi\"
+        type=\"tns:getEndeksListesi\"/>\n          <xsd:element name=\"getEndeksListesiResponse\"
+        type=\"tns:getEndeksListesiResponse\"/>\n          <xsd:element name=\"getPersonelAtanma\"
+        type=\"tns:getPersonelAtanma\"/>\n          <xsd:element name=\"getPersonelAtanmaResponse\"
+        type=\"tns:getPersonelAtanmaResponse\"/>\n          <xsd:element name=\"getFormasyonAlanlar\"
+        type=\"tns:getFormasyonAlanlar\"/>\n          <xsd:element name=\"getFormasyonAlanlarResponse\"
+        type=\"tns:getFormasyonAlanlarResponse\"/>\n          <xsd:complexType name=\"getGirisTuru\">\n
+        \           <xsd:sequence>\n            </xsd:sequence>\n          </xsd:complexType>\n
+        \         <xsd:complexType name=\"getGirisTuruResponse\">\n            <xsd:sequence>\n
+        \             <xsd:element maxOccurs=\"unbounded\" name=\"REFERANSLAR\" nillable=\"true\"
+        type=\"tns:Referans\"/>\n              <xsd:element name=\"SONUC\" nillable=\"true\"
+        type=\"tns:Sonuc\"/>\n            </xsd:sequence>\n          </xsd:complexType>\n
+        \         <xsd:complexType name=\"Referans\">\n            <xsd:sequence>\n
+        \             <xsd:element name=\"KOD\" nillable=\"true\" type=\"xsd:long\"/>\n
+        \             <xsd:element name=\"AD\" nillable=\"true\" type=\"xsd:string\"/>\n
+        \           </xsd:sequence>\n          </xsd:complexType>\n          <xsd:complexType
+        name=\"Sonuc\">\n            <xsd:sequence>\n              <xsd:element name=\"DurumAciklama\"
+        nillable=\"true\" type=\"xsd:string\"/>\n            </xsd:sequence>\n          </xsd:complexType>\n
+        \         <xsd:complexType name=\"getIdariBirimler\">\n            <xsd:sequence>\n
+        \           </xsd:sequence>\n          </xsd:complexType>\n          <xsd:complexType
+        name=\"getIdariBirimlerResponse\">\n            <xsd:sequence>\n              <xsd:element
+        maxOccurs=\"unbounded\" name=\"IdariBirimler\" nillable=\"true\" type=\"tns:IdariBirimler\"/>\n
+        \             <xsd:element name=\"Sonuc\" nillable=\"true\" type=\"tns:Sonuc\"/>\n
+        \           </xsd:sequence>\n          </xsd:complexType>\n          <xsd:complexType
+        name=\"IdariBirimler\">\n            <xsd:sequence>\n              <xsd:element
+        name=\"BIRIM_ID\" nillable=\"true\" type=\"xsd:long\"/>\n              <xsd:element
+        name=\"BIRIM_ADI\" nillable=\"true\" type=\"xsd:string\"/>\n              <xsd:element
+        name=\"BAGLI_OLDUGU_BIRIM_ID\" nillable=\"true\" type=\"xsd:long\"/>\n            </xsd:sequence>\n
+        \         </xsd:complexType>\n          <xsd:complexType name=\"getMernisCinsiyet\">\n
+        \           <xsd:sequence>\n            </xsd:sequence>\n          </xsd:complexType>\n
+        \         <xsd:complexType name=\"getMernisCinsiyetResponse\">\n            <xsd:sequence>\n
+        \             <xsd:element maxOccurs=\"unbounded\" name=\"REFERANSLAR\" nillable=\"true\"
+        type=\"tns:Referans\"/>\n              <xsd:element name=\"SONUC\" nillable=\"true\"
+        type=\"tns:Sonuc\"/>\n            </xsd:sequence>\n          </xsd:complexType>\n
+        \         <xsd:complexType name=\"getMernisUlke\">\n            <xsd:sequence>\n
+        \           </xsd:sequence>\n          </xsd:complexType>\n          <xsd:complexType
+        name=\"getMernisUlkeResponse\">\n            <xsd:sequence>\n              <xsd:element
+        maxOccurs=\"unbounded\" name=\"REFERANSLAR\" nillable=\"true\" type=\"tns:Referans\"/>\n
+        \             <xsd:element name=\"SONUC\" nillable=\"true\" type=\"tns:Sonuc\"/>\n
+        \           </xsd:sequence>\n          </xsd:complexType>\n          <xsd:complexType
+        name=\"getMernisUyruk\">\n            <xsd:sequence>\n            </xsd:sequence>\n
+        \         </xsd:complexType>\n          <xsd:complexType name=\"getMernisUyrukResponse\">\n
+        \           <xsd:sequence>\n              <xsd:element maxOccurs=\"unbounded\"
+        name=\"REFERANSLAR\" nillable=\"true\" type=\"tns:Referans\"/>\n              <xsd:element
+        name=\"SONUC\" nillable=\"true\" type=\"tns:Sonuc\"/>\n            </xsd:sequence>\n
+        \         </xsd:complexType>\n          <xsd:complexType name=\"getOgrenciAyrilmaNedeni\">\n
+        \           <xsd:sequence>\n            </xsd:sequence>\n          </xsd:complexType>\n
+        \         <xsd:complexType name=\"getOgrenciAyrilmaNedeniResponse\">\n            <xsd:sequence>\n
+        \             <xsd:element maxOccurs=\"unbounded\" name=\"REFERANSLAR\" nillable=\"true\"
+        type=\"tns:Referans\"/>\n              <xsd:element name=\"SONUC\" nillable=\"true\"
+        type=\"tns:Sonuc\"/>\n            </xsd:sequence>\n          </xsd:complexType>\n
+        \         <xsd:complexType name=\"getOgrenciEngelTuru\">\n            <xsd:sequence>\n
+        \           </xsd:sequence>\n          </xsd:complexType>\n          <xsd:complexType
+        name=\"getOgrenciEngelTuruResponse\">\n            <xsd:sequence>\n              <xsd:element
+        maxOccurs=\"unbounded\" name=\"REFERANSLAR\" nillable=\"true\" type=\"tns:Referans\"/>\n
+        \             <xsd:element name=\"SONUC\" nillable=\"true\" type=\"tns:Sonuc\"/>\n
+        \           </xsd:sequence>\n          </xsd:complexType>\n          <xsd:complexType
+        name=\"getOgrencilikStatusu\">\n            <xsd:sequence>\n            </xsd:sequence>\n
+        \         </xsd:complexType>\n          <xsd:complexType name=\"getOgrencilikStatusuResponse\">\n
+        \           <xsd:sequence>\n              <xsd:element maxOccurs=\"unbounded\"
+        name=\"REFERANSLAR\" nillable=\"true\" type=\"tns:Referans\"/>\n              <xsd:element
+        name=\"SONUC\" nillable=\"true\" type=\"tns:Sonuc\"/>\n            </xsd:sequence>\n
+        \         </xsd:complexType>\n          <xsd:complexType name=\"getOgrenciSinif\">\n
+        \           <xsd:sequence>\n            </xsd:sequence>\n          </xsd:complexType>\n
+        \         <xsd:complexType name=\"getOgrenciSinifResponse\">\n            <xsd:sequence>\n
+        \             <xsd:element maxOccurs=\"unbounded\" name=\"REFERANSLAR\" nillable=\"true\"
+        type=\"tns:Referans\"/>\n              <xsd:element name=\"SONUC\" nillable=\"true\"
+        type=\"tns:Sonuc\"/>\n            </xsd:sequence>\n          </xsd:complexType>\n
+        \         <xsd:complexType name=\"getOgrenciDOYKM\">\n            <xsd:sequence>\n
+        \           </xsd:sequence>\n          </xsd:complexType>\n          <xsd:complexType
+        name=\"getOgrenciDOYKMResponse\">\n            <xsd:sequence>\n              <xsd:element
+        maxOccurs=\"unbounded\" name=\"REFERANSLAR\" nillable=\"true\" type=\"tns:Referans\"/>\n
+        \             <xsd:element name=\"SONUC\" nillable=\"true\" type=\"tns:Sonuc\"/>\n
+        \           </xsd:sequence>\n          </xsd:complexType>\n          <xsd:complexType
+        name=\"getOgrenciGirisPuanTuru\">\n            <xsd:sequence>\n            </xsd:sequence>\n
+        \         </xsd:complexType>\n          <xsd:complexType name=\"getOgrenciGirisPuanTuruResponse\">\n
+        \           <xsd:sequence>\n              <xsd:element maxOccurs=\"unbounded\"
+        name=\"REFERANSLAR\" nillable=\"true\" type=\"tns:Referans\"/>\n              <xsd:element
+        name=\"SONUC\" nillable=\"true\" type=\"tns:Sonuc\"/>\n            </xsd:sequence>\n
+        \         </xsd:complexType>\n          <xsd:complexType name=\"getOgrenciOgrencilikHakki\">\n
+        \           <xsd:sequence>\n            </xsd:sequence>\n          </xsd:complexType>\n
+        \         <xsd:complexType name=\"getOgrenciOgrencilikHakkiResponse\">\n            <xsd:sequence>\n
+        \             <xsd:element maxOccurs=\"unbounded\" name=\"REFERANSLAR\" nillable=\"true\"
+        type=\"tns:Referans\"/>\n              <xsd:element name=\"SONUC\" nillable=\"true\"
+        type=\"tns:Sonuc\"/>\n            </xsd:sequence>\n          </xsd:complexType>\n
+        \         <xsd:complexType name=\"getOgrenciGirisTuru\">\n            <xsd:sequence>\n
+        \           </xsd:sequence>\n          </xsd:complexType>\n          <xsd:complexType
+        name=\"getOgrenciGirisTuruResponse\">\n            <xsd:sequence>\n              <xsd:element
+        maxOccurs=\"unbounded\" name=\"REFERANSLAR\" nillable=\"true\" type=\"tns:Referans\"/>\n
+        \             <xsd:element name=\"SONUC\" nillable=\"true\" type=\"tns:Sonuc\"/>\n
+        \           </xsd:sequence>\n          </xsd:complexType>\n          <xsd:complexType
+        name=\"getPersonelGorev\">\n            <xsd:sequence>\n            </xsd:sequence>\n
+        \         </xsd:complexType>\n          <xsd:complexType name=\"getPersonelGorevResponse\">\n
+        \           <xsd:sequence>\n              <xsd:element maxOccurs=\"unbounded\"
+        name=\"REFERANSLAR\" nillable=\"true\" type=\"tns:Referans\"/>\n              <xsd:element
+        name=\"SONUC\" nillable=\"true\" type=\"tns:Sonuc\"/>\n            </xsd:sequence>\n
+        \         </xsd:complexType>\n          <xsd:complexType name=\"getOgrenciGaziSehitYakini\">\n
+        \           <xsd:sequence>\n            </xsd:sequence>\n          </xsd:complexType>\n
+        \         <xsd:complexType name=\"getOgrenciGaziSehitYakiniResponse\">\n            <xsd:sequence>\n
+        \             <xsd:element maxOccurs=\"unbounded\" name=\"REFERANSLAR\" nillable=\"true\"
+        type=\"tns:Referans\"/>\n              <xsd:element name=\"SONUC\" nillable=\"true\"
+        type=\"tns:Sonuc\"/>\n            </xsd:sequence>\n          </xsd:complexType>\n
+        \         <xsd:complexType name=\"getOgrenciDiplomaNotSistemi\">\n            <xsd:sequence>\n
+        \           </xsd:sequence>\n          </xsd:complexType>\n          <xsd:complexType
+        name=\"getOgrenciDiplomaNotSistemiResponse\">\n            <xsd:sequence>\n
+        \             <xsd:element maxOccurs=\"unbounded\" name=\"REFERANSLAR\" nillable=\"true\"
+        type=\"tns:Referans\"/>\n              <xsd:element name=\"SONUC\" nillable=\"true\"
+        type=\"tns:Sonuc\"/>\n            </xsd:sequence>\n          </xsd:complexType>\n
+        \         <xsd:complexType name=\"getKodBid\">\n            <xsd:sequence>\n
+        \           </xsd:sequence>\n          </xsd:complexType>\n          <xsd:complexType
+        name=\"getKodBidResponse\">\n            <xsd:sequence>\n              <xsd:element
+        maxOccurs=\"unbounded\" name=\"REFERANSLAR\" nillable=\"true\" type=\"tns:Referans\"/>\n
+        \             <xsd:element name=\"SONUC\" nillable=\"true\" type=\"tns:Sonuc\"/>\n
+        \           </xsd:sequence>\n          </xsd:complexType>\n          <xsd:complexType
+        name=\"getBirimTuru\">\n            <xsd:sequence>\n            </xsd:sequence>\n
+        \         </xsd:complexType>\n          <xsd:complexType name=\"getBirimTuruResponse\">\n
+        \           <xsd:sequence>\n              <xsd:element maxOccurs=\"unbounded\"
+        name=\"REFERANSLAR\" nillable=\"true\" type=\"tns:Referans\"/>\n              <xsd:element
+        name=\"SONUC\" nillable=\"true\" type=\"tns:Sonuc\"/>\n            </xsd:sequence>\n
+        \         </xsd:complexType>\n          <xsd:complexType name=\"getCezaTuru\">\n
+        \           <xsd:sequence>\n            </xsd:sequence>\n          </xsd:complexType>\n
+        \         <xsd:complexType name=\"getCezaTuruResponse\">\n            <xsd:sequence>\n
+        \             <xsd:element maxOccurs=\"unbounded\" name=\"REFERANSLAR\" nillable=\"true\"
+        type=\"tns:Referans\"/>\n              <xsd:element name=\"SONUC\" nillable=\"true\"
+        type=\"tns:Sonuc\"/>\n            </xsd:sequence>\n          </xsd:complexType>\n
+        \         <xsd:complexType name=\"getIlceGetir\">\n            <xsd:sequence>\n
+        \             <xsd:element name=\"ILKODU\" nillable=\"true\" type=\"xsd:long\"/>\n
+        \           </xsd:sequence>\n          </xsd:complexType>\n          <xsd:complexType
+        name=\"getIlceGetirResponse\">\n            <xsd:sequence>\n              <xsd:element
+        maxOccurs=\"unbounded\" name=\"ILCE_KODLARI\" nillable=\"true\" type=\"tns:Referans\"/>\n
+        \             <xsd:element name=\"SONUC\" nillable=\"true\" type=\"tns:Sonuc\"/>\n
+        \           </xsd:sequence>\n          </xsd:complexType>\n          <xsd:complexType
+        name=\"getIlGetir\">\n            <xsd:sequence>\n            </xsd:sequence>\n
+        \         </xsd:complexType>\n          <xsd:complexType name=\"getIlGetirResponse\">\n
+        \           <xsd:sequence>\n              <xsd:element maxOccurs=\"unbounded\"
+        name=\"IL_KODU\" nillable=\"true\" type=\"tns:Referans\"/>\n              <xsd:element
+        name=\"SONUC\" nillable=\"true\" type=\"tns:Sonuc\"/>\n            </xsd:sequence>\n
+        \         </xsd:complexType>\n          <xsd:complexType name=\"getOgrenimDili\">\n
+        \           <xsd:sequence>\n            </xsd:sequence>\n          </xsd:complexType>\n
+        \         <xsd:complexType name=\"getOgrenimDiliResponse\">\n            <xsd:sequence>\n
+        \             <xsd:element maxOccurs=\"unbounded\" name=\"REFERANSLAR\" nillable=\"true\"
+        type=\"tns:Referans\"/>\n              <xsd:element name=\"SONUC\" nillable=\"true\"
+        type=\"tns:Sonuc\"/>\n            </xsd:sequence>\n          </xsd:complexType>\n
+        \         <xsd:complexType name=\"getOgrenimTuru\">\n            <xsd:sequence>\n
+        \           </xsd:sequence>\n          </xsd:complexType>\n          <xsd:complexType
+        name=\"getOgrenimTuruResponse\">\n            <xsd:sequence>\n              <xsd:element
+        maxOccurs=\"unbounded\" name=\"REFERANSLAR\" nillable=\"true\" type=\"tns:Referans\"/>\n
+        \             <xsd:element name=\"SONUC\" nillable=\"true\" type=\"tns:Sonuc\"/>\n
+        \           </xsd:sequence>\n          </xsd:complexType>\n          <xsd:complexType
+        name=\"getUniversiteTuru\">\n            <xsd:sequence>\n            </xsd:sequence>\n
+        \         </xsd:complexType>\n          <xsd:complexType name=\"getUniversiteTuruResponse\">\n
+        \           <xsd:sequence>\n              <xsd:element maxOccurs=\"unbounded\"
+        name=\"REFERANSLAR\" nillable=\"true\" type=\"tns:Referans\"/>\n              <xsd:element
+        name=\"SONUC\" nillable=\"true\" type=\"tns:Sonuc\"/>\n            </xsd:sequence>\n
+        \         </xsd:complexType>\n          <xsd:complexType name=\"getAktiflikDurumu\">\n
+        \           <xsd:sequence>\n            </xsd:sequence>\n          </xsd:complexType>\n
+        \         <xsd:complexType name=\"getAktiflikDurumuResponse\">\n            <xsd:sequence>\n
+        \             <xsd:element maxOccurs=\"unbounded\" name=\"REFERANSLAR\" nillable=\"true\"
+        type=\"tns:Referans\"/>\n              <xsd:element name=\"SONUC\" nillable=\"true\"
+        type=\"tns:Sonuc\"/>\n            </xsd:sequence>\n          </xsd:complexType>\n
+        \         <xsd:complexType name=\"getKadroGorevUnvan\">\n            <xsd:sequence>\n
+        \           </xsd:sequence>\n          </xsd:complexType>\n          <xsd:complexType
+        name=\"getKadroGorevUnvanResponse\">\n            <xsd:sequence>\n              <xsd:element
+        maxOccurs=\"unbounded\" name=\"REFERANSLAR\" nillable=\"true\" type=\"tns:Referans\"/>\n
+        \             <xsd:element name=\"SONUC\" nillable=\"true\" type=\"tns:Sonuc\"/>\n
+        \           </xsd:sequence>\n          </xsd:complexType>\n          <xsd:complexType
+        name=\"getPersonelAyrilma\">\n            <xsd:sequence>\n            </xsd:sequence>\n
+        \         </xsd:complexType>\n          <xsd:complexType name=\"getPersonelAyrilmaResponse\">\n
+        \           <xsd:sequence>\n              <xsd:element maxOccurs=\"unbounded\"
+        name=\"REFERANSLAR\" nillable=\"true\" type=\"tns:Referans\"/>\n              <xsd:element
+        name=\"SONUC\" nillable=\"true\" type=\"tns:Sonuc\"/>\n            </xsd:sequence>\n
+        \         </xsd:complexType>\n          <xsd:complexType name=\"getYoksisUlke\">\n
+        \           <xsd:sequence>\n            </xsd:sequence>\n          </xsd:complexType>\n
+        \         <xsd:complexType name=\"getYoksisUlkeResponse\">\n            <xsd:sequence>\n
+        \             <xsd:element maxOccurs=\"unbounded\" name=\"REFERANSLAR\" nillable=\"true\"
+        type=\"tns:ReferansDetay\"/>\n              <xsd:element name=\"SONUC\" nillable=\"true\"
+        type=\"tns:Sonuc\"/>\n            </xsd:sequence>\n          </xsd:complexType>\n
+        \         <xsd:complexType name=\"ReferansDetay\">\n            <xsd:sequence>\n
+        \             <xsd:element name=\"KOD\" nillable=\"true\" type=\"xsd:long\"/>\n
+        \             <xsd:element name=\"AD\" nillable=\"true\" type=\"xsd:string\"/>\n
+        \             <xsd:element name=\"AD_EN\" nillable=\"true\" type=\"xsd:string\"/>\n
+        \           </xsd:sequence>\n          </xsd:complexType>\n          <xsd:complexType
+        name=\"getOzgecmisYabanciDil\">\n            <xsd:sequence>\n            </xsd:sequence>\n
+        \         </xsd:complexType>\n          <xsd:complexType name=\"getOzgecmisYabanciDilResponse\">\n
+        \           <xsd:sequence>\n              <xsd:element maxOccurs=\"unbounded\"
+        name=\"REFERANSLAR\" nillable=\"true\" type=\"tns:ReferansDetay\"/>\n              <xsd:element
+        name=\"SONUC\" nillable=\"true\" type=\"tns:Sonuc\"/>\n            </xsd:sequence>\n
+        \         </xsd:complexType>\n          <xsd:complexType name=\"getEndeksListesi\">\n
+        \           <xsd:sequence>\n            </xsd:sequence>\n          </xsd:complexType>\n
+        \         <xsd:complexType name=\"getEndeksListesiResponse\">\n            <xsd:sequence>\n
+        \             <xsd:element maxOccurs=\"unbounded\" name=\"REFERANSLAR\" nillable=\"true\"
+        type=\"tns:ReferansDetay\"/>\n              <xsd:element name=\"SONUC\" nillable=\"true\"
+        type=\"tns:Sonuc\"/>\n            </xsd:sequence>\n          </xsd:complexType>\n
+        \         <xsd:complexType name=\"getPersonelAtanma\">\n            <xsd:sequence>\n
+        \           </xsd:sequence>\n          </xsd:complexType>\n          <xsd:complexType
+        name=\"getPersonelAtanmaResponse\">\n            <xsd:sequence>\n              <xsd:element
+        maxOccurs=\"unbounded\" name=\"REFERANSLAR\" nillable=\"true\" type=\"tns:Referans\"/>\n
+        \             <xsd:element name=\"SONUC\" nillable=\"true\" type=\"tns:Sonuc\"/>\n
+        \           </xsd:sequence>\n          </xsd:complexType>\n          <xsd:complexType
+        name=\"getFormasyonAlanlar\">\n            <xsd:sequence>\n            </xsd:sequence>\n
+        \         </xsd:complexType>\n          <xsd:complexType name=\"getFormasyonAlanlarResponse\">\n
+        \           <xsd:sequence>\n              <xsd:element maxOccurs=\"unbounded\"
+        name=\"REFERANSLAR\" nillable=\"true\" type=\"tns:Referans\"/>\n              <xsd:element
+        name=\"SONUC\" nillable=\"true\" type=\"tns:Sonuc\"/>\n            </xsd:sequence>\n
+        \         </xsd:complexType>\n        \t</xsd:schema>\n  </wsdl:types>\n  <wsdl:message
+        name=\"Referanslar_PortType_getOgrenciAyrilmaNedeniResponse\">\n    <wsdl:part
+        element=\"tns1:getOgrenciAyrilmaNedeniResponse\" name=\"parameters\">\n    </wsdl:part>\n
+        \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenciGirisPuanTuru\">\n
+        \   <wsdl:part element=\"tns1:getOgrenciGirisPuanTuru\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getYoksisUlke\">\n
+        \   <wsdl:part element=\"tns1:getYoksisUlke\" name=\"parameters\">\n    </wsdl:part>\n
+        \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getIlGetirResponse\">\n
+        \   <wsdl:part element=\"tns1:getIlGetirResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getIlceGetirResponse\">\n
+        \   <wsdl:part element=\"tns1:getIlceGetirResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getFormasyonAlanlar\">\n
+        \   <wsdl:part element=\"tns1:getFormasyonAlanlar\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getEndeksListesi\">\n
+        \   <wsdl:part element=\"tns1:getEndeksListesi\" name=\"parameters\">\n    </wsdl:part>\n
+        \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenciSinif\">\n
+        \   <wsdl:part element=\"tns1:getOgrenciSinif\" name=\"parameters\">\n    </wsdl:part>\n
+        \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getMernisUyrukResponse\">\n
+        \   <wsdl:part element=\"tns1:getMernisUyrukResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getAktiflikDurumu\">\n
+        \   <wsdl:part element=\"tns1:getAktiflikDurumu\" name=\"parameters\">\n    </wsdl:part>\n
+        \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getGirisTuru\">\n
+        \   <wsdl:part element=\"tns1:getGirisTuru\" name=\"parameters\">\n    </wsdl:part>\n
+        \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenciDOYKMResponse\">\n
+        \   <wsdl:part element=\"tns1:getOgrenciDOYKMResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenciSinifResponse\">\n
+        \   <wsdl:part element=\"tns1:getOgrenciSinifResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenimTuru\">\n
+        \   <wsdl:part element=\"tns1:getOgrenimTuru\" name=\"parameters\">\n    </wsdl:part>\n
+        \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getPersonelGorevResponse\">\n
+        \   <wsdl:part element=\"tns1:getPersonelGorevResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenciGaziSehitYakini\">\n
+        \   <wsdl:part element=\"tns1:getOgrenciGaziSehitYakini\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getPersonelAtanmaResponse\">\n
+        \   <wsdl:part element=\"tns1:getPersonelAtanmaResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getGirisTuruResponse\">\n
+        \   <wsdl:part element=\"tns1:getGirisTuruResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getIlGetir\">\n
+        \   <wsdl:part element=\"tns1:getIlGetir\" name=\"parameters\">\n    </wsdl:part>\n
+        \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getKadroGorevUnvanResponse\">\n
+        \   <wsdl:part element=\"tns1:getKadroGorevUnvanResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getMernisUlkeResponse\">\n
+        \   <wsdl:part element=\"tns1:getMernisUlkeResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getMernisUyruk\">\n
+        \   <wsdl:part element=\"tns1:getMernisUyruk\" name=\"parameters\">\n    </wsdl:part>\n
+        \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenciEngelTuru\">\n
+        \   <wsdl:part element=\"tns1:getOgrenciEngelTuru\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenciDiplomaNotSistemiResponse\">\n
+        \   <wsdl:part element=\"tns1:getOgrenciDiplomaNotSistemiResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getUniversiteTuru\">\n
+        \   <wsdl:part element=\"tns1:getUniversiteTuru\" name=\"parameters\">\n    </wsdl:part>\n
+        \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenciDiplomaNotSistemi\">\n
+        \   <wsdl:part element=\"tns1:getOgrenciDiplomaNotSistemi\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getFormasyonAlanlarResponse\">\n
+        \   <wsdl:part element=\"tns1:getFormasyonAlanlarResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getIlceGetir\">\n
+        \   <wsdl:part element=\"tns1:getIlceGetir\" name=\"parameters\">\n    </wsdl:part>\n
+        \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenciGirisPuanTuruResponse\">\n
+        \   <wsdl:part element=\"tns1:getOgrenciGirisPuanTuruResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getKodBidResponse\">\n
+        \   <wsdl:part element=\"tns1:getKodBidResponse\" name=\"parameters\">\n    </wsdl:part>\n
+        \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getPersonelAyrilmaResponse\">\n
+        \   <wsdl:part element=\"tns1:getPersonelAyrilmaResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenimDili\">\n
+        \   <wsdl:part element=\"tns1:getOgrenimDili\" name=\"parameters\">\n    </wsdl:part>\n
+        \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getBirimTuru\">\n
+        \   <wsdl:part element=\"tns1:getBirimTuru\" name=\"parameters\">\n    </wsdl:part>\n
+        \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getKodBid\">\n
+        \   <wsdl:part element=\"tns1:getKodBid\" name=\"parameters\">\n    </wsdl:part>\n
+        \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getPersonelGorev\">\n
+        \   <wsdl:part element=\"tns1:getPersonelGorev\" name=\"parameters\">\n    </wsdl:part>\n
+        \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getCezaTuruResponse\">\n
+        \   <wsdl:part element=\"tns1:getCezaTuruResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getMernisCinsiyetResponse\">\n
+        \   <wsdl:part element=\"tns1:getMernisCinsiyetResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenciGirisTuruResponse\">\n
+        \   <wsdl:part element=\"tns1:getOgrenciGirisTuruResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getPersonelAtanma\">\n
+        \   <wsdl:part element=\"tns1:getPersonelAtanma\" name=\"parameters\">\n    </wsdl:part>\n
+        \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrencilikStatusu\">\n
+        \   <wsdl:part element=\"tns1:getOgrencilikStatusu\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getIdariBirimlerResponse\">\n
+        \   <wsdl:part element=\"tns1:getIdariBirimlerResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOzgecmisYabanciDil\">\n
+        \   <wsdl:part element=\"tns1:getOzgecmisYabanciDil\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenciEngelTuruResponse\">\n
+        \   <wsdl:part element=\"tns1:getOgrenciEngelTuruResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getPersonelAyrilma\">\n
+        \   <wsdl:part element=\"tns1:getPersonelAyrilma\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenciGaziSehitYakiniResponse\">\n
+        \   <wsdl:part element=\"tns1:getOgrenciGaziSehitYakiniResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOzgecmisYabanciDilResponse\">\n
+        \   <wsdl:part element=\"tns1:getOzgecmisYabanciDilResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getKadroGorevUnvan\">\n
+        \   <wsdl:part element=\"tns1:getKadroGorevUnvan\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenciOgrencilikHakkiResponse\">\n
+        \   <wsdl:part element=\"tns1:getOgrenciOgrencilikHakkiResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenimTuruResponse\">\n
+        \   <wsdl:part element=\"tns1:getOgrenimTuruResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getAktiflikDurumuResponse\">\n
+        \   <wsdl:part element=\"tns1:getAktiflikDurumuResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenimDiliResponse\">\n
+        \   <wsdl:part element=\"tns1:getOgrenimDiliResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getYoksisUlkeResponse\">\n
+        \   <wsdl:part element=\"tns1:getYoksisUlkeResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getEndeksListesiResponse\">\n
+        \   <wsdl:part element=\"tns1:getEndeksListesiResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getMernisUlke\">\n
+        \   <wsdl:part element=\"tns1:getMernisUlke\" name=\"parameters\">\n    </wsdl:part>\n
+        \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenciAyrilmaNedeni\">\n
+        \   <wsdl:part element=\"tns1:getOgrenciAyrilmaNedeni\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getUniversiteTuruResponse\">\n
+        \   <wsdl:part element=\"tns1:getUniversiteTuruResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getBirimTuruResponse\">\n
+        \   <wsdl:part element=\"tns1:getBirimTuruResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrencilikStatusuResponse\">\n
+        \   <wsdl:part element=\"tns1:getOgrencilikStatusuResponse\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenciDOYKM\">\n
+        \   <wsdl:part element=\"tns1:getOgrenciDOYKM\" name=\"parameters\">\n    </wsdl:part>\n
+        \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getIdariBirimler\">\n
+        \   <wsdl:part element=\"tns1:getIdariBirimler\" name=\"parameters\">\n    </wsdl:part>\n
+        \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getCezaTuru\">\n
+        \   <wsdl:part element=\"tns1:getCezaTuru\" name=\"parameters\">\n    </wsdl:part>\n
+        \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getMernisCinsiyet\">\n
+        \   <wsdl:part element=\"tns1:getMernisCinsiyet\" name=\"parameters\">\n    </wsdl:part>\n
+        \ </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenciGirisTuru\">\n
+        \   <wsdl:part element=\"tns1:getOgrenciGirisTuru\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:message name=\"Referanslar_PortType_getOgrenciOgrencilikHakki\">\n
+        \   <wsdl:part element=\"tns1:getOgrenciOgrencilikHakki\" name=\"parameters\">\n
+        \   </wsdl:part>\n  </wsdl:message>\n  <wsdl:portType name=\"Referanslar_PortType\">\n
+        \   <wsdl:operation name=\"getIdariBirimler\">\n      <wsdl:input message=\"tns1:Referanslar_PortType_getIdariBirimler\">\n
+        \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getIdariBirimlerResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getPersonelGorev\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getPersonelGorev\">\n
+        \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getPersonelGorevResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getMernisCinsiyet\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getMernisCinsiyet\">\n
+        \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getMernisCinsiyetResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getCezaTuru\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getCezaTuru\">\n    </wsdl:input>\n
+        \     <wsdl:output message=\"tns1:Referanslar_PortType_getCezaTuruResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getPersonelAyrilma\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getPersonelAyrilma\">\n
+        \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getPersonelAyrilmaResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getOgrenciDOYKM\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getOgrenciDOYKM\">\n
+        \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getOgrenciDOYKMResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getOgrenciDiplomaNotSistemi\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getOgrenciDiplomaNotSistemi\">\n
+        \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getOgrenciDiplomaNotSistemiResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getOgrenimDili\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getOgrenimDili\">\n
+        \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getOgrenimDiliResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getOgrenciGaziSehitYakini\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getOgrenciGaziSehitYakini\">\n
+        \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getOgrenciGaziSehitYakiniResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getMernisUyruk\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getMernisUyruk\">\n
+        \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getMernisUyrukResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getMernisUlke\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getMernisUlke\">\n    </wsdl:input>\n
+        \     <wsdl:output message=\"tns1:Referanslar_PortType_getMernisUlkeResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getKadroGorevUnvan\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getKadroGorevUnvan\">\n
+        \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getKadroGorevUnvanResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getEndeksListesi\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getEndeksListesi\">\n
+        \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getEndeksListesiResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getOzgecmisYabanciDil\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getOzgecmisYabanciDil\">\n
+        \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getOzgecmisYabanciDilResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getOgrenciAyrilmaNedeni\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getOgrenciAyrilmaNedeni\">\n
+        \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getOgrenciAyrilmaNedeniResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getUniversiteTuru\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getUniversiteTuru\">\n
+        \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getUniversiteTuruResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getFormasyonAlanlar\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getFormasyonAlanlar\">\n
+        \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getFormasyonAlanlarResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getGirisTuru\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getGirisTuru\">\n    </wsdl:input>\n
+        \     <wsdl:output message=\"tns1:Referanslar_PortType_getGirisTuruResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getOgrenciGirisTuru\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getOgrenciGirisTuru\">\n
+        \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getOgrenciGirisTuruResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getYoksisUlke\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getYoksisUlke\">\n    </wsdl:input>\n
+        \     <wsdl:output message=\"tns1:Referanslar_PortType_getYoksisUlkeResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getBirimTuru\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getBirimTuru\">\n    </wsdl:input>\n
+        \     <wsdl:output message=\"tns1:Referanslar_PortType_getBirimTuruResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getOgrenciOgrencilikHakki\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getOgrenciOgrencilikHakki\">\n
+        \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getOgrenciOgrencilikHakkiResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getPersonelAtanma\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getPersonelAtanma\">\n
+        \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getPersonelAtanmaResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getIlceGetir\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getIlceGetir\">\n    </wsdl:input>\n
+        \     <wsdl:output message=\"tns1:Referanslar_PortType_getIlceGetirResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getOgrenciSinif\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getOgrenciSinif\">\n
+        \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getOgrenciSinifResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getOgrenciGirisPuanTuru\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getOgrenciGirisPuanTuru\">\n
+        \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getOgrenciGirisPuanTuruResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getIlGetir\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getIlGetir\">\n    </wsdl:input>\n
+        \     <wsdl:output message=\"tns1:Referanslar_PortType_getIlGetirResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getOgrenimTuru\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getOgrenimTuru\">\n
+        \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getOgrenimTuruResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getOgrencilikStatusu\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getOgrencilikStatusu\">\n
+        \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getOgrencilikStatusuResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getOgrenciEngelTuru\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getOgrenciEngelTuru\">\n
+        \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getOgrenciEngelTuruResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getAktiflikDurumu\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getAktiflikDurumu\">\n
+        \   </wsdl:input>\n      <wsdl:output message=\"tns1:Referanslar_PortType_getAktiflikDurumuResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation name=\"getKodBid\">\n
+        \     <wsdl:input message=\"tns1:Referanslar_PortType_getKodBid\">\n    </wsdl:input>\n
+        \     <wsdl:output message=\"tns1:Referanslar_PortType_getKodBidResponse\">\n
+        \   </wsdl:output>\n    </wsdl:operation>\n  </wsdl:portType>\n  <wsdl:binding
+        name=\"WSDLs_Referans_Referanslar_Binder\" type=\"tns1:Referanslar_PortType\">\n
+        \   <soap:binding style=\"document\" transport=\"http://schemas.xmlsoap.org/soap/http\"/>\n
+        \   <wsdl:operation name=\"getIdariBirimler\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getIdariBirimler\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getPersonelGorev\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getPersonelGorev\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getMernisCinsiyet\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getMernisCinsiyet\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getCezaTuru\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getCezaTuru\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getPersonelAyrilma\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getPersonelAyrilma\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getOgrenciDOYKM\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getOgrenciDOYKM\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getOgrenciDiplomaNotSistemi\">\n      <soap:operation
+        soapAction=\"WSDLs_Referans_Referanslar_Binder_getOgrenciDiplomaNotSistemi\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getOgrenimDili\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getOgrenimDili\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getOgrenciGaziSehitYakini\">\n      <soap:operation
+        soapAction=\"WSDLs_Referans_Referanslar_Binder_getOgrenciGaziSehitYakini\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getMernisUyruk\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getMernisUyruk\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getMernisUlke\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getMernisUlke\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getKadroGorevUnvan\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getKadroGorevUnvan\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getEndeksListesi\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getEndeksListesi\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getOzgecmisYabanciDil\">\n      <soap:operation
+        soapAction=\"WSDLs_Referans_Referanslar_Binder_getOzgecmisYabanciDil\" style=\"document\"/>\n
+        \     <wsdl:input>\n        <soap:body parts=\"parameters\" use=\"literal\"/>\n
+        \     </wsdl:input>\n      <wsdl:output>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation
+        name=\"getOgrenciAyrilmaNedeni\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getOgrenciAyrilmaNedeni\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getUniversiteTuru\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getUniversiteTuru\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getFormasyonAlanlar\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getFormasyonAlanlar\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getGirisTuru\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getGirisTuru\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getOgrenciGirisTuru\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getOgrenciGirisTuru\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getYoksisUlke\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getYoksisUlke\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getBirimTuru\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getBirimTuru\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getOgrenciOgrencilikHakki\">\n      <soap:operation
+        soapAction=\"WSDLs_Referans_Referanslar_Binder_getOgrenciOgrencilikHakki\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getPersonelAtanma\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getPersonelAtanma\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getIlceGetir\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getIlceGetir\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getOgrenciSinif\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getOgrenciSinif\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getOgrenciGirisPuanTuru\">\n      <soap:operation
+        soapAction=\"WSDLs_Referans_Referanslar_Binder_getOgrenciGirisPuanTuru\" style=\"document\"/>\n
+        \     <wsdl:input>\n        <soap:body parts=\"parameters\" use=\"literal\"/>\n
+        \     </wsdl:input>\n      <wsdl:output>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation
+        name=\"getIlGetir\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getIlGetir\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getOgrenimTuru\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getOgrenimTuru\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getOgrencilikStatusu\">\n      <soap:operation
+        soapAction=\"WSDLs_Referans_Referanslar_Binder_getOgrencilikStatusu\" style=\"document\"/>\n
+        \     <wsdl:input>\n        <soap:body parts=\"parameters\" use=\"literal\"/>\n
+        \     </wsdl:input>\n      <wsdl:output>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n    <wsdl:operation
+        name=\"getOgrenciEngelTuru\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getOgrenciEngelTuru\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getAktiflikDurumu\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getAktiflikDurumu\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \   <wsdl:operation name=\"getKodBid\">\n      <soap:operation soapAction=\"WSDLs_Referans_Referanslar_Binder_getKodBid\"
+        style=\"document\"/>\n      <wsdl:input>\n        <soap:body parts=\"parameters\"
+        use=\"literal\"/>\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body
+        parts=\"parameters\" use=\"literal\"/>\n      </wsdl:output>\n    </wsdl:operation>\n
+        \ </wsdl:binding>\n  <wsdl:service name=\"WSDLs.Referans.Referanslar\">\n
+        \   <wsdl:port binding=\"tns1:WSDLs_Referans_Referanslar_Binder\" name=\"WSDLs_Referans_Referanslar_Port\">\n
+        \     <soap:address location=\"http://servisler.yok.gov.tr/ws/Referanslarv1\"/>\n
+        \   </wsdl:port>\n  </wsdl:service>\n</wsdl:definitions>"
+    http_version: 
+  recorded_at: Thu, 13 Sep 2018 07:59:30 GMT
+- request:
+    method: post
+    uri: http://servisler.yok.gov.tr/ws/Referanslarv1
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns1="http://servisler.yok.gov.tr/Referanslar/v1"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><tns1:getMernisUyruk></tns1:getMernisUyruk></env:Body></env:Envelope>
+    headers:
+      Soapaction:
+      - '"WSDLs_Referans_Referanslar_Binder_getMernisUyruk"'
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Length:
+      - '340'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Set-Cookie:
+      - ssnid=37eb0d20e4851c25a240fffffd0f6ba5; Path=/ws; HttpOnly; Domain=servisler.yok.gov.tr
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Thu, 13 Sep 2018 07:59:29 GMT
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz48c29hcGVudjpFbnZlbG9wZSB4bWxuczpzb2FwZW52PSJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy9zb2FwL2VudmVsb3BlLyI+PHNvYXBlbnY6Qm9keT48c2VyLXJvb3Q6Z2V0TWVybmlzVXlydWtSZXNwb25zZSB4bWxuczpzZXItcm9vdD0iaHR0cDovL3NlcnZpc2xlci55b2suZ292LnRyL1JlZmVyYW5zbGFyL3YxIiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIj48UkVGRVJBTlNMQVI+PEtPRD45ODQwPC9LT0Q+PEFEPkFGR0FOxLBTVEFOIMSwU0xBTSBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4NDA8L0tPRD48QUQ+QUZHQU7EsFNUQU4gxLBTTEFNIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTg5MzwvS09EPjxBRD5BTE1BTllBIEZFREVSQUwgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODkzPC9LT0Q+PEFEPkFMTUFOWUEgRkVERVJBTCBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk5ODg8L0tPRD48QUQ+QU1FUsSwS0EgQsSwUkxFxZ7EsEsgREVWTEVUTEVSxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODk4ODwvS09EPjxBRD5BTUVSxLBLQSBCxLBSTEXFnsSwSyBERVZMRVRMRVLEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45Nzk1PC9LT0Q+PEFEPkFORE9SUkEgUFJFTlNMxLDEnsSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg3OTU8L0tPRD48QUQ+QU5ET1JSQSBQUkVOU0zEsMSexLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTg0MzwvS09EPjxBRD5BTkdPTEEgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODQzPC9LT0Q+PEFEPkFOR09MQSBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4NDQ8L0tPRD48QUQ+QU5UxLBHVUEgVkUgQkFSQlVEQTwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODQ0PC9LT0Q+PEFEPkFOVMSwR1VBIFZFIEJBUkJVREEgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTg0NTwvS09EPjxBRD5BUkpBTlTEsE4gQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODQ1PC9LT0Q+PEFEPkFSSkFOVMSwTiBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4NDE8L0tPRD48QUQ+QVJOQVZVVExVSyBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4NDE8L0tPRD48QUQ+QVJOQVZVVExVSyBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4NDY8L0tPRD48QUQ+QVZVU1RSQUxZQTwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODQ2PC9LT0Q+PEFEPkFWVVNUUkFMWUEgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTg0NzwvS09EPjxBRD5BVlVTVFVSWUEgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODQ3PC9LT0Q+PEFEPkFWVVNUVVJZQSBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4MTQ8L0tPRD48QUQ+QVpFUkJBWUNBTiBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4MTQ8L0tPRD48QUQ+QVpFUkJBWUNBTiBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4NDg8L0tPRD48QUQ+QkFIQU1BTEFSPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4NDg8L0tPRD48QUQ+QkFIQU1BTEFSIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4NDk8L0tPRD48QUQ+QkFIUkVZTiBLUkFMTEnEnkk8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODg0OTwvS09EPjxBRD5CQUhSRVlOIEtSQUxMScSeSSBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45ODUwPC9LT0Q+PEFEPkJBTkdMQURFxZ4gSEFMSyBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4NTA8L0tPRD48QUQ+QkFOR0xBREXFniBIQUxLIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTg1MTwvS09EPjxBRD5CQVJCQURPUzwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODUxPC9LT0Q+PEFEPkJBUkJBRE9TIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4NjI8L0tPRD48QUQ+QkFZTMOWUlVTWUFOIChTU0MpPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4NjI8L0tPRD48QUQ+QkFZTMOWUlVTWUFOIChTU0MpSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTgxNTwvS09EPjxBRD5CRUxBUlVTIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODgxNTwvS09EPjxBRD5CRUxBUlVTIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTg1MjwvS09EPjxBRD5CRUzDh8SwS0EgS1JBTExJxJ5JPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4NTI8L0tPRD48QUQ+QkVMw4fEsEtBIEtSQUxMScSeSSBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45ODUzPC9LT0Q+PEFEPkJFTMSwWkU8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODg1MzwvS09EPjxBRD5CRUzEsFpFIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4NTQ8L0tPRD48QUQ+QkVOxLBOIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODg1NDwvS09EPjxBRD5CRU7EsE4gQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45ODM5PC9LT0Q+PEFEPkLEsEzEsE5NRVlFTjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODM5PC9LT0Q+PEFEPkLEsEzEsE5NRVlFTiBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTg0PC9LT0Q+PEFEPkLEsFJMRcWexLBLIEFSQVAgRU3EsFJMxLBLTEVSxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODk4NDwvS09EPjxBRD5CxLBSTEXFnsSwSyBBUkFQIEVNxLBSTMSwS0xFUsSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk5MzM8L0tPRD48QUQ+QsSwUkxFxZ7EsEsgTUVLU8SwS0EgREVWTEVUTEVSxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODkzMzwvS09EPjxBRD5CxLBSTEXFnsSwSyBNRUtTxLBLQSBERVZMRVRMRVLEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTkyPC9LT0Q+PEFEPkJPTMSwVkFSQ0kgVkVORVpVRUxBIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODk5MjwvS09EPjxBRD5CT0zEsFZBUkNJIFZFTkVaVUVMQSBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4NTY8L0tPRD48QUQ+Qk9MxLBWWUEgw4dPS1VMVVNMVSBERVZMRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODU2PC9LT0Q+PEFEPkJPTMSwVllBIMOHT0tVTFVTTFUgREVWTEVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTgxNjwvS09EPjxBRD5CT1NOQSBIRVJTRUs8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODgxNjwvS09EPjxBRD5CT1NOQSBIRVJTRUsgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTg1NzwvS09EPjxBRD5CT1RTVkFOQSBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4NTc8L0tPRD48QUQ+Qk9UU1ZBTkEgQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45ODU4PC9LT0Q+PEFEPkJSRVrEsExZQSBGRURFUkFUxLBGIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODg1ODwvS09EPjxBRD5CUkVaxLBMWUEgRkVERVJBVMSwRiBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk3OTY8L0tPRD48QUQ+QlJVTkXEsCBEQVJVU1NFTEFNPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg3OTY8L0tPRD48QUQ+QlJVTkXEsCBEQVJVU1NFTEFNIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4NTk8L0tPRD48QUQ+QlVMR0FSxLBTVEFOIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODg1OTwvS09EPjxBRD5CVUxHQVLEsFNUQU4gQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45Nzk3PC9LT0Q+PEFEPkJVUkvEsE5BIEZBU088L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODc5NzwvS09EPjxBRD5CVVJLxLBOQSBGQVNPIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4NjA8L0tPRD48QUQ+QlVSTUE8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODg2MDwvS09EPjxBRD5CVVJNQSBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45ODYxPC9LT0Q+PEFEPkJVUlVORMSwIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODg2MTwvS09EPjxBRD5CVVJVTkTEsCBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4NTU8L0tPRD48QUQ+QlVUQU4gS1JBTExJxJ5JPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4NTU8L0tPRD48QUQ+QlVUQU4gS1JBTExJxJ5JIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk5ODU8L0tPRD48QUQ+QsOcWcOcSyBCUsSwVEFOWUEgVkUgS1VaRVkgxLBSTEFOREEgQsSwUkxFxZ7EsEsgS1JBTExJxJ5JPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg5ODU8L0tPRD48QUQ+QsOcWcOcSyBCUsSwVEFOWUEgVkUgS1VaRVkgxLBSTEFOREEgQsSwUkxFxZ7EsEsgS1JBTExJxJ5JIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4NjQ8L0tPRD48QUQ+Q0FCTyBWRVJERSBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4NjQ8L0tPRD48QUQ+Q0FCTyBWRVJERSBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4NDI8L0tPRD48QUQ+Q0VaQVnEsFIgREVNT0tSQVTEsEsgSEFMSyBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4NDI8L0tPRD48QUQ+Q0VaQVnEsFIgREVNT0tSQVTEsEsgSEFMSyBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4ODA8L0tPRD48QUQ+Q8SwQlVUxLAgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODgwPC9LT0Q+PEFEPkPEsEJVVMSwIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTg2NjwvS09EPjxBRD7Dh0FEIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODg2NjwvS09EPjxBRD7Dh0FEIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTgxNzwvS09EPjxBRD7Dh0VLIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODgxNzwvS09EPjxBRD7Dh0VLIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTg3NjwvS09EPjxBRD7Dh0VLT1NMT1ZBS1lBPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4NzY8L0tPRD48QUQ+w4dFS09TTE9WQUtZQSBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45ODY4PC9LT0Q+PEFEPsOHxLBOIEhBTEsgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODY4PC9LT0Q+PEFEPsOHxLBOIEhBTEsgQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45NzcyPC9LT0Q+PEFEPsOHxLBOIFRBWVZBTjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44NzcyPC9LT0Q+PEFEPsOHxLBOIFRBWVZBTiBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45ODc5PC9LT0Q+PEFEPkRBTsSwTUFSS0EgS1JBTExJxJ5JPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4Nzk8L0tPRD48QUQ+REFOxLBNQVJLQSBLUkFMTEnEnkkgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTg3ODwvS09EPjxBRD5ERU1PS1JBVElLIFlFTUVOPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4Nzg8L0tPRD48QUQ+REVNT0tSQVRJSyBZRU1FTiBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45ODkyPC9LT0Q+PEFEPkRFTU9LUkFUxLBLIEFMTUFOWUE8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODg5MjwvS09EPjxBRD5ERU1PS1JBVMSwSyBBTE1BTllBIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4Mzg8L0tPRD48QUQ+RMSwxJ5FUjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODM4PC9LT0Q+PEFEPkTEsMSeRVIgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTc1ODwvS09EPjxBRD5ET8SeVSBUxLBNT1IgREVNT0tSQVTEsEsgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44NzU4PC9LT0Q+PEFEPkRPxJ5VIFTEsE1PUiBERU1PS1JBVMSwSyBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4ODI8L0tPRD48QUQ+RE9NxLBOxLBLIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODg4MjwvS09EPjxBRD5ET03EsE7EsEsgQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45ODgxPC9LT0Q+PEFEPkRPTcSwTsSwS0E8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODg4MTwvS09EPjxBRD5ET03EsE7EsEtBIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4ODM8L0tPRD48QUQ+RUtWQVRPUiBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4ODM8L0tPRD48QUQ+RUtWQVRPUiBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4ODY8L0tPRD48QUQ+RUtWQVRPUiBHxLBORVPEsCBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4ODY8L0tPRD48QUQ+RUtWQVRPUiBHxLBORVPEsCBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4ODU8L0tPRD48QUQ+RUwgU0FMVkFET1IgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODg1PC9LT0Q+PEFEPkVMIFNBTFZBRE9SIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTkwNjwvS09EPjxBRD5FTkRPTkVaWUEgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTA2PC9LT0Q+PEFEPkVORE9ORVpZQSBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4MTg8L0tPRD48QUQ+RVLEsFRSRSBERVZMRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODE4PC9LT0Q+PEFEPkVSxLBUUkUgREVWTEVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTgxOTwvS09EPjxBRD5FUk1FTsSwU1RBTiBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4MTk8L0tPRD48QUQ+RVJNRU7EsFNUQU4gQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45ODIwPC9LT0Q+PEFEPkVTVE9OWUEgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODIwPC9LT0Q+PEFEPkVTVE9OWUEgQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45ODg3PC9LT0Q+PEFEPkVUxLBZT1BZQSBGRURFUkFMIERFTU9LUkFUxLBLIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODg4NzwvS09EPjxBRD5FVMSwWU9QWUEgRkVERVJBTCBERU1PS1JBVMSwSyBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk5MzU8L0tPRD48QUQ+RkFTIEtSQUxMScSeSTwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTM1PC9LT0Q+PEFEPkZBUyBLUkFMTEnEnkkgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTg4ODwvS09EPjxBRD5GxLBKxLAgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODg4PC9LT0Q+PEFEPkbEsErEsCBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk5MTI8L0tPRD48QUQ+RsSwTETEsMWexLAgU0FIxLBMxLAgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTEyPC9LT0Q+PEFEPkbEsExExLDFnsSwIFNBSMSwTMSwIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTk1MDwvS09EPjxBRD5GxLBMxLBQxLBOTEVSIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODk1MDwvS09EPjxBRD5GxLBMxLBQxLBOTEVSIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTgxMjwvS09EPjxBRD5GxLBMxLBTVMSwTiBERVZMRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODEyPC9LT0Q+PEFEPkbEsEzEsFNUxLBOIERFVkxFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4ODk8L0tPRD48QUQ+RsSwTkxBTkTEsFlBIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODg4OTwvS09EPjxBRD5GxLBOTEFORMSwWUEgQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45ODkwPC9LT0Q+PEFEPkZSQU5TQSBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4OTA8L0tPRD48QUQ+RlJBTlNBIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTg5MTwvS09EPjxBRD5HQUJPTiBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4OTE8L0tPRD48QUQ+R0FCT04gQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45Nzk4PC9LT0Q+PEFEPkdBTULEsFlBIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODc5ODwvS09EPjxBRD5HQU1CxLBZQSBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4OTQ8L0tPRD48QUQ+R0FOQSBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4OTQ8L0tPRD48QUQ+R0FOQSBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4OTg8L0tPRD48QUQ+R8SwTkUgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODk4PC9LT0Q+PEFEPkfEsE5FIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTg5OTwvS09EPjxBRD5HxLBORS1CxLBTU0FVIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODg5OTwvS09EPjxBRD5HxLBORS1CxLBTU0FVIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTg5NjwvS09EPjxBRD5HUkVOQURBPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4OTY8L0tPRD48QUQ+R1JFTkFEQSBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45ODk3PC9LT0Q+PEFEPkdVQVRFTUFMQSBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4OTc8L0tPRD48QUQ+R1VBVEVNQUxBIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTkwMDwvS09EPjxBRD5HVVlBTkEgS09PUEVSQVTEsEYgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTAwPC9LT0Q+PEFEPkdVWUFOQSBLT09QRVJBVMSwRiBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk5Njc8L0tPRD48QUQ+R8OcTkVZIEFGUsSwS0EgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTY3PC9LT0Q+PEFEPkfDnE5FWSBBRlLEsEtBIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTg3NDwvS09EPjxBRD5Hw5xORVkgS0lCUklTIFJVTSBZw5ZORVTEsE3EsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODc0PC9LT0Q+PEFEPkfDnE5FWSBLSUJSSVMgUlVNIFnDlk5FVMSwTcSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk3NTk8L0tPRD48QUQ+R8OcTkVZIFNVREFOIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODc1OTwvS09EPjxBRD5Hw5xORVkgU1VEQU4gQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45ODIxPC9LT0Q+PEFEPkfDnFJDxLBTVEFOIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODgyMTwvS09EPjxBRD5Hw5xSQ8SwU1RBTiBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk5MDE8L0tPRD48QUQ+SEHEsFTEsCBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg5MDE8L0tPRD48QUQ+SEHEsFTEsCBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4MTA8L0tPRD48QUQ+SElSVkFUxLBTVEFOIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODgxMDwvS09EPjxBRD5ISVJWQVTEsFNUQU4gQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTA1PC9LT0Q+PEFEPkjEsE5ExLBTVEFOIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODkwNTwvS09EPjxBRD5IxLBORMSwU1RBTiBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk5Mzg8L0tPRD48QUQ+SE9MTEFOREEgS1JBTExJxJ5JPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg5Mzg8L0tPRD48QUQ+SE9MTEFOREEgS1JBTExJxJ5JIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk5MDI8L0tPRD48QUQ+SE9ORFVSQVMgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTAyPC9LT0Q+PEFEPkhPTkRVUkFTIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTkwODwvS09EPjxBRD5JUkFLIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODkwODwvS09EPjxBRD5JUkFLIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTkwNzwvS09EPjxBRD7EsFJBTiDEsFNMQU0gQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTA3PC9LT0Q+PEFEPsSwUkFOIMSwU0xBTSBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk5MDk8L0tPRD48QUQ+xLBSTEFOREEgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTA5PC9LT0Q+PEFEPsSwUkxBTkRBIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTk2ODwvS09EPjxBRD7EsFNQQU5ZQSBLUkFMTEnEnkk8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODk2ODwvS09EPjxBRD7EsFNQQU5ZQSBLUkFMTEnEnkkgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTkxMDwvS09EPjxBRD7EsFNSQcSwTCBERVZMRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTEwPC9LT0Q+PEFEPsSwU1JBxLBMIERFVkxFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk5NzM8L0tPRD48QUQ+xLBTVkXDhyBLUkFMTEnEnkk8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODk3MzwvS09EPjxBRD7EsFNWRcOHIEtSQUxMScSeSSBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTc0PC9LT0Q+PEFEPsSwU1bEsMOHUkUgS09ORkVERVJBU1lPTlU8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODk3NDwvS09EPjxBRD7EsFNWxLDDh1JFIEtPTkZFREVSQVNZT05VIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk5MTE8L0tPRD48QUQ+xLBUQUxZQSBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg5MTE8L0tPRD48QUQ+xLBUQUxZQSBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk5MDQ8L0tPRD48QUQ+xLBaTEFOREEgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTA0PC9LT0Q+PEFEPsSwWkxBTkRBIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTkxMzwvS09EPjxBRD5KQU1BxLBLQTwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTEzPC9LT0Q+PEFEPkpBTUHEsEtBIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk5MTQ8L0tPRD48QUQ+SkFQT05ZQTwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTE0PC9LT0Q+PEFEPkpBUE9OWUEgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTg3NzwvS09EPjxBRD5LQU1CT8OHWUEgS1JBTExJxJ5JPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4Nzc8L0tPRD48QUQ+S0FNQk/Dh1lBIEtSQUxMScSeSSBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTg2PC9LT0Q+PEFEPktBTUVSVU4gQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTg2PC9LT0Q+PEFEPktBTUVSVU4gQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45ODYzPC9LT0Q+PEFEPktBTkFEQTwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODYzPC9LT0Q+PEFEPktBTkFEQSBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45NzcwPC9LT0Q+PEFEPktBUkFEQcSePC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg3NzA8L0tPRD48QUQ+S0FSQURBxJ4gSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTk1MzwvS09EPjxBRD5LQVRBUiBERVZMRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTUzPC9LT0Q+PEFEPktBVEFSIERFVkxFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4MjI8L0tPRD48QUQ+S0FaQUvEsFNUQU4gQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODIyPC9LT0Q+PEFEPktBWkFLxLBTVEFOIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTkxNjwvS09EPjxBRD5LRU5ZQSBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg5MTY8L0tPRD48QUQ+S0VOWUEgQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45ODIzPC9LT0Q+PEFEPktJUkdJWiBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4MjM8L0tPRD48QUQ+S0lSR0laIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTc1NzwvS09EPjxBRD5LSVJJTTwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44NzU3PC9LT0Q+PEFEPktJUklNIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4MDA8L0tPRD48QUQ+S8SwUsSwQkFUxLAgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODAwPC9LT0Q+PEFEPkvEsFLEsEJBVMSwIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTg2OTwvS09EPjxBRD5LT0xPTULEsFlBIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODg2OTwvS09EPjxBRD5LT0xPTULEsFlBIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTg3MDwvS09EPjxBRD5LT01PUkxBUiBCxLBSTMSwxJ7EsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODcwPC9LT0Q+PEFEPktPTU9STEFSIELEsFJMxLDEnsSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk3Nzg8L0tPRD48QUQ+S09OR08gQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44Nzc4PC9LT0Q+PEFEPktPTkdPIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTg3MTwvS09EPjxBRD5LT05HTyBERU1PS1JBVMSwSyBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4NzE8L0tPRD48QUQ+S09OR08gREVNT0tSQVTEsEsgQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45ODA5PC9LT0Q+PEFEPktPUkUgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODA5PC9LT0Q+PEFEPktPUkUgQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45Nzc1PC9LT0Q+PEFEPktPUkUgREVNT0tSQVTEsEsgSEFMSyBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg3NzU8L0tPRD48QUQ+S09SRSBERU1PS1JBVMSwSyBIQUxLIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTc3MzwvS09EPjxBRD5LT1NPVkEgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44NzczPC9LT0Q+PEFEPktPU09WQSBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4NzI8L0tPRD48QUQ+S09TVEEgUsSwS0EgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODcyPC9LT0Q+PEFEPktPU1RBIFLEsEtBIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTc2MDwvS09EPjxBRD5LVUTDnFM8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODc2MDwvS09EPjxBRD5LVUTDnFMgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTkxNzwvS09EPjxBRD5LVVZFWVQgREVWTEVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODkxNzwvS09EPjxBRD5LVVZFWVQgREVWTEVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTg3NTwvS09EPjxBRD5LVVpFWSBLSUJSSVMgVMOcUksgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODc1PC9LT0Q+PEFEPktVWkVZIEtJQlJJUyBUw5xSSyBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4NzM8L0tPRD48QUQ+S8OcQkEgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODczPC9LT0Q+PEFEPkvDnEJBIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTkxODwvS09EPjxBRD5MQU9TIERFTU9LUkFUxLBLIEhBTEsgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTE4PC9LT0Q+PEFEPkxBT1MgREVNT0tSQVTEsEsgSEFMSyBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk5MjA8L0tPRD48QUQ+TEVTT1RITyBLUkFMTEnEnkk8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODkyMDwvS09EPjxBRD5MRVNPVEhPIEtSQUxMScSeSSBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45ODI0PC9LT0Q+PEFEPkxFVE9OWUEgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODI0PC9LT0Q+PEFEPkxFVE9OWUEgQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTIxPC9LT0Q+PEFEPkzEsEJFUllBIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODkyMTwvS09EPjxBRD5MxLBCRVJZQSBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk5MjI8L0tPRD48QUQ+TMSwQllBIERFVkxFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg5MjI8L0tPRD48QUQ+TMSwQllBIERFVkxFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk5MjM8L0tPRD48QUQ+TMSwSFRFTsWeVEFZTiBQUkVOU0zEsMSexLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODkyMzwvS09EPjxBRD5MxLBIVEVOxZ5UQVlOIFBSRU5TTMSwxJ7EsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45ODI1PC9LT0Q+PEFEPkzEsFRWQU5ZQSBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4MjU8L0tPRD48QUQ+TMSwVFZBTllBIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTkxOTwvS09EPjxBRD5Mw5xCTkFOIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODkxOTwvS09EPjxBRD5Mw5xCTkFOIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTkyNDwvS09EPjxBRD5Mw5xLU0VNQlVSRyBCw5xZw5xLIETDnEtBTEnEnkk8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODkyNDwvS09EPjxBRD5Mw5xLU0VNQlVSRyBCw5xZw5xLIETDnEtBTEnEnkkgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTkwMzwvS09EPjxBRD5NQUNBUsSwU1RBTjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTAzPC9LT0Q+PEFEPk1BQ0FSxLBTVEFOIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk5MjU8L0tPRD48QUQ+TUFEQUdBU0tBUiBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg5MjU8L0tPRD48QUQ+TUFEQUdBU0tBUiBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4MjY8L0tPRD48QUQ+TUFLRURPTllBIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODgyNjwvS09EPjxBRD5NQUtFRE9OWUEgQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTI2PC9LT0Q+PEFEPk1BTEFWxLAgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTI2PC9LT0Q+PEFEPk1BTEFWxLAgQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTI4PC9LT0Q+PEFEPk1BTETEsFZMRVIgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTI4PC9LT0Q+PEFEPk1BTETEsFZMRVIgQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTI3PC9LT0Q+PEFEPk1BTEVaWUE8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODkyNzwvS09EPjxBRD5NQUxFWllBIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk5Mjk8L0tPRD48QUQ+TUFMxLAgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTI5PC9LT0Q+PEFEPk1BTMSwIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTkzMDwvS09EPjxBRD5NQUxUQSBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg5MzA8L0tPRD48QUQ+TUFMVEEgQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45ODI3PC9LT0Q+PEFEPk1BUsWeQUwgQURBTEFSSSBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4Mjc8L0tPRD48QUQ+TUFSxZ5BTCBBREFMQVJJIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTkzMjwvS09EPjxBRD5NQVVSxLBUxLBVUyBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg5MzI8L0tPRD48QUQ+TUFVUsSwVMSwVVMgQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45ODg0PC9LT0Q+PEFEPk1JU0lSIEFSQVAgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODg0PC9LT0Q+PEFEPk1JU0lSIEFSQVAgQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45ODI4PC9LT0Q+PEFEPk3EsEtST05FWllBIEZFREVSRSBERVZMRVRMRVLEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODI4PC9LT0Q+PEFEPk3EsEtST05FWllBIEZFREVSRSBERVZMRVRMRVLEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTM0PC9LT0Q+PEFEPk1PxJ5PTMSwU1RBTjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTM0PC9LT0Q+PEFEPk1PxJ5PTMSwU1RBTiBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45ODI5PC9LT0Q+PEFEPk1PTERPVkEgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODI5PC9LT0Q+PEFEPk1PTERPVkEgQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45ODAxPC9LT0Q+PEFEPk1PTkFLTyBQUkVOU0zEsMSexLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODgwMTwvS09EPjxBRD5NT05BS08gUFJFTlNMxLDEnsSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk5MzE8L0tPRD48QUQ+TU9SxLBUQU5ZQSDEsFNMQU0gQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTMxPC9LT0Q+PEFEPk1PUsSwVEFOWUEgxLBTTEFNIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTkzNjwvS09EPjxBRD5NT1pBTULEsEsgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTM2PC9LT0Q+PEFEPk1PWkFNQsSwSyBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4MDI8L0tPRD48QUQ+TVlBTk1BUiBCxLBSTMSwxJ7EsCBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4MDI8L0tPRD48QUQ+TVlBTk1BUiBCxLBSTMSwxJ7EsCBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4MzA8L0tPRD48QUQ+TkFNxLBCWUEgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODMwPC9LT0Q+PEFEPk5BTcSwQllBIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTgwMzwvS09EPjxBRD5OQVVSVSBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4MDM8L0tPRD48QUQ+TkFVUlUgQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTM3PC9LT0Q+PEFEPk5FUEFMIEZFREVSQUwgREVNT0tSQVTEsEsgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTM3PC9LT0Q+PEFEPk5FUEFMIEZFREVSQUwgREVNT0tSQVTEsEsgQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTQxPC9LT0Q+PEFEPk7EsEpFUiBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg5NDE8L0tPRD48QUQ+TsSwSkVSIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTk0MjwvS09EPjxBRD5OxLBKRVJZQSBGRURFUkFMIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODk0MjwvS09EPjxBRD5OxLBKRVJZQSBGRURFUkFMIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTk0MDwvS09EPjxBRD5OxLBLQVJBR1VBIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODk0MDwvS09EPjxBRD5OxLBLQVJBR1VBIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTk0MzwvS09EPjxBRD5OT1JWRcOHIEtSQUxMScSeSTwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTQzPC9LT0Q+PEFEPk5PUlZFw4cgS1JBTExJxJ5JIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4NjU8L0tPRD48QUQ+T1JUQSBBRlLEsEtBIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODg2NTwvS09EPjxBRD5PUlRBIEFGUsSwS0EgQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45ODM2PC9LT0Q+PEFEPsOWWkJFS8SwU1RBTiBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4MzY8L0tPRD48QUQ+w5ZaQkVLxLBTVEFOIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTk0NTwvS09EPjxBRD5QQUvEsFNUQU4gxLBTTEFNIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODk0NTwvS09EPjxBRD5QQUvEsFNUQU4gxLBTTEFNIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTgwNDwvS09EPjxBRD5QQUxBVSBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4MDQ8L0tPRD48QUQ+UEFMQVUgQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTQ2PC9LT0Q+PEFEPlBBTkFNQSBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg5NDY8L0tPRD48QUQ+UEFOQU1BIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTk0NzwvS09EPjxBRD5QQVBVQSBZRU7EsCBHxLBORSBCQcSeSU1TSVogREVWTEVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODk0NzwvS09EPjxBRD5QQVBVQSBZRU7EsCBHxLBORSBCQcSeSU1TSVogREVWTEVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTk0ODwvS09EPjxBRD5QQVJBR1VBWSBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg5NDg8L0tPRD48QUQ+UEFSQUdVQVkgQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTQ5PC9LT0Q+PEFEPlBFUlUgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTQ5PC9LT0Q+PEFEPlBFUlUgQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTUxPC9LT0Q+PEFEPlBPTE9OWUEgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTUxPC9LT0Q+PEFEPlBPTE9OWUEgQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTUyPC9LT0Q+PEFEPlBPUlRFS8SwWiBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg5NTI8L0tPRD48QUQ+UE9SVEVLxLBaIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTk1NDwvS09EPjxBRD5ST01BTllBPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg5NTQ8L0tPRD48QUQ+Uk9NQU5ZQSBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTU1PC9LT0Q+PEFEPlJVQU5EQSBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg5NTU8L0tPRD48QUQ+UlVBTkRBIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTc4MzwvS09EPjxBRD5SVVNZQSBGRUQuICAvIEtBUkHDh0FZLcOHRVJLRVogQ1VNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44NzgzPC9LT0Q+PEFEPlJVU1lBIEZFRC4gIC8gS0FSQcOHQVktw4dFUktFWiBDVU0uIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk3Nzc8L0tPRD48QUQ+UlVTWUEgRkVELiAvIEFESUdFIENVTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODc3NzwvS09EPjxBRD5SVVNZQSBGRUQuIC8gQURJR0UgQ1VNLiBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45Nzc2PC9LT0Q+PEFEPlJVU1lBIEZFRC4gLyBBTFRBWSBDVU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg3NzY8L0tPRD48QUQ+UlVTWUEgRkVELiAvIEFMVEFZIENVTS4gSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTc3NDwvS09EPjxBRD5SVVNZQSBGRUQuIC8gQk/FnktPUlRPU1RBTiBDVU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg3NzQ8L0tPRD48QUQ+UlVTWUEgRkVELiAvIEJPxZ5LT1JUT1NUQU4gQ1VNLiBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45Nzc5PC9LT0Q+PEFEPlJVU1lBIEZFRC4gLyBCVVJZQVRZQSBDVU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg3Nzk8L0tPRD48QUQ+UlVTWUEgRkVELiAvIEJVUllBVFlBIENVTS4gSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTgxMTwvS09EPjxBRD5SVVNZQSBGRUQuIC8gw4dFw4dFTiBDVU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4MTE8L0tPRD48QUQ+UlVTWUEgRkVELiAvIMOHRcOHRU4gQ1VNLiBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45Nzk0PC9LT0Q+PEFEPlJVU1lBIEZFRC4gLyDDh1VWQcWeIENVTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODc5NDwvS09EPjxBRD5SVVNZQSBGRUQuIC8gw4dVVkHFniBDVU0uIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4MTM8L0tPRD48QUQ+UlVTWUEgRkVELiAvIERBxJ5JU1RBTiBDVU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4MTM8L0tPRD48QUQ+UlVTWUEgRkVELiAvIERBxJ5JU1RBTiBDVU0uIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk3OTM8L0tPRD48QUQ+UlVTWUEgRkVELiAvIEhBS0FTWUEgQ1VNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44NzkzPC9LT0Q+PEFEPlJVU1lBIEZFRC4gLyBIQUtBU1lBIENVTS4gSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTc4MDwvS09EPjxBRD5SVVNZQSBGRUQuIC8gxLBOR1XFnkVUWUEgQ1VNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44NzgwPC9LT0Q+PEFEPlJVU1lBIEZFRC4gLyDEsE5HVcWeRVRZQSBDVU0uIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk3ODE8L0tPRD48QUQ+UlVTWUEgRkVELiAvIEtBQkFSVEFZLUJBTEtBUiBDVU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg3ODE8L0tPRD48QUQ+UlVTWUEgRkVELiAvIEtBQkFSVEFZLUJBTEtBUiBDVU0uIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk3ODI8L0tPRD48QUQ+UlVTWUEgRkVELiAvIEtBTE3EsEtZQSBDVU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg3ODI8L0tPRD48QUQ+UlVTWUEgRkVELiAvIEtBTE3EsEtZQSBDVU0uIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk3ODQ8L0tPRD48QUQ+UlVTWUEgRkVELiAvIEtBUkVMWUEgQ1VNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44Nzg0PC9LT0Q+PEFEPlJVU1lBIEZFRC4gLyBLQVJFTFlBIENVTS4gSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTc4NTwvS09EPjxBRD5SVVNZQSBGRUQuIC8gS09NxLAgQ1VNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44Nzg1PC9LT0Q+PEFEPlJVU1lBIEZFRC4gLyBLT03EsCBDVU0uIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk3ODk8L0tPRD48QUQ+UlVTWUEgRkVELiAvIEtVWkVZIE9TRVRZQSBDVU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg3ODk8L0tPRD48QUQ+UlVTWUEgRkVELiAvIEtVWkVZIE9TRVRZQSBDVU0uIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk3ODY8L0tPRD48QUQ+UlVTWUEgRkVELiAvIE1BUsSwIEVMIENVTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODc4NjwvS09EPjxBRD5SVVNZQSBGRUQuIC8gTUFSxLAgRUwgQ1VNLiBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45Nzg3PC9LT0Q+PEFEPlJVU1lBIEZFRC4gLyBNT1JET1ZZQSBDVU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg3ODc8L0tPRD48QUQ+UlVTWUEgRkVELiAvIE1PUkRPVllBIENVTS4gSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTc4ODwvS09EPjxBRD5SVVNZQSBGRUQuIC8gU0FIQSBDVU0uIChZQUtVVMSwU1RBTik8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODc4ODwvS09EPjxBRD5SVVNZQSBGRUQuIC8gU0FIQSBDVU0uIChZQUtVVMSwU1RBTikgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTc5MDwvS09EPjxBRD5SVVNZQSBGRUQuIC8gVEFUQVLEsFNUQU4gQ1VNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44NzkwPC9LT0Q+PEFEPlJVU1lBIEZFRC4gLyBUQVRBUsSwU1RBTiBDVU0uIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk3OTE8L0tPRD48QUQ+UlVTWUEgRkVELiAvIFRVVkEgQ1VNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44NzkxPC9LT0Q+PEFEPlJVU1lBIEZFRC4gLyBUVVZBIENVTS4gSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTc5MjwvS09EPjxBRD5SVVNZQSBGRUQuIC8gVURNVVJUIENVTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODc5MjwvS09EPjxBRD5SVVNZQSBGRUQuIC8gVURNVVJUIENVTS4gSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTgzMTwvS09EPjxBRD5SVVNZQSBGRURFUkFTWU9OVTwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODMxPC9LT0Q+PEFEPlJVU1lBIEZFREVSQVNZT05VIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4MDY8L0tPRD48QUQ+U0HEsE5UIEvEsFRUUyBWRSBORVbEsFMgRkVERVJBU1lPTlU8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODgwNjwvS09EPjxBRD5TQcSwTlQgS8SwVFRTIFZFIE5FVsSwUyBGRURFUkFTWU9OVSBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTU2PC9LT0Q+PEFEPlNBxLBOVCBMVUPEsEE8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODk1NjwvS09EPjxBRD5TQcSwTlQgTFVDxLBBIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk5NTc8L0tPRD48QUQ+U0HEsE5UIFbEsE5DRU5UIFZFIEdSRU5BRMSwTkxFUjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTU3PC9LT0Q+PEFEPlNBxLBOVCBWxLBOQ0VOVCBWRSBHUkVOQUTEsE5MRVIgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTk1ODwvS09EPjxBRD5TQU1PQSBCQcSeSU1TSVogREVWTEVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODk1ODwvS09EPjxBRD5TQU1PQSBCQcSeSU1TSVogREVWTEVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTgwNTwvS09EPjxBRD5TQU4gTUFSxLBOTyBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4MDU8L0tPRD48QUQ+U0FOIE1BUsSwTk8gQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTU5PC9LT0Q+PEFEPlNBTyBUT01FIFZFIFBSxLBOQ8SwUEUgREVNT0tSQVTEsEsgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTU5PC9LT0Q+PEFEPlNBTyBUT01FIFZFIFBSxLBOQ8SwUEUgREVNT0tSQVTEsEsgQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTYxPC9LT0Q+PEFEPlNFTkVHQUwgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTYxPC9LT0Q+PEFEPlNFTkVHQUwgQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTYyPC9LT0Q+PEFEPlNFWcWeRUxMRVIgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTYyPC9LT0Q+PEFEPlNFWcWeRUxMRVIgQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45NzcxPC9LT0Q+PEFEPlNJUkLEsFNUQU4gQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44NzcxPC9LT0Q+PEFEPlNJUkLEsFNUQU4gQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTk1PC9LT0Q+PEFEPlNJUkLEsFNUQU4gVkUgS0FSQURBxJ48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODk5NTwvS09EPjxBRD5TSVJCxLBTVEFOIFZFIEtBUkFEQcSeIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk5NjM8L0tPRD48QUQ+U8SwRVJSQSBMRU9ORSBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg5NjM8L0tPRD48QUQ+U8SwRVJSQSBMRU9ORSBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk5NjQ8L0tPRD48QUQ+U8SwTkdBUFVSIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODk2NDwvS09EPjxBRD5TxLBOR0FQVVIgQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45ODMyPC9LT0Q+PEFEPlNMT1ZBSyBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4MzI8L0tPRD48QUQ+U0xPVkFLIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTgzMzwvS09EPjxBRD5TTE9WRU5ZQSBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4MzM8L0tPRD48QUQ+U0xPVkVOWUEgQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTY1PC9LT0Q+PEFEPlNPTE9NT04gQURBTEFSSTwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTY1PC9LT0Q+PEFEPlNPTE9NT04gQURBTEFSSSBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTY2PC9LT0Q+PEFEPlNPTUFMxLAgRkVERVJBTCBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg5NjY8L0tPRD48QUQ+U09NQUzEsCBGRURFUkFMIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTk4MzwvS09EPjxBRD5TT1ZZRVQgU09TLkNVTS5CxLBSLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTgzPC9LT0Q+PEFEPlNPVllFVCBTT1MuQ1VNLkLEsFIuSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTk2OTwvS09EPjxBRD5TUsSwIExBTktBIERFTU9LUkFUxLBLIFNPU1lBTMSwU1QgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTY5PC9LT0Q+PEFEPlNSxLAgTEFOS0EgREVNT0tSQVTEsEsgU09TWUFMxLBTVCBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk5NzA8L0tPRD48QUQ+U1VEQU4gQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTcwPC9LT0Q+PEFEPlNVREFOIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTk3MTwvS09EPjxBRD5TVVLEsE5BTSBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg5NzE8L0tPRD48QUQ+U1VSxLBOQU0gQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTc1PC9LT0Q+PEFEPlNVUsSwWUUgQVJBUCBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg5NzU8L0tPRD48QUQ+U1VSxLBZRSBBUkFQIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTk2MDwvS09EPjxBRD5TVVVExLAgQVJBQsSwU1RBTiBLUkFMTEnEnkk8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODk2MDwvS09EPjxBRD5TVVVExLAgQVJBQsSwU1RBTiBLUkFMTEnEnkkgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTk3MjwvS09EPjxBRD5TVkFaxLBMQU5EIEtSQUxMScSeSTwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTcyPC9LT0Q+PEFEPlNWQVrEsExBTkQgS1JBTExJxJ5JIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4Njc8L0tPRD48QUQ+xZ7EsEzEsCBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4Njc8L0tPRD48QUQ+xZ7EsEzEsCBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4MzQ8L0tPRD48QUQ+VEFDxLBLxLBTVEFOIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODgzNDwvS09EPjxBRD5UQUPEsEvEsFNUQU4gQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTg3PC9LT0Q+PEFEPlRBTlpBTllBIELEsFJMRcWexLBLIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODk4NzwvS09EPjxBRD5UQU5aQU5ZQSBCxLBSTEXFnsSwSyBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk5NzY8L0tPRD48QUQ+VEFZTEFORCBLUkFMTEnEnkk8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODk3NjwvS09EPjxBRD5UQVlMQU5EIEtSQUxMScSeSSBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTc3PC9LT0Q+PEFEPlRPR08gQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTc3PC9LT0Q+PEFEPlRPR08gQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45ODA3PC9LT0Q+PEFEPlRPTkdBIEtSQUxMScSeSTwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44ODA3PC9LT0Q+PEFEPlRPTkdBIEtSQUxMScSeSSBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTc4PC9LT0Q+PEFEPlRSxLBOxLBEQUQgVkUgVE9CQUdPIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODk3ODwvS09EPjxBRD5UUsSwTsSwREFEIFZFIFRPQkFHTyBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk5Nzk8L0tPRD48QUQ+VFVOVVMgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTc5PC9LT0Q+PEFEPlRVTlVTIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTgwODwvS09EPjxBRD5UVVZBTFU8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODgwODwvS09EPjxBRD5UVVZBTFUgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTk4MDwvS09EPjxBRD5Uw5xSS8SwWUUgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTgwPC9LT0Q+PEFEPlTDnFJLxLBZRSBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk4MzU8L0tPRD48QUQ+VMOcUktNRU7EsFNUQU48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODgzNTwvS09EPjxBRD5Uw5xSS01FTsSwU1RBTiBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTgxPC9LT0Q+PEFEPlVHQU5EQSBDVU1IVVLEsFlFVMSwPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg5ODE8L0tPRD48QUQ+VUdBTkRBIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTgzNzwvS09EPjxBRD5VS1JBWU5BPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg4Mzc8L0tPRD48QUQ+VUtSQVlOQSBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTgyPC9LT0Q+PEFEPlVLUkFZTkEgU09WLiBTT1MuIENVTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODk4MjwvS09EPjxBRD5VS1JBWU5BIFNPVi4gU09TLiBDVU0uIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk5NDQ8L0tPRD48QUQ+VU1NQU4gU1VMVEFOTEnEnkk8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODk0NDwvS09EPjxBRD5VTU1BTiBTVUxUQU5MScSeSSBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTkwPC9LT0Q+PEFEPlVSVUdVQVkgRE/EnlUgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTkwPC9LT0Q+PEFEPlVSVUdVQVkgRE/EnlUgQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTE1PC9LT0Q+PEFEPsOcUkTDnE4gSEHFnsSwTcSwIEtSQUxMScSeSTwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTE1PC9LT0Q+PEFEPsOcUkTDnE4gSEHFnsSwTcSwIEtSQUxMScSeSSBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTkxPC9LT0Q+PEFEPlZBTlVBVFUgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTkxPC9LT0Q+PEFEPlZBTlVBVFUgQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44NzAwPC9LT0Q+PEFEPlZBVEFOU0laPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk3OTk8L0tPRD48QUQ+VkFUxLBLQU48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODc5OTwvS09EPjxBRD5WQVTEsEtBTiBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTkzPC9LT0Q+PEFEPlbEsEVUTkFNIFNPU1lBTMSwU1QgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTkzPC9LT0Q+PEFEPlbEsEVUTkFNIFNPU1lBTMSwU1QgQ1VNSFVSxLBZRVTEsCBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTk0PC9LT0Q+PEFEPllFTUVOIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODk5NDwvS09EPjxBRD5ZRU1FTiBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk5Mzk8L0tPRD48QUQ+WUVOxLAgWkVMQU5EQTwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTM5PC9LT0Q+PEFEPllFTsSwIFpFTEFOREEgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTUwMDwvS09EPjxBRD5ZVUdPU0xBVllBPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg1MDA8L0tPRD48QUQ+WVVHT1NMQVZZQSBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45OTg5PC9LT0Q+PEFEPllVS0FSSSBWT0xUQTwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTg5PC9LT0Q+PEFEPllVS0FSSSBWT0xUQSBIQVlNLjwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD45ODk1PC9LT0Q+PEFEPllVTkFOxLBTVEFOIENVTUhVUsSwWUVUxLA8L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+ODg5NTwvS09EPjxBRD5ZVU5BTsSwU1RBTiBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk5OTY8L0tPRD48QUQ+WkHEsFJFPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjg5OTY8L0tPRD48QUQ+WkHEsFJFIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxSRUZFUkFOU0xBUj48S09EPjk5OTc8L0tPRD48QUQ+WkFNQsSwWUEgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTk3PC9LT0Q+PEFEPlpBTULEsFlBIENVTUhVUsSwWUVUxLAgSEFZTS48L0FEPjwvUkVGRVJBTlNMQVI+PFJFRkVSQU5TTEFSPjxLT0Q+OTk5ODwvS09EPjxBRD5axLBNQkFCVkUgQ1VNSFVSxLBZRVTEsDwvQUQ+PC9SRUZFUkFOU0xBUj48UkVGRVJBTlNMQVI+PEtPRD44OTk4PC9LT0Q+PEFEPlrEsE1CQUJWRSBDVU1IVVLEsFlFVMSwIEhBWU0uPC9BRD48L1JFRkVSQU5TTEFSPjxTT05VQz48RHVydW1BY2lrbGFtYT5CYcWfYXLEsWzEsTwvRHVydW1BY2lrbGFtYT48L1NPTlVDPjwvc2VyLXJvb3Q6Z2V0TWVybmlzVXlydWtSZXNwb25zZT48L3NvYXBlbnY6Qm9keT48L3NvYXBlbnY6RW52ZWxvcGU+
+    http_version: 
+  recorded_at: Thu, 13 Sep 2018 07:59:30 GMT
+recorded_with: VCR 4.0.0

@@ -2,74 +2,35 @@
 
 module Yoksis
   class StaffController < ApplicationController
-    before_action :set_staff
+    before_action :set_client_variables, :set_staff
 
     include ActionsResource
-    include YoksisResource
 
     def academicians
-      if secure_params[:id_number].present?
-        render_academicians_by_id_number
-      else
-        render_academicians_by_page
-      end
+      render_as_json @staff.academicians(querier: @client_id, queried: secure_params[:id_number])
     end
 
     def nationalities
-      render(
-        each_serializer: action_serializer,
-        json: @staff.nationalities
-      )
+      render_as_json @staff.nationalities
     end
 
     def pages
-      render(
-        serializer: action_serializer,
-        json: @staff.pages(Rails.application.credentials.yoksis[:client_id])
-      )
-    end
-
-    def profiles
-      render(
-        serializer: action_serializer,
-        json: @staff.profiles(
-          Rails.application.credentials.yoksis[:client_id],
-          profiles_params.require(:id_number)
-        )
-      )
+      render_as_json @staff.pages(querier: @client_id, page: secure_params[:page])
     end
 
     private
 
+    def set_client_variables
+      @client_id = Rails.application.credentials.yoksis[:client_id]
+      @client_secret = Rails.application.credentials.yoksis[:client_secret]
+    end
+
     def set_staff
-      @staff = Services::Yoksis.module_path::Staff.new(
-        Rails.application.credentials.yoksis[:client_id],
-        Rails.application.credentials.yoksis[:client_secret]
-      )
+      @staff = Services::Yoksis::Staff.new(basic_auth: [@client_id, @client_secret])
     end
 
     def secure_params
       params.require(:staff).permit(:id_number, :page)
-    end
-
-    def render_academicians_by_id_number
-      render(
-        serializer: action_serializer,
-        json: @staff.academicians_by_id_number(
-          Rails.application.credentials.yoksis[:client_id],
-          secure_params[:id_number]
-        )
-      )
-    end
-
-    def render_academicians_by_page
-      render(
-        each_serializer: action_serializer,
-        json: @staff.academicians_by_page(
-          Rails.application.credentials.yoksis[:client_id],
-          secure_params[:page]
-        )
-      )
     end
   end
 end

@@ -2,21 +2,12 @@
 
 module Yoksis
   class ResumesController < ApplicationController
-    before_action :set_resumes
+    before_action :set_client_variables, :set_resumes
 
     include ActionsResource
-    include YoksisResource
 
     def certifications
-      render(
-        each_serializer: action_serializer,
-        json: [@resumes.send(
-          action_name,
-          Rails.application.credentials.yoksis[:username],
-          Rails.application.credentials.yoksis[:password],
-          secure_params.require(:id_number)
-        )].flatten
-      )
+      render_as_json @resumes.send(action_name, @username, @password, secure_params.require(:id_number))
     end
 
     alias projects certifications
@@ -24,11 +15,13 @@ module Yoksis
 
     private
 
+    def set_client_variables
+      @username = Rails.application.credentials.yoksis[:username]
+      @password = Rails.application.credentials.yoksis[:password]
+    end
+
     def set_resumes
-      @resumes = Services::Yoksis.module_path::Resumes.new(
-        Rails.application.credentials.yoksis[:username],
-        Rails.application.credentials.yoksis[:password]
-      )
+      @resumes = Services::Yoksis::Resumes.new(basic_auth: [@username, @password])
     end
 
     def secure_params

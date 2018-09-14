@@ -1,27 +1,17 @@
 # frozen_string_literal: true
 
-class Client
-  class Response
-    delegate :code, :headers, :body, to: :@http
-    delegate :to_hash, to: :@soap_response
+class Response
+  delegate :header, :body, to: :@soap_response
 
-    def initialize(soap_response)
-      @soap_response = soap_response
-      @http = soap_response.http
-    end
+  attr_accessor :status_body
 
-    # TODO: The method name will change in the future.
-    def read_from_body(path)
-      value = to_hash.symbolize_keys.dig(*[path].flatten)
-      return value if value.present?
-      Rails.logger.error <<~MESSAGE
-        ResultError (invalid response or result path)
-        [HTTP] Code: #{code} Headers: #{headers} Body: #{body}
-        [SOAP] Response: #{@soap_response}
-      MESSAGE
-      raise ResponseError
-    end
+  def initialize(soap_response)
+    @soap_response = soap_response
   end
 
-  private_constant :Response
+  def successful?
+    return @soap_response.successful? unless status_body&.is_a?(Array)
+    return true if status_body.empty?
+    !/[Ee]rror|[Ff]ail|[Ha]ta/.match?(body.dig(*status_body))
+  end
 end

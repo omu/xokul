@@ -11,5 +11,10 @@ end
 module ActiveSupport
   class TestCase
     fixtures :all
+
+    def assert_kod_ad(object)
+      assert object.key?(:kod)
+      assert object.key?(:ad)
+    end
   end
 end

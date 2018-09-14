@@ -8,20 +8,27 @@ class ApplicationController < ActionController::API
   rescue_from Client::SOAPError,                  with: :services_error
   rescue_from Client::TCPError,                   with: :services_error
   rescue_from Client::UnknownOperationError,      with: :services_error
-  rescue_from Client::ResponseError,              with: :services_error
+  rescue_from Client::InvalidResponseError,       with: :services_error
 
   def bad_request(exception)
-    render json: { identifier: 'api_bad_request', message: exception },
-           status: :bad_request
+    render json: { status: 400, error: exception }, status: :bad_request
   end
 
   def not_found(exception)
-    render json: { identifier: 'api_not_found', message: exception },
-           status: :not_found
+    render json: { status: 404, error: exception }, status: :not_found
   end
 
   def services_error(exception)
-    render json: { identifier: exception.identifier, message: exception },
+    render json: { status: exception.code, error: exception },
            status: exception.code
+  end
+
+  def render_as_json(data)
+    if data
+      serializer_type = data.is_a?(Array) ? :each_serializer : :serializer
+      render json: data, "#{serializer_type}": action_serializer
+    else
+      render json: data, status: :no_content
+    end
   end
 end

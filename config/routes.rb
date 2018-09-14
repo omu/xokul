@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
+  root to: 'home#index'
+
+  namespace :osym do
+    resources(:examination) { collection { get :groups } }
+  end
+
   namespace :yoksis do
-    resources(:graduates) { collection { get :students } }
-    resources(:meb) { collection { get :students } }
+    resources(:graduates) { collection { get :informations } }
+    resources(:meb)       { collection { get :students     } }
+    resources(:students)  { collection { get :informations } }
 
     resources :references do
       collection do
@@ -55,15 +62,6 @@ Rails.application.routes.draw do
         get :academicians
         get :nationalities
         get :pages
-      end
-    end
-
-    resources :students do
-      collection do
-        get :personal_informations
-        get :studentship_informations
-        get :unit_informations
-        get :undergrad_transfer_informations
       end
     end
 

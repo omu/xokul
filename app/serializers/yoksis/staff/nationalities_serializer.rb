@@ -2,9 +2,9 @@
 
 module Yoksis
   module Staff
-    class NationalitiesSerializer < ActiveModel::Serializer
-      attribute(:code) { object[:kod].try(:to_i) }
-      attribute(:name) { object[:ad]             }
+    class NationalitiesSerializer < Serializer
+      attribute(:code) { object[:kod].safe_to_i }
+      attribute(:name) { object[:ad]            }
     end
   end
 end

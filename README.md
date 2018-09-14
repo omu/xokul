@@ -31,7 +31,7 @@ The project is open source and we are happy and thankful for your contributions.
 Authors
 -------
 
-See [graph section](/graphs/contributors) on the GitHub. Thanks to everyone who contributed.
+See [graph section](graphs/contributors) on the GitHub. Thanks to everyone who contributed.
 
 License
 -------

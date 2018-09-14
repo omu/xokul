@@ -5,21 +5,19 @@ module Yoksis
     before_action :set_graduations
 
     include ActionsResource
-    include YoksisResource
 
-    def students
-      render(
-        serializer: action_serializer,
-        json: @graduations.students(secure_params.require(:id_number))
-      )
+    def informations
+      render_as_json @graduations.informations(id_number: secure_params.require(:id_number))
     end
 
     private
 
     def set_graduations
-      @graduations = Services::Yoksis.module_path::Graduates.new(
-        Rails.application.credentials.yoksis[:client_id],
-        Rails.application.credentials.yoksis[:client_secret]
+      @graduations = Services::Yoksis::Graduates.new(
+        basic_auth: [
+          Rails.application.credentials.yoksis[:client_id],
+          Rails.application.credentials.yoksis[:client_secret]
+        ]
       )
     end
 

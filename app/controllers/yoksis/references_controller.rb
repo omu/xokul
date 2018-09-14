@@ -5,28 +5,19 @@ module Yoksis
     before_action :set_references
 
     include ActionsResource
-    include YoksisResource
 
-    Services::Yoksis.module_path::REFERENCES_METHODS.each_key do |method|
-      define_method(method) do
-        render(
-          each_serializer: action_serializer,
-          json: @references.send(method)
-        )
-      end
+    Services::Yoksis::References::METHOD_VARIABLES.each_key do |method|
+      define_method(method) { render_as_json @references.send(method) }
     end
 
     def districts
-      render(
-        each_serializer: action_serializer,
-        json: @references.districts(secure_params.require(:city_code))
-      )
+      render_as_json @references.districts(city_code: secure_params.require(:city_code))
     end
 
     private
 
     def set_references
-      @references = Services::Yoksis.module_path::References.new
+      @references = Services::Yoksis::References.new
     end
 
     def secure_params
