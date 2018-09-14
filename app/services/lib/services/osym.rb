@@ -2,4 +2,9 @@
 
 require_relative 'osym/constants'
 require_relative 'osym/examination'
-require_relative 'osym/version'
+
+module Services
+  module Osym
+    ENDPOINTS = %i[examination].freeze
+  end
+end

@@ -35,10 +35,7 @@ module Api
     config.api_only = true
 
     reloader.to_prepare do
-      Dir[
-        Rails.root.join('app', 'services', 'osym', 'lib', 'osym.rb'),
-        Rails.root.join('app', 'services', 'yoksis', 'lib', 'yoksis.rb')
-      ].each { |file| require_dependency file }
+      require_dependency Rails.root.join('app', 'services', 'lib','services.rb')
     end
   end
 end

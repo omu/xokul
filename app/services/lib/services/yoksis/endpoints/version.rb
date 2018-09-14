@@ -2,6 +2,7 @@
 
 module Services
   module Yoksis
-    VERSION = 'v1'
+    SERVICE_VERSION = 'v1'
+    VERSION = '0.1.0'
   end
 end

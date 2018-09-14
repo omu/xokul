@@ -4,7 +4,7 @@ module Services
   module Yoksis
     class Base
       include SafeRequest
-      
+
       def initialize(**options)
         @client = Client.new(self.class::WSDL_URL, savon_options: options)
         after_initialize

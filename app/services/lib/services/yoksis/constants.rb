@@ -16,9 +16,9 @@ module Services
         students: {
           operation:    :mezuniyet_verilerini_getir_detay,
           status_body:  %i[mezuniyet_verilerini_getir_detay_response mezuniyet_verilerini_getir_detay_result
-                           sonuc durum_aciklama],
+                            sonuc durum_aciklama],
           special_body: %i[mezuniyet_verilerini_getir_detay_response mezuniyet_verilerini_getir_detay_result
-                           mezuniyet_veri_listesi_detay mezuniyet_veri_listesi_detay],
+                            mezuniyet_veri_listesi_detay mezuniyet_veri_listesi_detay],
         },
       }.freeze
     end
@@ -180,23 +180,23 @@ module Services
         academicians: {
           operation:    :kullaniciya_gore_tc_kimlik_nodan_akademik_personel_bilgisiv1,
           status_body:  %i[kullaniciya_gore_tc_kimlik_nodan_akademik_personel_bilgisiv1_response
-                           akademik_personel sonuc durum_aciklama],
+                            akademik_personel sonuc durum_aciklama],
           special_body: %i[kullaniciya_gore_tc_kimlik_nodan_akademik_personel_bilgisiv1_response
-                           akademik_personel],
+                            akademik_personel],
         },
         nationalities: {
           operation:    :get_mernis_uyruk,
           status_body:  %i[kullaniciya_gore_universitedeki_akademik_personel_bilgisiv1_response
-                           sonuc durum_aciklama],
+                            sonuc durum_aciklama],
           special_body: %i[kullaniciya_gore_universitedeki_akademik_personel_bilgisiv1_response
-                           akademik_personeller],
+                            akademik_personeller],
         },
         pages: {
           operation:    :kullaniciya_gore_universitedeki_akademik_personel_bilgisiv1,
           status_body:  %i[kullaniciya_gore_universitedeki_akademik_personel_bilgisiv1_response
-                           sonuc durum durum_aciklama],
+                            sonuc durum durum_aciklama],
           special_body: %i[kullaniciya_gore_universitedeki_akademik_personel_bilgisiv1_response
-                           akademik_personeller],
+                            akademik_personeller],
         },
       }.freeze
     end
