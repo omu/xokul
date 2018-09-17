@@ -12,6 +12,8 @@ class Response
   def successful?
     return @soap_response.successful? unless status_body&.is_a?(Array)
     return true if status_body.empty?
-    !/[Ee]rror|[Ff]ail|[Ha]ta/.match?(body.dig(*status_body))
+    digged = body.dig(*status_body)
+    return false if digged.present? || /[Ee]rror|[Ff]ail|[Ha]ta/.match?(digged)
+    true
   end
 end
