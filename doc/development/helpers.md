@@ -44,7 +44,7 @@ response.successful?
 
 Servislerde kirliliği tek bir dosyada tutmak adına durum gövdesi yolu, asıl veri yolu ve SOAP operasyonu, ilgili endpoint sınıflarında hash olarak tutulmaktadır.
 
-Bu metot, gövde yollarını ve operasyonlarını metot adına göre bularak güvenli ve temiz bir veri döndürür. Bu metodu kullanmak için endpoint'lerde, [burada](#)olduğu gibi sabitler ve hash veri tipleri mutlaka bulunmaktadır.
+Bu metot, gövde yollarını ve operasyonlarını metot adına göre bularak güvenli ve temiz bir veri döndürür. Bu metodu kullanmak için endpoint'lerde, [burada](https://github.com/omu/xokul/blob/dev/app/services/lib/services/yoksis/constants.rb) olduğu gibi sabitler ve hash veri tipleri mutlaka bulunmaktadır.
 
 ```ruby
 safe_request(method_name, args: {})

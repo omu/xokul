@@ -6,7 +6,7 @@ Projede iki temel parça vardır. Bu iki parça, "production" ortamında teknik 
 1. 3rd-party servislerle haberleşen ve JSON olarak servis eden uygulama katmanı
 2. API Gateway katmanı
 
-![Diagram](#)
+![Diagram](https://raw.githubusercontent.com/omu/xokul/dev/doc/development/img/application.png?token=AKVjCh5Dga2UwAmMPXwj5Vjpco3dKgIzks5bqL9bwA%3D%3D)
 
 Monolitik API Uygulaması
 ------------------------
@@ -19,7 +19,7 @@ Uygulama, [Ruby on Rails](#) ile [API only](#) olarak geliştirilmektedir. Servi
 
 Servislere genel olarak [SOAP](#) ile erişilmektedir. Ruby özelinde bu istekler [Savon](#) ile yapılır. Bununla birlikte dönen yanıtlar XML'dir ve JSON olarak "serialize" edilmeye ihtiyaç duyar. Serializing işlemi "controller" katmanında tetiklenir ve [Active Model Serializer](#) ile yapılır.
 
-![Diagram](#)
+![Diagram](https://raw.githubusercontent.com/omu/xokul/dev/doc/development/img/architecture.png?token=AKVjClTUTlRPrnl0ZIMTueGgRDECE1u0ks5bqL96wA%3D%3D)
 
 API Gateway
 -----------
