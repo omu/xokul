@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
   root to: 'home#index'
 
+  namespace :kps do
+    resources(:verifications) { collection { get :identities } }
+    resources(:queries) do
+      collection do
+        get :addresses
+        get :identities
+      end
+    end
+  end
+
   namespace :osym do
     resources(:examination) { collection { get :groups } }
   end
