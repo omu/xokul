@@ -16,7 +16,7 @@ Mevcut endpoint ve YOKSIS'teki karşılıkları tablodadır.
 |`Resumes`    |Özgeçmiş                 |
 |`Staff`      |Akademik Personel        |
 |`Students`   |Öğrenci Sorgulama Servisi|
-|`Unit`       |Birimler                 |
+|`Units`      |Birimler                 |
 
 ### Graduations
 
@@ -26,6 +26,8 @@ Mevcut endpoint ve YOKSIS'teki karşılıkları tablodadır.
 |--------------|--------|-------------------|
 |`informations`|GET     |`id_number`        |
 
+**Not**: Bu endpoint'in altındaki tüm action'lar gerçeklenmiştir.
+
 ### MEB
 
 MEB mezun bilgileri sunan arayüze sahiptir.
@@ -33,6 +35,8 @@ MEB mezun bilgileri sunan arayüze sahiptir.
 |Action    |Method  |Required parameters|
 |----------|--------|-------------------|
 |`students`|GET     |`id_number`        |
+
+**Not**: Bu endpoint'in altındaki tüm action'lar gerçeklenmiştir.
 
 ### References
 
@@ -66,6 +70,8 @@ MEB mezun bilgileri sunan arayüze sahiptir.
 |`unit_types`                  |GET     |-                  |
 |`university_types`            |GET     |-                  |
 
+**Not**: Bu endpoint'in altındaki tüm action'lar gerçeklenmiştir.
+
 ### Resumes
 
 Akademik özgeçmişe dair bilgiler sunan arayüze sahiptir.
@@ -75,6 +81,31 @@ Akademik özgeçmişe dair bilgiler sunan arayüze sahiptir.
 |`articles`      |GET     |`id_number`        |
 |`certifications`|GET     |`id_number`        |
 |`projects`      |GET     |`id_number`        |
+
+**Not**: Bu endpoint'in şu action'ları eksiktir:
+
+- `getir_ders_listesi`
+- `getir_ogrenim_bilgisi_listesi`
+- `get_bildiri_bilgisi_v1`
+- `getir_akademik_gorev_listesi`
+- `get_odul_listesi_v1`
+- `get_tesvik_faaliyet_beyan_v1`
+- `getir_idari_gorev_listesi`
+- `get_editorluk_bilgisi_v1`
+- `getir_tez_danisman_listesi`
+- `getir_uyelik_listesi`
+- `get_hakemlik_bilgisi_v1`
+- `get_temel_alan_bilgisi_v1`
+- `get_personel_link_v1`
+- `get_yazar_listesi_v1`
+- `get_tesvik_basvuru_varmi_v1`
+- `get_tasarim_bilgisi_v1`
+- `get_kitap_bilgisi_v1`
+- `getir_yabanci_dil_listesi`
+- `get_sanatsal_faal_v1`
+- `getir_unv_disi_deneyim_listesi`
+- `get_atif_sayilari_v1`
+- `get_patent_bilgisi_v1`
 
 ### Staff
 
@@ -86,6 +117,8 @@ Akademik personel vb. bilgilerini sunan arayüze sahiptir.
 |`nationalities`|GET     |-                  |
 |`pages`        |GET     |`page`             |
 
+**Not**: Bu endpoint'in altındaki tüm action'lar gerçeklenmiştir.
+
 ### Students
 
 Öğrenci bilgilerini sunan arayüze sahiptir.
@@ -94,13 +127,18 @@ Akademik personel vb. bilgilerini sunan arayüze sahiptir.
 |--------------|--------|-------------------|
 |`informations`|GET     |`id_number`        |
 
+**Not**: Bu endpoint'in altındaki tüm action'lar gerçeklenmiştir.
+
 ### Units
 
 Birimlere dair bilgiler sunan arayüze sahiptir.
 
 |Action        |Method  |Required parameters   |
 |--------------|--------|----------------------|
+|`units`       |GET     |`unit_id`             |
 |`changes`     |GET     |`day`, `month`, `year`|
 |`subunits`    |GET     |`unit_id`             |
 |`programs`    |GET     |`unit_id`             |
 |`universities`|GET     |-                     |
+
+**Not**: Bu endpoint'in altındaki tüm action'lar gerçeklenmiştir.
