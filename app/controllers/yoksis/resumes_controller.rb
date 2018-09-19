@@ -7,7 +7,12 @@ module Yoksis
     include ActionsResource
 
     def certifications
-      render_as_json @resumes.send(action_name, @username, @password, secure_params.require(:id_number))
+      render_as_json @resumes.send(
+        action_name,
+        username:  @username,
+        password:  @password,
+        id_number: secure_params.require(:id_number)
+      )
     end
 
     alias projects certifications
