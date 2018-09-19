@@ -7,15 +7,15 @@ module Yoksis
       attribute(:name)                   { object[:makale_adi]                              }
       attribute(:type_id)                { object[:makale_turu_id].safe_to_i                }
       attribute(:type_name)              { object[:makale_turu_ad]                          }
-      attribute(:purview_id)             { object[:kapsam_id].safe_to_i                     }
-      attribute(:purview_text)           { object[:kapsam_ad]                               }
+      attribute(:scope_id)               { object[:kapsam_id].safe_to_i                     }
+      attribute(:scope_name)             { object[:kapsam_ad]                               }
       attribute(:referee_type_id)        { object[:hakem_tur].safe_to_i                     }
-      attribute(:referee_type_text)      { object[:hakem_tur_ad]                            }
+      attribute(:referee_type_name)      { object[:hakem_tur_ad]                            }
       attribute(:index_id)               { object[:endeks_id].safe_to_i                     }
-      attribute(:index_text)             { object[:endeks]                                  }
-      attribute(:author_id)              { object[:yazar_adi].safe_to_i                     }
+      attribute(:index)                  { object[:endeks]                                  }
+      attribute(:author_id)              { object[:yazar_id].safe_to_i                      }
       attribute(:author_name)            { object[:yazar_adi]                               }
-      attribute(:author_number)          { object[:yazar_sayisi].safe_to_i                  }
+      attribute(:authors_number)         { object[:yazar_sayisi].safe_to_i                  }
       attribute(:country_id)             { object[:ulke].safe_to_i                          }
       attribute(:country_name)           { object[:ulke_adi]                                }
       attribute(:city)                   { object[:sehir]                                   }
@@ -34,14 +34,14 @@ module Yoksis
       attribute(:access_type_name)       { object[:erisim_turu_ad]                          }
       attribute(:access_link)            { object[:erisim_linki]                            }
       attribute(:citation_number)        { object[:atif_sayisi].safe_to_i                   }
-      attribute(:field_information)      { object[:alan_bilgisi]                            }
+      attribute(:field)                  { object[:alan_bilgisi]                            }
       attribute(:keyword)                { object[:anahtar_kelime]                          }
-      attribute(:special_id)             { object[:ozel_sayi].safe_to_i                     }
-      attribute(:special_name)           { object[:ozel_sayi_ad]                            }
-      attribute(:updated_at)             { Time.zone.parse object[:guncelleme_tarihi] || '' }
+      attribute(:special_number_id)      { object[:ozel_sayi].safe_to_i                     }
+      attribute(:special_number_name)    { object[:ozel_sayi_ad]                            }
+      attribute(:date_of_update)         { Time.zone.parse object[:guncelleme_tarihi] || '' }
       attribute(:active_or_passive_id)   { object[:aktif_pasif].safe_to_i                   }
-      attribute(:active_or_passive_text) { object[:aktif_pasif_ad]                          }
-      attribute(:tesv_point)             { object[:tesv_puan].safe_to_f                     }
+      attribute(:active_or_passive_name) { object[:aktif_pasif_ad]                          }
+      attribute(:incentive_point)        { object[:tesv_puan].safe_to_f                     }
     end
   end
 end

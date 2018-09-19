@@ -32,7 +32,7 @@ module Yoksis
       end
     end
 
-    Services::Yoksis::References::METHOD_VARIABLES.each_key do |method|
+    Services::Yoksis::References::ARGS.each_key do |method|
       next if method.in?(%i[administrative_units districts])
       test "Check presence of required keys in #{method} response" do
         VCR.use_cassette("yoksis/references/#{method}") do

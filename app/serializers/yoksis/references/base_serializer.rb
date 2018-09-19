@@ -4,7 +4,7 @@ module Yoksis
   module References
     class BaseSerializer < Serializer
       attribute(:code) { object[:kod].safe_to_i }
-      attribute(:name) { object[:ad]            }
+      attribute(:name) { object[:ad].capitalize }
     end
   end
 end

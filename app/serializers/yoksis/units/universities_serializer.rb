@@ -3,14 +3,14 @@
 module Yoksis
   module Units
     class UniversitiesSerializer < Serializer
-      attribute(:unit_id)           { object[:birim_id].safe_to_i  }
-      attribute(:unit_name)         { object[:birim_adi]           }
-      attribute(:unit_english_name) { object[:birim_adi_ingilizce] }
-      attribute(:phone)             { object[:telefon]             }
-      attribute(:fax)               { object[:faks]                }
-      attribute(:address)           { object[:adres]               }
-      attribute(:website)           { object[:web]                 }
-      attribute(:email)             { object[:eposta]              }
+      attribute(:unit_id)      { object[:birim_id].safe_to_i  }
+      attribute(:name)         { object[:birim_adi]           }
+      attribute(:english_name) { object[:birim_adi_ingilizce] }
+      attribute(:phone)        { object[:telefon]             }
+      attribute(:fax)          { object[:faks]                }
+      attribute(:address)      { object[:adres]               }
+      attribute(:website)      { object[:web]                 }
+      attribute(:email)        { object[:eposta]              }
 
       attribute :university_type do
         {

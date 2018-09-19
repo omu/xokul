@@ -6,7 +6,7 @@ module Yoksis
 
     include ActionsResource
 
-    Services::Yoksis::References::METHOD_VARIABLES.each_key do |method|
+    Services::Yoksis::References::ARGS.each_key do |method|
       define_method(method) { render_as_json @references.send(method) }
     end
 

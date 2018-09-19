@@ -57,14 +57,4 @@ class Client
       'Unable to find soap operation'
     end
   end
-
-  class InvalidResponseError < Error
-    def code
-      500
-    end
-
-    def to_s
-      'Server has sent an invalid response'
-    end
-  end
 end

@@ -3,8 +3,6 @@
 module Services
   module Osym
     class Examination
-      include SafeRequest
-
       WSDL_URL = 'https://vps.osym.gov.tr/Ext/Provider/BilgiServisi/Sonuc?wsdl'
 
       def initialize(username, password)

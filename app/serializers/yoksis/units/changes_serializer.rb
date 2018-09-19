@@ -3,10 +3,10 @@
 module Yoksis
   module Units
     class ChangesSerializer < Serializer
-      attribute(:unit_id)            { object[:birim_id].safe_to_i              }
-      attribute(:unit_name)          { object[:birim_adi]                       }
-      attribute(:parent_unit_id)     { object[:bagli_oldugu_birim_id].safe_to_i }
-      attribute(:last_modified_date) { object[:degisiklik_tarihi]               }
+      attribute(:unit_id)        { object[:birim_id].safe_to_i              }
+      attribute(:unit_name)      { object[:birim_adi]                       }
+      attribute(:parent_unit_id) { object[:bagli_oldugu_birim_id].safe_to_i }
+      attribute(:date_of_update) { object[:degisiklik_tarihi]               }
 
       attribute :unit_type do
         {

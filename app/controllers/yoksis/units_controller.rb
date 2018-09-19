@@ -11,16 +11,20 @@ module Yoksis
       render_as_json @units.changes(day: day, month: month, year: year)
     end
 
-    def subunits
-      render_as_json @units.subunits(unit_id: unit_params.require(:unit_id))
+    def units
+      render_as_json @units.units(unit_id: unit_params.require(:unit_id))
+    end
+
+    def universities
+      render_as_json @units.universities
     end
 
     def programs
       render_as_json @units.programs(unit_id: unit_params.require(:unit_id))
     end
 
-    def universities
-      render_as_json @units.universities
+    def subunits
+      render_as_json @units.subunits(unit_id: unit_params.require(:unit_id))
     end
 
     private

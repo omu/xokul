@@ -3,8 +3,6 @@
 module Services
   module Kps
     class Base
-      include SafeRequest
-
       def initialize
         @client = Client.new(self.class::WSDL_URL)
       end

@@ -7,7 +7,7 @@ module Yoksis
       attribute(:english_name)    { object.dig(:birim_adi_ingilizce)             }
       attribute(:parent_unit_id)  { object.dig(:bagli_oldugu_birim_id).safe_to_i }
       attribute(:period_of_study) { object.dig(:ogrenim_suresi).safe_to_i        }
-      attribute(:guide_code)      { object.dig(:kilavuz_kodu).safe_to_i          }
+      attribute(:osym_id)         { object.dig(:kilavuz_kodu).safe_to_i          }
 
       attribute :university do
         {

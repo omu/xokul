@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require_relative 'services/errors'
 require_relative 'services/yoksis'
 require_relative 'services/kps'
 require_relative 'services/osym'
