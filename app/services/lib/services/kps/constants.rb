@@ -3,29 +3,27 @@
 module Services
   module Kps
     class Queries < Base
-      METHOD_VARIABLES = {
+      ARGS = {
         addresses: {
-          operation:    :adres_sorgula,
-          status_body:  %i[adres_sorgula_response return sorgula_result sorgu_sonucu kimlik_noile_kisi_adres_bilgileri
-                           hata_bilgisi],
-          special_body: %i[adres_sorgula_response return sorgula_result sorgu_sonucu
-                           kimlik_noile_kisi_adres_bilgileri]
+          operation: :adres_sorgula,
+          result:  %i[adres_sorgula_response return sorgula_result sorgu_sonucu
+                      kimlik_noile_kisi_adres_bilgileri],
+          status: %i[adres_sorgula_response return sorgula_result sorgu_sonucu hata_bilgisi]
         },
         identities: {
-          operation:    :sorgula,
-          status_body:  %i[sorgula_response return sorgula_result sorgu_sonucu bilesik_kutuk_bilgileri
-                           hata_bilgisi],
-          special_body: %i[sorgula_response return sorgula_result sorgu_sonucu
-                           bilesik_kutuk_bilgileri]
+          operation: :sorgula,
+          result: %i[sorgula_response return sorgula_result sorgu_sonucu bilesik_kutuk_bilgileri],
+          status: %i[sorgula_response return sorgula_result sorgu_sonucu bilesik_kutuk_bilgileri
+                     hata_bilgisi]
         }
       }
     end
 
     class Verifications < Base
-      METHOD_VARIABLES = {
+      ARGS = {
         identities: {
-          operation:    :tc_kimlik_no_dogrula,
-          special_body: %i[tc_kimlik_no_dogrula_response]
+          operation: :tc_kimlik_no_dogrula,
+          result: %i[tc_kimlik_no_dogrula_response]
         }
       }
     end
