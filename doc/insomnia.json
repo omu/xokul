@@ -1,7 +1,7 @@
 {
 	"_type": "export",
 	"__export_format": 3,
-	"__export_date": "2018-09-20T07:41:39.935Z",
+	"__export_date": "2018-09-20T07:54:32.481Z",
 	"__export_source": "insomnia.desktop.app:v6.0.2",
 	"resources": [
 		{
@@ -736,7 +736,7 @@
 			},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"city_code\": 55\n}"
+				"text": "{\n\t\"city_code\": 33\n}"
 			},
 			"created": 1537371532804,
 			"description": "",
@@ -750,8 +750,8 @@
 			"isPrivate": false,
 			"metaSortKey": -1537371532804,
 			"method": "GET",
-			"modified": 1537371721043,
-			"name": "districts",
+			"modified": 1537430038079,
+			"name": "districts-33",
 			"parameters": [],
 			"parentId": "fld_e463f98ba761419fadc3bc5368d622ef",
 			"settingDisableRenderRequestBody": false,
@@ -788,6 +788,41 @@
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
 			"url": "http://api.omu.sh/yoksis/references/countries",
+			"_type": "request"
+		},
+		{
+			"_id": "req_ed94c82335404ee5a0d5f021b173e540",
+			"authentication": {
+				"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJIdVY3UXVRblFTRnJ1WFVMMHFUd2lTUXdTNEFRQVRkZSJ9.DQdkiOycWbs5LkOzZj4VZCnUftXUF5sWCT7lOw1y_28",
+				"type": "bearer"
+			},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"city_code\": 55\n}"
+			},
+			"created": 1537430003750,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_e9669b523b4a4df7a0ffb2cc7ed6925f",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1537371530175.5,
+			"method": "GET",
+			"modified": 1537430030354,
+			"name": "districts-55",
+			"parameters": [],
+			"parentId": "fld_e463f98ba761419fadc3bc5368d622ef",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": false,
+			"settingStoreCookies": true,
+			"url": "http://api.omu.sh/yoksis/references/districts",
 			"_type": "request"
 		},
 		{
@@ -953,7 +988,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1537372295209,
 			"method": "GET",
-			"modified": 1537372377535,
+			"modified": 1537429991189,
 			"name": "students",
 			"parameters": [],
 			"parentId": "fld_9c5ea6a6afb54e148dc9c5310b76b798",
@@ -1233,7 +1268,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1537428932779.75,
 			"method": "GET",
-			"modified": 1537429204023,
+			"modified": 1537429971467,
 			"name": "nationalities",
 			"parameters": [],
 			"parentId": "fld_d64f735055cd4236b289c32dc8f78659",
