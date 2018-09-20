@@ -6,15 +6,17 @@ module Services
       WSDL_URL = ENV['KPS_PUBLIC_WSDL_URL'].freeze
 
       def identities(id_number:, first_name:, last_name:, year_of_birth:)
-        safe_request(
-          __method__,
+        response = client.request(
+          ARGS.dig(:identities, :operation),
           args: {
             TCKimlikNo: id_number,
-            Ad: first_name,
-            Soyad: last_name,
+            Ad: first_name.upcase,
+            Soyad: last_name.upcase,
             DogumYili: year_of_birth
           }
         )
+
+        response.dig(*ARGS.dig(:identities, :result))
       end
     end
   end
