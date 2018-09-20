@@ -80,6 +80,7 @@ Rails.application.routes.draw do
         get :changes
         get :programs
         get :subunits
+        get :units
         get :universities
       end
     end
