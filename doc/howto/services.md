@@ -43,6 +43,7 @@ Endpoint
 
 - `lib/services/service` altında `endpoint.rb` dosyası oluştur
 - Eğer servis SOAP ise gerçeklemede yeniden yazılmış olan [Client](https://github.com/omu/xokul/blob/dev/doc/development/helpers.md#soap-client)'ı kullan
+- Eğer servis REST ise REST istemcisini basit şekilde `service.rb` veya `endpoint.rb` dosyasında gerçekle
 - Metot eklemek için dokümanın [bu bölümünü](#metot-ekleme) incele
 - `lib/services/service.rb` dosyasında endpoint'i `require` et
 
@@ -66,14 +67,7 @@ Endpoint
 
 - Metotlar `lib/services/service/endpoint.rb` dosyasında gerçeklenmeli
 - Controller'da metot ismiyle bir action olmalı
-- JSON render etmek için [`render_as_json`](#) yardımcı metodunu kullan
-- Action için bir "Serializer" oluştur
-
-  ```sh
-  rails generate serializer service::endpoint::method
-  ```
-
-- [Talimatları](#) takip ederek "Serialization" işlemini yap
+- [Talimatları](https://github.com/omu/xokul/blob/dev/doc/howto/serialization.md) takip ederek "serializer" oluştur
 - `config/routes.rb` dosyasını düzenle
 
   ```ruby
