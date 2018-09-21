@@ -19,6 +19,7 @@ module Services
     ENDPOINTS = %i[
       graduates
       meb
+      military
       references
       resumes
       staff
