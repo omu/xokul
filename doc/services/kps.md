@@ -6,18 +6,30 @@ KPS servisi, SOAP arayüzünü kullanarak [KPS](https://kimlikdogrulama.nvi.gov.
 Endpoints
 ---------
 
-Mevcut endpoint ve YOKSIS'teki karşılıkları tablodadır.
+Mevcut endpoint ve third-party servisteki karşılıkları tablodadır.
 
-|Endpoint       |KPS'deki karşılığı       |
-|---------------|-------------------------|
-|`Queries`      |Sorgulama servisleri     |
-|`Verifications`|Doğrulama servisleri     |
+|Endpoint       |Third-party|
+|---------------|-----------|
+|`Queries`      |Sorgulama servisleri
+|`Verifications`|Doğrulama servisleri
 
 ### Queries
 
 Kimlik ve adres sorguları yapan arayüze sahiptir.
 
-|Action      |Method  |Required parameters|
-|------------|--------|-------------------|
-|`addresses` |GET     |`id_number`        |
-|`identities`|GET     |`id_number`        |
+|Action      |Method|Required parameters|Description|
+|------------|------|-------------------|-----------|
+|`addresses` |GET   |`id_number`        |Kişinin adres bilgileri
+|`identities`|GET   |`id_number`        |Kişinin kimlik bilgileri
+
+**Not**: Bu endpoint'in altındaki tüm action'lar gerçeklenmiştir.
+
+### Verifications
+
+Kişiye ait çeşitli doğrulamalar yapan arayüze sahiptir.
+
+|Action      |Method|Required parameters|Description|
+|------------|------|-------------------|-----------|
+|`identities`|GET   |`id_number`        |Kişinin kimlik bilgilerini doğrulama
+
+**Not**: Bu endpoint'in altındaki tüm action'lar gerçeklenmiştir.

@@ -7,6 +7,7 @@ require_relative 'yoksis/constants'
 # Load endpoint classes
 require_relative 'yoksis/endpoints/graduates'
 require_relative 'yoksis/endpoints/meb'
+require_relative 'yoksis/endpoints/military'
 require_relative 'yoksis/endpoints/references'
 require_relative 'yoksis/endpoints/resumes'
 require_relative 'yoksis/endpoints/staff'
@@ -18,6 +19,7 @@ module Services
     ENDPOINTS = %i[
       graduates
       meb
+      military
       references
       resumes
       staff

@@ -1,51 +1,99 @@
-Yardımcılar
-===========
+Çeşitli Yardımcılar
+===================
 
 Bu dokümanda projenin çeşitli yerlerinde kullanılan yardımcı `class`, `module` ve `method`lar dokümante edilmektedir.
 
-Client
-------
+SOAP Client
+-----------
 
-`Client`, SOAP istek ve yanıtları için `Savon` istemcisinin sarmalandığı bir sınıftır. İhtiyaç duyulmasının sebebi tutarsız servis yanıtlarındaki kirliliği yönetmek ve hata denetimini genişletmektir.
+### Client
 
-```ruby
-client = Client.new(wsdl_url, savon_options: [])
-response = client.request(operation, args: {})
-```
+Client, SOAP istek ve yanıtları için [`savon`](https://savonrb.com) istemcisinin sarmalandığı bir sınıftır. İhtiyaç duyulmasının sebebi, tutarsız servis yanıtlarındaki kirliliği yönetmek ve hata denetimini genişletmektir. 
 
-### `status_body_path`
-
-Servis yanıtlarının birçoğunda şöyle durumlar var:
-
-- Yanıt hatalı, SOAP ve HTTP hatasız
-- Yanıt boş, SOAP veya HTTP hatasız
-- Yanıt boş, SOAP hatalı veya HTTP hatasız
-
-Buna rağmen tüm yanıtlarda ortak olan bir durum gövdesi var. Fakat durum gövdesine erişilebilecek standart bir yol yok. Bu değişken ile gövdenin tam yolu tutulmaktadır. Hata denetimi yapılırken bu gövde de ele alınmaktadır.
+Gerçekleme, `lib/client` dizini altındadır.
 
 ```ruby
-response.status_body_path = %[foo bar baz]
+client = Client.new(wsdl_url, savon_options: { basic_auth: [username, password] })
 ```
 
-### `successful?`
+#### `add_soap_header(key, value)`
 
-Yanıtın başarılı olup olmadğını döndürür.
+SOAP istemcisine başlık ekler. Aldığı ilk argüman başlık anahtarı, ikinci argüman ise değeridir.
 
 ```ruby
-response.successful?
+client.add_soap_header 'foo', 'bar'
 ```
 
-Çeşitli
+#### `add_namespace(key, value)`
+
+SOAP sorgusundaki XML gövde için bir namespace builder'dır.
+
+```ruby
+client.add_namespace 'xmlns:foo', 'http://example.com'
+```
+
+#### `configure`
+
+İstemci ayarlayıcısıdır. Savon istemcisindeki parametrelerin özelleştirilmesini kolaylaştırır.
+
+```ruby
+client.configure do |config|
+  config.encoding 'UTF-8'
+end
+```
+
+#### `request(operation, args: {})`
+
+İlk argümanı istek yapılacak SOAP operation'dır. Aldığı ikinci hash tipindeki argüman ise istek mesajıdır (message).
+
+```ruby
+response = client.request :foo, args: { bar: ' baz' }
+```
+
+### Response
+
+SOAP isteklerinden dönen yanıtları temsil eder.
+
+#### `dig(*args)`
+
+Yanıt gövdesi daima `Hash` nesnesidir. Bu metod, hash nesnesinde değeri alınmak istenen `key`e giden yolu (path) argüman olarak alır.
+
+```ruby
+response.dig(:foo, :bar, :baz)
+```
+
+Support
 -------
 
-### `safe_request`
+Code base'in çeşitli yerlerinde kullanılan yardımcıları içerir. Tüm gerçeklemeler `lib/support` dizini altındadır.
 
-`Client` sınıfı, servisten dönen yanıtın gövdesine ve hata denetimine odaklanmıştır. Fakat servislerin birçoğunda asıl veri, yanıt gövdesinin iç içe geçmiş başka bir düğümündedir. Bu sebeple her metodun bu düğüme giden bir yolu var.
+### Core Exts
 
-Servislerde kirliliği tek bir dosyada tutmak adına durum gövdesi yolu, asıl veri yolu ve SOAP operasyonu, ilgili endpoint sınıflarında hash olarak tutulmaktadır.
+#### `safe_to_i`
 
-Bu metot, gövde yollarını ve operasyonlarını metot adına göre bularak güvenli ve temiz bir veri döndürür. Bu metodu kullanmak için endpoint'lerde, [burada](https://github.com/omu/xokul/blob/dev/app/services/lib/services/yoksis/constants.rb) olduğu gibi sabitler ve hash veri tipleri mutlaka bulunmaktadır.
+String, Integer ve Nil sınıfları için gerçeklendi. Serializer katmanında tipe bağlı hataları absorbe etmek için yazıldı.
+
+- String sınıfında `to_i` metoduyla aynı işi yapar
+- Nil sınıfında `nil` döndürür
+- Integer sınıfında `to_i` metoduyla aynı işi yapar
+
+#### `safe_to_f`
+
+Nil ve String sınıfları için gerçeklendi.
+
+- String sınıfında `float` sayı eğer virgülle yazılmış ise noktayla değiştirerek `Float` sayı nesnesi döndürür
+
+  ```ruby
+  puts '1,3'.safe_to_f # 1.3
+  puts '1.3'.safe_to_f # 1.3
+  ```
+
+- Nil sınıfında ise yine `nil` döndürür
+
+#### `camelize`
+
+Yalnızca Symbol nesneleri için geçerlidir. Symbol nesnesini `camelize` eder.
 
 ```ruby
-safe_request(method_name, args: {})
+puts :foo_bar.camelize # FooBar
 ```
