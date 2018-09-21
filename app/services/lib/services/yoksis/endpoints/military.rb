@@ -28,6 +28,7 @@ module Services
         case response = http.request(request)
         when Net::HTTPOK
           raise NoContentError unless response.body
+
           (JSON.parse response.body).deep_symbolize_keys
         else
           raise InvalidResponseError

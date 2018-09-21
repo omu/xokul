@@ -13,6 +13,7 @@ module Services
 
         raise InvalidResponseError if changes_has_error?
         raise NoContentError unless changes_has_response?
+
         changes_result
       end
 
@@ -23,6 +24,7 @@ module Services
 
         raise InvalidResponseError if units_has_error?
         raise NoContentError unless units_has_response?
+
         units_result
       end
 
@@ -31,6 +33,7 @@ module Services
 
         raise InvalidResponseError if universities_has_error?
         raise NoContentError unless universities_has_response?
+
         universities_result
       end
 
@@ -41,6 +44,7 @@ module Services
 
         raise InvalidResponseError if programs_has_error?
         raise NoContentError unless programs_has_response?
+
         programs_result
       end
 
@@ -51,6 +55,7 @@ module Services
 
         raise InvalidResponseError if subunits_has_error?
         raise NoContentError unless subunits_has_response?
+
         subunits_result
       end
 

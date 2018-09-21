@@ -12,6 +12,7 @@ module Services
 
         raise InvalidResponseError if addresses_has_error?
         raise NoContentError unless addresses_has_response?
+
         addresses_result
       end
 
@@ -22,6 +23,7 @@ module Services
 
         raise InvalidResponseError if identities_has_error?
         raise NoContentError unless identities_has_response?
+
         identities_result
       end
 

@@ -11,6 +11,7 @@ module Services
 
           raise InvalidResponseError if reference_has_error? method
           raise NoContentError unless reference_has_response? method
+
           reference_result method
         end
       end
@@ -22,6 +23,7 @@ module Services
 
         raise InvalidResponseError if reference_has_error? :districts
         raise NoContentError unless reference_has_response? :districts
+
         reference_result :districts
       end
 

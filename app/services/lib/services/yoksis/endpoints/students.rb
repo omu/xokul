@@ -12,6 +12,7 @@ module Services
 
         raise InvalidResponseError if informations_has_error?
         raise NoContentError unless informations_has_response?
+
         informations_result
       end
 

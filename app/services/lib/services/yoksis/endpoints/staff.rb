@@ -14,6 +14,7 @@ module Services
         )
 
         raise NoContentError unless academicians_has_response?
+
         academicians_result
       end
 
@@ -22,6 +23,7 @@ module Services
 
         raise InvalidResponseError if nationalities_has_error?
         raise NoContentError unless nationalities_has_response?
+
         nationalities_result
       end
 
@@ -33,6 +35,7 @@ module Services
 
         raise InvalidResponseError if pages_has_error?
         raise NoContentError unless pages_has_response?
+
         pages_result
       end
 

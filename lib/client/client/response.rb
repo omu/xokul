@@ -10,6 +10,7 @@ class Response
   def dig(*args)
     dug = body.dig(*args)
     return dug unless block_given?
+
     yield dug
   end
 end
