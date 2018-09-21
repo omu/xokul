@@ -12,7 +12,7 @@ module Services
 
         raise InvalidResponseError if addresses_has_error?
         raise NoContentError unless addresses_has_response?
-        addresses_response
+        addresses_result
       end
 
       def identities(id_number:)
@@ -22,7 +22,7 @@ module Services
 
         raise InvalidResponseError if identities_has_error?
         raise NoContentError unless identities_has_response?
-        identities_response
+        identities_result
       end
 
       private
@@ -35,7 +35,7 @@ module Services
         @addresses.dig(*ARGS.dig(:addresses, :result), &:present?)
       end
 
-      def addresses_response
+      def addresses_result
         @addresses.dig(*ARGS.dig(:addresses, :result))
       end
 
@@ -47,7 +47,7 @@ module Services
         @identities.dig(*ARGS.dig(:identities, :result), &:present?)
       end
 
-      def identities_response
+      def identities_result
         @identities.dig(*ARGS.dig(:identities, :result))
       end
     end
