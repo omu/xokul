@@ -172,11 +172,11 @@ module Kps
           father_name:              old_identity_card_informations[:baba_ad],
           mother_name:              old_identity_card_informations[:anne_ad],
           place_of_birth:           old_identity_card_informations[:dogum_yer],
-          date_of_birth:            build_date(*identity_card_informations[:dogum_tarih].values_at(:yil, :ay, :gun)),
+          date_of_birth:            build_date(*old_identity_card_informations[:dogum_tarih].values_at(:yil, :ay, :gun)),
           number:                   old_identity_card_informations[:no].safe_to_i,
           registration_number:      old_identity_card_informations[:cuzdan_kayit_no].safe_to_i,
           serial_number:            old_identity_card_informations[:seri],
-          issuing_date:             build_date(*identity_card_informations[:verilme_tarih].values_at(:yil, :ay, :gun)),
+          issuing_date:             build_date(*old_identity_card_informations[:verilme_tarih].values_at(:yil, :ay, :gun)),
           issuing_reason: {
             code:                   old_identity_card_informations.dig(:cuzdan_verilme_neden, :kod).safe_to_i,
             description:            old_identity_card_informations.dig(:cuzdan_verilme_neden, :aciklama)
