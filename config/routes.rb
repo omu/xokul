@@ -12,12 +12,18 @@ Rails.application.routes.draw do
   end
 
   namespace :osym do
-    resources(:examination) { collection { get :groups } }
+    resources(:examination) do
+      collection do
+        get :groups
+        get :result_informations
+      end
+    end
   end
 
   namespace :yoksis do
     resources(:graduates) { collection { get :informations } }
     resources(:meb)       { collection { get :students     } }
+    resources(:military)  { collection { get :informations } }
     resources(:students)  { collection { get :informations } }
 
     resources :references do
