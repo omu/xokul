@@ -25,7 +25,7 @@ Mevcut endpoint ve third-party servisteki karşılıkları tablodadır.
 
 |Action        |Method|Required parameters|Description|
 |--------------|------|-------------------|-----------|
-|`informations`|GET   |`id_number`        |Üniversite mezun öğrenci bilgilerini
+|`informations`|GET   |`id_number`        |Üniversite mezun öğrenci bilgileri
 
 **Not**: Bu endpoint'in altındaki tüm action'lar gerçeklenmiştir.
 
