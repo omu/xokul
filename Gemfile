@@ -10,6 +10,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'pg', '~> 0.18.2'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.1'
+gem 'rollbar'
 gem 'savon'
 
 group :beta, :development, :test do

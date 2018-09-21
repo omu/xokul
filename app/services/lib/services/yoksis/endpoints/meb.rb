@@ -13,6 +13,7 @@ module Services
 
         raise InvalidResponseError if students_has_error?
         raise NoContentError unless students_has_response?
+
         students_result
       end
 

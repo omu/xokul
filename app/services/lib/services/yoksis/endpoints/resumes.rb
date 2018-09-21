@@ -20,6 +20,7 @@ module Services
 
         raise InvalidResponseError if resumes_has_error? __callee__
         raise NoContentError unless resumes_has_response? __callee__
+
         resumes_result __callee__
       end
       # rubocop:enable Metrics/MethodLength

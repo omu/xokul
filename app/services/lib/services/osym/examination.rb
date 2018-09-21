@@ -20,6 +20,7 @@ module Services
 
         raise InvalidResponseError if groups_has_error?
         raise NoContentError unless groups_has_response?
+
         groups_result
       end
 
@@ -31,6 +32,7 @@ module Services
 
         raise InvalidResponseError if result_informations_has_error?
         raise NoContentError unless result_informations_has_response?
+
         result_informations_result
       end
 
