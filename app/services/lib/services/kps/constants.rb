@@ -8,7 +8,8 @@ module Services
           operation: :adres_sorgula,
           result:  %i[adres_sorgula_response return sorgula_result sorgu_sonucu
                       kimlik_noile_kisi_adres_bilgileri],
-          status: %i[adres_sorgula_response return sorgula_result sorgu_sonucu hata_bilgisi]
+          status: %i[adres_sorgula_response return sorgula_result sorgu_sonucu
+                     kimlik_noile_kisi_adres_bilgileri hata_bilgisi]
         },
         identities: {
           operation: :sorgula,

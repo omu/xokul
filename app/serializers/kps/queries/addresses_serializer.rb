@@ -7,7 +7,6 @@ module Kps
 
       attribute :current_address do
         address = object[:yerlesim_yeri_adresi]
-        next if address[:hata_bilgisi]
 
         {
           full_address:           address[:acik_adres],
