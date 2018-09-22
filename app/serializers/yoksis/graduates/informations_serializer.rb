@@ -4,17 +4,17 @@ module Yoksis
   module Graduates
     class InformationsSerializer < Serializer
       attribute(:id_number)              { object[:tckno].safe_to_i               }
-      attribute(:first_name)             { object[:adi]                           }
-      attribute(:last_name)              { object[:soyadi]                        }
-      attribute(:father_name)            { object[:baba_adi]                      }
-      attribute(:mother_name)            { object[:anne_adi]                      }
+      attribute(:first_name)             { object[:adi].titleize_tr               }
+      attribute(:last_name)              { object[:soyadi].titleize_tr            }
+      attribute(:father_name)            { object[:baba_adi].titleize_tr          }
+      attribute(:mother_name)            { object[:anne_adi].titleize_tr          }
       attribute(:diploma_grade)          { object[:diploma_notu].safe_to_f        }
       attribute(:diploma_grading_system) { object[:diploma_not_sistemi].safe_to_i }
       attribute(:diploma_no)             { object[:diploma_no]                    }
       attribute(:university_id)          { object[:univ_id].safe_to_i             }
-      attribute(:university_name)        { object[:universite_adi]                }
-      attribute(:faculty)                { object[:fak_myo_yo_ens]                }
-      attribute(:program_name)           { object[:program_adi]                   }
+      attribute(:university_name)        { object[:universite_adi].titleize_tr    }
+      attribute(:faculty)                { object[:fak_myo_yo_ens].titleize_tr    }
+      attribute(:program_name)           { object[:program_adi].titleize_tr       }
       attribute(:unit_id)                { object[:birim_id].safe_to_i            }
 
       attribute :date_of_birth do
