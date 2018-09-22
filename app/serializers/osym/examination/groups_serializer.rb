@@ -4,7 +4,7 @@ module Osym
   module Examination
     class GroupsSerializer < ActiveModel::Serializer
       attribute(:id)   { object[:id].safe_to_i }
-      attribute(:name) { object[:ad]           }
+      attribute(:name) { object[:ad].upcase_tr }
     end
   end
 end
