@@ -12,6 +12,8 @@ Rollbar.configure do |config|
   # config.person_method = "my_current_user"
   # config.person_id_method = "my_id"
 
+  config.enabled = false unless Rails.env.production? || Rails.env.beta?
+
   # Additionally, you may specify the following:
   config.person_username_method = 'id_number'
   config.person_email_method = 'email'
