@@ -9,67 +9,67 @@ module Kps
         address = object[:yerlesim_yeri_adresi]
 
         {
-          full_address:           address[:acik_adres],
+          full_address:           address[:acik_adres].titleize_tr,
           no:                     address[:adres_no].safe_to_i,
           type: {
             code:                 address.dig(:adres_tip, :kod).safe_to_i,
-            description:          address.dig(:adres_tip, :aciklama)
+            description:          address.dig(:adres_tip, :aciklama).titleize_tr
           },
           city_and_district_addresses: {
             independent_unit_status: {
               code:               address.dig(:il_ilce_merkez_adresi, :bagimsiz_bolum_durum, :kod).safe_to_i,
-              description:        address.dig(:il_ilce_merkez_adresi, :bagimsiz_bolum_durum, :aciklama)
+              description:        address.dig(:il_ilce_merkez_adresi, :bagimsiz_bolum_durum, :aciklama).titleize_tr
             },
             dependent_unit_type: {
               code:               address.dig(:il_ilce_merkez_adresi, :bagimsiz_bolum_tipi, :kod).safe_to_i,
-              description:        address.dig(:il_ilce_merkez_adresi, :bagimsiz_bolum_tipi, :aciklama)
+              description:        address.dig(:il_ilce_merkez_adresi, :bagimsiz_bolum_tipi, :aciklama).titleize_tr
             },
             apartment: {
-              block:              address.dig(:il_ilce_merkez_adresi, :bina_ada),
-              pilot:              address.dig(:il_ilce_merkez_adresi, :bina_parsel),
-              layout:             address.dig(:il_ilce_merkez_adresi, :bina_pafta),
-              block_name:         address.dig(:il_ilce_merkez_adresi, :bina_blok_adi),
+              block:              address.dig(:il_ilce_merkez_adresi, :bina_ada).titleize_tr,
+              pilot:              address.dig(:il_ilce_merkez_adresi, :bina_parsel).titleize_tr,
+              layout:             address.dig(:il_ilce_merkez_adresi, :bina_pafta).titleize_tr,
+              block_name:         address.dig(:il_ilce_merkez_adresi, :bina_blok_adi).titleize_tr,
               code:               address.dig(:il_ilce_merkez_adresi, :bina_kodu).safe_to_i,
               no:                 address.dig(:il_ilce_merkez_adresi, :bina_no).safe_to_i,
               site_name:          address.dig(:il_ilce_merkez_adresi, :bina_site_adi),
               status: {
                 code:             address.dig(:il_ilce_merkez_adresi, :bina_durum, :kod).safe_to_i,
-                description:      address.dig(:il_ilce_merkez_adresi, :bina_durum, :aciklama)
+                description:      address.dig(:il_ilce_merkez_adresi, :bina_durum, :aciklama).titleize_tr
               },
               numbering_type: {
                 code:             address.dig(:il_ilce_merkez_adresi, :bina_numarataj_tipi, :kod).safe_to_i,
-                description:      address.dig(:il_ilce_merkez_adresi, :bina_numarataj_tipi, :aciklama)
+                description:      address.dig(:il_ilce_merkez_adresi, :bina_numarataj_tipi, :aciklama).titleize_tr
               },
               structure_type: {
                 code:             address.dig(:il_ilce_merkez_adresi, :bina_yapi_tipi, :kod).safe_to_i,
-                description:      address.dig(:il_ilce_merkez_adresi, :bina_yapi_tipi, :aciklama)
+                description:      address.dig(:il_ilce_merkez_adresi, :bina_yapi_tipi, :aciklama).titleize_tr
               }
             },
-            csbm:                 address.dig(:il_ilce_merkez_adresi, :csbm),
+            csbm:                 address.dig(:il_ilce_merkez_adresi, :csbm).titleize_tr,
             csbm_code:            address.dig(:il_ilce_merkez_adresi, :csbm_kodu).safe_to_i,
             exterior_door_no:     address.dig(:il_ilce_merkez_adresi, :dis_kapi_no).safe_to_i,
             interior_door_no:     address.dig(:il_ilce_merkez_adresi, :ic_kapi_no).safe_to_i,
             city: {
               code:               address.dig(:il_ilce_merkez_adresi, :il_kodu).safe_to_i,
-              name:               address.dig(:il_ilce_merkez_adresi, :il)
+              name:               address.dig(:il_ilce_merkez_adresi, :il).titleize_tr
             },
             district: {
               code:               address.dig(:il_ilce_merkez_adresi, :ilce_kodu).safe_to_i,
-              name:               address.dig(:il_ilce_merkez_adresi, :ilce)
+              name:               address.dig(:il_ilce_merkez_adresi, :ilce).titleize_tr
             },
             neighborhood: {
               code:               address.dig(:il_ilce_merkez_adresi, :mahalle_kodu).safe_to_i,
-              name:               address.dig(:il_ilce_merkez_adresi, :mahalle)
+              name:               address.dig(:il_ilce_merkez_adresi, :mahalle).titleize_tr
             },
             reason_of_stucture_use: {
               code:               address.dig(:il_ilce_merkez_adresi, :yapi_kullanim_amac, :kod).safe_to_i,
-              name:               address.dig(:il_ilce_merkez_adresi, :yapi_kullanim_amac, :aciklama)
+              name:               address.dig(:il_ilce_merkez_adresi, :yapi_kullanim_amac, :aciklama).titleize_tr
             },
           },
-          village_address:        address[:koy_adresi],
-          abroad_address:         address[:yurt_disi_adresi],
-          reason_of_relocation:   address[:tasinma_neden],
-          municipality_address:   address[:belde_adresi],
+          village_address:        address[:koy_adresi].titleize_tr,
+          abroad_address:         address[:yurt_disi_adresi].titleize_tr,
+          reason_of_relocation:   address[:tasinma_neden].titleize_tr,
+          municipality_address:   address[:belde_adresi].titleize_tr,
           declarant_id_number:    address[:beyanda_bulunan_kimlik_no].safe_to_i,
           date_of_relocation:     address[:tasinma_tarihi] && build_date(*address[:tasinma_tarihi].values_at(:yil, :ay, :gun)),
           date_of_declaration:    address[:beyan_tarihi]   && build_date(*address[:beyan_tarihi].values_at(:yil, :ay, :gun)),
@@ -85,17 +85,17 @@ module Kps
 
           object << {
             declarant_id_number:  address[:beyanda_bulunan_kimlik_no].safe_to_i,
-            full_address:         address[:acik_adres],
+            full_address:         address[:acik_adres].titleize_tr,
             address_no:           address[:adres_no].safe_to_i,
             address_type: {
               code:               address.dig(:adres_tip, :kod),
-              description:        address.dig(:adres_tip, :aciklama)
+              description:        address.dig(:adres_tip, :aciklama).titleize_tr
             },
-            village_address:      address[:koy_adresi],
-            municipality_address: address[:belde_adresi],
-            city_address:         address[:il_ilce_merkez_adresi],
-            abroad_address:       address[:yurt_disi_adresi],
-            reason_of_relocation: address[:tasinma_neden],
+            village_address:      address[:koy_adresi].titleize_tr,
+            municipality_address: address[:belde_adresi].titleize_tr,
+            city_address:         address[:il_ilce_merkez_adresi].titleize_tr,
+            abroad_address:       address[:yurt_disi_adresi].titleize_tr,
+            reason_of_relocation: address[:tasinma_neden].titleize_tr,
             date_of_relocation:   address[:tasinma_tarihi] && build_date(*address[:tasinma_tarihi].values_at(:yil, :ay, :gun)),
             date_of_declaration:  address[:beyan_tarihi]   && build_date(*address[:beyan_tarihi].values_at(:yil, :ay, :gun)),
             date_of_registration: address[:tescil_tarihi]  && build_date(*address[:tescil_tarihi].values_at(:yil, :ay, :gun))
