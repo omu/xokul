@@ -4,28 +4,28 @@ module Yoksis
   module Units
     class ChangesSerializer < Serializer
       attribute(:unit_id)        { object[:birim_id].safe_to_i              }
-      attribute(:unit_name)      { object[:birim_adi]                       }
+      attribute(:unit_name)      { object[:birim_adi].titleize_tr           }
       attribute(:parent_unit_id) { object[:bagli_oldugu_birim_id].safe_to_i }
       attribute(:date_of_update) { object[:degisiklik_tarihi]               }
 
       attribute :unit_type do
         {
           code: object.dig(:birim_turu, :kod).safe_to_i,
-          name: object.dig(:birim_turu, :ad)
+          name: object.dig(:birim_turu, :ad).titleize_tr
         }
       end
 
       attribute :status do
         {
           code: object.dig(:aktiflik, :kod).safe_to_i,
-          name: object.dig(:aktiflik, :ad)
+          name: object.dig(:aktiflik, :ad).titleize_tr
         }
       end
 
       attribute :change_type do
         {
           code: object.dig(:degisiklik_turu, :kod).safe_to_i,
-          name: object.dig(:degisiklik_turu, :ad)
+          name: object.dig(:degisiklik_turu, :ad).titleize_tr
         }
       end
     end

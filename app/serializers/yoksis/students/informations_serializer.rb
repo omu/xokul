@@ -4,187 +4,183 @@ module Yoksis
   module Students
     class InformationsSerializer < Serializer
       attribute :personal_informations do
-        t = object[:kisisel_bilgiler]
-        next unless t[:tc_kimlik_no]
+        informations = object[:kisisel_bilgiler]
+        next unless informations[:tc_kimlik_no]
+
         {
-          id_number:     t[:tc_kimlik_no].safe_to_i,
-          first_name:    t[:adi],
-          last_name:     t[:soyadi],
-          father_name:   t[:baba_adi],
-          mother_name:   t[:anne_adi],
-          date_of_birth: t[:dogum_tarihi] && build_date(
-            *t[:dogum_tarihi].values_at(:yil, :ay, :gun)
-          ),
+          id_number:         informations[:tc_kimlik_no].safe_to_i,
+          first_name:        informations[:adi].titleize_tr,
+          last_name:         informations[:soyadi].titleize_tr,
+          father_name:       informations[:baba_adi].titleize_tr,
+          mother_name:       informations[:anne_adi].titleize_tr,
+          date_of_birth:     informations[:dogum_tarihi] && build_date(*informations[:dogum_tarihi].values_at(:yil, :ay, :gun)),
           nationality: {
-            code: t.dig(:uyrugu, :kod).safe_to_i,
-            name: t.dig(:uyrugu, :ad).capitalize
+            code:            informations.dig(:uyrugu, :kod).safe_to_i,
+            name:            informations.dig(:uyrugu, :ad).titleize_tr
           },
           gender: {
-            code: t.dig(:cinsiyeti, :kod).safe_to_i,
-            name: t.dig(:cinsiyeti, :ad)
+            code:            informations.dig(:cinsiyeti, :kod).safe_to_i,
+            name:            informations.dig(:cinsiyeti, :ad).titleize_tr
           }
         }
       end
 
       attribute :studentship_informations do
-        t = object[:ogrencilik_bilgileri]
-        next unless t[:kayit_tarihi]
+        informations = object[:ogrencilik_bilgileri]
+        next unless informations[:kayit_tarihi]
+
         {
-          student_number:    t[:ogrenci_no].safe_to_i,
-          entrance_point:    t[:giris_puani].safe_to_i,
-          current_term:      t[:aktif_donem_no].safe_to_i,
-          ects:              t[:akts].safe_to_f,
-          prep_term:         t[:kac_donem_hazirlik].safe_to_i,
-          registration_date: t[:kayit_tarihi] && build_time(
-            *t[:kayit_tarihi].values_at(:yil, :ay, :gun, :saat, :dakika, :saniye)
-          ),
+          student_number:    informations[:ogrenci_no].safe_to_i,
+          entrance_point:    informations[:giris_puani].safe_to_i,
+          current_term:      informations[:aktif_donem_no].safe_to_i,
+          ects:              informations[:akts].safe_to_f,
+          prep_term:         informations[:kac_donem_hazirlik].safe_to_i,
+          registration_date: informations[:kayit_tarihi] && build_time(*informations[:kayit_tarihi].values_at(:yil, :ay, :gun, :saat, :dakika, :saniye)),
           prep_class: {
-            code: t.dig(:hazirlik_sinifi, :kod).safe_to_i,
-            name: t.dig(:hazirlik_sinifi, :ad)
+            code:            informations.dig(:hazirlik_sinifi, :kod).safe_to_i,
+            name:            informations.dig(:hazirlik_sinifi, :ad).titleize_tr
           },
           entrance_point_type: {
-            code: t.dig(:giris_puan_turu, :kod).safe_to_i,
-            name: t.dig(:giris_puan_turu, :ad)
+            code:            informations.dig(:giris_puan_turu, :kod).safe_to_i,
+            name:            informations.dig(:giris_puan_turu, :ad).capitalize_tr
           },
           entrance_type: {
-            code: t.dig(:giris_turu, :kod).safe_to_i,
-            name: t.dig(:giris_turu, :ad)
+            code:            informations.dig(:giris_turu, :kod).safe_to_i,
+            name:            informations.dig(:giris_turu, :ad).upcase_tr
           },
           rights: {
-            code: t.dig(:ogrencilik_hakki_varmi, :kod).safe_to_i,
-            name: t.dig(:ogrencilik_hakki_varmi, :ad)
+            code:            informations.dig(:ogrencilik_hakki_varmi, :kod).safe_to_i,
+            name:            informations.dig(:ogrencilik_hakki_varmi, :ad).titleize_tr
           },
-          end_date_of_studentship_right: t[:ogrencilik_hakki_bitti_tarih] && build_date(
-            *t[:ogrencilik_hakki_bitti_tarih].values_at(:yil, :ay, :gun)
-          ),
+          end_date_of_studentship_right: informations[:ogrencilik_hakki_bitti_tarih] && build_date(*informations[:ogrencilik_hakki_bitti_tarih].values_at(:yil, :ay, :gun)),
           status: {
-            code: t.dig(:ogrencilik_statusu, :kod).safe_to_i,
-            name: t.dig(:ogrencilik_statusu, :ad)
+            code:            informations.dig(:ogrencilik_statusu, :kod).safe_to_i,
+            name:            informations.dig(:ogrencilik_statusu, :ad).titleize_tr
           },
           disability_type: {
-            code: t.dig(:engel_turu, :kod).safe_to_i,
-            name: t.dig(:engel_turu, :ad)
+            code:            informations.dig(:engel_turu, :kod).safe_to_i,
+            name:            informations.dig(:engel_turu, :ad).titleize_tr
           },
-          disability_rate: t[:engel_orani].safe_to_i,
+          disability_rate:   informations[:engel_orani].safe_to_i,
           dropout_type: {
-            code: t.dig(:ayrilma_nedeni, :kod).safe_to_i,
-            name: t.dig(:ayrilma_nedeni, :ad)
+            code:            informations.dig(:ayrilma_nedeni, :kod).safe_to_i,
+            name:            informations.dig(:ayrilma_nedeni, :ad).titleize_tr
           },
-          dropout_date: t[:ayrilma_tarihi] && build_date(
-            *t[:ayrilma_tarihi].values_at(:yil, :ay, :gun)
-          ),
+          dropout_date:      informations[:ayrilma_tarihi] && build_date(*informations[:ayrilma_tarihi].values_at(:yil, :ay, :gun)),
           martyrs_relative: {
-            code: t.dig(:gazi_sehit_yakini, :kod).safe_to_i,
-            name: t.dig(:gazi_sehit_yakini, :ad)
+            code:            informations.dig(:gazi_sehit_yakini, :kod).safe_to_i,
+            name:            informations.dig(:gazi_sehit_yakini, :ad).titleize_tr
           },
           diploma: {
-            gpa: t.dig(:diploma, :notu).safe_to_f,
-            grading_system: t.dig(:diploma, :not_sistemi).safe_to_f,
-            no: t.dig(:diploma, :no).safe_to_i
+            gpa:             informations.dig(:diploma, :notu).safe_to_f,
+            grading_system:  informations.dig(:diploma, :not_sistemi).safe_to_f,
+            no:              informations.dig(:diploma, :no).safe_to_i
           }
         }
       end
 
       attribute :unit_informations do
-        t = object[:birim]
-        next unless t.dig(:birim, :kod)
+        informations = object[:birim]
+        next unless informations.dig(:birim, :kod)
+
         {
-          long_name:       t[:birim_uzun_adi],
-          english_name:    t[:birim_adi_ingilizce],
-          parent_unit_id:  t[:bagli_oldugu_birim_id].safe_to_i,
-          period_of_study: t[:ogrenim_suresi].safe_to_i,
-          osym_id:         t[:kilavuz_kodu].safe_to_i,
+          long_name:         informations[:birim_uzun_adi].titleize_tr,
+          english_name:      informations[:birim_adi_ingilizce].titleize,
+          parent_unit_id:    informations[:bagli_oldugu_birim_id].safe_to_i,
+          period_of_study:   informations[:ogrenim_suresi].safe_to_i,
+          osym_id:           informations[:kilavuz_kodu].safe_to_i,
           university: {
-            code: t.dig(:universite, :kod).safe_to_i,
-            name: t.dig(:universite, :ad)
+            code:            informations.dig(:universite, :kod).safe_to_i,
+            name:            informations.dig(:universite, :ad).titleize_tr
           },
           university_type: {
-            code: t.dig(:universite_turu, :kod).safe_to_i,
-            name: t.dig(:universite_turu, :ad)
+            code:            informations.dig(:universite_turu, :kod).safe_to_i,
+            name:            informations.dig(:universite_turu, :ad).titleize_tr
           },
           unit: {
-            code: t.dig(:birim, :kod).safe_to_i,
-            name: t.dig(:birim, :ad)
+            code:            informations.dig(:birim, :kod).safe_to_i,
+            name:            informations.dig(:birim, :ad).titleize_tr
           },
           unit_type: {
-            code: t.dig(:birim_turu, :kod).safe_to_i,
-            name: t.dig(:birim_turu, :ad)
+            code:            informations.dig(:birim_turu, :kod).safe_to_i,
+            name:            informations.dig(:birim_turu, :ad).titleize_tr
           },
           faculty: {
-            code: t.dig(:fakulte_yo_myo_enstitu, :kod).safe_to_i,
-            name: t.dig(:fakulte_yo_myo_enstitu, :ad)
+            code:            informations.dig(:fakulte_yo_myo_enstitu, :kod).safe_to_i,
+            name:            informations.dig(:fakulte_yo_myo_enstitu, :ad).titleize_tr
           },
           status: {
-            code: t.dig(:aktiflik, :kod).safe_to_i,
-            name: t.dig(:aktiflik, :ad)
+            code:            informations.dig(:aktiflik, :kod).safe_to_i,
+            name:            informations.dig(:aktiflik, :ad).titleize_tr
           },
           instruction_language: {
-            code: t.dig(:ogrenim_dili, :kod).safe_to_i,
-            name: t.dig(:ogrenim_dili, :ad)
+            code:            informations.dig(:ogrenim_dili, :kod).safe_to_i,
+            name:            informations.dig(:ogrenim_dili, :ad).titleize_tr
           },
           instruction_type: {
-            code: t.dig(:ogrenim_turu, :kod).safe_to_i,
-            name: t.dig(:ogrenim_turu, :ad)
+            code:            informations.dig(:ogrenim_turu, :kod).safe_to_i,
+            name:            informations.dig(:ogrenim_turu, :ad).titleize_tr
           },
           city: {
-            code: t.dig(:il, :kod).safe_to_i,
-            name: t.dig(:il, :ad)
+            code:            informations.dig(:il, :kod).safe_to_i,
+            name:            informations.dig(:il, :ad).titleize_tr
           },
           district: {
-            code: t.dig(:ilce, :kod).safe_to_i,
-            name: t.dig(:ilce, :ad)
+            code:            informations.dig(:ilce, :kod).safe_to_i,
+            name:            informations.dig(:ilce, :ad).titleize_tr
           }
         }
       end
 
       attribute :undergrad_transfer_informations do
-        t = object[:ygecis_birim_id]
-        next unless t.dig(:universite, :kod)
+        informations = object[:ygecis_birim_id]
+        next unless informations.dig(:universite, :kod)
+        
         {
-          long_name:       t[:birim_uzun_adi],
-          english_name:    t[:birim_adi_ingilizce],
-          parent_unit_id:  t[:bagli_oldugu_birim_id].safe_to_i,
-          period_of_study: t[:ogrenim_suresi].safe_to_i,
-          osym_id:         t[:kilavuz_kodu].safe_to_i,
+          long_name:         informations[:birim_uzun_adi].titleize_tr,
+          english_name:      informations[:birim_adi_ingilizce].titleize,
+          parent_unit_id:    informations[:bagli_oldugu_birim_id].safe_to_i,
+          period_of_study:   informations[:ogrenim_suresi].safe_to_i,
+          osym_id:           informations[:kilavuz_kodu].safe_to_i,
           university: {
-            code: t.dig(:universite, :kod).safe_to_i,
-            name: t.dig(:universite, :ad)
+            code:            informations.dig(:universite, :kod).safe_to_i,
+            name:            informations.dig(:universite, :ad).titleize_tr
           },
           university_type: {
-            code: t.dig(:universite_turu, :kod).safe_to_i,
-            name: t.dig(:universite_turu, :ad)
+            code:            informations.dig(:universite_turu, :kod).safe_to_i,
+            name:            informations.dig(:universite_turu, :ad).titleize_tr
           },
           unit: {
-            code: t.dig(:birim, :kod).safe_to_i,
-            name: t.dig(:birim, :ad)
+            code:            informations.dig(:birim, :kod).safe_to_i,
+            name:            informations.dig(:birim, :ad).titleize_tr
           },
           unit_type: {
-            code: t.dig(:birim_turu, :kod).safe_to_i,
-            name: t.dig(:birim_turu, :ad)
+            code:            informations.dig(:birim_turu, :kod).safe_to_i,
+            name:            informations.dig(:birim_turu, :ad).titleize_tr
           },
           faculty: {
-            code: t.dig(:fakulte_yo_myo_enstitu, :kod).safe_to_i,
-            name: t.dig(:fakulte_yo_myo_enstitu, :ad)
+            code:            informations.dig(:fakulte_yo_myo_enstitu, :kod).safe_to_i,
+            name:            informations.dig(:fakulte_yo_myo_enstitu, :ad).titleize_tr
           },
           status: {
-            code: t.dig(:aktiflik, :kod).safe_to_i,
-            name: t.dig(:aktiflik, :ad)
+            code:            informations.dig(:aktiflik, :kod).safe_to_i,
+            name:            informations.dig(:aktiflik, :ad).titleize_tr
           },
           instruction_language: {
-            code: t.dig(:ogrenim_dili, :kod).safe_to_i,
-            name: t.dig(:ogrenim_dili, :ad)
+            code:            informations.dig(:ogrenim_dili, :kod).safe_to_i,
+            name:            informations.dig(:ogrenim_dili, :ad).titleize_tr
           },
           instruction_type: {
-            code: t.dig(:ogrenim_turu, :kod).safe_to_i,
-            name: t.dig(:ogrenim_turu, :ad)
+            code:            informations.dig(:ogrenim_turu, :kod).safe_to_i,
+            name:            informations.dig(:ogrenim_turu, :ad).titleize_tr
           },
           city: {
-            code: t.dig(:il, :kod).safe_to_i,
-            name: t.dig(:il, :ad)
+            code:            informations.dig(:il, :kod).safe_to_i,
+            name:            informations.dig(:il, :ad).titleize_tr
           },
           district: {
-            code: t.dig(:ilce, :kod).safe_to_i,
-            name: t.dig(:ilce, :ad)
+            code:            informations.dig(:ilce, :kod).safe_to_i,
+            name:            informations.dig(:ilce, :ad).titleize_tr
           }
         }
       end
