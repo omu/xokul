@@ -1,11 +1,15 @@
 # frozen_string_literal: true
 
 class NilClass
-  def safe_to_i
+  def nil_object
     nil
   end
 
-  def safe_to_f
-    nil
-  end
+  alias safe_to_i     nil_object
+  alias safe_to_f     nil_object
+  alias downcase_tr   nil_object
+  alias capitalize_tr nil_object
+  alias titleize      nil_object
+  alias titleize_tr   nil_object
+  alias upcase_tr     nil_object
 end

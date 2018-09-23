@@ -71,29 +71,77 @@ Code base'in çeşitli yerlerinde kullanılan yardımcıları içerir. Tüm ger�
 
 #### `safe_to_i`
 
-String, Integer ve Nil sınıfları için gerçeklendi. Serializer katmanında tipe bağlı hataları absorbe etmek için yazıldı.
+String, Integer ve Nil nesneleri için kullanılabilir. Serializer katmanında tipe bağlı hataları absorbe etmek için ihtiyaç duyuldu.
 
-- String sınıfında `to_i` metoduyla aynı işi yapar
-- Nil sınıfında `nil` döndürür
-- Integer sınıfında `to_i` metoduyla aynı işi yapar
+- String nesnelerinde `to_i` metoduyla aynı işi yapar
+- Nil nesnelerinde yine `nil` döndürür
+- Integer nesnelerinde `to_i` metoduyla aynı işi yapar
 
 #### `safe_to_f`
 
-Nil ve String sınıfları için gerçeklendi.
+Nil ve String nesneleri için kullanılabilir.
 
-- String sınıfında `float` sayı eğer virgülle yazılmış ise noktayla değiştirerek `Float` sayı nesnesi döndürür
+- String nesnelerinde nesne virgülle yazılmış ise noktayla değiştirerek `Float` sayı döndürür
 
   ```ruby
   puts '1,3'.safe_to_f # 1.3
   puts '1.3'.safe_to_f # 1.3
   ```
 
-- Nil sınıfında ise yine `nil` döndürür
+- Nil nesnelerinde ise yine `nil` döndürür
 
 #### `camelize`
 
-Yalnızca Symbol nesneleri için geçerlidir. Symbol nesnesini `camelize` eder.
+Yalnızca Symbol nesneleri için kullanılabilir. Symbol nesnesini `camelize` eder.
 
 ```ruby
 puts :foo_bar.camelize # FooBar
 ```
+
+#### `titleize_tr`
+
+Nil ve String nesneleri için kullanılabilir.
+
+- String nesnelerinde "Turkish Special Chars" baz alarak `titleize` yapar
+
+  ```ruby
+  puts 'örnek'.titleize_tr # Örnek
+  ```
+
+- Nil nesnelerinde yine `nil` döndürür
+
+#### `downcase_tr`
+
+Nil ve String nesneleri için kullanılabilir.
+
+- String nesnelerinde "Turkish Special Chars" baz alarak `downcase` yapar
+
+  ```ruby
+  puts 'ÖRNEK'.downcase_tr # örnek
+  ```
+
+- Nil nesnelerinde yine `nil` döndürür
+
+#### `upcase_tr`
+
+Nil ve String nesneleri için kullanılabilir.
+
+- String nesnelerinde "Turkish Special Chars" baz alarak `upcase` yapar
+
+  ```ruby
+  puts 'örnek'.upcase_tr # ÖRNEK
+  ```
+
+- Nil nesnelerinde yine `nil` döndürür
+
+#### `capitalize_tr`
+
+Nil ve String nesneleri için kullanılabilir.
+
+- String nesnelerinde "Turkish Special Chars" baz alarak `capitalize` yapar
+
+  ```ruby
+  puts 'örnek bilgi'.capitalize_tr # Örnek bilgi
+  ```
+
+- Nil nesnelerinde yine `nil` döndürür
