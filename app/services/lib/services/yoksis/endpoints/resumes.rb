@@ -17,6 +17,20 @@ module Services
         citations_result
       end
 
+      def papers(id_number:, year:, month:, day:)
+        @papers = client.request(
+          ARGS.dig(:papers, :operation),
+          args: params_with_defaults(
+            P_TC_KIMLIK_NO: id_number, P_TARIH: "#{year}-#{month}-#{day}"
+          )
+        )
+
+        raise InvalidResponseError if papers_has_error?
+        raise NoContentError unless papers_has_response?
+
+        papers_result
+      end
+
       def articles(id_number:)
         @resumes = client.request(
           ARGS.dig(__callee__, :operation),
@@ -33,6 +47,9 @@ module Services
       alias projects articles
 
       private
+
+      # TODO: Refactor the error and response handling in the future. Because
+      # there are too many repetitive code blocks.
 
       def resumes_has_error?(method)
         @resumes.dig(*ARGS.dig(method, :status)) { |data| data.to_i.zero? }
@@ -56,6 +73,18 @@ module Services
 
       def citations_result
         @citations.dig(*ARGS.dig(:citations, :result))
+      end
+
+      def papers_has_error?
+        @papers.dig(*ARGS.dig(:papers, :status)) { |data| data.to_i.zero? }
+      end
+
+      def papers_has_response?
+        @papers.dig(*ARGS.dig(:papers, :result), &:present?)
+      end
+
+      def papers_result
+        @papers.dig(*ARGS.dig(:papers, :result))
       end
 
       def params_with_defaults(**params)

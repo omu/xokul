@@ -181,6 +181,11 @@ module Services
           operation: :get_atif_sayilari_v1,
           result: %i[get_atif_sayilari_v1_response atif_sayi_listesi],
           status: %i[get_atif_sayilari_v1_response sonuc durum_kodu],
+        },
+        papers: {
+          operation: :get_bildiri_bilgisi_v1,
+          result: %i[get_bildiri_bilgisi_v1_response bildiri_liste],
+          status: %i[get_bildiri_bilgisi_v1_response sonuc durum_kodu],
         }
       }.freeze
     end
