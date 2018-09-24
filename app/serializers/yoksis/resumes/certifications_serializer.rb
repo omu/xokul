@@ -14,15 +14,15 @@ module Yoksis
       attribute(:stint)                  { object[:sure].safe_to_i                                                 }
       attribute(:title_id)               { object[:unvan_id].safe_to_i                                             }
       attribute(:title_name)             { object[:unvan_ad].titleize_tr                                           }
-      attribute(:university_id)          { object[:kurum_id].safe_to_i                                             }
-      attribute(:university_name)        { object[:kurum_ad].titleize_tr                                           }
+      attribute(:institution_id)         { object[:kurum_id].safe_to_i                                             }
+      attribute(:institution_name)       { object[:kurum_ad].titleize_tr                                           }
       attribute(:members_number)         { object[:kisi_sayisi].safe_to_i                                          }
       attribute(:country)                { object[:ulke_sehir] && object[:ulke_sehir].split('/').first.titleize_tr }
       attribute(:city)                   { object[:ulke_sehir] && object[:ulke_sehir].split('/').last.titleize_tr  }
       attribute(:date_of_update)         { Time.zone.parse object[:guncelleme_tarihi] || ''                        }
       attribute(:active_or_passive_id)   { object[:aktif_pasif].safe_to_i                                          }
       attribute(:active_or_passive_name) { object[:aktif_pasif_ad].titleize_tr                                     }
-      attribute(:incentive_point)        { object[:tesv_puan].safe_to_f                                            }
+      attribute(:incentive_points)       { object[:tesv_puan].safe_to_f                                            }
 
       attribute :date_of_start do
         next unless object[:bastar]

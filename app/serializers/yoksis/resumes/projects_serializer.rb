@@ -22,17 +22,17 @@ module Yoksis
       attribute(:scope_name)             { object[:kapsam_ad].titleize_tr                   }
       attribute(:title_id)               { object[:unvan_id].safe_to_i                      }
       attribute(:title_name)             { object[:unvan_ad].titleize_tr                    }
-      attribute(:university_id)          { object[:kurum_id].safe_to_i                      }
-      attribute(:university_name)        { object[:kurum_ad].titleize_tr                    }
-      attribute(:incentive_point)        { object[:tesv_puan].safe_to_f                     }
+      attribute(:institution_id)         { object[:kurum_id].safe_to_i                      }
+      attribute(:institution_name)       { object[:kurum_ad].titleize_tr                    }
+      attribute(:incentive_points)       { object[:tesv_puan].safe_to_f                     }
 
-      attribute :started_at do
+      attribute :date_of_start do
         next unless object[:bas_tar]
         build_date(*object[:bas_tar].split('.').reverse.collect(&:safe_to_i))
       end
 
 
-      attribute :ended_at do
+      attribute :date_of_end do
         next unless object[:bit_tar]
         build_date(*object[:bit_tar].split('.').reverse.collect(&:safe_to_i))
       end
