@@ -177,6 +177,11 @@ module Services
           result: %i[getir_proje_listesi_response proje_listesi],
           status: %i[getir_proje_listesi_response sonuc durum_kodu]
         },
+        citations: {
+          operation: :get_atif_sayilari_v1,
+          result: %i[get_atif_sayilari_v1_response atif_sayi_listesi],
+          status: %i[get_atif_sayilari_v1_response sonuc durum_kodu],
+        }
       }.freeze
     end
     class Staff < Base
