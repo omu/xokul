@@ -209,7 +209,10 @@ module Kps
           registry_number:          new_identity_card_informations[:kayit_no].safe_to_i,
           serial_number:            new_identity_card_informations[:seri_no].safe_to_i,
           date_of_expiration:       new_identity_card_informations[:son_gecerlilik_tarih] && build_date(*new_identity_card_informations[:son_gecerlilik_tarih].values_at(:yil, :ay, :gun)),
-          admission_reason:         new_identity_card_informations[:basvuru_neden].titleize_tr,
+          admission_reason:         new_identity_card_informations[:basvuru_neden] && {
+            code:                   new_identity_card_informations.dig(:basvuru_neden, :kod).safe_to_i,
+            description:            new_identity_card_informations.dig(:basvuru_neden, :aciklama).titleize_tr,
+          },
           deliverer_unit:           new_identity_card_informations[:teslim_eden_birim].titleize_tr,
           date_of_delivery:         new_identity_card_informations[:teslim_tarih] && build_date(*new_identity_card_informations[:teslim_tarih].values_at(:yil, :ay, :gun)),
           issuing_authority:        new_identity_card_informations[:veren_makam].titleize_tr,
