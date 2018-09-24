@@ -10,8 +10,8 @@ module Services
           ARGS.dig(:identities, :operation),
           args: {
             TCKimlikNo: id_number,
-            Ad: first_name.upcase,
-            Soyad: last_name.upcase,
+            Ad: first_name.upcase_tr,
+            Soyad: last_name.upcase_tr,
             DogumYili: year_of_birth
           }
         )
