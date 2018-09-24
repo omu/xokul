@@ -6,17 +6,21 @@ module Yoksis
 
     include ActionsResource
 
-    def certifications
-      render_as_json @resumes.send(
-        action_name,
-        username:  @username,
-        password:  @password,
-        id_number: secure_params.require(:id_number)
+    def citations
+      render_as_json @resumes.citations(
+        id_number: secure_params.require(:id_number),
+        year: secure_params.require(:year)
       )
     end
 
-    alias projects certifications
-    alias articles certifications
+    def articles
+      render_as_json @resumes.send(
+        action_name, id_number: secure_params.require(:id_number)
+      )
+    end
+
+    alias certifications articles
+    alias projects articles
 
     private
 
@@ -30,7 +34,7 @@ module Yoksis
     end
 
     def secure_params
-      params.require(:resume).permit(:id_number)
+      params.require(:resume).permit(:id_number, :year)
     end
   end
 end
