@@ -9,7 +9,15 @@ module Yoksis
     def citations
       render_as_json @resumes.citations(
         id_number: secure_params.require(:id_number),
-        year: secure_params.require(:year)
+        year:      secure_params.require(:year)
+      )
+    end
+
+    def papers
+      year, month, day = *secure_params.require(%i[year month day])
+      render_as_json @resumes.papers(
+        id_number: secure_params.require(:id_number),
+        year: year, month: month, day: day
       )
     end
 
@@ -34,7 +42,7 @@ module Yoksis
     end
 
     def secure_params
-      params.require(:resume).permit(:id_number, :year)
+      params.require(:resume).permit(:id_number, :year, :month, :day)
     end
   end
 end
