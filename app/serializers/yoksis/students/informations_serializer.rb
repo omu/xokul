@@ -11,8 +11,8 @@ module Yoksis
           id_number:         informations[:tc_kimlik_no].safe_to_i,
           first_name:        informations[:adi].titleize_tr,
           last_name:         informations[:soyadi].titleize_tr,
-          father_name:       informations[:baba_adi].titleize_tr,
-          mother_name:       informations[:anne_adi].titleize_tr,
+          fathers_name:      informations[:baba_adi].titleize_tr,
+          mothers_name:      informations[:anne_adi].titleize_tr,
           date_of_birth:     informations[:dogum_tarihi] && build_date(*informations[:dogum_tarihi].values_at(:yil, :ay, :gun)),
           nationality: {
             code:            informations.dig(:uyrugu, :kod).safe_to_i,
@@ -135,7 +135,7 @@ module Yoksis
       attribute :undergrad_transfer_informations do
         informations = object[:ygecis_birim_id]
         next unless informations.dig(:universite, :kod)
-        
+
         {
           long_name:         informations[:birim_uzun_adi].titleize_tr,
           english_name:      informations[:birim_adi_ingilizce].titleize,
