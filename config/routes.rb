@@ -70,6 +70,7 @@ Rails.application.routes.draw do
         get :academic_duties
         get :administrative_duties
         get :articles
+        get :awards
         get :books
         get :certifications
         get :citations
