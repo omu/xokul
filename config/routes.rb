@@ -76,6 +76,7 @@ Rails.application.routes.draw do
         get :lectures
         get :papers
         get :projects
+        get :refereeing
       end
     end
 
