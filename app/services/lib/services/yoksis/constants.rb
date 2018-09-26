@@ -177,6 +177,11 @@ module Services
           result: %i[get_makale_bilgisi_v1_response makale_liste],
           status: %i[get_makale_bilgisi_v1_response sonuc durum_kodu]
         },
+        awards: {
+          operation: :get_odul_listesi_v1,
+          result: %i[get_odul_listesi_v1_response odul_listesi],
+          status: %i[get_odul_listesi_v1_response sonuc durum_kodu]
+        },
         books: {
           operation: :get_kitap_bilgisi_v1,
           result: %i[get_kitap_bilgisi_v1_response kitap_liste],
