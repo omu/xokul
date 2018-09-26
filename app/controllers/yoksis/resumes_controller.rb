@@ -18,6 +18,7 @@ module Yoksis
 
     alias academic_duties       articles
     alias administrative_duties articles
+    alias awards                articles
     alias books                 articles
     alias certifications        articles
     alias editorships           articles
