@@ -187,10 +187,15 @@ module Services
           result: %i[get_bildiri_bilgisi_v1_response bildiri_liste],
           status: %i[get_bildiri_bilgisi_v1_response sonuc durum_kodu],
         },
-        duties: {
+        academic_duties: {
           operation: :getir_akademik_gorev_listesi,
           result: %i[getir_akademik_gorev_listesi_response akademik_gorev_listesi],
           status: %i[getir_akademik_gorev_listesi_response sonuc durum_kodu],
+        },
+        administrative_duties: {
+          operation: :getir_idari_gorev_listesi,
+          result: %i[getir_idari_gorev_listesi_response idari_gorev_listesi],
+          status: %i[getir_idari_gorev_listesi_response sonuc durum_kodu],
         },
         lectures: {
           operation: :getir_ders_listesi,

@@ -20,16 +20,16 @@ module Services
         citations_result
       end
 
-      def duties(id_number:)
-        @duties = client.request(
-          ARGS.dig(:duties, :operation),
+      def academic_duties(id_number:)
+        @academic_duties = client.request(
+          ARGS.dig(:academic_duties, :operation),
           args: params_with_defaults(P_TC_KIMLIK_NO: id_number)
         )
 
-        raise InvalidResponseError if duties_has_error?
-        raise NoContentError unless duties_has_response?
+        raise InvalidResponseError if academic_duties_has_error?
+        raise NoContentError unless academic_duties_has_response?
 
-        duties_result
+        academic_duties_result
       end
 
       def lectures(id_number:)
@@ -54,6 +54,18 @@ module Services
         raise NoContentError unless papers_has_response?
 
         papers_result
+      end
+
+      def administrative_duties(id_number:)
+        @administrative_duties = client.request(
+          ARGS.dig(:administrative_duties, :operation),
+          args: params_with_defaults(P_TC_KIMLIK_NO: id_number)
+        )
+
+        raise InvalidResponseError if administrative_duties_has_error?
+        raise NoContentError unless administrative_duties_has_response?
+
+        administrative_duties_result
       end
 
       def articles(id_number:)
@@ -112,16 +124,16 @@ module Services
         @papers.dig(*ARGS.dig(:papers, :result))
       end
 
-      def duties_has_error?
-        @duties.dig(*ARGS.dig(:duties, :status)) { |data| data.to_i.zero? }
+      def academic_duties_has_error?
+        @academic_duties.dig(*ARGS.dig(:academic_duties, :status)) { |data| data.to_i.zero? }
       end
 
-      def duties_has_response?
-        @duties.dig(*ARGS.dig(:duties, :result), &:present?)
+      def academic_duties_has_response?
+        @academic_duties.dig(*ARGS.dig(:academic_duties, :result), &:present?)
       end
 
-      def duties_result
-        @duties.dig(*ARGS.dig(:duties, :result))
+      def academic_duties_result
+        @academic_duties.dig(*ARGS.dig(:academic_duties, :result))
       end
 
       def lectures_has_error?
@@ -134,6 +146,18 @@ module Services
 
       def lectures_result
         @lectures.dig(*ARGS.dig(:lectures, :result))
+      end
+
+      def administrative_duties_has_error?
+        @administrative_duties.dig(*ARGS.dig(:administrative_duties, :status)) { |data| data.to_i.zero? }
+      end
+
+      def administrative_duties_has_response?
+        @administrative_duties.dig(*ARGS.dig(:administrative_duties, :result), &:present?)
+      end
+
+      def administrative_duties_result
+        @administrative_duties.dig(*ARGS.dig(:administrative_duties, :result))
       end
 
       def params_with_defaults(**params)
