@@ -18,8 +18,12 @@ module Yoksis
       render_as_json @resumes.papers(id_number: secure_params.require(:id_number))
     end
 
-    def duties
-      render_as_json @resumes.duties(id_number: secure_params.require(:id_number))
+    def academic_duties
+      render_as_json @resumes.academic_duties(id_number: secure_params.require(:id_number))
+    end
+
+    def administrative_duties
+      render_as_json @resumes.administrative_duties(id_number: secure_params.require(:id_number))
     end
 
     def lectures
