@@ -21,6 +21,14 @@ module Yoksis
       )
     end
 
+    def duties
+      year, month, day = *secure_params.require(%i[year month day])
+      render_as_json @resumes.duties(
+        id_number: secure_params.require(:id_number),
+        year: year, month: month, day: day
+      )
+    end
+
     def articles
       render_as_json @resumes.send(
         action_name, id_number: secure_params.require(:id_number)
