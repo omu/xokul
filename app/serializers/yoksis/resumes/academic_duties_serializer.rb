@@ -2,7 +2,7 @@
 
 module Yoksis
   module Resumes
-    class DutiesSerializer < Serializer
+    class AcademicDutiesSerializer < Serializer
       attribute(:id)                           { object[:gorev_id].safe_to_i                      }
       attribute(:place_id)                     { object[:yer_id].safe_to_i                        }
       attribute(:place_name)                   { object[:yer_ad].titleize_tr                      }

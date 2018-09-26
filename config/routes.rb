@@ -67,10 +67,11 @@ Rails.application.routes.draw do
 
     resources :resumes do
       collection do
+        get :academic_duties
+        get :administrative_duties
         get :articles
         get :certifications
         get :citations
-        get :duties
         get :lectures
         get :papers
         get :projects
