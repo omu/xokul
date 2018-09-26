@@ -20,6 +20,7 @@ module Yoksis
     alias administrative_duties articles
     alias certifications        articles
     alias editorships           articles
+    alias foreign_languages     articles
     alias lectures              articles
     alias memberships           articles
     alias other_experiences     articles
