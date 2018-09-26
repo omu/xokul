@@ -17,6 +17,20 @@ module Services
         citations_result
       end
 
+      def duties(id_number:, year:, month:, day:)
+        @duties = client.request(
+          ARGS.dig(:duties, :operation),
+          args: params_with_defaults(
+            P_TC_KIMLIK_NO: id_number, P_TARIH: "#{year}-#{month}-#{day}"
+          )
+        )
+
+        raise InvalidResponseError if duties_has_error?
+        raise NoContentError unless duties_has_response?
+
+        duties_result
+      end
+
       def papers(id_number:, year:, month:, day:)
         @papers = client.request(
           ARGS.dig(:papers, :operation),
@@ -85,6 +99,18 @@ module Services
 
       def papers_result
         @papers.dig(*ARGS.dig(:papers, :result))
+      end
+
+      def duties_has_error?
+        @duties.dig(*ARGS.dig(:duties, :status)) { |data| data.to_i.zero? }
+      end
+
+      def duties_has_response?
+        @duties.dig(*ARGS.dig(:duties, :result), &:present?)
+      end
+
+      def duties_result
+        @duties.dig(*ARGS.dig(:duties, :result))
       end
 
       def params_with_defaults(**params)
