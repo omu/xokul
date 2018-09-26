@@ -6,33 +6,28 @@ module Yoksis
 
     include ActionsResource
 
+    # TODO: Fix stylistic issues
+
     def citations
       render_as_json @resumes.citations(
-        id_number: secure_params.require(:id_number),
-        year:      secure_params.require(:year)
+        id_number: secure_params.require(:id_number), year: secure_params.require(:year)
       )
     end
 
     def papers
-      year, month, day = *secure_params.require(%i[year month day])
-      render_as_json @resumes.papers(
-        id_number: secure_params.require(:id_number),
-        year: year, month: month, day: day
-      )
+      render_as_json @resumes.papers(id_number: secure_params.require(:id_number))
     end
 
     def duties
-      year, month, day = *secure_params.require(%i[year month day])
-      render_as_json @resumes.duties(
-        id_number: secure_params.require(:id_number),
-        year: year, month: month, day: day
-      )
+      render_as_json @resumes.duties(id_number: secure_params.require(:id_number))
+    end
+
+    def lectures
+      render_as_json @resumes.lectures(id_number: secure_params.require(:id_number))
     end
 
     def articles
-      render_as_json @resumes.send(
-        action_name, id_number: secure_params.require(:id_number)
-      )
+      render_as_json @resumes.send(action_name, id_number: secure_params.require(:id_number))
     end
 
     alias certifications articles
@@ -50,7 +45,7 @@ module Yoksis
     end
 
     def secure_params
-      params.require(:resume).permit(:id_number, :year, :month, :day)
+      params.require(:resume).permit(:id_number, :year)
     end
   end
 end
