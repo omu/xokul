@@ -24,6 +24,7 @@ module Yoksis
     alias papers                articles
     alias projects              articles
     alias refereeing            articles
+    alias thesis_advisors       articles
 
     private
 
