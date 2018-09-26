@@ -74,6 +74,7 @@ Rails.application.routes.draw do
         get :citations
         get :editorships
         get :lectures
+        get :memberships
         get :other_experiences
         get :papers
         get :projects
