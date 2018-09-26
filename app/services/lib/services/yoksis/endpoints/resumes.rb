@@ -31,6 +31,7 @@ module Services
 
       alias academic_duties       articles
       alias administrative_duties articles
+      alias books                 articles
       alias certifications        articles
       alias editorships           articles
       alias foreign_languages     articles
