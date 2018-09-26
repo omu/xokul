@@ -6,7 +6,7 @@ class String
   end
 
   def titleize_tr
-    downcase_tr.gsub(/\b(?<!\w['’`])[a-zçğöşü]/, &:capitalize_tr)
+    strip.downcase_tr.gsub(/\b(?<!\w['’`])[a-zçğıöşü]/, &:capitalize_tr)
   end
 
   def downcase_tr

@@ -14,8 +14,8 @@ module Kps
         basic_informations = {
           first_name:               personal_informations.dig(:temel_bilgisi, :ad).titleize_tr,
           last_name:                personal_informations.dig(:temel_bilgisi, :soyad).titleize_tr,
-          father_name:              personal_informations.dig(:temel_bilgisi, :anne_ad).titleize_tr,
-          mother_name:              personal_informations.dig(:temel_bilgisi, :baba_ad).titleize_tr,
+          fathers_name:             personal_informations.dig(:temel_bilgisi, :baba_ad).titleize_tr,
+          mothers_name:             personal_informations.dig(:temel_bilgisi, :anne_ad).titleize_tr,
           gender: {
             code:                   personal_informations.dig(:temel_bilgisi, :cinsiyet, :kod).safe_to_i,
             description:            personal_informations.dig(:temel_bilgisi, :cinsiyet, :aciklama).titleize_tr
@@ -41,8 +41,8 @@ module Kps
           id_number:                personal_informations[:kimlik_no].safe_to_i,
           old_id_number:            personal_informations[:es_tc_kimlik_no].safe_to_i,
           new_id_number:            personal_informations[:kazanilan_tc_kimlik_no].safe_to_i,
-          father_id_number:         personal_informations[:baba_tc_kimlik_no].safe_to_i,
-          mother_id_number:         personal_informations[:anne_tc_kimlik_no].safe_to_i,
+          fathers_id_number:        personal_informations[:baba_tc_kimlik_no].safe_to_i,
+          mothers_id_number:        personal_informations[:anne_tc_kimlik_no].safe_to_i,
           real_person_id_number:    personal_informations[:gercek_kisi_kimlik_no].safe_to_i,
           country:                  personal_informations[:ulke].titleize_tr,
           status_informations:      status_informations,
@@ -54,8 +54,8 @@ module Kps
           id_number:                card_informations[:kimlik_no].safe_to_i,
           first_name:               card_informations[:ad].titleize_tr,
           last_name:                card_informations[:soyad].titleize_tr,
-          father_name:              card_informations[:baba_ad].titleize_tr,
-          mother_name:              card_informations[:anne_ad].titleize_tr,
+          fathers_name:             card_informations[:baba_ad].titleize_tr,
+          mothers_name:             card_informations[:anne_ad].titleize_tr,
           gender: {
             code:                   card_informations.dig(:cinsiyet, :kod).safe_to_i,
             description:            card_informations.dig(:cinsiyet, :aciklama).titleize_tr
@@ -94,8 +94,8 @@ module Kps
           id_number:                temporary_identity_informations[:tc_kimlik_no].safe_to_i,
           first_name:               temporary_identity_informations[:ad].titleize_tr,
           last_name:                temporary_identity_informations[:soyad].titleize_tr,
-          father_name:              temporary_identity_informations[:baba_ad].titleize_tr,
-          mother_name:              temporary_identity_informations[:anne_ad].titleize_tr,
+          fathers_name:             temporary_identity_informations[:baba_ad].titleize_tr,
+          mothers_name:             temporary_identity_informations[:anne_ad].titleize_tr,
           gender: {
             code:                   temporary_identity_informations.dig(:cinsiyet, :kod).safe_to_i,
             description:            temporary_identity_informations.dig(:cinsiyet, :aciklama).titleize_tr
@@ -143,8 +143,8 @@ module Kps
         basic_informations = {
           first_name:               personal_informations.dig(:temel_bilgisi, :ad).titleize_tr,
           last_name:                personal_informations.dig(:temel_bilgisi, :soyad).titleize_tr,
-          father_name:              personal_informations.dig(:temel_bilgisi, :anne_ad).titleize_tr,
-          mother_name:              personal_informations.dig(:temel_bilgisi, :baba_ad).titleize_tr,
+          fathers_name:             personal_informations.dig(:temel_bilgisi, :baba_ad).titleize_tr,
+          mothers_name:             personal_informations.dig(:temel_bilgisi, :anne_ad).titleize_tr,
           gender: {
             code:                   personal_informations.dig(:temel_bilgisi, :cinsiyet, :kod).safe_to_i,
             description:            personal_informations.dig(:temel_bilgisi, :cinsiyet, :aciklama).titleize_tr
@@ -156,8 +156,8 @@ module Kps
         personal_informations = personal_informations[:hata_bilgisi].present? ? nil : {
           id_number:                personal_informations[:tc_kimlik_no].safe_to_i,
           old_id_number:            personal_informations[:es_tc_kimlik_no].safe_to_i,
-          father_id_number:         personal_informations[:baba_tc_kimlik_no].safe_to_i,
-          mother_id_number:         personal_informations[:anne_tc_kimlik_no].safe_to_i,
+          fathers_id_number:        personal_informations[:baba_tc_kimlik_no].safe_to_i,
+          mothers_id_number:        personal_informations[:anne_tc_kimlik_no].safe_to_i,
           code_of_place_of_birth:   personal_informations[:dogum_yer_kod].safe_to_i,
           basic_informations:       basic_informations,
           status_informations:      status_informations,
@@ -169,8 +169,8 @@ module Kps
           id_number:                old_identity_card_informations[:tc_kimlik_no].safe_to_i,
           first_name:               old_identity_card_informations[:ad].titleize_tr,
           last_name:                old_identity_card_informations[:soyad].titleize_tr,
-          father_name:              old_identity_card_informations[:baba_ad].titleize_tr,
-          mother_name:              old_identity_card_informations[:anne_ad].titleize_tr,
+          fathers_name:             old_identity_card_informations[:baba_ad].titleize_tr,
+          mothers_name:             old_identity_card_informations[:anne_ad].titleize_tr,
           place_of_birth:           old_identity_card_informations[:dogum_yer].titleize_tr,
           date_of_birth:            build_date(*old_identity_card_informations[:dogum_tarih].values_at(:yil, :ay, :gun)),
           number:                   old_identity_card_informations[:no].safe_to_i,
@@ -198,8 +198,8 @@ module Kps
           id_number:                new_identity_card_informations[:id_number].safe_to_i,
           first_name:               new_identity_card_informations[:ad].titleize_tr,
           last_name:                new_identity_card_informations[:soyad].titleize_tr,
-          father_name:              new_identity_card_informations[:baba_ad].titleize_tr,
-          mother_name:              new_identity_card_informations[:anne_ad].titleize_tr,
+          fathers_name:             new_identity_card_informations[:baba_ad].titleize_tr,
+          mothers_name:             new_identity_card_informations[:anne_ad].titleize_tr,
           gender: {
             code:                   new_identity_card_informations.dig(:cinsiyet, :kod).safe_to_i,
             description:            new_identity_card_informations.dig(:cinsiyet, :aciklama).titleize_tr
@@ -209,7 +209,10 @@ module Kps
           registry_number:          new_identity_card_informations[:kayit_no].safe_to_i,
           serial_number:            new_identity_card_informations[:seri_no].safe_to_i,
           date_of_expiration:       new_identity_card_informations[:son_gecerlilik_tarih] && build_date(*new_identity_card_informations[:son_gecerlilik_tarih].values_at(:yil, :ay, :gun)),
-          admission_reason:         new_identity_card_informations[:basvuru_neden].titleize_tr,
+          admission_reason:         new_identity_card_informations[:basvuru_neden] && {
+            code:                   new_identity_card_informations.dig(:basvuru_neden, :kod).safe_to_i,
+            description:            new_identity_card_informations.dig(:basvuru_neden, :aciklama).titleize_tr,
+          },
           deliverer_unit:           new_identity_card_informations[:teslim_eden_birim].titleize_tr,
           date_of_delivery:         new_identity_card_informations[:teslim_tarih] && build_date(*new_identity_card_informations[:teslim_tarih].values_at(:yil, :ay, :gun)),
           issuing_authority:        new_identity_card_informations[:veren_makam].titleize_tr,
@@ -239,8 +242,8 @@ module Kps
         basic_informations = basic_informations[:hata_bilgisi].present? ? nil : {
           first_name:               basic_informations[:ad].titleize,
           last_name:                basic_informations[:soyad].titleize,
-          father_name:              basic_informations[:anne_ad].titleize,
-          mother_name:              basic_informations[:baba_ad].titleize,
+          fathers_name:             basic_informations[:baba_ad].titleize,
+          mothers_name:             basic_informations[:anne_ad].titleize,
           gender: {
             code:                   basic_informations.dig(:cinsiyet, :kod).safe_to_i,
             description:            basic_informations.dig(:cinsiyet, :aciklama).titleize_tr
@@ -266,8 +269,8 @@ module Kps
 
         {
           id_number:                foreigner[:kimlik_no].safe_to_i,
-          mother_id_number:         foreigner[:anne_kimlik_no].safe_to_i,
-          father_id_number:         foreigner[:baba_kimlik_no].safe_to_i,
+          mothers_id_number:        foreigner[:anne_kimlik_no].safe_to_i,
+          fathers_id_number:        foreigner[:baba_kimlik_no].safe_to_i,
           old_id_number:            foreigner[:es_tc_kimlik_no].safe_to_i,
           new_id_number:            foreigner[:kazanilan_tc_kimlik_no].safe_to_i,
           real_person_id_number:    foreigner[:gercek_kisi_kimlik_no].safe_to_i,

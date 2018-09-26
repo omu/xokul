@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'home#index'
 
-  namespace :kps do
+  namespace :kps, defaults: { format: :json } do
     resources(:verifications) { collection { get :identities } }
     resources(:queries) do
       collection do
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :osym do
+  namespace :osym, defaults: { format: :json } do
     resources(:examination) do
       collection do
         get :groups
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :yoksis do
+  namespace :yoksis, defaults: { format: :json } do
     resources(:graduates) { collection { get :informations } }
     resources(:meb)       { collection { get :students     } }
     resources(:military)  { collection { get :informations } }
@@ -93,4 +93,6 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  get '*path', to: 'application#not_found'
 end

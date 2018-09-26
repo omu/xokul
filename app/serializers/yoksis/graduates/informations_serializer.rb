@@ -6,8 +6,8 @@ module Yoksis
       attribute(:id_number)              { object[:tckno].safe_to_i               }
       attribute(:first_name)             { object[:adi].titleize_tr               }
       attribute(:last_name)              { object[:soyadi].titleize_tr            }
-      attribute(:father_name)            { object[:baba_adi].titleize_tr          }
-      attribute(:mother_name)            { object[:anne_adi].titleize_tr          }
+      attribute(:fathers_name)           { object[:baba_adi].titleize_tr          }
+      attribute(:mothers_name)           { object[:anne_adi].titleize_tr          }
       attribute(:diploma_grade)          { object[:diploma_notu].safe_to_f        }
       attribute(:diploma_grading_system) { object[:diploma_not_sistemi].safe_to_i }
       attribute(:diploma_no)             { object[:diploma_no]                    }
