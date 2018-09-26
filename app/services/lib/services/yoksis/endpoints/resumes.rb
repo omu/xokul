@@ -5,6 +5,8 @@ module Services
     class Resumes
       WSDL_URL = 'http://servisler.yok.gov.tr/ws/ozgecmisv1?WSDL'
 
+      # TODO: Fix repetitive methods. Use aliases instead.
+
       def citations(id_number:, year:)
         @citations = client.request(
           ARGS.dig(:citations, :operation),
@@ -17,12 +19,10 @@ module Services
         citations_result
       end
 
-      def duties(id_number:, year:, month:, day:)
+      def duties(id_number:)
         @duties = client.request(
           ARGS.dig(:duties, :operation),
-          args: params_with_defaults(
-            P_TC_KIMLIK_NO: id_number, P_TARIH: "#{year}-#{month}-#{day}"
-          )
+          args: params_with_defaults(P_TC_KIMLIK_NO: id_number)
         )
 
         raise InvalidResponseError if duties_has_error?
@@ -31,12 +31,22 @@ module Services
         duties_result
       end
 
-      def papers(id_number:, year:, month:, day:)
+      def lectures(id_number:)
+        @lectures = client.request(
+          ARGS.dig(:lectures, :operation),
+          args: params_with_defaults(P_TC_KIMLIK_NO: id_number)
+        )
+
+        raise InvalidResponseError if lectures_has_error?
+        raise NoContentError unless lectures_has_response?
+
+        lectures_result
+      end
+
+      def papers(id_number:)
         @papers = client.request(
           ARGS.dig(:papers, :operation),
-          args: params_with_defaults(
-            P_TC_KIMLIK_NO: id_number, P_TARIH: "#{year}-#{month}-#{day}"
-          )
+          args: params_with_defaults(P_TC_KIMLIK_NO: id_number)
         )
 
         raise InvalidResponseError if papers_has_error?
@@ -111,6 +121,18 @@ module Services
 
       def duties_result
         @duties.dig(*ARGS.dig(:duties, :result))
+      end
+
+      def lectures_has_error?
+        @lectures.dig(*ARGS.dig(:lectures, :status)) { |data| data.to_i.zero? }
+      end
+
+      def lectures_has_response?
+        @lectures.dig(*ARGS.dig(:lectures, :result), &:present?)
+      end
+
+      def lectures_result
+        @lectures.dig(*ARGS.dig(:lectures, :result))
       end
 
       def params_with_defaults(**params)

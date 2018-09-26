@@ -191,6 +191,11 @@ module Services
           operation: :getir_akademik_gorev_listesi,
           result: %i[getir_akademik_gorev_listesi_response akademik_gorev_listesi],
           status: %i[getir_akademik_gorev_listesi_response sonuc durum_kodu],
+        },
+        lectures: {
+          operation: :getir_ders_listesi,
+          result: %i[getir_ders_listesi_response ders_listesi],
+          status: %i[getir_ders_listesi_response sonuc durum_kodu],
         }
       }.freeze
     end
