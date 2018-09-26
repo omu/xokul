@@ -192,6 +192,11 @@ module Services
           result: %i[get_editorluk_bilgisi_v1_response editorluk_liste],
           status: %i[get_editorluk_bilgisi_v1_response sonuc durum_kodu],
         },
+        foreign_languages: {
+          operation: :getir_yabanci_dil_listesi,
+          result: %i[getir_yabanci_dil_listesi_response yabanci_dil_listesi],
+          status: %i[getir_yabanci_dil_listesi_response sonuc durum_kodu],
+        },
         lectures: {
           operation: :getir_ders_listesi,
           result: %i[getir_ders_listesi_response ders_listesi],
