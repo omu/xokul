@@ -77,6 +77,7 @@ Rails.application.routes.draw do
         get :papers
         get :projects
         get :refereeing
+        get :thesis_advisors
       end
     end
 
