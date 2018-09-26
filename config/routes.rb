@@ -70,6 +70,7 @@ Rails.application.routes.draw do
         get :articles
         get :certifications
         get :citations
+        get :duties
         get :papers
         get :projects
       end
