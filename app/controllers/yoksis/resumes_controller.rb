@@ -6,7 +6,9 @@ module Yoksis
 
     include ActionsResource
 
-    # TODO: Fix stylistic issues
+    def articles
+      render_as_json @resumes.send(action_name, id_number: secure_params.require(:id_number))
+    end
 
     def citations
       render_as_json @resumes.citations(
@@ -14,28 +16,13 @@ module Yoksis
       )
     end
 
-    def papers
-      render_as_json @resumes.papers(id_number: secure_params.require(:id_number))
-    end
-
-    def academic_duties
-      render_as_json @resumes.academic_duties(id_number: secure_params.require(:id_number))
-    end
-
-    def administrative_duties
-      render_as_json @resumes.administrative_duties(id_number: secure_params.require(:id_number))
-    end
-
-    def lectures
-      render_as_json @resumes.lectures(id_number: secure_params.require(:id_number))
-    end
-
-    def articles
-      render_as_json @resumes.send(action_name, id_number: secure_params.require(:id_number))
-    end
-
-    alias certifications articles
-    alias projects articles
+    alias academic_duties       articles
+    alias administrative_duties articles
+    alias certifications        articles
+    alias editorships           articles
+    alias lectures              articles
+    alias projects              articles
+    alias papers                articles
 
     private
 
