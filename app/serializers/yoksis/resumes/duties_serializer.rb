@@ -8,8 +8,8 @@ module Yoksis
       attribute(:place_name)                   { object[:yer_ad].titleize_tr                      }
       attribute(:country_id)                   { object[:ulke_id].safe_to_i                       }
       attribute(:country_name)                 { object[:ulke_ad].titleize_tr                     }
-      attribute(:year_of_start)                { object[:bastar1].titleize_tr                     }
-      attribute(:year_of_end)                  { object[:bittar1].titleize_tr                     }
+      attribute(:year_of_start)                { object[:bastar1].safe_to_i                       }
+      attribute(:year_of_end)                  { object[:bittar1].safe_to_i                       }
       attribute(:scientific_field_name)        { object[:bilimalan_adi].titleize_tr               }
       attribute(:field_of_specialization_id)   { object[:uzmanlik_alani].safe_to_i                }
       attribute(:field_of_specialization_name) { object[:uzmanlik_alani_ad].titleize_tr           }
