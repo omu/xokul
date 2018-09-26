@@ -21,6 +21,7 @@ module Yoksis
     alias certifications        articles
     alias editorships           articles
     alias lectures              articles
+    alias memberships           articles
     alias other_experiences     articles
     alias papers                articles
     alias projects              articles
