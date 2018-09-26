@@ -162,31 +162,6 @@ module Services
     end
     class Resumes < Base
       ARGS = {
-        certifications: {
-          operation: :get_arastirma_sertifka_bilgisi_v1,
-          result: %i[get_arastirma_sertifka_bilgisi_v1_response arastirma_liste],
-          status: %i[get_arastirma_sertifka_bilgisi_v1_response sonuc durum_kodu]
-        },
-        articles: {
-          operation: :get_makale_bilgisi_v1,
-          result: %i[get_makale_bilgisi_v1_response makale_liste],
-          status: %i[get_makale_bilgisi_v1_response sonuc durum_kodu]
-        },
-        projects: {
-          operation: :getir_proje_listesi,
-          result: %i[getir_proje_listesi_response proje_listesi],
-          status: %i[getir_proje_listesi_response sonuc durum_kodu]
-        },
-        citations: {
-          operation: :get_atif_sayilari_v1,
-          result: %i[get_atif_sayilari_v1_response atif_sayi_listesi],
-          status: %i[get_atif_sayilari_v1_response sonuc durum_kodu],
-        },
-        papers: {
-          operation: :get_bildiri_bilgisi_v1,
-          result: %i[get_bildiri_bilgisi_v1_response bildiri_liste],
-          status: %i[get_bildiri_bilgisi_v1_response sonuc durum_kodu],
-        },
         academic_duties: {
           operation: :getir_akademik_gorev_listesi,
           result: %i[getir_akademik_gorev_listesi_response akademik_gorev_listesi],
@@ -197,11 +172,41 @@ module Services
           result: %i[getir_idari_gorev_listesi_response idari_gorev_listesi],
           status: %i[getir_idari_gorev_listesi_response sonuc durum_kodu],
         },
+        articles: {
+          operation: :get_makale_bilgisi_v1,
+          result: %i[get_makale_bilgisi_v1_response makale_liste],
+          status: %i[get_makale_bilgisi_v1_response sonuc durum_kodu]
+        },
+        certifications: {
+          operation: :get_arastirma_sertifka_bilgisi_v1,
+          result: %i[get_arastirma_sertifka_bilgisi_v1_response arastirma_liste],
+          status: %i[get_arastirma_sertifka_bilgisi_v1_response sonuc durum_kodu]
+        },
+        citations: {
+          operation: :get_atif_sayilari_v1,
+          result: %i[get_atif_sayilari_v1_response atif_sayi_listesi],
+          status: %i[get_atif_sayilari_v1_response sonuc durum_kodu],
+        },
+        editorships: {
+          operation: :get_editorluk_bilgisi_v1,
+          result: %i[get_editorluk_bilgisi_v1_response editorluk_liste],
+          status: %i[get_editorluk_bilgisi_v1_response sonuc durum_kodu],
+        },
         lectures: {
           operation: :getir_ders_listesi,
           result: %i[getir_ders_listesi_response ders_listesi],
           status: %i[getir_ders_listesi_response sonuc durum_kodu],
-        }
+        },
+        papers: {
+          operation: :get_bildiri_bilgisi_v1,
+          result: %i[get_bildiri_bilgisi_v1_response bildiri_liste],
+          status: %i[get_bildiri_bilgisi_v1_response sonuc durum_kodu],
+        },
+        projects: {
+          operation: :getir_proje_listesi,
+          result: %i[getir_proje_listesi_response proje_listesi],
+          status: %i[getir_proje_listesi_response sonuc durum_kodu]
+        },
       }.freeze
     end
     class Staff < Base
