@@ -197,6 +197,11 @@ module Services
           result: %i[getir_ders_listesi_response ders_listesi],
           status: %i[getir_ders_listesi_response sonuc durum_kodu],
         },
+        memberships: {
+          operation: :getir_uyelik_listesi,
+          result: %i[getir_uyelik_listesi_response uyelik_listesi],
+          status: %i[getir_uyelik_listesi_response sonuc durum_kodu],
+        },
         other_experiences: {
           operation: :getir_unv_disi_deneyim_listesi,
           result: %i[getir_unv_disi_deneyim_listesi_response deneyim_listesi],
