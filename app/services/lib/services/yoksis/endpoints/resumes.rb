@@ -2,6 +2,7 @@
 
 module Services
   module Yoksis
+    # rubocop:disable Metrics/ClassLength
     class Resumes
       WSDL_URL = 'http://servisler.yok.gov.tr/ws/ozgecmisv1?WSDL'
 
@@ -149,5 +150,6 @@ module Services
         @username, @password = @options[:basic_auth]
       end
     end
+    # rubocop:enable Metrics/ClassLength
   end
 end
