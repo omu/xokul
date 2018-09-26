@@ -36,6 +36,7 @@ module Services
       alias lectures              articles
       alias papers                articles
       alias projects              articles
+      alias refereeing            articles
 
       private
 

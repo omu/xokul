@@ -207,6 +207,11 @@ module Services
           result: %i[getir_proje_listesi_response proje_listesi],
           status: %i[getir_proje_listesi_response sonuc durum_kodu]
         },
+        refereeing: {
+          operation: :get_hakemlik_bilgisi_v1,
+          result: %i[get_hakemlik_bilgisi_v1_response hakemlik_liste],
+          status: %i[get_hakemlik_bilgisi_v1_response sonuc durum_kodu]
+        },
       }.freeze
     end
     class Staff < Base
