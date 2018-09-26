@@ -212,6 +212,11 @@ module Services
           result: %i[get_hakemlik_bilgisi_v1_response hakemlik_liste],
           status: %i[get_hakemlik_bilgisi_v1_response sonuc durum_kodu]
         },
+        thesis_advisors: {
+          operation: :getir_tez_danisman_listesi,
+          result: %i[getir_tez_danisman_listesi_response tez_danisman_listesi],
+          status: %i[getir_tez_danisman_listesi_response sonuc durum_kodu]
+        },
       }.freeze
     end
     class Staff < Base
