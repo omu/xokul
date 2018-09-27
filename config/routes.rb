@@ -80,6 +80,7 @@ Rails.application.routes.draw do
         get :editorships
         get :fields
         get :foreign_languages
+        get :incentive_applications
         get :lectures
         get :memberships
         get :other_experiences
