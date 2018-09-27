@@ -217,6 +217,11 @@ module Services
           result: %i[get_editorluk_bilgisi_v1_response editorluk_liste],
           status: %i[get_editorluk_bilgisi_v1_response sonuc durum_kodu],
         },
+        fields: {
+          operation: :get_temel_alan_bilgisi_v1,
+          result: %i[get_temel_alan_bilgisi_v1_response temel_alan_liste],
+          status: %i[get_temel_alan_bilgisi_v1_response sonuc durum_kodu],
+        },
         foreign_languages: {
           operation: :getir_yabanci_dil_listesi,
           result: %i[getir_yabanci_dil_listesi_response yabanci_dil_listesi],
