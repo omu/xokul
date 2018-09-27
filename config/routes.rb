@@ -72,6 +72,7 @@ Rails.application.routes.draw do
         get :administrative_duties
         get :articles
         get :artistic_activities
+        get :authors
         get :awards
         get :books
         get :certifications
