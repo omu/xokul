@@ -81,6 +81,7 @@ Rails.application.routes.draw do
         get :fields
         get :foreign_languages
         get :incentive_applications
+        get :incentive_activity_declarations
         get :lectures
         get :memberships
         get :other_experiences
