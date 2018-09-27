@@ -11,7 +11,8 @@ module Yoksis
     end
 
     def citations
-      render_as_json @resumes.citations(
+      render_as_json @resumes.send(
+        action_name,
         id_number: secure_params.require(:id_number), year: secure_params.require(:year)
       )
     end
@@ -35,6 +36,8 @@ module Yoksis
     alias projects              articles
     alias refereeing            articles
     alias thesis_advisors       articles
+
+    alias incentive_applications citations
 
     private
 
