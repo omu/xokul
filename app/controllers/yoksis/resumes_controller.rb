@@ -6,43 +6,36 @@ module Yoksis
 
     include ActionsResource
 
-    def articles
-      render_as_json @resumes.send(action_name, id_number: secure_params.require(:id_number))
+    UNDEFINABLE_ACTIONS_IN_ITERATION = %i[
+      authors
+      citations
+      incentive_applications
+      incentive_activity_declarations
+    ].freeze
+    private_constant :UNDEFINABLE_ACTIONS_IN_ITERATION
+
+    Services::Yoksis::Resumes::ARGS.each_key do |method|
+      next if method.in?(UNDEFINABLE_ACTIONS_IN_ITERATION)
+
+      define_method(method) do
+        render_as_json @resumes.send(
+          method, id_number: undefinable_actions_in_iteration_params.require(:id_number)
+        )
+      end
     end
 
     def authors
       render_as_json @resumes.authors(
-        id_number: secure_params.require(:id_number), author_id: secure_params.require(:author_id)
+        id_number: authors_params.require(:id_number), author_id: authors_params.require(:author_id)
       )
     end
 
     def citations
       render_as_json @resumes.send(
         action_name,
-        id_number: secure_params.require(:id_number), year: secure_params.require(:year)
+        id_number: citations_params.require(:id_number), year: citations_params.require(:year)
       )
     end
-
-    alias academic_duties        articles
-    alias academic_links         articles
-    alias administrative_duties  articles
-    alias artistic_activities    articles
-    alias awards                 articles
-    alias books                  articles
-    alias certifications         articles
-    alias editorships            articles
-    alias education_informations articles
-    alias designs                articles
-    alias fields                 articles
-    alias foreign_languages      articles
-    alias lectures               articles
-    alias memberships            articles
-    alias other_experiences      articles
-    alias papers                 articles
-    alias patents                articles
-    alias projects               articles
-    alias refereeing             articles
-    alias thesis_advisors        articles
 
     alias incentive_applications citations
     alias incentive_activity_declarations citations
@@ -58,8 +51,16 @@ module Yoksis
       @resumes = Services::Yoksis::Resumes.new(basic_auth: [@username, @password])
     end
 
-    def secure_params
-      params.require(:resume).permit(:id_number, :year, :author_id)
+    def undefinable_actions_in_iteration_params
+      params.require(:resume).permit(:id_number)
+    end
+
+    def authors_params
+      params.require(:resume).permit(:id_number, :author_id)
+    end
+
+    def citations_params
+      params.require(:resume).permit(:id_number, :year)
     end
   end
 end
