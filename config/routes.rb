@@ -80,6 +80,7 @@ Rails.application.routes.draw do
         get :memberships
         get :other_experiences
         get :papers
+        get :patents
         get :projects
         get :refereeing
         get :thesis_advisors
