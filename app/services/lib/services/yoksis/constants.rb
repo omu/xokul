@@ -232,6 +232,11 @@ module Services
           result: %i[get_tesvik_basvuru_varmi_v1_response basvuru_durumu],
           status: %i[get_tesvik_basvuru_varmi_v1_response sonuc durum_kodu],
         },
+        incentive_activity_declarations: {
+          operation: :get_tesvik_faaliyet_beyan_v1,
+          result: %i[get_tesvik_faaliyet_beyan_v1_response tesvik_beyan_listesi],
+          status: %i[get_tesvik_faaliyet_beyan_v1_response sonuc durum_kodu],
+        },
         lectures: {
           operation: :getir_ders_listesi,
           result: %i[getir_ders_listesi_response ders_listesi],
