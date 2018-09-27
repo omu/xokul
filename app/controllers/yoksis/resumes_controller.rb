@@ -10,6 +10,12 @@ module Yoksis
       render_as_json @resumes.send(action_name, id_number: secure_params.require(:id_number))
     end
 
+    def authors
+      render_as_json @resumes.authors(
+        id_number: secure_params.require(:id_number), author_id: secure_params.require(:author_id)
+      )
+    end
+
     def citations
       render_as_json @resumes.send(
         action_name,
@@ -52,7 +58,7 @@ module Yoksis
     end
 
     def secure_params
-      params.require(:resume).permit(:id_number, :year)
+      params.require(:resume).permit(:id_number, :year, :author_id)
     end
   end
 end
