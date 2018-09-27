@@ -13,7 +13,7 @@ module Yoksis
       attribute(:type_name)         { object[:odul_turu].titleize_tr      }
       attribute(:country_id)        { object[:ulke_id].safe_to_i          }
       attribute(:country_name)      { object[:ulke_ad].titleize_tr        }
-      attribute(:number_of_persons) { object[:odul_turu].titleize_tr      }
+      attribute(:number_of_persons) { object[:kisi_sayisi].titleize_tr    }
 
       attribute :awarder do
         {
