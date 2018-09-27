@@ -227,6 +227,11 @@ module Services
           result: %i[get_bildiri_bilgisi_v1_response bildiri_liste],
           status: %i[get_bildiri_bilgisi_v1_response sonuc durum_kodu],
         },
+        patents: {
+          operation: :get_patent_bilgisi_v1,
+          result: %i[get_patent_bilgisi_v1_response patent_liste],
+          status: %i[get_patent_bilgisi_v1_response sonuc durum_kodu],
+        },
         projects: {
           operation: :getir_proje_listesi,
           result: %i[getir_proje_listesi_response proje_listesi],

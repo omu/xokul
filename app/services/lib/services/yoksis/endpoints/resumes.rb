@@ -40,6 +40,7 @@ module Services
       alias memberships           articles
       alias other_experiences     articles
       alias papers                articles
+      alias patents               articles
       alias projects              articles
       alias refereeing            articles
       alias thesis_advisors       articles
