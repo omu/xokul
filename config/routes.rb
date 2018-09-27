@@ -71,6 +71,7 @@ Rails.application.routes.draw do
         get :academic_links
         get :administrative_duties
         get :articles
+        get :artistic_activities
         get :awards
         get :books
         get :certifications
