@@ -182,6 +182,11 @@ module Services
           result: %i[get_makale_bilgisi_v1_response makale_liste],
           status: %i[get_makale_bilgisi_v1_response sonuc durum_kodu]
         },
+        artistic_activities: {
+          operation: :get_sanatsal_faal_v1,
+          result: %i[get_sanatsal_faal_v1_response sanatsal_faal_liste],
+          status: %i[get_sanatsal_faal_v1_response sonuc durum_kodu]
+        },
         awards: {
           operation: :get_odul_listesi_v1,
           result: %i[get_odul_listesi_v1_response odul_listesi],
