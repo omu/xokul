@@ -19,35 +19,36 @@ module Services
 
       def citations(id_number:, year:)
         @resumes = client.request(
-          ARGS.dig(:citations, :operation),
+          ARGS.dig(__callee__, :operation),
           args: params_with_defaults(P_TC_KIMLIK_NO: id_number, P_DONEM: year)
         )
 
-        raise InvalidResponseError if resumes_has_error? __method__
-        raise NoContentError unless resumes_has_response? __method__
+        raise InvalidResponseError if resumes_has_error? __callee__
+        raise NoContentError unless resumes_has_response? __callee__
 
-        resumes_result __method__
+        resumes_result __callee__
       end
 
-      alias academic_duties       articles
-      alias academic_links        articles
-      alias administrative_duties articles
-      alias artistic_activities   articles
-      alias awards                articles
-      alias books                 articles
-      alias certifications        articles
-      alias designs               articles
-      alias editorships           articles
-      alias fields                articles
-      alias foreign_languages     articles
-      alias lectures              articles
-      alias memberships           articles
-      alias other_experiences     articles
-      alias papers                articles
-      alias patents               articles
-      alias projects              articles
-      alias refereeing            articles
-      alias thesis_advisors       articles
+      alias academic_duties        articles
+      alias academic_links         articles
+      alias administrative_duties  articles
+      alias artistic_activities    articles
+      alias awards                 articles
+      alias books                  articles
+      alias certifications         articles
+      alias designs                articles
+      alias editorships            articles
+      alias fields                 articles
+      alias foreign_languages      articles
+      alias incentive_applications citations
+      alias lectures               articles
+      alias memberships            articles
+      alias other_experiences      articles
+      alias papers                 articles
+      alias patents                articles
+      alias projects               articles
+      alias refereeing             articles
+      alias thesis_advisors        articles
 
       private
 
