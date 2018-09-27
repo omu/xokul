@@ -38,6 +38,7 @@ module Yoksis
     alias thesis_advisors       articles
 
     alias incentive_applications citations
+    alias incentive_activity_declarations citations
 
     private
 
