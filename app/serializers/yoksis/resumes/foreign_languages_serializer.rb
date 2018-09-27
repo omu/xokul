@@ -3,7 +3,7 @@
 module Yoksis
   module Resumes
     class ForeignLanguagesSerializer < Serializer
-      attribute(:id)                     { object[:y_id].safe_to_i                                                   }
+      attribute(:registry_id)            { object[:y_id].safe_to_i                                                   }
       attribute(:language_id)            { object[:dil_id].safe_to_i                                                 }
       attribute(:language_name)          { object[:dil_ad].titleize_tr                                               }
       attribute(:language_testing_id)    { object[:dil_sinav_id].safe_to_i                                           }

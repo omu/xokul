@@ -12,10 +12,10 @@ module Yoksis
       attribute(:type_name)                { object[:editorluk_tur_ad].titleize_tr                                               }
       attribute(:scope_id)                 { object[:kapsam_id].safe_to_i                                                        }
       attribute(:scope_name)               { object[:kapsam_ad].titleize_tr                                                      }
-      attribute(:duty_id)                  { object[:editor_gorev].safe_to_i                                                     }
-      attribute(:duty_name)                { object[:editor_gorev_ad].titleize_tr                                                }
+      attribute(:editor_duty_id)           { object[:editor_gorev].safe_to_i                                                     }
+      attribute(:editor_duty_name)         { object[:editor_gorev_ad].titleize_tr                                                }
       attribute(:authors)                  { object[:yazar_adi] && object[:yazar_adi].split(',').map(&:strip).map(&:titleize_tr) }
-      attribute(:authors_number)           { object[:yazar_sayisi].safe_to_i                                                     }
+      attribute(:number_of_author)         { object[:yazar_sayisi].safe_to_i                                                     }
       attribute(:country_id)               { object[:ulke].safe_to_i                                                             }
       attribute(:country_name)             { object[:ulke_adi].titleize_tr                                                       }
       attribute(:city)                     { object[:sehir].titleize_tr                                                          }

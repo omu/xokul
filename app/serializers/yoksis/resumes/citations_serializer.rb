@@ -3,8 +3,8 @@
 module Yoksis
   module Resumes
     class CitationsSerializer < Serializer
-      attribute(:id)                          { object[:a_id].safe_to_i                                                   }
-      attribute(:year)                        { object[:donem].safe_to_i                                                  }
+      attribute(:registry_id)                 { object[:a_id].safe_to_i                                                   }
+      attribute(:term)                        { object[:donem].safe_to_i                                                  }
       attribute(:type_id)                     { object[:tur].safe_to_i                                                    }
       attribute(:type_name)                   { object[:tur_ad].titleize_tr                                               }
       attribute(:work_type)                   { object[:eser_turu].titleize_tr                                            }

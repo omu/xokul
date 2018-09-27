@@ -3,9 +3,9 @@
 module Yoksis
   module Resumes
     class FieldsSerializer < Serializer
-      attribute(:registration_id)        { object[:t_uak_id].safe_to_i                                               }
-      attribute(:id)                     { object[:temel_alan_id].safe_to_i                                          }
-      attribute(:name)                   { object[:temel_alan_ad].titleize_tr                                        }
+      attribute(:registry_id)            { object[:t_uak_id].safe_to_i                                               }
+      attribute(:field_id)               { object[:temel_alan_id].safe_to_i                                          }
+      attribute(:field_name)             { object[:temel_alan_ad].titleize_tr                                        }
       attribute(:scientific_field_id)    { object[:bilim_alan_id].safe_to_i                                          }
       attribute(:scientific_field_name)  { object[:bilim_alan_ad].titleize_tr                                        }
       attribute(:active_or_passive_id)   { object[:aktif_pasif].safe_to_i                                            }

@@ -3,7 +3,7 @@
 module Yoksis
   module Resumes
     class AuthorsSerializer < Serializer
-      attribute(:yoksis_id)        { object[:y_id].safe_to_i                                                   }
+      attribute(:registry_id)      { object[:y_id].safe_to_i                                                   }
       attribute(:id_number)        { object[:tc_kimlik_no].safe_to_i                                           }
       attribute(:first_name)       { object[:yazarad].titleize_tr                                              }
       attribute(:last_name)        { object[:yazarsoyad].titleize_tr                                           }

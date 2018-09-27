@@ -9,7 +9,7 @@ module Yoksis
       attribute(:publishing_language_name) { object[:yayin_dili_adi].titleize_tr                                       }
       attribute(:type_id)                  { object[:hakemlik_turu].safe_to_i                                          }
       attribute(:type_name)                { object[:hakemlik_turu_ad].titleize_tr                                     }
-      attribute(:numbers)                  { object[:hakemlik_sayisi].safe_to_i                                        }
+      attribute(:number_of_refereeing)     { object[:hakemlik_sayisi].safe_to_i                                        }
       attribute(:scope_id)                 { object[:kapsam_id].safe_to_i                                              }
       attribute(:scope_name)               { object[:kapsam_ad].titleize_tr                                            }
       attribute(:country_id)               { object[:ulke].safe_to_i                                                   }

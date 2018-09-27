@@ -3,17 +3,17 @@
 module Yoksis
   module Resumes
     class AwardsSerializer < Serializer
-      attribute(:id)                { object[:odul_id].safe_to_i          }
-      attribute(:name)              { object[:odul_adi].titleize_tr       }
-      attribute(:description)       { object[:odul_aciklama].titleize_tr  }
-      attribute(:year)              { object[:odul_tarih].safe_to_i       }
-      attribute(:detail_id)         { object[:faal_detay_id].safe_to_i    }
-      attribute(:detail_name)       { object[:faal_detay_adi].titleize_tr }
-      attribute(:type_id)           { object[:odul_tur_id].safe_to_i      }
-      attribute(:type_name)         { object[:odul_turu].titleize_tr      }
-      attribute(:country_id)        { object[:ulke_id].safe_to_i          }
-      attribute(:country_name)      { object[:ulke_ad].titleize_tr        }
-      attribute(:number_of_persons) { object[:kisi_sayisi].titleize_tr    }
+      attribute(:id)                   { object[:odul_id].safe_to_i          }
+      attribute(:name)                 { object[:odul_adi].titleize_tr       }
+      attribute(:description)          { object[:odul_aciklama].titleize_tr  }
+      attribute(:year)                 { object[:odul_tarih].safe_to_i       }
+      attribute(:activity_detail_id)   { object[:faal_detay_id].safe_to_i    }
+      attribute(:activity_detail_name) { object[:faal_detay_adi].titleize_tr }
+      attribute(:type_id)              { object[:odul_tur_id].safe_to_i      }
+      attribute(:type_name)            { object[:odul_turu].titleize_tr      }
+      attribute(:country_id)           { object[:ulke_id].safe_to_i          }
+      attribute(:country_name)         { object[:ulke_ad].titleize_tr        }
+      attribute(:number_of_person)     { object[:kisi_sayisi].titleize_tr    }
 
       attribute :awarder do
         {

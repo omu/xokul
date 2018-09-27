@@ -3,7 +3,7 @@
 module Yoksis
   module Resumes
     class DesignsSerializer < Serializer
-      attribute(:id)                     { object[:p_tasarim_id].safe_to_i                                                                     }
+      attribute(:registry_id)            { object[:p_tasarim_id].safe_to_i                                                                     }
       attribute(:name)                   { object[:tasarim_adi].titleize_tr                                                                    }
       attribute(:summary)                { object[:tasarim_ozeti].titleize_tr                                                                  }
       attribute(:type_id)                { object[:tasarim_turu].safe_to_i                                                                     }
@@ -19,7 +19,7 @@ module Yoksis
       attribute(:title_name)             { object[:unvan_ad].titleize_tr                                                                       }
       attribute(:institution_id)         { object[:kurum_id].safe_to_i                                                                         }
       attribute(:institution_name)       { object[:kurum_ad].titleize_tr                                                                       }
-      attribute(:number_of_people)       { object[:kisi_sayisi].safe_to_i                                                                      }
+      attribute(:number_of_person)       { object[:kisi_sayisi].safe_to_i                                                                      }
       attribute(:date_of_update)         { object[:guncelleme_tarihi] && Time.zone.parse(object[:guncelleme_tarihi])                           }
       attribute(:active_or_passive_id)   { object[:aktif_pasif].safe_to_i                                                                      }
       attribute(:active_or_passive_name) { object[:aktif_pasif_ad].titleize_tr                                                                 }

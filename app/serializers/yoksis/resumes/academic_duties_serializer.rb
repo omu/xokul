@@ -3,7 +3,9 @@
 module Yoksis
   module Resumes
     class AcademicDutiesSerializer < Serializer
-      attribute(:id)                           { object[:gorev_id].safe_to_i                                               }
+      attribute(:duty_id)                      { object[:gorev_id].safe_to_i                                               }
+      attribute(:title_id)                     { object[:kadro_unvan_id].safe_to_i                                         }
+      attribute(:title_name)                   { object[:kadro_unvan_adi].titleize_tr                                      }
       attribute(:place_id)                     { object[:yer_id].safe_to_i                                                 }
       attribute(:place_name)                   { object[:yer_ad].titleize_tr                                               }
       attribute(:country_id)                   { object[:ulke_id].safe_to_i                                                }
@@ -11,16 +13,14 @@ module Yoksis
       attribute(:year_of_start)                { object[:bastar1].safe_to_i                                                }
       attribute(:year_of_end)                  { object[:bittar1].safe_to_i                                                }
       attribute(:scientific_field_name)        { object[:bilimalan_adi].titleize_tr                                        }
-      attribute(:field_of_specialization_id)   { object[:uzmanlik_alani].safe_to_i                                         }
-      attribute(:field_of_specialization_name) { object[:uzmanlik_alani_ad].titleize_tr                                    }
       attribute(:university_id)                { object[:univ_id].safe_to_i                                                }
       attribute(:university_name)              { object[:univ_birim_adi].titleize_tr                                       }
-      attribute(:unit_id)                      { object[:birim_id].safe_to_i                                               }
       attribute(:faculty)                      { object[:fakultebilgisi].titleize_tr                                       }
       attribute(:department)                   { object[:bolumbilgisi].titleize_tr                                         }
       attribute(:field)                        { object[:alanbilgisi].titleize_tr                                          }
-      attribute(:title_id)                     { object[:kadro_unvan_id].safe_to_i                                         }
-      attribute(:title_name)                   { object[:kadro_unvan_adi].titleize_tr                                      }
+      attribute(:field_of_specialization_id)   { object[:uzmanlik_alani].safe_to_i                                         }
+      attribute(:field_of_specialization_name) { object[:uzmanlik_alani_ad].titleize_tr                                    }
+      attribute(:unit_id)                      { object[:birim_id].safe_to_i                                               }
       attribute(:academic_status_id)           { object[:akademik_durum].safe_to_i                                         }
       attribute(:academic_status_name)         { object[:akademik_durum_adi].titleize_tr                                   }
       attribute(:academic_unit_name)           { object[:akademik_birim_adi].titleize_tr                                   }

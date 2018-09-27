@@ -3,7 +3,7 @@
 module Yoksis
   module Resumes
     class ArtisticActivitiesSerializer < Serializer
-      attribute(:id)                     { object[:s_id].safe_to_i                                            }
+      attribute(:registry_id)            { object[:s_id].safe_to_i                                            }
       attribute(:name)                   { object[:etkinlik_adi].titleize_tr                                  }
       attribute(:place)                  { object[:etkinlik_yeri].titleize_tr                                 }
       attribute(:type_id)                { object[:etkinlik_turu].safe_to_i                                   }
@@ -16,7 +16,7 @@ module Yoksis
       attribute(:date_of_start)          { object[:bas_tarih] && Date.parse(object[:bas_tarih])               }
       attribute(:date_of_end)            { object[:bit_tarih] && Date.parse(object[:bit_tarih])               }
       attribute(:organizers)             { object[:duzenleyenler].titleize_tr                                 }
-      attribute(:number_of_persons)      { object[:kisi_sayisi].safe_to_i                                     }
+      attribute(:number_of_person)       { object[:kisi_sayisi].safe_to_i                                     }
       attribute(:country_id)             { object[:ulke].safe_to_i                                            }
       attribute(:country_name)           { object[:ulke_adi].titleize_tr                                      }
       attribute(:city)                   { object[:sehir].titleize_tr                                         }
