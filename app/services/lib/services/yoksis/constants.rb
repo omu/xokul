@@ -207,6 +207,11 @@ module Services
           result: %i[get_atif_sayilari_v1_response atif_sayi_listesi],
           status: %i[get_atif_sayilari_v1_response sonuc durum_kodu],
         },
+        designs: {
+          operation: :get_tasarim_bilgisi_v1,
+          result: %i[get_tasarim_bilgisi_v1_response tasarim_liste],
+          status: %i[get_tasarim_bilgisi_v1_response sonuc durum_kodu],
+        },
         editorships: {
           operation: :get_editorluk_bilgisi_v1,
           result: %i[get_editorluk_bilgisi_v1_response editorluk_liste],
