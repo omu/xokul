@@ -222,6 +222,11 @@ module Services
           result: %i[get_editorluk_bilgisi_v1_response editorluk_liste],
           status: %i[get_editorluk_bilgisi_v1_response sonuc durum_kodu],
         },
+        education_informations: {
+          operation: :getir_ogrenim_bilgisi_listesi,
+          result: %i[getir_ogrenim_bilgisi_listesi_response ogrenim_bilgisi_listesi],
+          status: %i[getir_ogrenim_bilgisi_listesi_response sonuc durum_kodu],
+        },
         fields: {
           operation: :get_temel_alan_bilgisi_v1,
           result: %i[get_temel_alan_bilgisi_v1_response temel_alan_liste],
