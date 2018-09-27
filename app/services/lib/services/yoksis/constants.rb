@@ -167,6 +167,11 @@ module Services
           result: %i[getir_akademik_gorev_listesi_response akademik_gorev_listesi],
           status: %i[getir_akademik_gorev_listesi_response sonuc durum_kodu],
         },
+        academic_links: {
+          operation: :get_personel_link_v1,
+          result: %i[get_personel_link_v1_response personel_link_liste],
+          status: %i[get_personel_link_v1_response sonuc durum_kodu],
+        },
         administrative_duties: {
           operation: :getir_idari_gorev_listesi,
           result: %i[getir_idari_gorev_listesi_response idari_gorev_listesi],
