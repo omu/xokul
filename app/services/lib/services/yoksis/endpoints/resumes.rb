@@ -17,6 +17,20 @@ module Services
         resumes_result __callee__
       end
 
+      def authors(id_number:, author_id:)
+        @resumes = client.request(
+          ARGS.dig(:authors, :operation),
+          args: params_with_defaults(
+            P_TC_KIMLIK_NO: id_number, P_YAZAR_ID: author_id
+          )
+        )
+
+        raise InvalidResponseError if resumes_has_error? :authors
+        raise NoContentError unless resumes_has_response? :authors
+
+        resumes_result :authors
+      end
+
       def citations(id_number:, year:)
         @resumes = client.request(
           ARGS.dig(__callee__, :operation),

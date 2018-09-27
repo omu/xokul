@@ -187,6 +187,11 @@ module Services
           result: %i[get_sanatsal_faal_v1_response sanatsal_faal_liste],
           status: %i[get_sanatsal_faal_v1_response sonuc durum_kodu]
         },
+        authors: {
+          operation: :get_yazar_listesi_v1,
+          result: %i[get_yazar_listesi_v1_response yazarlar_listesi],
+          status: %i[get_yazar_listesi_v1_response sonuc durum_kodu]
+        },
         awards: {
           operation: :get_odul_listesi_v1,
           result: %i[get_odul_listesi_v1_response odul_listesi],
