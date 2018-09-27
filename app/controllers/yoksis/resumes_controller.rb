@@ -23,25 +23,26 @@ module Yoksis
       )
     end
 
-    alias academic_duties       articles
-    alias academic_links        articles
-    alias administrative_duties articles
-    alias artistic_activities   articles
-    alias awards                articles
-    alias books                 articles
-    alias certifications        articles
-    alias editorships           articles
-    alias designs               articles
-    alias fields                articles
-    alias foreign_languages     articles
-    alias lectures              articles
-    alias memberships           articles
-    alias other_experiences     articles
-    alias papers                articles
-    alias patents               articles
-    alias projects              articles
-    alias refereeing            articles
-    alias thesis_advisors       articles
+    alias academic_duties        articles
+    alias academic_links         articles
+    alias administrative_duties  articles
+    alias artistic_activities    articles
+    alias awards                 articles
+    alias books                  articles
+    alias certifications         articles
+    alias editorships            articles
+    alias education_informations articles
+    alias designs                articles
+    alias fields                 articles
+    alias foreign_languages      articles
+    alias lectures               articles
+    alias memberships            articles
+    alias other_experiences      articles
+    alias papers                 articles
+    alias patents                articles
+    alias projects               articles
+    alias refereeing             articles
+    alias thesis_advisors        articles
 
     alias incentive_applications citations
     alias incentive_activity_declarations citations
