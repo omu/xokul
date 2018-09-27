@@ -68,6 +68,7 @@ Rails.application.routes.draw do
     resources :resumes do
       collection do
         get :academic_duties
+        get :academic_links
         get :administrative_duties
         get :articles
         get :awards
