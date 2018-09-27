@@ -4,7 +4,8 @@ module Services
   module Yoksis
     class Base
       def initialize(**options)
-        @client = Client.new(self.class::WSDL_URL, savon_options: options)
+        @client  = Client.new(self.class::WSDL_URL, savon_options: options)
+        @options = options
         after_initialize
       end
 

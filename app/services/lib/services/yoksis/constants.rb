@@ -162,20 +162,130 @@ module Services
     end
     class Resumes < Base
       ARGS = {
-        certifications: {
-          operation: :get_arastirma_sertifka_bilgisi_v1,
-          result: %i[get_arastirma_sertifka_bilgisi_v1_response arastirma_liste],
-          status: %i[get_arastirma_sertifka_bilgisi_v1_response sonuc durum_kodu]
+        academic_duties: {
+          operation: :getir_akademik_gorev_listesi,
+          result: %i[getir_akademik_gorev_listesi_response akademik_gorev_listesi],
+          status: %i[getir_akademik_gorev_listesi_response sonuc durum_kodu],
+        },
+        academic_links: {
+          operation: :get_personel_link_v1,
+          result: %i[get_personel_link_v1_response personel_link_liste],
+          status: %i[get_personel_link_v1_response sonuc durum_kodu],
+        },
+        administrative_duties: {
+          operation: :getir_idari_gorev_listesi,
+          result: %i[getir_idari_gorev_listesi_response idari_gorev_listesi],
+          status: %i[getir_idari_gorev_listesi_response sonuc durum_kodu],
         },
         articles: {
           operation: :get_makale_bilgisi_v1,
           result: %i[get_makale_bilgisi_v1_response makale_liste],
           status: %i[get_makale_bilgisi_v1_response sonuc durum_kodu]
         },
+        artistic_activities: {
+          operation: :get_sanatsal_faal_v1,
+          result: %i[get_sanatsal_faal_v1_response sanatsal_faal_liste],
+          status: %i[get_sanatsal_faal_v1_response sonuc durum_kodu]
+        },
+        authors: {
+          operation: :get_yazar_listesi_v1,
+          result: %i[get_yazar_listesi_v1_response yazarlar_listesi],
+          status: %i[get_yazar_listesi_v1_response sonuc durum_kodu]
+        },
+        awards: {
+          operation: :get_odul_listesi_v1,
+          result: %i[get_odul_listesi_v1_response odul_listesi],
+          status: %i[get_odul_listesi_v1_response sonuc durum_kodu]
+        },
+        books: {
+          operation: :get_kitap_bilgisi_v1,
+          result: %i[get_kitap_bilgisi_v1_response kitap_liste],
+          status: %i[get_kitap_bilgisi_v1_response sonuc durum_kodu]
+        },
+        certifications: {
+          operation: :get_arastirma_sertifka_bilgisi_v1,
+          result: %i[get_arastirma_sertifka_bilgisi_v1_response arastirma_liste],
+          status: %i[get_arastirma_sertifka_bilgisi_v1_response sonuc durum_kodu]
+        },
+        citations: {
+          operation: :get_atif_sayilari_v1,
+          result: %i[get_atif_sayilari_v1_response atif_sayi_listesi],
+          status: %i[get_atif_sayilari_v1_response sonuc durum_kodu],
+        },
+        designs: {
+          operation: :get_tasarim_bilgisi_v1,
+          result: %i[get_tasarim_bilgisi_v1_response tasarim_liste],
+          status: %i[get_tasarim_bilgisi_v1_response sonuc durum_kodu],
+        },
+        editorships: {
+          operation: :get_editorluk_bilgisi_v1,
+          result: %i[get_editorluk_bilgisi_v1_response editorluk_liste],
+          status: %i[get_editorluk_bilgisi_v1_response sonuc durum_kodu],
+        },
+        education_informations: {
+          operation: :getir_ogrenim_bilgisi_listesi,
+          result: %i[getir_ogrenim_bilgisi_listesi_response ogrenim_bilgisi_listesi],
+          status: %i[getir_ogrenim_bilgisi_listesi_response sonuc durum_kodu],
+        },
+        fields: {
+          operation: :get_temel_alan_bilgisi_v1,
+          result: %i[get_temel_alan_bilgisi_v1_response temel_alan_liste],
+          status: %i[get_temel_alan_bilgisi_v1_response sonuc durum_kodu],
+        },
+        foreign_languages: {
+          operation: :getir_yabanci_dil_listesi,
+          result: %i[getir_yabanci_dil_listesi_response yabanci_dil_listesi],
+          status: %i[getir_yabanci_dil_listesi_response sonuc durum_kodu],
+        },
+        incentive_applications: {
+          operation: :get_tesvik_basvuru_varmi_v1,
+          result: %i[get_tesvik_basvuru_varmi_v1_response basvuru_durumu],
+          status: %i[get_tesvik_basvuru_varmi_v1_response sonuc durum_kodu],
+        },
+        incentive_activity_declarations: {
+          operation: :get_tesvik_faaliyet_beyan_v1,
+          result: %i[get_tesvik_faaliyet_beyan_v1_response tesvik_beyan_listesi],
+          status: %i[get_tesvik_faaliyet_beyan_v1_response sonuc durum_kodu],
+        },
+        lectures: {
+          operation: :getir_ders_listesi,
+          result: %i[getir_ders_listesi_response ders_listesi],
+          status: %i[getir_ders_listesi_response sonuc durum_kodu],
+        },
+        memberships: {
+          operation: :getir_uyelik_listesi,
+          result: %i[getir_uyelik_listesi_response uyelik_listesi],
+          status: %i[getir_uyelik_listesi_response sonuc durum_kodu],
+        },
+        other_experiences: {
+          operation: :getir_unv_disi_deneyim_listesi,
+          result: %i[getir_unv_disi_deneyim_listesi_response deneyim_listesi],
+          status: %i[getir_unv_disi_deneyim_listesi_response sonuc durum_kodu],
+        },
+        papers: {
+          operation: :get_bildiri_bilgisi_v1,
+          result: %i[get_bildiri_bilgisi_v1_response bildiri_liste],
+          status: %i[get_bildiri_bilgisi_v1_response sonuc durum_kodu],
+        },
+        patents: {
+          operation: :get_patent_bilgisi_v1,
+          result: %i[get_patent_bilgisi_v1_response patent_liste],
+          status: %i[get_patent_bilgisi_v1_response sonuc durum_kodu],
+        },
         projects: {
           operation: :getir_proje_listesi,
           result: %i[getir_proje_listesi_response proje_listesi],
           status: %i[getir_proje_listesi_response sonuc durum_kodu]
+        },
+        refereeing: {
+          operation: :get_hakemlik_bilgisi_v1,
+          result: %i[get_hakemlik_bilgisi_v1_response hakemlik_liste],
+          status: %i[get_hakemlik_bilgisi_v1_response sonuc durum_kodu]
+        },
+        thesis_advisors: {
+          operation: :getir_tez_danisman_listesi,
+          result: %i[getir_tez_danisman_listesi_response tez_danisman_listesi],
+          status: %i[getir_tez_danisman_listesi_response sonuc durum_kodu]
         },
       }.freeze
     end

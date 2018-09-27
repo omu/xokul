@@ -67,9 +67,31 @@ Rails.application.routes.draw do
 
     resources :resumes do
       collection do
+        get :academic_duties
+        get :academic_links
+        get :administrative_duties
         get :articles
+        get :artistic_activities
+        get :authors
+        get :awards
+        get :books
         get :certifications
+        get :citations
+        get :designs
+        get :editorships
+        get :education_informations
+        get :fields
+        get :foreign_languages
+        get :incentive_applications
+        get :incentive_activity_declarations
+        get :lectures
+        get :memberships
+        get :other_experiences
+        get :papers
+        get :patents
         get :projects
+        get :refereeing
+        get :thesis_advisors
       end
     end
 
