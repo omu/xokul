@@ -79,6 +79,7 @@ Rails.application.routes.draw do
         get :citations
         get :designs
         get :editorships
+        get :education_informations
         get :fields
         get :foreign_languages
         get :incentive_applications
