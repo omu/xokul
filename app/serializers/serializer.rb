@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 class Serializer < ActiveModel::Serializer
-  def array_from_string(string, delimiter: ',')
-    string.split(delimiter).map { |item| item.titleize }
-  end
-
   def build_date(*args)
     args.map! do |arg|
       case arg
@@ -61,6 +57,12 @@ class Serializer < ActiveModel::Serializer
     end
   end
 
+  def split(string, separator:)
+    return unless string
+
+    string.split(separator).map { |item| item.titleize }
+  end
+
   SUPPORTED_STRING_METHODS = %i[
     downcase
     titleize
@@ -69,7 +71,7 @@ class Serializer < ActiveModel::Serializer
   ]
   private_constant :SUPPORTED_STRING_METHODS
 
-  def string(object, method:)
+  def string(object, method: nil)
     return if object.is_a?(NilClass)
     return object unless method.in?(SUPPORTED_STRING_METHODS)
     return object.titleize_turkish if method == :titleize
