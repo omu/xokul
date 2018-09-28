@@ -3,28 +3,28 @@
 module Yoksis
   module Meb
     class StudentsSerializer < Serializer
-      attribute(:id_number)           { object[:tckimlikno].safe_to_i       }
-      attribute(:first_name)          { object[:adi].titleize_tr            }
-      attribute(:last_name)           { object[:soyadi].titleize_tr         }
-      attribute(:school_id)           { object[:okulkodu].safe_to_i         }
-      attribute(:school_name)         { object[:okuladi].titleize_tr        }
-      attribute(:school_field_code)   { object[:okulalankodu].safe_to_i     }
-      attribute(:school_field_name)   { object[:okulalanadi].titleize_tr    }
-      attribute(:school_branch_code)  { object[:okuldalkodu].safe_to_i      }
-      attribute(:school_branch_name)  { object[:okuldaladi].titleize_tr     }
-      attribute(:city_name)           { object[:okuliladi].titleize_tr      }
-      attribute(:city_code)           { object[:okulilkodu].safe_to_i       }
-      attribute(:district_name)       { object[:okulilceadi].titleize_tr    }
-      attribute(:district_code)       { object[:okulilcekodu].safe_to_i     }
-      attribute(:instruction_type)    { object[:ogrenimturu].titleize_tr    }
-      attribute(:grad_status_code)    { object[:mezundurumukodu].safe_to_i  }
-      attribute(:grad_status)         { object[:mezundurumu].titleize_tr    }
-      attribute(:graduation_date)     { object[:mezuniyettarih]             }
-      attribute(:grading_system)      { object[:notsistemi].safe_to_i       }
-      attribute(:diploma_grade)       { object[:diplomanotupuani].safe_to_f }
+      attribute(:id_number)           { integer object[:tckimlikno]                        }
+      attribute(:first_name)          { string  object[:adi],            method: :titleize }
+      attribute(:last_name)           { string  object[:soyadi],         method: :titleize }
+      attribute(:school_id)           { integer object[:okulkodu]                          }
+      attribute(:school_name)         { string  object[:okuladi],        method: :titleize }
+      attribute(:school_field_code)   { integer object[:okulalankodu]                      }
+      attribute(:school_field_name)   { string  object[:okulalanadi],    method: :titleize }
+      attribute(:school_branch_code)  { integer object[:okuldalkodu]                       }
+      attribute(:school_branch_name)  { string  object[:okuldaladi],     method: :titleize }
+      attribute(:city_name)           { string  object[:okuliladi],      method: :titleize }
+      attribute(:city_code)           { integer object[:okulilkodu]                        }
+      attribute(:district_name)       { string  object[:okulilceadi],    method: :titleize }
+      attribute(:district_code)       { integer object[:okulilcekodu]                      }
+      attribute(:instruction_type)    { string  object[:ogrenimturu],    method: :titleize }
+      attribute(:grad_status_code)    { integer object[:mezundurumukodu]                   }
+      attribute(:grad_status)         { string  object[:mezundurumu],    method: :titleize }
+      attribute(:graduation_date)     { date    object[:mezuniyettarih]                    }
+      attribute(:grading_system)      { integer object[:notsistemi]                        }
+      attribute(:diploma_grade)       { float   object[:diplomanotupuani]                  }
 
       attribute :top_scoring_student do
-        object[:okulbirincisi] && !object[:okulbirincisi].safe_to_i.zero?
+        object[:okulbirincisi] && !object[:okulbirincisi].to_i.zero?
       end
     end
   end
