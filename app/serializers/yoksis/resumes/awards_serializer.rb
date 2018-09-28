@@ -3,37 +3,37 @@
 module Yoksis
   module Resumes
     class AwardsSerializer < Serializer
-      attribute(:id)                   { object[:odul_id].safe_to_i          }
-      attribute(:name)                 { object[:odul_adi].titleize_tr       }
-      attribute(:description)          { object[:odul_aciklama].titleize_tr  }
-      attribute(:year)                 { object[:odul_tarih].safe_to_i       }
-      attribute(:activity_detail_id)   { object[:faal_detay_id].safe_to_i    }
-      attribute(:activity_detail_name) { object[:faal_detay_adi].titleize_tr }
-      attribute(:type_id)              { object[:odul_tur_id].safe_to_i      }
-      attribute(:type_name)            { object[:odul_turu].titleize_tr      }
-      attribute(:country_id)           { object[:ulke_id].safe_to_i          }
-      attribute(:country_name)         { object[:ulke_ad].titleize_tr        }
-      attribute(:number_of_person)     { object[:kisi_sayisi].titleize_tr    }
+      attribute(:id)                   { integer object[:odul_id]                           }
+      attribute(:name)                 { string  object[:odul_adi],       method: :titleize }
+      attribute(:description)          { string  object[:odul_aciklama],  method: :titleize }
+      attribute(:year)                 { integer object[:odul_tarih]                        }
+      attribute(:activity_detail_id)   { integer object[:faal_detay_id]                     }
+      attribute(:activity_detail_name) { string  object[:faal_detay_adi], method: :titleize }
+      attribute(:type_id)              { integer object[:odul_tur_id]                       }
+      attribute(:type_name)            { string  object[:odul_turu],      method: :titleize }
+      attribute(:country_id)           { integer object[:ulke_id]                           }
+      attribute(:country_name)         { string  object[:ulke_ad],        method: :titleize }
+      attribute(:number_of_person)     { integer object[:kisi_sayisi]                       }
 
       attribute :awarder do
         {
-          institution_name:    object[:kurulus_adi].titleize_tr,
-          workplace_type_id:   object[:isyeri_turu_id].safe_to_i,
-          workplace_type_name: object[:isyeri_turu_adi].titleize_tr
+          institution_name:    string(object[:kurulus_adi], method: :titleize),
+          workplace_type_id:   integer(object[:isyeri_turu_id]),
+          workplace_type_name: string(object[:isyeri_turu_adi], method: :titleize)
         }
       end
 
       attribute :conferee do
         {
-          title_id:         object[:p_unvan_id].safe_to_i,
-          title_name:       object[:p_unvan_ad].titleize_tr,
-          institution_id:   object[:p_kurum_id].safe_to_i,
-          institution_name: object[:p_kurum_ad].titleize_tr
+          title_id:         integer(object[:p_unvan_id]),
+          title_name:       string(object[:p_unvan_ad], method: :titleize),
+          institution_id:   integer(object[:p_kurum_id]),
+          institution_name: string(object[:p_kurum_ad], method: :titleize)
         }
       end
 
-      attribute(:date_of_update)   { object[:guncelleme_tarihi] && Time.zone.parse(object[:guncelleme_tarihi]) }
-      attribute(:incentive_points) { object[:tesv_puan].safe_to_f                                              }
+      attribute(:incentive_points) { float    object[:tesv_puan]         }
+      attribute(:date_of_update)   { datetime object[:guncelleme_tarihi] }
     end
   end
 end

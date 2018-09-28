@@ -3,23 +3,23 @@
 module Yoksis
   module Resumes
     class AdministrativeDutiesSerializer < Serializer
-      attribute(:registry_id)            { object[:idgor_id].safe_to_i                                               }
-      attribute(:duty_id)                { object[:gorev_id].safe_to_i                                               }
-      attribute(:name)                   { object[:gorev_adi].titleize_tr                                            }
-      attribute(:place_id)               { object[:yer_id].safe_to_i                                                 }
-      attribute(:place_name)             { object[:yer_ad].titleize_tr                                               }
-      attribute(:country_id)             { object[:ulke_id].safe_to_i                                                }
-      attribute(:country_name)           { object[:ulke_ad].titleize_tr                                              }
-      attribute(:year_of_start)          { object[:bas_tar].safe_to_i                                                }
-      attribute(:year_of_end)            { object[:bit_tar].safe_to_i                                                }
-      attribute(:university_id)          { object[:unv_id].safe_to_i                                                 }
-      attribute(:university_name)        { object[:unv_birim_adi].titleize_tr                                        }
-      attribute(:major)                  { object[:abd].titleize_tr                                                  }
-      attribute(:faculty)                { object[:fakultemyoenst].titleize_tr                                       }
-      attribute(:department)             { object[:bolumbilgisi].titleize_tr                                         }
-      attribute(:active_or_passive_id)   { object[:aktif_pasif].safe_to_i                                            }
-      attribute(:active_or_passive_name) { object[:aktif_pasif_ad].titleize_tr                                       }
-      attribute(:date_of_update)         { object[:guncelleme_tarihi] && Time.zone.parse(object[:guncelleme_tarihi]) }
+      attribute(:registry_id)            { integer  object[:idgor_id]                            }
+      attribute(:id)                     { integer  object[:gorev_id]                            }
+      attribute(:name)                   { string   object[:gorev_adi],        method: :titleize }
+      attribute(:place_id)               { integer  object[:yer_id]                              }
+      attribute(:place_name)             { string   object[:yer_ad],           method: :titleize }
+      attribute(:country_id)             { integer  object[:ulke_id]                             }
+      attribute(:country_name)           { string   object[:ulke_adi],         method: :titleize }
+      attribute(:year_of_start)          { integer  object[:bas_tar]                             }
+      attribute(:year_of_end)            { integer  object[:bit_tar]                             }
+      attribute(:university_id)          { integer  object[:unv_id]                              }
+      attribute(:university_name)        { string   object[:unv_birim_adi],    method: :titleize }
+      attribute(:major)                  { string   object[:abd],              method: :titleize }
+      attribute(:faculty)                { string   object[:fakultemyoenst],   method: :titleize }
+      attribute(:department)             { string   object[:bolumbilgisi],     method: :titleize }
+      attribute(:active_or_passive_id)   { integer  object[:aktif_pasif]                         }
+      attribute(:active_or_passive_name) { string   object[:aktif_pasif_ad],   method: :titleize }
+      attribute(:date_of_update)         { datetime object[:guncelleme_tarihi]                   }
     end
   end
 end

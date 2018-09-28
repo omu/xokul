@@ -3,21 +3,14 @@
 module Yoksis
   module Military
     class InformationsSerializer < Serializer
-      attribute(:id_number)  { object[:tcKimlikNo].safe_to_i }
-      attribute(:first_name) { object[:adi].titleize_tr      }
-      attribute(:last_name)  { object[:soyadi].titleize_tr   }
+      attribute(:id_number)  { integer object[:tcKimlikNo]                }
+      attribute(:first_name) { string  object[:adi],    method: :titleize }
+      attribute(:last_name)  { string  object[:soyadi], method: :titleize }
 
       attribute :status do
         {
-          code:        object[:askerlikDurumKod].safe_to_i,
-          description: object[:askerlikDurumAciklama].titleize_tr
-        }
-      end
-
-      attribute :operation do
-        {
-          code:        object[:islemKod],
-          description: object[:islemAciklama]
+          code:        integer(object[:askerlikDurumKod]),
+          description: string(object[:askerlikDurumAciklama], method: :capitalize)
         }
       end
     end
