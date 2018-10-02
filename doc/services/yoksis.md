@@ -87,36 +87,35 @@ Askerlik bilgilerini sunan arayüze sahiptir.
 
 Akademik özgeçmişe dair bilgiler sunan arayüze sahiptir.
 
-|Action          |Method|Required parameters|Description|
-|----------------|------|-------------------|-----------|
-|`articles`      |GET   |`id_number`        |Makale bilgileri
-|`certifications`|GET   |`id_number`        |Sertifika bilgileri
-|`projects`      |GET   |`id_number`        |Proje bilgileri
+|Action                           |Method|Required parameters     |Description|
+|---------------------------------|------|------------------------|-----------|
+|`academic_duties`                |GET   |`id_number`             |Akademik görevler
+|`academic_links`                 |GET   |`id_number`             |Akademik sayfa bilgileri
+|`administrative_duties`          |GET   |`id_number`             |İdari görevler
+|`articles`                       |GET   |`id_number`             |Makaleler
+|`artistic_activities`            |GET   |`id_number`             |Sanatsal faaliyetler
+|`authors`                        |GET   |`id_number`, `author_id`|Yazar listesi
+|`awards`                         |GET   |`id_number`             |Ödüller
+|`books`                          |GET   |`id_number`             |Kitaplar
+|`certifications`                 |GET   |`id_number`             |Sertifikalar
+|`citations`                      |GET   |`id_number`, `year`     |Atıflar
+|`designs`                        |GET   |`id_number`             |Tasarım bilgileri
+|`editorships`                    |GET   |`id_number`             |Editörlük bilgileri
+|`education_informations`         |GET   |`id_number`             |Eğitim bilgileri
+|`fields`                         |GET   |`id_number`             |Alan bilgisi
+|`foreign_languages`              |GET   |`id_number`             |Yabancı diller listesi
+|`incentive_applications`         |GET   |`id_number`, `year`     |Akademik teşvik başvuruları
+|`incentive_activity_declarations`|GET   |`id_number`, `year`     |Akademik teşvik faaliyet beyanları
+|`lectures`                       |GET   |`id_number`             |Verdiği dersler
+|`memberships`                    |GET   |`id_number`             |Üyelik listesi
+|`other_experiences`              |GET   |`id_number`             |Üniversite dışı diğer deneyimler
+|`papers`                         |GET   |`id_number`             |Bildiriler
+|`patents`                        |GET   |`id_number`             |Patentler
+|`projects`                       |GET   |`id_number`             |Projeler
+|`refereeing`                     |GET   |`id_number`             |Hakemlik bilgileri
+|`thesis_advisors`                |GET   |`id_number`             |Tez danışmanlıkları
 
-**Not**: Bu endpoint'in şu action'ları eksiktir:
-
-- `getir_ders_listesi`
-- `getir_ogrenim_bilgisi_listesi`
-- `get_bildiri_bilgisi_v1`
-- `getir_akademik_gorev_listesi`
-- `get_odul_listesi_v1`
-- `get_tesvik_faaliyet_beyan_v1`
-- `getir_idari_gorev_listesi`
-- `get_editorluk_bilgisi_v1`
-- `getir_tez_danisman_listesi`
-- `getir_uyelik_listesi`
-- `get_hakemlik_bilgisi_v1`
-- `get_temel_alan_bilgisi_v1`
-- `get_personel_link_v1`
-- `get_yazar_listesi_v1`
-- `get_tesvik_basvuru_varmi_v1`
-- `get_tasarim_bilgisi_v1`
-- `get_kitap_bilgisi_v1`
-- `getir_yabanci_dil_listesi`
-- `get_sanatsal_faal_v1`
-- `getir_unv_disi_deneyim_listesi`
-- `get_atif_sayilari_v1`
-- `get_patent_bilgisi_v1`
+**Not**: Bu endpoint'in altındaki tüm action'lar gerçeklenmiştir.
 
 ### Staff
 

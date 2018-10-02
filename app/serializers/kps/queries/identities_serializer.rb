@@ -44,7 +44,10 @@ module Kps
           fathers_id_number:        personal_informations[:baba_tc_kimlik_no].safe_to_i,
           mothers_id_number:        personal_informations[:anne_tc_kimlik_no].safe_to_i,
           real_person_id_number:    personal_informations[:gercek_kisi_kimlik_no].safe_to_i,
-          country:                  personal_informations[:ulke].titleize_tr,
+          country: {
+            code:                   personal_informations.dig(:ulke, :kod).safe_to_i,
+            description:            personal_informations.dig(:ulke, :aciklama).titleize_tr
+          },
           status_informations:      status_informations,
           basic_informations:       basic_informations
         }
@@ -60,7 +63,10 @@ module Kps
             code:                   card_informations.dig(:cinsiyet, :kod).safe_to_i,
             description:            card_informations.dig(:cinsiyet, :aciklama).titleize_tr
           },
-          nationality:              card_informations[:uyruk].titleize_tr,
+          nationality: {
+            code:                   card_informations.dig(:uyruk, :kod).safe_to_i,
+            description:            card_informations.dig(:uyruk, :aciklama).titleize_tr
+          },
           marital_status: {
             code:                   card_informations.dig(:medeni_hal, :kod).safe_to_i,
             description:            card_informations.dig(:medeni_hal, :aciklama).titleize_tr
@@ -73,7 +79,10 @@ module Kps
           number:                   card_informations[:no].safe_to_i,
           registration_number:      card_informations[:kayit_no].safe_to_i,
           serial_number:            card_informations[:seri],
-          issuing_reason:           card_informations[:verilis_neden].titleize_tr,
+          issuing_reason: {
+            code:                   card_informations.dig(:verilis_neden, :kod).safe_to_i,
+            description:            card_informations.dig(:verilis_neden, :aciklama).titleize_tr
+          },
           issuing_date:             build_date(*card_informations[:verilme_tarih].values_at(:yil, :ay, :gun))
         }
 

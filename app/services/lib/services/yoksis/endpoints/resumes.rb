@@ -5,17 +5,48 @@ module Services
     class Resumes
       WSDL_URL = 'http://servisler.yok.gov.tr/ws/ozgecmisv1?WSDL'
 
-      # rubocop:disable Metrics/MethodLength
-      def articles(username:, password:, id_number:)
+      UNDEFINABLE_METHODS_IN_ITERATION = %i[
+        authors
+        citations
+        incentive_applications
+        incentive_activity_declarations
+      ].freeze
+      private_constant :UNDEFINABLE_METHODS_IN_ITERATION
+
+      ARGS.each_key do |method|
+        define_method method do |id_number:|
+          next if method.in?(UNDEFINABLE_METHODS_IN_ITERATION)
+
+          @resumes = client.request(
+            ARGS.dig(method, :operation),
+            args: params_with_defaults(P_TC_KIMLIK_NO: id_number)
+          )
+
+          raise InvalidResponseError if resumes_has_error? method
+          raise NoContentError unless resumes_has_response? method
+
+          resumes_result method
+        end
+      end
+
+      def authors(id_number:, author_id:)
+        @resumes = client.request(
+          ARGS.dig(__method__, :operation),
+          args: params_with_defaults(
+            P_TC_KIMLIK_NO: id_number, P_YAZAR_ID: author_id
+          )
+        )
+
+        raise InvalidResponseError if resumes_has_error? __method__
+        raise NoContentError unless resumes_has_response? __method__
+
+        resumes_result __method__
+      end
+
+      def citations(id_number:, year:)
         @resumes = client.request(
           ARGS.dig(__callee__, :operation),
-          args: {
-            parametre: {
-              P_KULLANICI_ID: username,
-              P_SIFRE: password,
-              P_TC_KIMLIK_NO: id_number
-            }
-          }
+          args: params_with_defaults(P_TC_KIMLIK_NO: id_number, P_DONEM: year)
         )
 
         raise InvalidResponseError if resumes_has_error? __callee__
@@ -23,10 +54,9 @@ module Services
 
         resumes_result __callee__
       end
-      # rubocop:enable Metrics/MethodLength
 
-      alias certifications articles
-      alias projects articles
+      alias incentive_applications citations
+      alias incentive_activity_declarations citations
 
       private
 
@@ -40,6 +70,20 @@ module Services
 
       def resumes_result(method)
         @resumes.dig(*ARGS.dig(method, :result))
+      end
+
+      def params_with_defaults(**params)
+        {
+          parametre: {
+            P_KULLANICI_ID: @username, P_SIFRE: @password
+          }.merge(params)
+        }
+      end
+
+      protected
+
+      def after_initialize
+        @username, @password = @options[:basic_auth]
       end
     end
   end
