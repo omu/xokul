@@ -1,81 +1,95 @@
 # frozen_string_literal: true
 
 class Serializer < ActiveModel::Serializer
-  def build_date(*args)
-    args.map! do |arg|
-      case arg
-      when Nori::StringWithAttributes, String
-        arg.to_i
-      end
-    end
-    Date.new(*args)
-  rescue StandardError
-    nil
-  end
-
-  def build_datetime(*args)
-    args.map! do |arg|
-      case arg
-      when Nori::StringWithAttributes, String
-        arg.to_i
-      end
-    end
-    DateTime.civil(*args)
-  rescue StandardError
-    nil
-  end
-
-  def date(object)
-    Date.parse object
-  rescue StandardError
-    nil
-  end
-
-  def datetime(object)
-    DateTime.parse object
-  rescue StandardError
-    nil
-  end
-
   def float(object)
     case object
+    when NilClass
+      return
     when Float
-      return object
-    when Integer
-      return object.to_f
+      object
     when Nori::StringWithAttributes, String
-      return object.tr(',', '.').to_f
+      object.tr(',', '.').to_f
+    when Integer
+      object.to_f
+    else
+      raise TypeError, "#{object} is not an Float or convertable type"
     end
   end
 
   def integer(object)
     case object
-    when Float, Nori::StringWithAttributes, String
-      return object.to_i
+    when NilClass
+      return
     when Integer
-      return object
+      object
+    when Float, Nori::StringWithAttributes, String
+      object.to_i
+    else
+      raise TypeError, "#{object} is not an Integer or convertable type"
     end
   end
 
-  def split(string, separator:)
-    return unless string
+  def split_string(object, block = nil, separator: ',', titleize_turkish: true)
+    return unless object
+    raise TypeError, "#{object} is not a String" unless object.is_a?(String)
 
-    string.split(separator).map { |item| item.titleize }
+    split = object.split(separator)
+
+    split.map!(&:titleize_turkish) if titleize_turkish
+    block ? split.try(&block) : split
   end
 
-  SUPPORTED_STRING_METHODS = %i[
-    downcase
-    titleize
-    upcase
-    capitalize
-  ]
-  private_constant :SUPPORTED_STRING_METHODS
+  def string(object, block = nil, titleize_turkish: true)
+    str = case object
+    when NilClass
+      return
+    when String, Nori::StringWithAttributes
+      object
+    when Float, Integer
+      object.to_s
+    else
+      raise TypeError, "#{object} is not an String or convertable type"
+    end
 
-  def string(object, method: nil)
-    return if object.is_a?(NilClass)
-    return object unless method.in?(SUPPORTED_STRING_METHODS)
-    return object.titleize_turkish if method == :titleize
+    str = titleize_turkish ? str.titleize_turkish : str
+    block ? str.try(&block) : str
+  end
 
-    object.send(method, :turkic)
+  def build_date(*args)
+    return unless args.all?
+
+    args.map! do |arg|
+      case arg
+      when Nori::StringWithAttributes, String
+        arg.to_i
+      end
+    end
+
+    Date.new(*args)
+  end
+
+  def build_datetime(*args)
+    return unless args.all?
+
+    args.map! do |arg|
+      case arg
+      when Nori::StringWithAttributes, String
+        arg.to_i
+      end
+    end
+
+    DateTime.civil(*args)
+  end
+
+  def parse_date(object)
+    return unless object
+
+    Date.parse object.to_s
+  end
+
+  def parse_datetime(object)
+    return unless object
+
+    DateTime.parse object.to_s
   end
 end
