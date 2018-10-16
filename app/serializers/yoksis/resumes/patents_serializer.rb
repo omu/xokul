@@ -3,28 +3,28 @@
 module Yoksis
   module Resumes
     class PatentsSerializer < Serializer
-      attribute(:patent_id)              { object[:patent_id].safe_to_i                                              }
-      attribute(:name)                   { object[:patent_adi].titleize_tr                                           }
-      attribute(:no)                     { object[:patent_no].safe_to_i                                              }
-      attribute(:class)                  { object[:patent_sinif].upcase_tr                                           }
-      attribute(:year)                   { object[:patent_tarihi].safe_to_i                                          }
-      attribute(:applicants)             { object[:basvuru_sahipleri].upcase_tr                                      }
-      attribute(:inventors)              { object[:bulus_sahipleri].upcase_tr                                        }
-      attribute(:number_of_person)       { object[:kisi_sayisi].safe_to_i                                            }
-      attribute(:category_id)            { object[:kategori_id].safe_to_i                                            }
-      attribute(:category_name)          { object[:kategori].titleize_tr                                             }
-      attribute(:file_type_id)           { object[:dosya_tipi_id].safe_to_i                                          }
-      attribute(:file_type_name)         { object[:dosya_tipi].titleize_tr                                           }
-      attribute(:scope_id)               { object[:kapsam_id].safe_to_i                                              }
-      attribute(:scope_name)             { object[:kapsam].titleize_tr                                               }
-      attribute(:title_id)               { object[:unvan_id].safe_to_i                                               }
-      attribute(:title_name)             { object[:unvan_ad].titleize_tr                                             }
-      attribute(:institution_id)         { object[:kurum_id].safe_to_i                                               }
-      attribute(:institution_name)       { object[:kurum_ad].titleize_tr                                             }
-      attribute(:incentive_points)       { object[:tesv_puan].safe_to_f                                              }
-      attribute(:active_or_passive_id)   { object[:aktif_pasif].safe_to_i                                            }
-      attribute(:active_or_passive_name) { object[:aktif_pasif_ad].titleize_tr                                       }
-      attribute(:date_of_update)         { object[:guncelleme_tarihi] && Time.zone.parse(object[:guncelleme_tarihi]) }
+      attribute(:patent_id)              { integer        object[:patent_id]                                }
+      attribute(:name)                   { string         object[:patent_adi]                               }
+      attribute(:no)                     { integer        object[:patent_no]                                }
+      attribute(:class)                  { string         object[:patent_sinif], ->(p) { p.upcase :turkic } }
+      attribute(:year)                   { integer        object[:patent_tarihi]                            }
+      attribute(:applicants)             { split_string   object[:basvuru_sahipleri]                        }
+      attribute(:inventors)              { split_string   object[:bulus_sahipleri]                          }
+      attribute(:number_of_person)       { integer        object[:kisi_sayisi]                              }
+      attribute(:category_id)            { integer        object[:kategori_id]                              }
+      attribute(:category_name)          { string         object[:kategori]                                 }
+      attribute(:file_type_id)           { integer        object[:dosya_tipi_id]                            }
+      attribute(:file_type_name)         { string         object[:dosya_tipi]                               }
+      attribute(:scope_id)               { integer        object[:kapsam_id]                                }
+      attribute(:scope_name)             { string         object[:kapsam]                                   }
+      attribute(:title_id)               { integer        object[:unvan_id]                                 }
+      attribute(:title_name)             { string         object[:unvan_ad]                                 }
+      attribute(:institution_id)         { integer        object[:kurum_id]                                 }
+      attribute(:institution_name)       { string         object[:kurum_ad]                                 }
+      attribute(:incentive_points)       { float          object[:tesv_puan]                                }
+      attribute(:active_or_passive_id)   { integer        object[:aktif_pasif]                              }
+      attribute(:active_or_passive_name) { string         object[:aktif_pasif_ad]                           }
+      attribute(:date_of_update)         { parse_datetime object[:guncelleme_tarihi]                        }
     end
   end
 end

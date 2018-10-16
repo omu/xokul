@@ -3,9 +3,9 @@
 module Osym
   module Examination
     class ResultInformationsSerializer < ActiveModel::Serializer
-      attribute(:id)              { object[:id].safe_to_i    }
-      attribute(:name)            { object[:ad]              }
-      attribute(:date_of_release) { object[:aciklama_tarihi] }
+      attribute(:id)              { integer    object[:id]              }
+      attribute(:name)            { string     object[:ad]              }
+      attribute(:date_of_release) { parse_date object[:aciklama_tarihi] }
     end
   end
 end

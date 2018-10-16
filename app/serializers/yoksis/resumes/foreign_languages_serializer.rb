@@ -3,19 +3,19 @@
 module Yoksis
   module Resumes
     class ForeignLanguagesSerializer < Serializer
-      attribute(:registry_id)            { object[:y_id].safe_to_i                                                   }
-      attribute(:language_id)            { object[:dil_id].safe_to_i                                                 }
-      attribute(:language_name)          { object[:dil_ad].titleize_tr                                               }
-      attribute(:language_testing_id)    { object[:dil_sinav_id].safe_to_i                                           }
-      attribute(:language_testing_name)  { object[:dil_sinav_ad].upcase_tr                                           }
-      attribute(:language_testing_point) { object[:puan].safe_to_i                                                   }
-      attribute(:equivalent_point)       { object[:esdegerpuan].safe_to_i                                            }
-      attribute(:year)                   { object[:yil].safe_to_i                                                    }
-      attribute(:term_id)                { object[:donem_id].safe_to_i                                               }
-      attribute(:term_name)              { object[:donem_ad].titleize_tr                                             }
-      attribute(:active_or_passive_id)   { object[:aktif_pasif].safe_to_i                                            }
-      attribute(:active_or_passive_name) { object[:aktif_pasif_ad].titleize_tr                                       }
-      attribute(:date_of_update)         { object[:guncelleme_tarihi] && Time.zone.parse(object[:guncelleme_tarihi]) }
+      attribute(:registry_id)            { integer        object[:y_id]                                     }
+      attribute(:language_id)            { integer        object[:dil_id]                                   }
+      attribute(:language_name)          { string         object[:dil_ad]                                   }
+      attribute(:language_testing_id)    { integer        object[:dil_sinav_id]                             }
+      attribute(:language_testing_name)  { string         object[:dil_sinav_ad], ->(p) { p.upcase :turkic } }
+      attribute(:language_testing_point) { integer        object[:puan]                                     }
+      attribute(:equivalent_point)       { integer        object[:esdegerpuan]                              }
+      attribute(:year)                   { integer        object[:yil]                                      }
+      attribute(:term_id)                { integer        object[:donem_id]                                 }
+      attribute(:term_name)              { string         object[:donem_ad]                                 }
+      attribute(:active_or_passive_id)   { integer        object[:aktif_pasif]                              }
+      attribute(:active_or_passive_name) { string         object[:aktif_pasif_ad]                           }
+      attribute(:date_of_update)         { parse_datetime object[:guncelleme_tarihi]                        }
     end
   end
 end
