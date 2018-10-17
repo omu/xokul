@@ -3,28 +3,32 @@
 module Yoksis
   module Graduates
     class InformationsSerializer < Serializer
-      attribute(:id_number)              { object[:tckno].safe_to_i               }
-      attribute(:first_name)             { object[:adi].titleize_tr               }
-      attribute(:last_name)              { object[:soyadi].titleize_tr            }
-      attribute(:fathers_name)           { object[:baba_adi].titleize_tr          }
-      attribute(:mothers_name)           { object[:anne_adi].titleize_tr          }
-      attribute(:diploma_grade)          { object[:diploma_notu].safe_to_f        }
-      attribute(:diploma_grading_system) { object[:diploma_not_sistemi].safe_to_i }
-      attribute(:diploma_no)             { object[:diploma_no]                    }
-      attribute(:university_id)          { object[:univ_id].safe_to_i             }
-      attribute(:university_name)        { object[:universite_adi].titleize_tr    }
-      attribute(:faculty)                { object[:fak_myo_yo_ens].titleize_tr    }
-      attribute(:program_name)           { object[:program_adi].titleize_tr       }
-      attribute(:unit_id)                { object[:birim_id].safe_to_i            }
+      attribute(:diploma_grade)          { float   object[:diploma_notu]                           }
+      attribute(:diploma_grading_system) { integer object[:diploma_not_sistemi]                    }
+      attribute(:diploma_no)             { string  object[:diploma_no], ->(p) { p.upcase :turkic } }
+      attribute(:faculty)                { string  object[:fak_myo_yo_ens]                         }
+      attribute(:fathers_name)           { string  object[:baba_adi]                               }
+      attribute(:first_name)             { string  object[:adi]                                    }
+      attribute(:id_number)              { integer object[:tckno]                                  }
+      attribute(:last_name)              { string  object[:soyadi]                                 }
+      attribute(:mothers_name)           { string  object[:anne_adi]                               }
+      attribute(:program)                { string  object[:program_adi]                            }
+      attribute(:unit_id)                { integer object[:birim_id]                               }
+      attribute(:university_id)          { integer object[:univ_id]                                }
+      attribute(:university_name)        { string  object[:universite_adi]                         }
 
       attribute :date_of_birth do
         next unless object[:dogum_tarihi]
-        build_date(*object[:dogum_tarihi].values_at(:yil, :ay, :gun))
+
+        year, month, day = object[:dogum_tarihi].values_at :yil, :ay, :gun
+        build_date year, month, day
       end
 
       attribute :date_of_graduation do
         next unless object[:mezuniyet_tarihi]
-        build_date(*object[:mezuniyet_tarihi].values_at(:yil, :ay, :gun))
+
+        year, month, day = object[:mezuniyet_tarihi].values_at :yil, :ay, :gun
+        build_date year, month, day
       end
     end
   end

@@ -3,8 +3,8 @@
 module Osym
   module Examination
     class GroupsSerializer < ActiveModel::Serializer
-      attribute(:id)   { object[:id].safe_to_i }
-      attribute(:name) { object[:ad].upcase_tr }
+      attribute(:id)   { integer object[:id]                             }
+      attribute(:name) { string  object[:ad], ->(p) { p.upcase :turkic } }
     end
   end
 end

@@ -3,30 +3,30 @@
 module Yoksis
   module Resumes
     class AcademicDutiesSerializer < Serializer
-      attribute(:duty_id)                      { object[:gorev_id].safe_to_i                                               }
-      attribute(:title_id)                     { object[:kadro_unvan_id].safe_to_i                                         }
-      attribute(:title_name)                   { object[:kadro_unvan_adi].titleize_tr                                      }
-      attribute(:place_id)                     { object[:yer_id].safe_to_i                                                 }
-      attribute(:place_name)                   { object[:yer_ad].titleize_tr                                               }
-      attribute(:country_id)                   { object[:ulke_id].safe_to_i                                                }
-      attribute(:country_name)                 { object[:ulke_ad].titleize_tr                                              }
-      attribute(:year_of_start)                { object[:bastar1].safe_to_i                                                }
-      attribute(:year_of_end)                  { object[:bittar1].safe_to_i                                                }
-      attribute(:scientific_field_name)        { object[:bilimalan_adi].titleize_tr                                        }
-      attribute(:university_id)                { object[:univ_id].safe_to_i                                                }
-      attribute(:university_name)              { object[:univ_birim_adi].titleize_tr                                       }
-      attribute(:faculty)                      { object[:fakultebilgisi].titleize_tr                                       }
-      attribute(:department)                   { object[:bolumbilgisi].titleize_tr                                         }
-      attribute(:field)                        { object[:alanbilgisi].titleize_tr                                          }
-      attribute(:field_of_specialization_id)   { object[:uzmanlik_alani].safe_to_i                                         }
-      attribute(:field_of_specialization_name) { object[:uzmanlik_alani_ad].titleize_tr                                    }
-      attribute(:unit_id)                      { object[:birim_id].safe_to_i                                               }
-      attribute(:academic_status_id)           { object[:akademik_durum].safe_to_i                                         }
-      attribute(:academic_status_name)         { object[:akademik_durum_adi].titleize_tr                                   }
-      attribute(:academic_unit_name)           { object[:akademik_birim_adi].titleize_tr                                   }
-      attribute(:active_or_passive_id)         { object[:aktif_pasif].safe_to_i                                            }
-      attribute(:active_or_passive_name)       { object[:aktif_pasif_ad].titleize_tr                                       }
-      attribute(:date_of_update)               { object[:guncelleme_tarihi] && Time.zone.parse(object[:guncelleme_tarihi]) }
+      attribute(:academic_status_id)    { integer        object[:akademik_durum]                                   }
+      attribute(:academic_status_name)  { string         object[:akademik_durum_adi]                               }
+      attribute(:academic_unit_name)    { string         object[:akademik_birim_adi], ->(p) { p.gsub(/\/*$/, '') } }
+      attribute(:activity_id)           { integer        object[:aktif_pasif]                                      }
+      attribute(:activity_name)         { string         object[:aktif_pasif_ad]                                   }
+      attribute(:country_id)            { integer        object[:ulke_id]                                          }
+      attribute(:country_name)          { string         object[:ulke_ad]                                          }
+      attribute(:department)            { string         object[:bolumbilgisi]                                     }
+      attribute(:discipline)            { string         object[:alanbilgisi]                                      }
+      attribute(:end_date)              { integer        object[:bittar1]                                          }
+      attribute(:faculty)               { string         object[:fakultebilgisi]                                   }
+      attribute(:id)                    { integer        object[:gorev_id]                                         }
+      attribute(:last_update)           { parse_datetime object[:guncelleme_tarihi]                                }
+      attribute(:location_id)           { integer        object[:yer_id]                                           }
+      attribute(:location_name)         { string         object[:yer_ad]                                           }
+      attribute(:profession_id)         { integer        object[:uzmanlik_alani]                                   }
+      attribute(:profession_name)       { string         object[:uzmanlik_alani_ad]                                }
+      attribute(:scientific_field_name) { string         object[:bilimalan_adi]                                    }
+      attribute(:start_date)            { integer        object[:bastar1]                                          }
+      attribute(:title_id)              { integer        object[:kadro_unvan_id]                                   }
+      attribute(:title_name)            { string         object[:kadro_unvan_adi]                                  }
+      attribute(:unit_id)               { integer        object[:birim_id]                                         }
+      attribute(:university_id)         { integer        object[:univ_id]                                          }
+      attribute(:university_name)       { string         object[:univ_birim_adi]                                   }
     end
   end
 end

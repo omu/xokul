@@ -3,8 +3,8 @@
 module Yoksis
   module References
     class BaseSerializer < Serializer
-      attribute(:code) { object[:kod].safe_to_i  }
-      attribute(:name) { object[:ad].titleize_tr }
+      attribute(:code) { integer object[:kod] }
+      attribute(:name) { string  object[:ad]  }
     end
   end
 end
