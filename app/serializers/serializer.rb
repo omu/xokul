@@ -29,17 +29,17 @@ class Serializer < ActiveModel::Serializer
     end
   end
 
-  def split_string(object, block = nil, separator: ',', titleize_turkish: true)
+  def split_string(object, block = nil, separator: ',', case_conversion: true)
     return unless object
     raise TypeError, "#{object} is not a String" unless object.is_a?(String)
 
-    split = object.split(separator)
+    splitted = object.split(separator)
+    splitted.map!(&:titleize_turkish) if case_conversion
 
-    split.map!(&:titleize_turkish) if titleize_turkish
-    block ? split.try(&block) : split
+    block ? splitted.try(&block) : splitted
   end
 
-  def string(object, block = nil, titleize_turkish: true)
+  def string(object, block = nil, case_conversion: true)
     str = case object
     when NilClass
       return
@@ -51,7 +51,7 @@ class Serializer < ActiveModel::Serializer
       raise TypeError, "#{object} is not an String or convertable type"
     end
 
-    str = titleize_turkish ? str.titleize_turkish : str
+    str = case_conversion ? str.titleize_turkish : str
     block ? str.try(&block) : str
   end
 
