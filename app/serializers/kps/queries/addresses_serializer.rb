@@ -71,7 +71,7 @@ module Kps
           declarant_id_number:    integer(address[:beyanda_bulunan_kimlik_no]),
           municipality_address:   string(address[:belde_adresi]),
           reason_of_relocation:   string(address[:tasinma_neden]),
-          registration_date:      build_date(*address[:tescil_tarihi].values_at(:yil, :ay, :gun))
+          registration_date:      build_date(*address[:tescil_tarihi].values_at(:yil, :ay, :gun)),
           relocation_date:        build_date(*address[:tasinma_tarihi].values_at(:yil, :ay, :gun)),
           village_address:        string(address[:koy_adresi]),
         }
@@ -96,7 +96,7 @@ module Kps
             daclaration_date:     build_date(*address[:beyan_tarihi].values_at(:yil, :ay, :gun)),
             municipality_address: string(address[:belde_adresi]),
             reason_of_relocation: string(address[:tasinma_neden]),
-            registration_date:    build_date(*address[:tescil_tarihi].values_at(:yil, :ay, :gun))
+            registration_date:    build_date(*address[:tescil_tarihi].values_at(:yil, :ay, :gun)),
             relocation_date:      build_date(*address[:tasinma_tarihi].values_at(:yil, :ay, :gun)),
             village_address:      string(address[:koy_adresi]),
           }
