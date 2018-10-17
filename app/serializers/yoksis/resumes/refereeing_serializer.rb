@@ -3,27 +3,27 @@
 module Yoksis
   module Resumes
     class RefereeingSerializer < Serializer
-      attribute(:publishing_id)            { integer        object[:yayin_id]                        }
-      attribute(:publishing_place)         { string         object[:yayin_yeri]                      }
-      attribute(:publishing_language_id)   { integer        object[:yayin_dili]                      }
-      attribute(:publishing_language_name) { string         object[:yayin_dili_adi]                  }
-      attribute(:type_id)                  { integer        object[:hakemlik_turu]                   }
-      attribute(:type_name)                { string         object[:hakemlik_turu_ad]                }
-      attribute(:number_of_refereeing)     { integer        object[:hakemlik_sayisi]                 }
-      attribute(:scope_id)                 { integer        object[:kapsam_id]                       }
-      attribute(:scope_name)               { string         object[:kapsam_ad]                       }
-      attribute(:country_id)               { integer        object[:ulke]                            }
-      attribute(:country_name)             { string         object[:ulke_adi]                        }
-      attribute(:city)                     { string         object[:sehir]                           }
-      attribute(:index_id)                 { integer        object[:endeks_id]                       }
-      attribute(:index)                    { string         object[:endeks], titleize_turkish: false }
-      attribute(:year)                     { integer        object[:yil]                             }
-      attribute(:field)                    { string         object[:alan_bilgisi]                    }
-      attribute(:keywords)                 { string         object[:anahtar_kelime]                  }
-      attribute(:active_or_passive_id)     { integer        object[:aktif_pasif]                     }
-      attribute(:active_or_passive_name)   { string         object[:aktif_pasif_ad]                  }
-      attribute(:incentive_points)         { float          object[:tesv_puan]                       }
-      attribute(:date_of_update)           { parse_datetime object[:guncelleme_tarihi]               }
+      attribute(:activity_id)               { integer        object[:aktif_pasif]                    }
+      attribute(:activity_name)             { string         object[:aktif_pasif_ad]                 }
+      attribute(:city)                      { string         object[:sehir]                          }
+      attribute(:country_id)                { integer        object[:ulke]                           }
+      attribute(:country_name)              { string         object[:ulke_adi]                       }
+      attribute(:discipline)                { string         object[:alan_bilgisi]                   }
+      attribute(:incentive_point)           { float          object[:tesv_puan]                      }
+      attribute(:index)                     { string         object[:endeks], case_conversion: false }
+      attribute(:index_id)                  { integer        object[:endeks_id]                      }
+      attribute(:keywords)                  { split_string   object[:anahtar_kelime]                 }
+      attribute(:last_update)               { parse_datetime object[:guncelleme_tarihi]              }
+      attribute(:number_of_refereeing)      { integer        object[:hakemlik_sayisi]                }
+      attribute(:publication_id)            { integer        object[:yayin_id]                       }
+      attribute(:publication_language_id)   { integer        object[:yayin_dili]                     }
+      attribute(:publication_language_name) { string         object[:yayin_dili_adi]                 }
+      attribute(:publication_place)         { string         object[:yayin_yeri]                     }
+      attribute(:scope_id)                  { integer        object[:kapsam_id]                      }
+      attribute(:scope_name)                { string         object[:kapsam_ad]                      }
+      attribute(:type_id)                   { integer        object[:hakemlik_turu]                  }
+      attribute(:type_name)                 { string         object[:hakemlik_turu_ad]               }
+      attribute(:year)                      { integer        object[:yil]                            }
     end
   end
 end

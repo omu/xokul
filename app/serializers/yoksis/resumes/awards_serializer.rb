@@ -3,17 +3,19 @@
 module Yoksis
   module Resumes
     class AwardsSerializer < Serializer
-      attribute(:id)                   { integer object[:odul_id]        }
-      attribute(:name)                 { string  object[:odul_adi]       }
-      attribute(:description)          { string  object[:odul_aciklama]  }
-      attribute(:year)                 { integer object[:odul_tarih]     }
-      attribute(:activity_detail_id)   { integer object[:faal_detay_id]  }
-      attribute(:activity_detail_name) { string  object[:faal_detay_adi] }
-      attribute(:type_id)              { integer object[:odul_tur_id]    }
-      attribute(:type_name)            { string  object[:odul_turu]      }
-      attribute(:country_id)           { integer object[:ulke_id]        }
-      attribute(:country_name)         { string  object[:ulke_ad]        }
-      attribute(:number_of_person)     { integer object[:kisi_sayisi]    }
+      attribute(:activity_detail_id)     { integer        object[:faal_detay_id]     }
+      attribute(:activity_detail_name)   { string         object[:faal_detay_adi]    }
+      attribute(:country_id)             { integer        object[:ulke_id]           }
+      attribute(:country_name)           { string         object[:ulke_ad]           }
+      attribute(:description)            { string         object[:odul_aciklama]     }
+      attribute(:id)                     { integer        object[:odul_id]           }
+      attribute(:incentive_point)        { float          object[:tesv_puan]         }
+      attribute(:last_update)            { parse_datetime object[:guncelleme_tarihi] }
+      attribute(:name)                   { string         object[:odul_adi]          }
+      attribute(:number_of_participants) { integer        object[:kisi_sayisi]       }
+      attribute(:type_id)                { integer        object[:odul_tur_id]       }
+      attribute(:type_name)              { string         object[:odul_turu]         }
+      attribute(:year)                   { integer        object[:odul_tarih]        }
 
       attribute :awarder do
         {
@@ -31,9 +33,6 @@ module Yoksis
           institution_name: string(object[:p_kurum_ad])
         }
       end
-
-      attribute(:incentive_points) { float          object[:tesv_puan]         }
-      attribute(:date_of_update)   { parse_datetime object[:guncelleme_tarihi] }
     end
   end
 end

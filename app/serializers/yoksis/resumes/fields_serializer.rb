@@ -2,15 +2,15 @@
 
 module Yoksis
   module Resumes
-    class FieldsSerializer < Serializer
-      attribute(:registry_id)            { integer        object[:t_uak_id]          }
-      attribute(:field_id)               { integer        object[:temel_alan_id]     }
-      attribute(:field_name)             { string         object[:temel_alan_ad]     }
-      attribute(:scientific_field_id)    { integer        object[:bilim_alan_id]     }
-      attribute(:scientific_field_name)  { string         object[:bilim_alan_ad]     }
-      attribute(:active_or_passive_id)   { integer        object[:aktif_pasif]       }
-      attribute(:active_or_passive_name) { string         object[:aktif_pasif_ad]    }
-      attribute(:date_of_update)         { parse_datetime object[:guncelleme_tarihi] }
+    class DisciplinesSerializer < Serializer
+      attribute(:activity_id)           { integer        object[:aktif_pasif]       }
+      attribute(:activity_name)         { string         object[:aktif_pasif_ad]    }
+      attribute(:id)                    { integer        object[:temel_alan_id]     }
+      attribute(:last_update)           { parse_datetime object[:guncelleme_tarihi] }
+      attribute(:name)                  { string         object[:temel_alan_ad]     }
+      attribute(:scientific_field_id)   { integer        object[:bilim_alan_id]     }
+      attribute(:scientific_field_name) { string         object[:bilim_alan_ad]     }
+      attribute(:yoksis_id)             { integer        object[:t_uak_id]          }
 
       attribute :keywords do
         [
