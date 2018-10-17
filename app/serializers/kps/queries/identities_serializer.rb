@@ -214,7 +214,7 @@ module Kps
             description:            string(new_identity_card_informations.dig(:cinsiyet, :aciklama))
           },
           date_of_birth:            new_identity_card_informations[:dogum_tarih] && build_date(*new_identity_card_informations[:dogum_tarih].values_at(:yil, :ay, :gun)),
-          expire_date:             new_identity_card_informations[:son_gecerlilik_tarih] && build_date(*new_identity_card_informations[:son_gecerlilik_tarih].values_at(:yil, :ay, :gun)),
+          expire_date:              new_identity_card_informations[:son_gecerlilik_tarih] && build_date(*new_identity_card_informations[:son_gecerlilik_tarih].values_at(:yil, :ay, :gun)),
           place_of_birth:           string(new_identity_card_informations[:dogum_yer]),
           registry_number:          integer(new_identity_card_informations[:kayit_no]),
           serial_number:            integer(new_identity_card_informations[:seri_no]),
