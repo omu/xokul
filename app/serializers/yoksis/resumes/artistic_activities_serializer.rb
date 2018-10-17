@@ -3,34 +3,34 @@
 module Yoksis
   module Resumes
     class ArtisticActivitiesSerializer < Serializer
-      attribute(:registry_id)            { object[:s_id].safe_to_i                                            }
-      attribute(:name)                   { object[:etkinlik_adi].titleize_tr                                  }
-      attribute(:place)                  { object[:etkinlik_yeri].titleize_tr                                 }
-      attribute(:type_id)                { object[:etkinlik_turu].safe_to_i                                   }
-      attribute(:type_name)              { object[:etkinlik_turu_ad].titleize_tr                              }
-      attribute(:duration)               { object[:etkinlik_suresi].safe_to_i                                 }
-      attribute(:scope_id)               { object[:kapsam].safe_to_i                                          }
-      attribute(:scope_name)             { object[:kapsam_ad].titleize_tr                                     }
-      attribute(:language_id)            { object[:etkinlik_dili].safe_to_i                                   }
-      attribute(:language_name)          { object[:dil_adi].titleize_tr                                       }
-      attribute(:date_of_start)          { object[:bas_tarih] && Date.parse(object[:bas_tarih])               }
-      attribute(:date_of_end)            { object[:bit_tarih] && Date.parse(object[:bit_tarih])               }
-      attribute(:organizers)             { object[:duzenleyenler].titleize_tr                                 }
-      attribute(:number_of_person)       { object[:kisi_sayisi].safe_to_i                                     }
-      attribute(:country_id)             { object[:ulke].safe_to_i                                            }
-      attribute(:country_name)           { object[:ulke_adi].titleize_tr                                      }
-      attribute(:city)                   { object[:sehir].titleize_tr                                         }
-      attribute(:title_id)               { object[:unvan_id].safe_to_i                                        }
-      attribute(:title_name)             { object[:unvan_ad].titleize_tr                                      }
-      attribute(:institution_id)         { object[:kurum_id].safe_to_i                                        }
-      attribute(:institution_name)       { object[:kurum_ad].titleize_tr                                      }
-      attribute(:work_type_id)           { object[:tip].safe_to_i                                             }
-      attribute(:work_type_name)         { object[:tip_adi].titleize_tr                                       }
-      attribute(:main_type_id)           { object[:ana_tur].safe_to_i                                         }
-      attribute(:main_type_name)         { object[:anatur_adi] && Time.zone.parse(object[:guncelleme_tarihi]) }
-      attribute(:active_or_passive_id)   { object[:aktif_pasif].safe_to_i                                     }
-      attribute(:active_or_passive_name) { object[:aktif_pasif_ad].titleize_tr                                }
-      attribute(:incentive_points)       { object[:tesv_puan].safe_to_f                                       }
+      attribute(:activity_id)            { integer        object[:aktif_pasif]       }
+      attribute(:activity_name)          { string         object[:aktif_pasif_ad]    }
+      attribute(:city)                   { string         object[:sehir]             }
+      attribute(:country_id)             { integer        object[:ulke]              }
+      attribute(:country_name)           { string         object[:ulke_adi]          }
+      attribute(:duration)               { integer        object[:etkinlik_suresi]   }
+      attribute(:end_date)               { parse_date     object[:bit_tarih]         }
+      attribute(:incentive_point)        { float          object[:tesv_puan]         }
+      attribute(:language_id)            { integer        object[:etkinlik_dili]     }
+      attribute(:language_name)          { string         object[:dil_adi]           }
+      attribute(:last_update)            { parse_datetime object[:guncelleme_tarihi] }
+      attribute(:location)               { string         object[:etkinlik_yeri]     }
+      attribute(:main_type)              { integer        object[:ana_tur]           }
+      attribute(:name)                   { string         object[:etkinlik_adi]      }
+      attribute(:number_of_participants) { integer        object[:kisi_sayisi]       }
+      attribute(:organizers)             { split_string   object[:duzenleyenler]     }
+      attribute(:scope_id)               { integer        object[:kapsam]            }
+      attribute(:scope_name)             { string         object[:kapsam_ad]         }
+      attribute(:start_date)             { parse_date     object[:bas_tarih]         }
+      attribute(:title_id)               { integer        object[:unvan_id]          }
+      attribute(:title_name)             { string         object[:unvan_ad]          }
+      attribute(:type_id)                { integer        object[:etkinlik_turu]     }
+      attribute(:type_name)              { string         object[:etkinlik_turu_ad]  }
+      attribute(:unit_id)                { integer        object[:kurum_id]          }
+      attribute(:unit_name)              { string         object[:kurum_ad]          }
+      attribute(:work_type_id)           { integer        object[:tip]               }
+      attribute(:work_type_name)         { string         object[:tip_adi]           }
+      attribute(:yoksis_id)              { integer        object[:s_id]              }
     end
   end
 end

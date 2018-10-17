@@ -3,37 +3,36 @@
 module Yoksis
   module Resumes
     class AwardsSerializer < Serializer
-      attribute(:id)                   { object[:odul_id].safe_to_i          }
-      attribute(:name)                 { object[:odul_adi].titleize_tr       }
-      attribute(:description)          { object[:odul_aciklama].titleize_tr  }
-      attribute(:year)                 { object[:odul_tarih].safe_to_i       }
-      attribute(:activity_detail_id)   { object[:faal_detay_id].safe_to_i    }
-      attribute(:activity_detail_name) { object[:faal_detay_adi].titleize_tr }
-      attribute(:type_id)              { object[:odul_tur_id].safe_to_i      }
-      attribute(:type_name)            { object[:odul_turu].titleize_tr      }
-      attribute(:country_id)           { object[:ulke_id].safe_to_i          }
-      attribute(:country_name)         { object[:ulke_ad].titleize_tr        }
-      attribute(:number_of_person)     { object[:kisi_sayisi].titleize_tr    }
+      attribute(:activity_detail_id)     { integer        object[:faal_detay_id]     }
+      attribute(:activity_detail_name)   { string         object[:faal_detay_adi]    }
+      attribute(:country_id)             { integer        object[:ulke_id]           }
+      attribute(:country_name)           { string         object[:ulke_ad]           }
+      attribute(:description)            { string         object[:odul_aciklama]     }
+      attribute(:id)                     { integer        object[:odul_id]           }
+      attribute(:incentive_point)        { float          object[:tesv_puan]         }
+      attribute(:last_update)            { parse_datetime object[:guncelleme_tarihi] }
+      attribute(:name)                   { string         object[:odul_adi]          }
+      attribute(:number_of_participants) { integer        object[:kisi_sayisi]       }
+      attribute(:type_id)                { integer        object[:odul_tur_id]       }
+      attribute(:type_name)              { string         object[:odul_turu]         }
+      attribute(:year)                   { integer        object[:odul_tarih]        }
 
       attribute :awarder do
         {
-          institution_name:    object[:kurulus_adi].titleize_tr,
-          workplace_type_id:   object[:isyeri_turu_id].safe_to_i,
-          workplace_type_name: object[:isyeri_turu_adi].titleize_tr
+          institution_name:    string(object[:kurulus_adi]),
+          workplace_type_id:   integer(object[:isyeri_turu_id]),
+          workplace_type_name: string(object[:isyeri_turu_adi])
         }
       end
 
       attribute :conferee do
         {
-          title_id:         object[:p_unvan_id].safe_to_i,
-          title_name:       object[:p_unvan_ad].titleize_tr,
-          institution_id:   object[:p_kurum_id].safe_to_i,
-          institution_name: object[:p_kurum_ad].titleize_tr
+          title_id:         integer(object[:p_unvan_id]),
+          title_name:       string(object[:p_unvan_ad]),
+          institution_id:   integer(object[:p_kurum_id]),
+          institution_name: string(object[:p_kurum_ad])
         }
       end
-
-      attribute(:date_of_update)   { object[:guncelleme_tarihi] && Time.zone.parse(object[:guncelleme_tarihi]) }
-      attribute(:incentive_points) { object[:tesv_puan].safe_to_f                                              }
     end
   end
 end

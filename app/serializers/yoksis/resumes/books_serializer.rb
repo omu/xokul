@@ -3,41 +3,41 @@
 module Yoksis
   module Resumes
     class BooksSerializer < Serializer
-      attribute(:registry_id)              { object[:y_id].safe_to_i                                                                         }
-      attribute(:publishing_house)         { object[:yayin_evi].titleize_tr                                                                  }
-      attribute(:publishing_language_id)   { object[:yayin_dili].safe_to_i                                                                   }
-      attribute(:publishing_language_name) { object[:yayin_dili_adi].titleize_tr                                                             }
-      attribute(:name)                     { object[:kitap_adi].safe_to_i                                                                    }
-      attribute(:type_id)                  { object[:kitap_tur_id].safe_to_i                                                                 }
-      attribute(:type_name)                { object[:kitap_tur].titleize_tr                                                                  }
-      attribute(:scope_id)                 { object[:kapsam_id].safe_to_i                                                                    }
-      attribute(:scope_name)               { object[:kapsam_ad].titleize_tr                                                                  }
-      attribute(:contribution_rate_id)     { object[:katki_duzeyi].safe_to_i                                                                 }
-      attribute(:contribution_rate_name)   { object[:katki_duzeyi_ad].titleize_tr                                                            }
-      attribute(:chapter_name)             { object[:bolum_adi].titleize_tr                                                                  }
-      attribute(:number_of_author)         { object[:yazar_sayisi].safe_to_i                                                                 }
-      attribute(:authors)                  { object[:yazar_adi] && object[:yazar_adi].split(',').map(&:strip).map(&:titleize_tr).titleize_tr }
-      attribute(:editor_name)              { object[:editor_adi].titleize_tr                                                                 }
-      attribute(:country_id)               { object[:ulke].safe_to_i                                                                         }
-      attribute(:country_name)             { object[:ulke_adi].titleize_tr                                                                   }
-      attribute(:city)                     { object[:sehir].titleize_tr                                                                      }
-      attribute(:year)                     { object[:yil].safe_to_i                                                                          }
-      attribute(:isbn)                     { object[:isbn].titleize_tr                                                                       }
-      attribute(:number_of_copy)           { object[:kacinci_basim].safe_to_i                                                                }
-      attribute(:number_of_page)           { object[:sayfa_sayisi].safe_to_i                                                                 }
-      attribute(:chapter_first_page)       { object[:bolum_ilk_sayfa].safe_to_i                                                              }
-      attribute(:chapter_last_page)        { object[:bolum_son_sayfa].safe_to_i                                                              }
-      attribute(:releasing_type_id)        { object[:basim_turu].safe_to_i                                                                   }
-      attribute(:releasing_type_name)      { object[:basim_turu_ad].titleize_tr                                                              }
-      attribute(:access_link)              { object[:erisim_linki]                                                                           }
-      attribute(:field)                    { object[:alan_bilgisi].titleize_tr                                                               }
-      attribute(:keywords)                 { object[:anahtar_kelime].titleize_tr                                                             }
-      attribute(:author_id)                { object[:yazar_id].safe_to_i                                                                     }
-      attribute(:number_of_citation)       { object[:atif_sayisi].safe_to_i                                                                  }
-      attribute(:active_or_passive_id)     { object[:aktif_pasif].safe_to_i                                                                  }
-      attribute(:active_or_passive_name)   { object[:aktif_pasif_ad].titleize_tr                                                             }
-      attribute(:date_of_update)           { object[:guncelleme_tarihi] && Time.zone.parse(object[:guncelleme_tarihi])                       }
-      attribute(:incentive_points)         { object[:tesv_puan].safe_to_f                                                                    }
+      attribute(:access_link)               { string         object[:erisim_linki], case_conversion: false }
+      attribute(:activity_id)               { integer        object[:aktif_pasif]                          }
+      attribute(:activity_name)             { string         object[:aktif_pasif_ad]                       }
+      attribute(:author_id)                 { integer        object[:yazar_id]                             }
+      attribute(:authors)                   { split_string   object[:yazar_adi]                            }
+      attribute(:chapter_first_page)        { integer        object[:bolum_ilk_sayfa]                      }
+      attribute(:chapter_last_page)         { integer        object[:bolum_son_sayfa]                      }
+      attribute(:chapter_name)              { string         object[:bolum_adi]                            }
+      attribute(:city)                      { string         object[:sehir]                                }
+      attribute(:contribution_rate_id)      { integer        object[:katki_duzeyi]                         }
+      attribute(:contribution_rate_name)    { string         object[:katki_duzeyi_ad]                      }
+      attribute(:country_id)                { integer        object[:ulke]                                 }
+      attribute(:country_name)              { string         object[:ulke_adi]                             }
+      attribute(:discipline)                { string         object[:alan_bilgisi]                         }
+      attribute(:editor_name)               { string         object[:editor_adi]                           }
+      attribute(:incentive_point)           { float          object[:tesv_puan]                            }
+      attribute(:isbn)                      { string         object[:isbn]                                 }
+      attribute(:keywords)                  { split_string   object[:anahtar_kelime]                       }
+      attribute(:last_update)               { parse_datetime object[:guncelleme_tarihi]                    }
+      attribute(:name)                      { integer        object[:kitap_adi]                            }
+      attribute(:number_of_authors)         { integer        object[:yazar_sayisi]                         }
+      attribute(:number_of_citations)       { integer        object[:atif_sayisi]                          }
+      attribute(:number_of_copy)            { integer        object[:kacinci_basim]                        }
+      attribute(:number_of_page)            { integer        object[:sayfa_sayisi]                         }
+      attribute(:publication_language_id)   { integer        object[:yayin_dili]                           }
+      attribute(:publication_language_name) { string         object[:yayin_dili_adi]                       }
+      attribute(:publisher)                 { string         object[:yayin_evi]                            }
+      attribute(:scope_id)                  { integer        object[:kapsam_id]                            }
+      attribute(:scope_name)                { string         object[:kapsam_ad]                            }
+      attribute(:type_id)                   { integer        object[:kitap_tur_id]                         }
+      attribute(:type_name)                 { string         object[:kitap_tur]                            }
+      attribute(:type_of_release_id)        { integer        object[:basim_turu]                           }
+      attribute(:type_of_release_name)      { string         object[:basim_turu_ad]                        }
+      attribute(:year)                      { integer        object[:yil]                                  }
+      attribute(:yoksis_id)                 { integer        object[:y_id]                                 }
     end
   end
 end

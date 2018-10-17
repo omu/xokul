@@ -2,21 +2,21 @@
 
 module Yoksis
   module Resumes
-    class FieldsSerializer < Serializer
-      attribute(:registry_id)            { object[:t_uak_id].safe_to_i                                               }
-      attribute(:field_id)               { object[:temel_alan_id].safe_to_i                                          }
-      attribute(:field_name)             { object[:temel_alan_ad].titleize_tr                                        }
-      attribute(:scientific_field_id)    { object[:bilim_alan_id].safe_to_i                                          }
-      attribute(:scientific_field_name)  { object[:bilim_alan_ad].titleize_tr                                        }
-      attribute(:active_or_passive_id)   { object[:aktif_pasif].safe_to_i                                            }
-      attribute(:active_or_passive_name) { object[:aktif_pasif_ad].titleize_tr                                       }
-      attribute(:date_of_update)         { object[:guncelleme_tarihi] && Time.zone.parse(object[:guncelleme_tarihi]) }
+    class DisciplinesSerializer < Serializer
+      attribute(:activity_id)           { integer        object[:aktif_pasif]       }
+      attribute(:activity_name)         { string         object[:aktif_pasif_ad]    }
+      attribute(:id)                    { integer        object[:temel_alan_id]     }
+      attribute(:last_update)           { parse_datetime object[:guncelleme_tarihi] }
+      attribute(:name)                  { string         object[:temel_alan_ad]     }
+      attribute(:scientific_field_id)   { integer        object[:bilim_alan_id]     }
+      attribute(:scientific_field_name) { string         object[:bilim_alan_ad]     }
+      attribute(:yoksis_id)             { integer        object[:t_uak_id]          }
 
       attribute :keywords do
         [
-          { id: object[:anahtarkelime1_id].safe_to_i, name: object[:anahtarkelime1_ad].titleize_tr },
-          { id: object[:anahtarkelime2_id].safe_to_i, name: object[:anahtarkelime2_ad].titleize_tr },
-          { id: object[:anahtarkelime3_id].safe_to_i, name: object[:anahtarkelime3_ad].titleize_tr }
+          { id: integer(object[:anahtarkelime1_id]), name: string(object[:anahtarkelime1_ad]) },
+          { id: integer(object[:anahtarkelime2_id]), name: string(object[:anahtarkelime2_ad]) },
+          { id: integer(object[:anahtarkelime3_id]), name: string(object[:anahtarkelime3_ad]) }
         ]
       end
     end

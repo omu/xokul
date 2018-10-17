@@ -3,9 +3,9 @@
 module Yoksis
   module References
     class AdministrativeUnitsSerializer < Serializer
-      attribute(:id)             { object[:birim_id].safe_to_i              }
-      attribute(:name)           { object[:birim_adi].titleize_tr           }
-      attribute(:parent_unit_id) { object[:bagli_oldugu_birim_id].safe_to_i }
+      attribute(:unit_id)        { integer object[:birim_id]                              }
+      attribute(:unit_name)      { string  object[:birim_adi], ->(p) { p.upcase :turkic } }
+      attribute(:parent_unit_id) { integer object[:bagli_oldugu_birim_id]                 }
     end
   end
 end
