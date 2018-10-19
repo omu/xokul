@@ -27,7 +27,7 @@ module Yoksis
       attribute(:last_update)               { parse_datetime object[:guncelleme_tarihi]                    }
       attribute(:month)                     { integer        object[:ay]                                   }
       attribute(:name)                      { string         object[:makale_adi]                           }
-      attribute(:number_of_author)          { integer        object[:yazar_sayisi]                         }
+      attribute(:number_of_authors)         { integer        object[:yazar_sayisi]                         }
       attribute(:number_of_citations)       { integer        object[:atif_sayisi]                          }
       attribute(:publication_id)            { integer        object[:yayin_id]                             }
       attribute(:publication_language_id)   { integer        object[:yayin_dili]                           }
@@ -38,6 +38,7 @@ module Yoksis
       attribute(:scope_name)                { string         object[:kapsam_ad]                            }
       attribute(:special_issue_id)          { integer        object[:ozel_sayi]                            }
       attribute(:special_issue_name)        { string         object[:ozel_sayi_ad]                         }
+      attribute(:sponsored_by)              { string         object[:sponsor]                              }
       attribute(:type_id)                   { integer        object[:makale_turu_id]                       }
       attribute(:type_name)                 { string         object[:makale_turu_ad]                       }
       attribute(:volume)                    { integer        object[:cilt]                                 }
