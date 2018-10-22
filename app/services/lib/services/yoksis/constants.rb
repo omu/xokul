@@ -308,6 +308,13 @@ module Services
           status: %i[kullaniciya_gore_universitedeki_akademik_personel_bilgisiv1_response
                      sonuc durum_aciklama],
         },
+        total_pages: {
+          operation: :kullaniciya_gore_universiteki_akademik_personel_sayfa_sayisiv1,
+          result: %i[kullaniciya_gore_universiteki_akademik_personel_sayfa_sayisiv1_response
+                     toplam_sayfa_sayisi],
+          status: %i[kullaniciya_gore_universiteki_akademik_personel_sayfa_sayisiv1_response
+                     sonuc durum_aciklama],
+        }
       }.freeze
     end
     class Students < Base

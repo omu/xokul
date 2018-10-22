@@ -39,6 +39,18 @@ module Services
         pages_result
       end
 
+      def total_pages(querier:)
+        @total_pages = client.request(
+          ARGS.dig(:total_pages, :operation),
+          args: { SORGULAYAN_TC_KIMLIK_NO: querier }
+        )
+
+        raise InvalidResponseError if total_pages_has_error?
+        raise NoContentError unless total_pages_has_response?
+
+        total_pages_result
+      end
+
       private
 
       def academicians_has_response?
@@ -71,6 +83,18 @@ module Services
 
       def pages_result
         @pages.dig(*ARGS.dig(:pages, :result))
+      end
+
+      def total_pages_has_error?
+        @total_pages.dig(*ARGS.dig(:total_pages, :status)) != 'Başarılı'
+      end
+
+      def total_pages_has_response?
+        @total_pages.dig(*ARGS.dig(:total_pages, :result), &:present?)
+      end
+
+      def total_pages_result
+        @total_pages.dig(*ARGS.dig(:total_pages, :result))
       end
     end
   end

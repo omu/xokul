@@ -18,6 +18,10 @@ module Yoksis
       render_as_json @staff.pages(querier: @client_id, page: secure_params[:page])
     end
 
+    def total_pages
+      render_as_json @staff.total_pages(querier: @client_id)
+    end
+
     private
 
     def set_client_variables

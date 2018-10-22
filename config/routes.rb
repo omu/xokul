@@ -100,6 +100,7 @@ Rails.application.routes.draw do
         get :academicians
         get :nationalities
         get :pages
+        get :total_pages
       end
     end
 
