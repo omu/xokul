@@ -2,7 +2,7 @@
 
 module Yoksis
   module Resumes
-    class DisciplinesSerializer < Serializer
+    class FieldsSerializer < Serializer
       attribute(:activity_id)           { integer        object[:aktif_pasif]       }
       attribute(:activity_name)         { string         object[:aktif_pasif_ad]    }
       attribute(:id)                    { integer        object[:temel_alan_id]     }
