@@ -12,7 +12,8 @@ class Serializer < ActiveModel::Serializer
     when Integer
       object.to_f
     else
-      raise TypeError, "#{object} is not an Float or convertable type"
+      warn "#{object} is not an Float or convertable type. Returned nil."
+      return
     end
   end
 
@@ -25,13 +26,18 @@ class Serializer < ActiveModel::Serializer
     when Float, Nori::StringWithAttributes, String
       object.to_i
     else
-      raise TypeError, "#{object} is not an Integer or convertable type"
+      warn "#{object} is not an Integer or convertable type. Returned nil."
+      return
     end
   end
 
   def split_string(object, block = nil, separator: ',', case_conversion: true)
     return unless object
-    raise TypeError, "#{object} is not a String" unless object.is_a?(String)
+
+    unless object.is_a?(String)
+      warn "#{object} is not a String. Returned nil."
+      return
+    end
 
     splitted = object.split(separator)
     splitted.map!(&:titleize_turkish) if case_conversion
@@ -48,7 +54,8 @@ class Serializer < ActiveModel::Serializer
     when Float, Integer
       object.to_s
     else
-      raise TypeError, "#{object} is not an String or convertable type"
+      warn "#{object} is not an String or convertable type. Returned nil."
+      return
     end
 
     str = case_conversion ? str.titleize_turkish : str
