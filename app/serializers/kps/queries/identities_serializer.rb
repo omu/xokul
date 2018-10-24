@@ -223,7 +223,10 @@ module Kps
             description:            string(new_identity_card_informations.dig(:basvuru_neden, :aciklama)),
           },
           date_of_delivery:         new_identity_card_informations[:teslim_tarih] && build_date(*new_identity_card_informations[:teslim_tarih].values_at(:yil, :ay, :gun)),
-          deliverer_unit:           string(new_identity_card_informations[:teslim_eden_birim]),
+          deliverer_unit: {
+            code:                   integer(new_identity_card_informations.dig(:teslim_eden_birim, :kod)),
+            description:            string(new_identity_card_informations.dig(:teslim_eden_birim, :aciklama))
+          },
           issuing_authority:        string(new_identity_card_informations[:veren_makam]),
           photograph:               new_identity_card_photograph_informations
         }
