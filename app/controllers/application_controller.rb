@@ -19,6 +19,8 @@ class ApplicationController < ActionController::API
   end
 
   def services_error(exception)
+    logger.error exception
+
     render json: { status: exception.code, error: exception },
            status: exception.code
   end
