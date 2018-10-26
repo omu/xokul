@@ -333,7 +333,7 @@ module Services
           result: %i[tarihten_birim_degisiklik_getirv4_response birimler],
           status: %i[tarihten_birim_degisiklik_getirv4_response sonuc durum_aciklama],
         },
-        units: {
+        names: {
           operation: :i_dden_birim_adi_getirv4,
           result: %i[i_dden_birim_adi_getirv4_response birim],
           status: %i[i_dden_birim_adi_getirv4_response sonuc durum_aciklama],

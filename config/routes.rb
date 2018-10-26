@@ -57,14 +57,6 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :registrations do
-      collection do
-        get :foundation_tuitions
-        get :queries_by_date
-        get :queries_by_id_number
-      end
-    end
-
     resources :resumes do
       collection do
         get :academic_duties
@@ -109,7 +101,7 @@ Rails.application.routes.draw do
         get :changes
         get :programs
         get :subunits
-        get :units
+        get :names
         get :universities
       end
     end
