@@ -2,7 +2,7 @@
 
 module Yoksis
   module Units
-    class UnitsSerializer < Serializer
+    class UnitSerializer < Serializer
       attribute(:english_name)    { string  object[:birim_adi_ingilizce], ->(p) { p.titleize }, case_conversion: false }
       attribute(:long_name)       { string  object[:birim_uzun_adi]                                                    }
       attribute(:osym_id)         { integer object[:kilavuz_kodu]                                                      }

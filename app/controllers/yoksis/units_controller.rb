@@ -12,7 +12,7 @@ module Yoksis
     end
 
     def names
-      render_as_json @units.units(unit_id: unit_params.require(:unit_id))
+      render_as_json @units.names(unit_id: unit_params.require(:unit_id))
     end
 
     def universities

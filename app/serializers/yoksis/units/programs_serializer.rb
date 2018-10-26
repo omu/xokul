@@ -2,7 +2,7 @@
 
 module Yoksis
   module Units
-    class ProgramsSerializer < UnitsSerializer
+    class ProgramsSerializer < UnitSerializer
     end
   end
 end
