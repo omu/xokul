@@ -18,14 +18,14 @@ module Services
       end
 
       def names(unit_id:)
-        @units = client.request(
-          ARGS.dig(:units, :operation), args: { BIRIM_ID: unit_id }
+        @names = client.request(
+          ARGS.dig(:names, :operation), args: { BIRIM_ID: unit_id }
         )
 
-        raise InvalidResponseError if units_has_error?
-        raise NoContentError unless units_has_response?
+        raise InvalidResponseError if names_has_error?
+        raise NoContentError unless names_has_response?
 
-        units_result
+        names_result
       end
 
       def universities
@@ -74,17 +74,17 @@ module Services
         @changes.dig(*ARGS.dig(:changes, :result))
       end
 
-      def units_has_error?
-        @units.dig(*ARGS.dig(:units, :status)) != 'Başarılı'
+      def names_has_error?
+        @names.dig(*ARGS.dig(:names, :status)) != 'Başarılı'
       end
 
-      def units_has_response?
-        unit = [@units.dig(*ARGS.dig(:units, :result))].flatten.first
+      def names_has_response?
+        unit = [@names.dig(*ARGS.dig(:names, :result))].flatten.first
         unit[:birim].present?
       end
 
-      def units_result
-        @units.dig(*ARGS.dig(:units, :result))
+      def names_result
+        @names.dig(*ARGS.dig(:names, :result))
       end
 
       def universities_has_error?
