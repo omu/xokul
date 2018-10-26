@@ -17,7 +17,7 @@ module Services
         changes_result
       end
 
-      def units(unit_id:)
+      def names(unit_id:)
         @units = client.request(
           ARGS.dig(:units, :operation), args: { BIRIM_ID: unit_id }
         )
@@ -37,9 +37,9 @@ module Services
         universities_result
       end
 
-      def programs(unit_id:)
+      def programs(sub_unit_id:)
         @programs = client.request(
-          ARGS.dig(:programs, :operation), args: { BIRIM_ID: unit_id }
+          ARGS.dig(:programs, :operation), args: { BIRIM_ID: sub_unit_id }
         )
 
         raise InvalidResponseError if programs_has_error?
