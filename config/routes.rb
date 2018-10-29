@@ -40,15 +40,15 @@ Rails.application.routes.draw do
         get :cities
         get :staff_titles
         get :student_disability_types
-        get :student_dropout_types
+        get :student_drop_out_types
         get :student_education_levels
         get :student_entrance_point_types
         get :student_entrance_types
         get :student_grades
         get :student_grading_systems
         get :student_punishment_types
-        get :studentship_rights
-        get :studentship_statuses
+        get :student_studentship_rights
+        get :student_studentship_statuses
         get :unit_instruction_languages
         get :unit_instruction_types
         get :unit_statuses
