@@ -2,7 +2,7 @@
 
 module Yoksis
   module References
-    class StudentshipRightsSerializer < BaseSerializer
+    class StudentStudentshipStatusesSerializer < BaseSerializer
     end
   end
 end

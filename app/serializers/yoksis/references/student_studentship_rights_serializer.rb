@@ -2,7 +2,7 @@
 
 module Yoksis
   module References
-    class StudentDropoutTypesSerializer < BaseSerializer
+    class StudentStudentshipRightsSerializer < BaseSerializer
     end
   end
 end

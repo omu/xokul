@@ -88,7 +88,7 @@ module Services
           result: %i[get_ogrenci_engel_turu_response referanslar],
           status: %i[get_ogrenci_engel_turu_response sonuc durum_aciklama],
         },
-        student_dropout_types: {
+        student_drop_out_types: {
           operation: :get_ogrenci_ayrilma_nedeni,
           result: %i[get_ogrenci_ayrilma_nedeni_response referanslar],
           status: %i[get_ogrenci_ayrilma_nedeni_response sonuc durum_aciklama],
@@ -123,12 +123,12 @@ module Services
           result: %i[get_ceza_turu_response referanslar],
           status: %i[get_ceza_turu_response sonuc durum_aciklama],
         },
-        studentship_rights: {
+        student_studentship_rights: {
           operation: :get_ogrenci_ogrencilik_hakki,
           result: %i[get_ogrenci_ogrencilik_hakki_response referanslar],
           status: %i[get_ogrenci_ogrencilik_hakki_response sonuc durum_aciklama],
         },
-        studentship_statuses: {
+        student_studentship_statuses: {
           operation: :get_ogrencilik_statusu,
           result: %i[get_ogrencilik_statusu_response referanslar],
           status: %i[get_ogrencilik_statusu_response sonuc durum_aciklama],
