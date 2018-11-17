@@ -8,9 +8,9 @@ module Kps
 
     def identities
       render_as_json @verifications.identities(
-        id_number:     identities_params.require(:id_number),
-        first_name:    identities_params.require(:first_name),
-        last_name:     identities_params.require(:last_name),
+        id_number: identities_params.require(:id_number),
+        first_name: identities_params.require(:first_name),
+        last_name: identities_params.require(:last_name),
         year_of_birth: identities_params.require(:year_of_birth)
       )
     end

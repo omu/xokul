@@ -10,7 +10,7 @@ module Services
           WSDL_URL,
           savon_options: {
             basic_auth: [username, password],
-            wsse_auth:  [username, password]
+            wsse_auth: [username, password]
           }
         )
       end
