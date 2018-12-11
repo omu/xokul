@@ -24,11 +24,11 @@ class Client
   end
 
   def add_soap_header(key, value)
-    configure { |config| config.soap_header.deep_merge!("#{key}": value) }
+    configure { |config| config.soap_header(key.to_s => value) }
   end
 
   def add_namespace(key, value)
-    configure { |config| config.namespaces.deep_merge!("#{key}": value) }
+    configure { |config| config.namespaces(key.to_s => value) }
   end
 
   def configure

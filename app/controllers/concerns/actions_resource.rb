@@ -13,7 +13,11 @@ module ActionsResource
   end
 
   def action_serializer
+    serializer = "#{controller_name.camelize}::#{action_name.camelize}Serializer"
+
     service = File.split(controller_path).first.capitalize
-    "#{service}::#{controller_name.camelize}::#{action_name.camelize}Serializer".constantize
+    return "#{service}::#{serializer}".constantize unless service.eql?('.')
+
+    serializer.constantize
   end
 end
