@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root to: 'home#index'
 
+  namespace :detsis, defaults: { format: :json } do
+    get :units
+  end
+
   namespace :kps, defaults: { format: :json } do
     resources(:verifications) { collection { get :identities } }
     resources(:queries) do
