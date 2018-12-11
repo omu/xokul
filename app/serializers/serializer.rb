@@ -1,6 +1,18 @@
 # frozen_string_literal: true
 
 class Serializer < ActiveModel::Serializer
+  def boolean(object)
+    case object
+    when TrueClass, FalseClass
+      object
+    when String
+      ActiveModel::Type::Boolean.new.cast(object.downcase)
+    else
+      warn "#{object} is not an Float or convertable type. Returned nil."
+      return
+    end
+  end
+
   def float(object)
     case object
     when NilClass
