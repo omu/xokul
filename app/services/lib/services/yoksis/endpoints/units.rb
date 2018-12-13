@@ -37,9 +37,9 @@ module Services
         [universities_result].flatten
       end
 
-      def programs(sub_unit_id:)
+      def programs(unit_id:)
         @programs = client.request(
-          ARGS.dig(:programs, :operation), args: { BIRIM_ID: sub_unit_id }
+          ARGS.dig(:programs, :operation), args: { BIRIM_ID: unit_id }
         )
 
         raise InvalidResponseError if programs_has_error?

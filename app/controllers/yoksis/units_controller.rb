@@ -20,7 +20,7 @@ module Yoksis
     end
 
     def programs
-      render_as_json @units.programs(sub_unit_id: unit_params.require(:sub_unit_id))
+      render_as_json @units.programs(unit_id: unit_params.require(:unit_id))
     end
 
     def subunits
@@ -38,7 +38,7 @@ module Yoksis
     end
 
     def unit_params
-      params.require(:unit).permit(:sub_unit_id, :unit_id)
+      params.require(:unit).permit(:unit_id)
     end
   end
 end
