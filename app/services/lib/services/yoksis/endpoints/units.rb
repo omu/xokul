@@ -34,7 +34,7 @@ module Services
         raise InvalidResponseError if universities_has_error?
         raise NoContentError unless universities_has_response?
 
-        universities_result
+        [universities_result].flatten
       end
 
       def programs(sub_unit_id:)
@@ -45,7 +45,7 @@ module Services
         raise InvalidResponseError if programs_has_error?
         raise NoContentError unless programs_has_response?
 
-        programs_result
+        [programs_result].flatten
       end
 
       def subunits(unit_id:)
@@ -56,7 +56,7 @@ module Services
         raise InvalidResponseError if subunits_has_error?
         raise NoContentError unless subunits_has_response?
 
-        subunits_result
+        [subunits_result].flatten
       end
 
       private
