@@ -70,7 +70,7 @@ workflows:
             - bundle-dependencies
       - deploy:
           requires:
-            - karma
+            - static-analysis
           filters:
             branches:
               only: master
