@@ -47,7 +47,7 @@ jobs:
       - run:
           name: Running static analysis checks
           command: bundle exec rake static_analysis:all
-  deploy:
+  deploy-master:
     machine:
       enabled: true
     steps:
@@ -56,6 +56,16 @@ jobs:
           name: Deploy master branch to Dokku
           command: |
             git remote add beta dokku@app.omu.sh:xokul &&
+            git push beta master
+  deploy-unstable:
+    machine:
+      enabled: true
+    steps:
+      - checkout
+      - run:
+          name: Deploy unstable branch to Dokku
+          command: |
+            git remote add beta dokku@app.omu.sh:xokul-unstable &&
             git push beta master
 workflows:
   version: 2
@@ -68,9 +78,15 @@ workflows:
       - static-analysis:
           requires:
             - bundle-dependencies
-      - deploy:
+      - deploy-master:
           requires:
             - static-analysis
           filters:
             branches:
               only: master
+      - deploy-unstable:
+          requires:
+            - static-analysis
+          filters:
+            branches:
+              only: unstable
