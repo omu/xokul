@@ -4,20 +4,21 @@ docker: &docker
       environment:
         TZ: '/usr/share/zoneinfo/Asia/Istanbul'
         RAILS_ENV: beta
-        RACK_ENV: beta
-        RDS_USERNAME: xokul
-        RDS_PASSWORD: xokul
-        RDS_HOSTNAME: localhost
-        RDS_PORT: 5432
         BUNDLE_JOBS: 4
     - image: circleci/postgres:10.5-alpine
       environment:
         POSTGRES_DB: xokul_beta
         POSTGRES_USER: xokul
         POSTGRES_PASSWORD: xokul
+restore-repo: &restore-repo
+  keys:
+    - xokul-repo-{{ .Environment.CIRCLE_SHA1 }}
+restore-bundle-dir: &restore-bundle-dir
+  keys:
+    - xokul-bundle-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
 version: 2
 jobs:
-  checkout_code:
+  checkout-code:
     <<: *docker
     steps:
       - checkout
@@ -25,42 +26,27 @@ jobs:
           key: xokul-repo-{{ .Environment.CIRCLE_SHA1 }}
           paths:
             - ~/project
-  bundle_dependencies:
+  bundle-dependencies:
     <<: *docker
     steps:
-      - restore_cache:
-          key: xokul-repo-{{ .Environment.CIRCLE_SHA1 }}
-      - restore_cache:
-          keys:
-            - xokul-bundle-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-            - xokul-bundle-{{ checksum "Gemfile.lock" }}
-      - run: bundle install --path vendor/bundle
+      - restore_cache: *restore-repo
+      - restore_cache: *restore-bundle-dir
+      - run:
+          name: Installing dependencies via bundler
+          command: bundle --path vendor/bundle --without development
       - save_cache:
           key: xokul-bundle-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
-      - save_cache:
-          key: xokul-bundle-{{ checksum "Gemfile.lock" }}
-          paths:
-            - vendor/bundle
-  karma:
+  static-analysis:
     <<: *docker
     steps:
-      - restore_cache:
-          key: xokul-repo-{{ .Environment.CIRCLE_SHA1 }}
-      - restore_cache:
-          keys:
-            - xokul-bundle-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-            - xokul-bundle-{{ checksum "Gemfile.lock" }}
+      - restore_cache: *restore-repo
+      - restore_cache: *restore-bundle-dir
+      - run: bundle --path vendor/bundle
       - run:
-          name: Installing gems into bundle path
-          command: bundle --path vendor/bundle
-      - run:
-          name: Running quality tasks
-          command: bundle exec rake code:quality:all
-      - run:
-          name: Running security tasks
-          command: bundle exec rake code:security:all
+          name: Running static analysis checks
+          command: bundle exec rake static_analysis:all
   deploy:
     machine:
       enabled: true
@@ -73,15 +59,15 @@ jobs:
             git push beta master
 workflows:
   version: 2
-  build-and-deploy:
+  build:
     jobs:
-      - checkout_code
-      - bundle_dependencies:
+      - checkout-code
+      - bundle-dependencies:
           requires:
-            - checkout_code
-      - karma:
+            - checkout-code
+      - static-analysis:
           requires:
-            - bundle_dependencies
+            - bundle-dependencies
       - deploy:
           requires:
             - karma
