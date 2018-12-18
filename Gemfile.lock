@@ -114,7 +114,6 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.11.3)
     msgpack (1.2.4)
-    multi_json (1.13.1)
     nio4r (2.3.1)
     nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
@@ -168,8 +167,6 @@ GEM
       kwalify (~> 0.7.0)
       parser (>= 2.5.0.0, < 2.6, != 2.5.1.1)
       rainbow (>= 2.0, < 4.0)
-    rollbar (2.18.2)
-      multi_json
     rubocop (0.61.1)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
@@ -202,7 +199,6 @@ GEM
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     unicode-display_width (1.4.0)
-    vcr (4.0.0)
     virtus (1.0.5)
       axiom-types (~> 0.1)
       coercible (~> 1.0)
@@ -239,10 +235,8 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 5.2.1, >= 5.2.1.1)
   reek
-  rollbar
   rubocop
   savon
-  vcr
   web-console (>= 3.3.0)
   webmock
 
