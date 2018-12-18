@@ -3,46 +3,55 @@ name: Hata raporu
 about: Tespit edilen hataları ve beklenenin dışında çalışan özellikleri bildir
 ---
 
-**Açıklama**
+Açıklama
+========
 
 <!--
-Problemi tek bir paragrafla açıklayın.
+Hata özeti.
 -->
 
-**Beklenen davranış**
+Beklenen davranış
+=================
 
 <!--
-Beklenen davranışı kısa şekilde açıklayın.
+Doğru olan, beklenen davranış.
 -->
 
-**Mevcut davranış**
+Muhtemel çözüm
+==============
 
 <!--
-Mevcut davranışı kısa şekilde açıklayın. Gereğinden uzun hata çıktılarını lütfen Gist olarak paylaşın.
+Bir çözüm önerisi.
 -->
 
-**Muhtemel çözüm**
+Ortam
+=====
 
 <!--
-Eğer bir çözüm öneriniz varsa tek bir paragrafla açıklayın. Gereğinden fazla uzun kod bloklarını lütfen Gist olarak paylaşın.
+Hatanın alındığı ortam.
+
+Minimum gerekli bilgiler:
+
+- Proje sürümü
+- Ruby sürümü
+- Rails sürümü
 -->
 
-**Ortam**
+"Reproduce" adımları
+====================
 
 <!--
-Hatanın alındığı ortama dair bilgileri belirtin.
--->
+Sorunu tekrar ettirmek için izlenmesi gereken adımlar.
 
-- Proje sürümü:
-- Ruby sürümü:
-- Rails sürümü:
-
-**"Reproduce" adımları**
-
-<!--
-Problemi yeniden üretmek için gerekli adımları aşağıda belirtin.
--->
+Adımlar:
 
 1.
 2.
 3.
+-->
+
+Kontrol listesi
+===============
+
+- [ ] [Katkı sağlama dokümanına](https://github.com/omu/xokul/CONTRIBUTING.md)
+  uygun
