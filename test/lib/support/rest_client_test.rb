@@ -22,7 +22,13 @@ class RestClientTest < ActiveSupport::TestCase
     end
   end
 
-  test 'makes sure that :code works correctly' do
+  test 'makes sure that the :ok? works correctly' do
+    stub_request(:get, @insecure_url)
+
+    assert RestClient.get(@insecure_url).ok?
+  end
+
+  test 'makes sure that the :code works correctly' do
     fatal_error_url = @insecure_url + '/fatal_error'
 
     stub_request(:get, fatal_error_url).to_return(status: 500)
@@ -30,7 +36,7 @@ class RestClientTest < ActiveSupport::TestCase
     assert_equal RestClient.get(fatal_error_url).code, 500
   end
 
-  test 'makes sure that :decode works correctly' do
+  test 'makes sure that the :decode works correctly' do
     json_response_url = @insecure_url + '/json_response'
 
     stub_request(:get, json_response_url).to_return(body: '{ "foo": "bar" }')
