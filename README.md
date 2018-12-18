@@ -11,7 +11,7 @@ Xokul is an API project that aims to manage all third party services and complex
 Documentation
 -------------
 
-There are two type of documents for the project. See [`doc/services`](/doc/services) for technical documents. You can also visit [here](https://developer.omu.edu.tr) for API documentation.
+There are two type of documents for the project. See [`doc/services`](https://github.com/omu/xokul/tree/master/doc/services) for technical documents. You can also visit [here](https://developer.omu.edu.tr) for API documentation.
 
 Installation
 ------------
@@ -21,7 +21,7 @@ Check out the [`INSTALLATION.md`](https://github.com/omu/xokul/blob/master/doc/d
 Contributing
 -------------
 
-The project is open source and we are happy and thankful for your contributions. See [`CONTRIBUTING.md`](/CONTRIBUTING.md) guide for more detailed contribution instructions.
+The project is open source and we are happy and thankful for your contributions. See [`CONTRIBUTING.md`](https://github.com/omu/xokul/blob/master/CONTRIBUTING.md) guide for more detailed contribution instructions.
 
 Authors
 -------
@@ -31,4 +31,4 @@ See [graph section](https://github.com/omu/xokul/graphs/contributors) on GitHub.
 License
 -------
 
-The MIT License - see [`LICENSE`](/LICENSE) for more details.
+The MIT License - see [`LICENSE`](https://github.com/omu/xokul/blob/master/LICENSE) for more details.
