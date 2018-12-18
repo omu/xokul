@@ -1,7 +1,8 @@
 DETSIS
 ======
 
-DETSIS, SOAP arayüzünü kullanarak [KAYSIS](https://www.kaysis.gov.tr) tarafından sunulan servislerle haberleşir.
+DETSIS, SOAP arayüzünü kullanarak [KAYSIS](https://www.kaysis.gov.tr) tarafından
+sunulan servislerle haberleşir.
 
 |Action         |Description|
 |---------------|-----------|

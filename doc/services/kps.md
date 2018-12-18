@@ -1,7 +1,8 @@
 KPS
 ===
 
-KPS servisi, SOAP arayüzünü kullanarak [KPS](https://kimlikdogrulama.nvi.gov.tr) tarafından sunulan servislerle haberleşir.
+KPS servisi, SOAP arayüzünü kullanarak [KPS](https://kimlikdogrulama.nvi.gov.tr)
+tarafından sunulan servislerle haberleşir.
 
 Endpoints
 ---------
