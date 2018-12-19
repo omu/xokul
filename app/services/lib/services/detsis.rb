@@ -22,13 +22,14 @@ module Services
     private_constant :RESPONSE_PATH, :ERROR_PATH
 
     def initialize(username, password)
-      @client = Client.new(WSDL_URL)
-      @client.add_namespace 'xmlns:kay', 'http://kaysis.gov.tr/'
-      @client.add_soap_header(
-        'kay:BbServiceAuthentication',
-        'kay:KurumID' => username,
-        'kay:Password' => password
-      )
+      @client = SoapClient.new(WSDL_URL)
+      @client.configure do
+        namespaces 'xmlns:kay' => 'http://kaysis.gov.tr/'
+        soap_header 'kay:BbServiceAuthentication' => {
+          'kay:KurumID' => username,
+          'kay:Password' => password
+        }
+      end
     end
 
     def units
