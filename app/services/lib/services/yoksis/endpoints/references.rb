@@ -18,7 +18,7 @@ module Services
 
       def districts(city_code:)
         @reference = client.request(
-          ARGS.dig(:districts, :operation), args: { ILKODU: city_code }
+          ARGS.dig(:districts, :operation), message: { ILKODU: city_code }
         )
 
         raise InvalidResponseError if reference_has_error? :districts
