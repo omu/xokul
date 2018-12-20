@@ -7,7 +7,7 @@ module Services
 
       def informations(id_number:)
         @informations = client.request(
-          ARGS.dig(:informations, :operation), args: { TCKNO: id_number }
+          ARGS.dig(:informations, :operation), message: { TCKNO: id_number }
         )
 
         raise InvalidResponseError if informations_has_error?
