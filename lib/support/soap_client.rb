@@ -21,7 +21,9 @@ class SoapClient
   def request(operation, message: {})
     raise ArgumentError, 'Request message must be Hash' unless message.is_a?(Hash)
 
-    Response.new(savon_object.call(operation, message: message))
+    Response.new(
+      savon_object.call(operation, message: message.deep_stringify_keys)
+    )
   rescue Savon::Error => err
     raise SavonError, err
   end
