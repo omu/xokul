@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'turkish_support/constants'
 require_relative 'turkish_support/refinery'
 
 module TurkishSupport

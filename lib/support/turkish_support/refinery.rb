@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative 'constants'
+
 module TurkishSupport
   module Refinery
     refine String do
