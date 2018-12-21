@@ -8,7 +8,7 @@ module Services
       def identities(id_number:, first_name:, last_name:, year_of_birth:)
         response = client.request(
           ARGS.dig(:identities, :operation),
-          args: {
+          message: {
             TCKimlikNo: id_number,
             Ad: first_name.upcase(:turkic),
             Soyad: last_name.upcase(:turkic),

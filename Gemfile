@@ -3,24 +3,21 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.3'
+ruby File.read(File.expand_path('.ruby-version', __dir__))
 
 gem 'active_model_serializers'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'pg', '~> 0.18.2'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.1', '>= 5.2.1.1'
-gem 'rollbar'
-gem 'savon'
+gem 'savon', '~> 2.11', '>= 2.11.1'
 
-group :beta, :development, :test do
+group :development, :test do
   gem 'brakeman', require: false
   gem 'bundler-audit', require: false
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'pry-rails'
-  gem 'reek'
   gem 'rubocop'
-  gem 'vcr'
   gem 'webmock'
 end
 

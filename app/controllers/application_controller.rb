@@ -1,10 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::API
-  rescue_from Client::HTTPError,              with: :services_error
-  rescue_from Client::SOAPError,              with: :services_error
-  rescue_from Client::TCPError,               with: :services_error
-  rescue_from Client::UnknownOperationError,  with: :services_error
+  rescue_from SoapClient::SavonError,         with: :services_error
   rescue_from Services::InvalidResponseError, with: :services_error
   rescue_from Services::NoContentError,       with: :services_error
 
@@ -21,8 +18,7 @@ class ApplicationController < ActionController::API
   def services_error(exception)
     logger.error exception
 
-    render json: { status: exception.code, error: exception },
-           status: exception.code
+    render json: { status: 500, error: exception }, status: :internal_server_error
   end
 
   def render_as_json(data)

@@ -8,7 +8,7 @@ module Services
       def changes(day:, month:, year:)
         @changes = client.request(
           ARGS.dig(:changes, :operation),
-          args: { GUN: day, AY: month, YIL: year }
+          message: { GUN: day, AY: month, YIL: year }
         )
 
         raise InvalidResponseError if changes_has_error?
@@ -19,7 +19,7 @@ module Services
 
       def names(unit_id:)
         @names = client.request(
-          ARGS.dig(:names, :operation), args: { BIRIM_ID: unit_id }
+          ARGS.dig(:names, :operation), message: { BIRIM_ID: unit_id }
         )
 
         raise InvalidResponseError if names_has_error?
@@ -39,7 +39,7 @@ module Services
 
       def programs(unit_id:)
         @programs = client.request(
-          ARGS.dig(:programs, :operation), args: { BIRIM_ID: unit_id }
+          ARGS.dig(:programs, :operation), message: { BIRIM_ID: unit_id }
         )
 
         raise InvalidResponseError if programs_has_error?
@@ -50,7 +50,7 @@ module Services
 
       def subunits(unit_id:)
         @subunits = client.request(
-          ARGS.dig(:subunits, :operation), args: { BIRIM_ID: unit_id }
+          ARGS.dig(:subunits, :operation), message: { BIRIM_ID: unit_id }
         )
 
         raise InvalidResponseError if subunits_has_error?

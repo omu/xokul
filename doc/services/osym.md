@@ -1,7 +1,8 @@
 Osym
 ====
 
-Osym servisi, SOAP arayüzünü kullanarak [OSYM](https://osym.gov.tr) tarafından sunulan servislerle haberleşir.
+Osym servisi, SOAP arayüzünü kullanarak [OSYM](https://osym.gov.tr) tarafından
+sunulan servislerle haberleşir.
 
 Endpoints
 ---------

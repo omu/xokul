@@ -8,7 +8,7 @@ module Services
       def students(id_number:, service_password: nil)
         @students = client.request(
           ARGS.dig(:students, :operation),
-          args: { TCKIMLIKNO: id_number, ServicePassWord: service_password }
+          message: { TCKIMLIKNO: id_number, ServicePassWord: service_password }
         )
 
         raise InvalidResponseError if students_has_error?
@@ -24,7 +24,7 @@ module Services
       end
 
       def students_has_error?
-        @students.dig(*ARGS.dig(:students, :status)) { |data| data.to_i.zero? }
+        @students.dig(*ARGS.dig(:students, :status)).to_i.zero?
       end
 
       def students_result

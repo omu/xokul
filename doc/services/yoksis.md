@@ -1,7 +1,8 @@
 Yoksis
 ======
 
-Yoksis servisi, SOAP arayüzünü kullanarak [YOKSIS](https://yoksis.yok.gov.tr) tarafından sunulan servislerle haberleşir.
+Yoksis servisi, SOAP arayüzünü kullanarak [YOKSIS](https://yoksis.yok.gov.tr)
+tarafından sunulan servislerle haberleşir.
 
 Endpoints
 ---------

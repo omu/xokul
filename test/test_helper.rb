@@ -4,17 +4,11 @@ ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'rails/test_help'
 
-Dir[Rails.root.join('test', 'support', '**', '*.rb')].each do |file|
-  require file
-end
+require 'webmock/minitest'
+WebMock.disable_net_connect!(allow: %w[api.codacy.com], allow_localhost: true)
 
 module ActiveSupport
   class TestCase
     fixtures :all
-
-    def assert_kod_ad(object)
-      assert object.key?(:kod)
-      assert object.key?(:ad)
-    end
   end
 end

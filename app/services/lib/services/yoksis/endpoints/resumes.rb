@@ -19,7 +19,7 @@ module Services
 
           @resumes = client.request(
             ARGS.dig(method, :operation),
-            args: params_with_defaults(P_TC_KIMLIK_NO: id_number)
+            message: params_with_defaults(P_TC_KIMLIK_NO: id_number)
           )
 
           raise InvalidResponseError if resumes_has_error? method
@@ -32,7 +32,7 @@ module Services
       def authors(id_number:, author_id:)
         @resumes = client.request(
           ARGS.dig(__method__, :operation),
-          args: params_with_defaults(
+          message: params_with_defaults(
             P_TC_KIMLIK_NO: id_number, P_YAZAR_ID: author_id
           )
         )
@@ -46,7 +46,7 @@ module Services
       def citations(id_number:, year:)
         @resumes = client.request(
           ARGS.dig(__callee__, :operation),
-          args: params_with_defaults(P_TC_KIMLIK_NO: id_number, P_DONEM: year)
+          message: params_with_defaults(P_TC_KIMLIK_NO: id_number, P_DONEM: year)
         )
 
         raise InvalidResponseError if resumes_has_error? __callee__

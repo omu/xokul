@@ -7,7 +7,7 @@ module Services
 
       def addresses(id_number:)
         @addresses = client.request(
-          ARGS.dig(:addresses, :operation), args: { KimlikNo: id_number }
+          ARGS.dig(:addresses, :operation), message: { KimlikNo: id_number }
         )
 
         raise InvalidResponseError if addresses_has_error?
@@ -18,7 +18,7 @@ module Services
 
       def identities(id_number:)
         @identities = client.request(
-          ARGS.dig(:identities, :operation), args: { KimlikNo: id_number }
+          ARGS.dig(:identities, :operation), message: { KimlikNo: id_number }
         )
 
         raise InvalidResponseError if identities_has_error?
