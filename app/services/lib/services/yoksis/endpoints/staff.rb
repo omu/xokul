@@ -8,7 +8,7 @@ module Services
       def academicians(querier:, queried:)
         @academicians = client.request(
           ARGS.dig(:academicians, :operation),
-          args: {
+          message: {
             SORGULAYAN_TC_KIMLIK_NO: querier, AKPER_TC_KIMLIK_NO: queried
           }
         )
@@ -30,7 +30,7 @@ module Services
       def pages(querier:, page:)
         @pages = client.request(
           ARGS.dig(:pages, :operation),
-          args: { SAYFA: page, SORGULAYAN_TC_KIMLIK_NO: querier }
+          message: { SAYFA: page, SORGULAYAN_TC_KIMLIK_NO: querier }
         )
 
         raise InvalidResponseError if pages_has_error?
@@ -42,7 +42,7 @@ module Services
       def total_pages(querier:)
         @total_pages = client.request(
           ARGS.dig(:total_pages, :operation),
-          args: { SORGULAYAN_TC_KIMLIK_NO: querier }
+          message: { SORGULAYAN_TC_KIMLIK_NO: querier }
         )
 
         raise InvalidResponseError if total_pages_has_error?
