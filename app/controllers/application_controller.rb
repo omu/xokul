@@ -18,7 +18,7 @@ class ApplicationController < ActionController::API
   def services_error(exception)
     logger.error exception
 
-    render json: { status: 500, error: exception }, status: 500
+    render json: { status: 500, error: exception }, status: :internal_server_error
   end
 
   def render_as_json(data)
