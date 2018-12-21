@@ -4,7 +4,7 @@ module Services
   module Kps
     class Base
       def initialize
-        @client = Client.new(self.class::WSDL_URL)
+        @client = SoapClient.new(self.class::WSDL_URL)
       end
 
       protected
