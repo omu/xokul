@@ -15,7 +15,7 @@ gem 'savon'
 
 group :beta, :development, :test do
   gem 'brakeman', require: false
-  gem 'bundler-audit'
+  gem 'bundler-audit', require: false
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'pry-rails'
   gem 'reek'
