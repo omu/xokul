@@ -25,6 +25,7 @@ Servis edilen API'lerin dokümantasyonunu içerir. Bunlar servis dokümanları
 değildir.
 
 İlgili dizine [git](api).
+
 Servis dokümanlarına [git](development).
 
 Katkı dokümanları
