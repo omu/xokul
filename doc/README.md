@@ -26,11 +26,8 @@ değildir.
 
 İlgili dizine [git](api).
 
-Servis dokümanlarına [git](development).
-
 Katkı dokümanları
 -----------------
 
 Xokul'a nasıl katkı verileceği hakkında bilgi sahibi olmak için
 [buraya](https://github.com/omu/xokul/blob/master/CONTRIBUTING.md) bakın.
-
