@@ -51,7 +51,7 @@ Tüm dokümanlar için aşağıdaki navigatörü kullanabilirsiniz.
      - [Host](operations/backup/host.md)
    - [**Upgrading**](operations/upgrading)
      - [Ruby](operations/upgrading/kong.md)
-     - [Rails](operations/upgrading/host.md)
+     - [Rails](operations/upgrading/rails.md)
      - [Dependencies](operations/upgrading/dependencies.md)
      - [Database](operations/upgrading/database.md)
      - [Kong](operations/upgrading/kong.md)
