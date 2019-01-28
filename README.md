@@ -8,23 +8,12 @@ Beta")
 
 Xokul is an API project that aims to manage all third party services and complex
 challenges from the single-point. It also presents a simple and developer
-friendly interface.
+friendly API interface.
 
 Documentation
 -------------
 
-There are two type of documents for the project. See
-[`doc/services`](https://github.com/omu/xokul/tree/master/doc/services) for
-technical documents. You can also visit [here](https://developer.omu.edu.tr) for
-API documentation.
-
-Installation
-------------
-
-Check out the
-[`INSTALLATION.md`](https://github.com/omu/xokul/blob/master/doc/development/INSTALLATION.md)
-file for more detailed instructions. If you want to try the project using
-`Vagrantfile`, you can see [here](https://www.vagrantup.com/intro/index.html).
+You can access all kind of documents [here](doc).
 
 Contributing
 -------------

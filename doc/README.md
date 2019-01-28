@@ -2,35 +2,61 @@ Xokul Dokümantasyonu
 ====================
 
 Burada Xokul'a ait teknik, operasyonel ve API dokümanları yer almaktadır.
+Başlıca doküman türleri aşağıdaki gibidir.
 
-Geliştirme dokümanları
-----------------------
+| Tür                        | Açıklama                                              |
+|:---------------------------|:------------------------------------------------------|
+| [basics](basics)           | Problemi ve mimariyi anlatan genel dokümanlar         |
+| [development](development) | Geliştirici ve katkıcılar için geliştirme dokümanları |
+| [operations](operations)   | Operatör ve sistem yöneticileri için dokümanlar       |
+| [policy](policy)           | Kural ve poliçe dokümanları                           |
+| [api](api)                 | API dokümanları                                       |
 
-Geliştirici ve katkıcıları ilgilendiren son derece teknik dokümanlardır.
+*Dokümanlara [docs.omu.sh](doc.omu.sh) üzerinden de ulaşabilirsiniz.*
 
-İlgili dizine [git](development).
+Genel bakış
+-----------
 
-Operasyonel dokümanlar
-----------------------
+Tüm dokümanlar için aşağıdaki navigatörü kullanabilirsiniz.
 
-Sistem yöneticisi ve DevOps sorumlusunu ilgilendiren kurulum, yükseltme ve
-yedekleme gibi konuları işleyen dokümanlardır.
-
-İlgili dizine [git](operation).
-
-API dokümanları
----------------
-
-Servis edilen API'lerin dokümantasyonunu içerir. Bunlar servis dokümanları
-değildir.
-
-İlgili dizine [git](api).
-
-Servis dokümanlarına [git](development).
-
-Katkı dokümanları
------------------
-
-Xokul'a nasıl katkı verileceği hakkında bilgi sahibi olmak için
-[buraya](https://github.com/omu/xokul/blob/master/CONTRIBUTING.md) bakın.
-
+1. [**Installation**](operations/installation)
+   - [Manual Installation](operations/installation/manual.md)
+   - [Using Docker](operations/installation/docker.md)
+   - [Using Vagrant](operations/installation/vagrant.md)
+1. [**Basics**](basics)
+   - [Problem](basics/problem.md)
+   - [External services](basics/external-services.md)
+   - [Architecture](basics/architecture.md)
+1. [**Development**](development)
+   - [Environment](development/environment.md)
+   - [**Services**](development/services)
+     - [Basics](development/services/basics.md)
+     - [Create new action](development/services/create-new-action.md)
+     - [Create new endpoint](development/services/create-new-endpoint.md)
+     - [Create new service](development/services/create-new-service.md)
+     - [Serialization](development/services/serialization.md)
+     - [Routes](development/services/routes.md)
+   - [**Support**](development/support)
+     - [REST client](development/support/rest-client.md)
+     - [SOAP client](development/support/soap-client.md)
+   - [Tests](development/tests.md)
+   - [Jobs](development/jobs.md)
+1. [**Operations**](operations)
+   - [**Deployment**](operations/deployment.md)
+     - [Traditional machine](operations/development/traditional.md)
+     - [Dokku](operations/development/dokku.md)
+   - [**Backup**](operations/backup)
+     - [Database](operations/backup/database.md)
+     - [Kong](operations/backup/kong.md)
+     - [Host](operations/backup/host.md)
+   - [**Upgrading**](operations/backup)
+     - [Ruby](operations/backup/kong.md)
+     - [Rails](operations/backup/host.md)
+     - [Dependencies](operations/backup/dependencies.md)
+     - [Database](operations/backup/database.md)
+     - [Kong](operations/backup/kong.md)
+1. [**Policy**](policy)
+   - [Release](policy/release)
+   - [Security](policy/security)
+1. [API](api)
+1. [Contributing](https://github.com/omu/xokul/blob/master/CONTRIBUTING.md)
