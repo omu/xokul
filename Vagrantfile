@@ -1,47 +1,38 @@
 # frozen_string_literal: true
 
 Vagrant.configure('2') do |config|
-  config.vm.box = 'omu/debian-stable-server'
+  env = {}
 
-  config.vm.provider 'lxc' do |provider|
-    provider.customize 'cgroup.memory.limit_in_bytes', '2048M'
+  if ENV['LOCAL_CACHE_DIR']
+    FileUtils.mkdir_p ENV['LOCAL_CACHE_DIR'] unless Dir.exist?(ENV['LOCAL_CACHE_DIR'])
+    app_cache_dir = '/var/cache/app'
+
+    config.vm.synced_folder ENV['LOCAL_CACHE_DIR'], app_cache_dir
+
+    env.merge('LOCAL_CACHE_DIR': app_cache_dir)
   end
 
-  config.vm.network 'forwarded_port', guest: 3000, host: 3000
+  config.vm.define 'dev', primary: true do |dev|
+    dev.vm.box = 'omu/debian-stable-server'
 
-  config.vm.provision 'shell', inline: <<~SHELL
-    pushd /tmp
-	cat <<-EOF >.foreman.env
-	RAILS_ENV=development
-	RDS_HOSTNAME=localhost
-	RDS_USERNAME=xokul
-	RDS_PASSWORD=xokul
-	EOF
-    popd
+    dev.vm.network 'forwarded_port', guest: 3000, host: 3000
 
-    export  $(</tmp/.foreman.env)
+    dev.vm.provider :lxc do |lxc|
+      lxc.customize 'cgroup.memory.limit_in_bytes', '2048M'
+    end
 
-    systemctl enable postgresql
-    systemctl start postgresql
+    dev.vm.provision 'shell', name: 'environment', env: env, path: 'lib/scripts/environment.sh'
+    dev.vm.provision 'shell', name: 'deploy',      env: env, path: 'lib/scripts/deploy.sh'
+  end
 
-    sudo -u postgres psql <<<"CREATE USER $RDS_USERNAME WITH ENCRYPTED PASSWORD '$RDS_PASSWORD';"
-    sudo -u postgres psql <<<"ALTER ROLE $RDS_USERNAME LOGIN CREATEDB SUPERUSER;"
+  config.vm.define 'paas', autostart: false do |paas|
+    paas.vm.box = 'omu/debian-stable-paas'
 
-    gem install bundler foreman
+    paas.trigger.after :provision do |trigger|
+      Dir.chdir __dir__
 
-    cd /vagrant
-
-    bundle install --deployment
-
-    bundle exec rake db:create
-    bundle exec rake db:migrate
-    bundle exec rake db:seed
-
-    foreman export -p3000 --app xokul --user op --env /tmp/.foreman.env systemd /etc/systemd/system/
-
-    systemctl enable xokul.target
-    systemctl start xokul.target
-
-    rm /tmp/.foreman.env
-  SHELL
+      trigger.info = 'Provisioning paas...'
+      trigger.run = { inline: 'bash lib/scripts/paas.sh' }
+    end
+  end
 end
