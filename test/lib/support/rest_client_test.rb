@@ -7,7 +7,7 @@ class RestClientTest < ActiveSupport::TestCase
     # Base URL.
     @insecure_url = 'http://example.com'
     @secure_url   = 'https://example.com'
-    
+
     # URLs derived from the insecure base URL.
     @body_url    = @insecure_url + '/body'
     @error_url   = @insecure_url + '/error'
