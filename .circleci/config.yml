@@ -1,6 +1,6 @@
 docker: &docker
   docker:
-    - image: circleci/ruby:2.5.3-node-browsers
+    - image: circleci/ruby:2.6.0-node-browsers
       environment:
         TZ: '/usr/share/zoneinfo/Asia/Istanbul'
         RAILS_ENV: beta
