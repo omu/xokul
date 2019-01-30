@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tc_kimlik_no: MyString
+  adi: MyString
+  soyadi: MyString
+  kadro_unvan: MyString
+  birim_id: 1
+
+two:
+  tc_kimlik_no: MyString
+  adi: MyString
+  soyadi: MyString
+  kadro_unvan: MyString
+  birim_id: 1
