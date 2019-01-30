@@ -15,5 +15,6 @@ end
 namespace :scheduled do
   namespace :daily do
     require_relative 'daily/academicians'
+    require_relative 'daily/nationalities'
   end
 end
