@@ -2,39 +2,34 @@
 
 module Yoksis
   class StaffController < ApplicationController
-    before_action :set_client_variables, :set_staff
-
     include ActionsResource
 
     def academicians
-      render_as_json @staff.academicians(querier: @client_id, queried: secure_params[:id_number])
+      render_as_json Academician.find_by(tc_kimlik_no: academicians_params[:id_number])
     end
 
     def nationalities
-      render_as_json @staff.nationalities
+      render_as_json Nationality.all.as_json.map(&:symbolize_keys)
     end
 
     def pages
-      render_as_json @staff.pages(querier: @client_id, page: secure_params[:page])
+      paginated = Academician.paginate(page: pages_params[:page])
+      render_as_json paginated.as_json.map(&:symbolize_keys)
     end
 
     def total_pages
-      render_as_json @staff.total_pages(querier: @client_id)
+      paginated = Academician.paginate(page: Academician.per_page)
+      render_as_json paginated.total_pages
     end
 
     private
 
-    def set_client_variables
-      @client_id = Rails.application.credentials.yoksis[:client_id]
-      @client_secret = Rails.application.credentials.yoksis[:client_secret]
+    def academicians_params
+      params.require(:staff).permit(:id_number)
     end
 
-    def set_staff
-      @staff = Services::Yoksis::Staff.new(basic_auth: [@client_id, @client_secret])
-    end
-
-    def secure_params
-      params.require(:staff).permit(:id_number, :page)
+    def pages_params
+      params.require(:staff).permit(:page)
     end
   end
 end
