@@ -3,7 +3,8 @@
 module Yoksis
   class StaffController < ApplicationController
     include ActionsResource
-
+    include Pagy::Backend
+    
     def academicians
       render_as_json Academician.find_by(tc_kimlik_no: academicians_params[:id_number])
     end
@@ -13,13 +14,13 @@ module Yoksis
     end
 
     def pages
-      paginated = Academician.paginate(page: pages_params[:page])
-      render_as_json paginated.as_json.map(&:symbolize_keys)
+      _, records = pagy(Academician.all, page: pages_params[:page])
+      render_as_json records.as_json.map(&:symbolize_keys)
     end
 
     def total_pages
-      paginated = Academician.paginate(page: Academician.per_page)
-      render_as_json paginated.total_pages
+      pagy, _ = pagy(Academician.all)
+      render_as_json pagy.pages
     end
 
     private
