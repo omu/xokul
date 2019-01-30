@@ -12,6 +12,7 @@ gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.1', '>= 5.2.1.1'
 gem 'rollbar'
 gem 'savon'
+gem 'will_paginate', '~> 3.1.0'
 
 group :beta, :development, :test do
   gem 'brakeman', require: false
