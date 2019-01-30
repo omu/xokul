@@ -4,7 +4,7 @@ module Yoksis
   class StaffController < ApplicationController
     include ActionsResource
     include Pagy::Backend
-    
+
     def academicians
       render_as_json Academician.find_by(tc_kimlik_no: academicians_params[:id_number])
     end
@@ -19,7 +19,7 @@ module Yoksis
     end
 
     def total_pages
-      pagy, _ = pagy(Academician.all)
+      pagy, = pagy(Academician.all)
       render_as_json pagy.pages
     end
 

@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable Metrics/BlockLength
 desc 'Fetch all nationalities from YOKSIS'
 task :nationalities do
   staff = Services::Yoksis::Staff.new(
@@ -10,7 +9,7 @@ task :nationalities do
   Rails.logger.info 'Fetching nationalities...'
   nationalities = staff.nationalities
 
-  staff.nationalities.each do |nationality|
+  nationalities.each do |nationality|
     Rails.logger.info "Processing... [#{nationality[:kod]}]"
 
     model_data = {
