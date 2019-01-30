@@ -19,7 +19,7 @@ module Yoksis
     end
 
     def total_pages
-      pagy, = pagy(Academician.all)
+      pagy, _ = pagy(Academician.all)
       render_as_json pagy.pages
     end
 
