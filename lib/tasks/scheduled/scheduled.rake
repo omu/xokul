@@ -1,8 +1,15 @@
 # frozen_string_literal: true
 
 module Yoksis
-  CLIENT_ID     = Rails.application.credentials.yoksis[:client_id]
-  CLIENT_SECRET = Rails.application.credentials.yoksis[:client_secret]
+  module_function
+
+  def client_id
+    Rails.application.credentials.yoksis[:client_id]
+  end
+
+  def client_secret
+    Rails.application.credentials.yoksis[:client_secret]
+  end
 end
 
 namespace :scheduled do

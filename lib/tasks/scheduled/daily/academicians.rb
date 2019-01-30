@@ -4,15 +4,15 @@
 desc 'Fetch all academicians from YOKSIS'
 task :academicians do
   staff = Services::Yoksis::Staff.new(
-    basic_auth: [Yoksis::CLIENT_ID, Yoksis::CLIENT_SECRET]
+    basic_auth: [Yoksis.client_id, Yoksis.client_secret]
   )
 
   academicians = []
-  total_pages = staff.total_pages(querier: Yoksis::CLIENT_ID)
+  total_pages = staff.total_pages(querier: Yoksis.client_id)
 
   [*1..total_pages.to_i].each do |page|
     Rails.logger.info "Fetching... [page #{page}]"
-    academicians << staff.pages(querier: Yoksis::CLIENT_ID, page: page)
+    academicians << staff.pages(querier: Yoksis.client_id, page: page)
   end
 
   academicians.flatten.each do |academician|
