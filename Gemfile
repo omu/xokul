@@ -3,10 +3,11 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.3'
+ruby '2.6.0'
 
 gem 'active_model_serializers'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'pagy', '~> 0.6.0'
 gem 'pg', '~> 0.18.2'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.1', '>= 5.2.1.1'

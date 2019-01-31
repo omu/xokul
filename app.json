@@ -1,0 +1,13 @@
+{
+  "name": "xokul",
+  "description": "Xokul is an API application that exposes our different kinds of external services as JSON.",
+  "keywords": [
+    "dokku",
+    "rails"
+  ],
+  "scripts": {
+    "dokku": {
+      "postdeploy": "bundle exec rails db:migrate"
+    }
+  }
+}
