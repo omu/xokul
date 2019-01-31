@@ -16,5 +16,7 @@ namespace :scheduled do
   namespace :daily do
     require_relative 'daily/academicians'
     require_relative 'daily/nationalities'
+
+    task all: %i[academicians nationalities]
   end
 end
