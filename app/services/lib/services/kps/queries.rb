@@ -3,7 +3,9 @@
 module Services
   module Kps
     class Queries
-      WSDL_URL = ENV['KPS_PRIVATE_WSDL_URL'].freeze
+      def initialize
+        @client = Client.new(ENV['KPS_PRIVATE_WSDL_URL'])
+      end
 
       def addresses(id_number:)
         @addresses = client.request(
@@ -52,6 +54,10 @@ module Services
       def identities_result
         @identities.dig(*ARGS.dig(:identities, :result))
       end
+
+      protected
+
+      attr_reader :client
     end
   end
 end

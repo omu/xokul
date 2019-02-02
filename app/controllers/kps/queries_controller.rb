@@ -16,12 +16,12 @@ module Kps
 
     private
 
-    def set_queries
-      @queries = Services::Kps::Queries.new
-    end
-
     def secure_params
       params.require(:query).permit(:id_number)
+    end
+
+    def set_queries
+      @queries = Services::Kps::Queries.new
     end
   end
 end
