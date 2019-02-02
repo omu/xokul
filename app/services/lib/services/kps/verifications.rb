@@ -2,10 +2,12 @@
 
 module Services
   module Kps
-    # This codes will be rewritten for version 2. 
+    # This codes will be rewritten for version 2.
     module Verifications
       module_function
 
+      # rubocop:disable Metrics/MethodLength
+      # rubocop:disable Metrics/AbcSize
       def identity_cards(**options)
         client = Client.new(ENV['KPS_PUBLICV2_WSDL_URL'])
 
@@ -59,6 +61,9 @@ module Services
 
         response.dig(*ARGS.dig(:foreign_nationals, :result))
       end
+
+      # rubocop:enable Metrics/MethodLength
+      # rubocop:enable Metrics/AbcSize
     end
   end
 end

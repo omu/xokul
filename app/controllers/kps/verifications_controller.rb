@@ -15,6 +15,7 @@ module Kps
       )
     end
 
+    # rubocop:disable Metrics/AbcSize
     def identity_cards
       render_as_json Services::Kps::Verifications.identity_cards(
         id_number: identity_cards_params.require(:id_number),
@@ -24,16 +25,17 @@ module Kps
         month_of_birth: identity_cards_params.require(:month_of_birth),
         year_of_birth: identity_cards_params.require(:year_of_birth),
         card_serial_code: identity_cards_params.require(:card_serial_code),
-        card_number: identity_cards_params.require(:card_number),
+        card_number: identity_cards_params.require(:card_number)
       )
     end
+    # rubocop:enable Metrics/AbcSize
 
     def identity_numbers
       render_as_json Services::Kps::Verifications.identity_numbers(
         id_number: identity_numbers_params.require(:id_number),
         first_name: identity_numbers_params.require(:first_name),
         last_name: identity_numbers_params.require(:last_name),
-        year_of_birth: identity_numbers_params.require(:year_of_birth),
+        year_of_birth: identity_numbers_params.require(:year_of_birth)
       )
     end
 
