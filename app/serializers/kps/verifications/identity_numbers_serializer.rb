@@ -2,7 +2,7 @@
 
 module Kps
   module Verifications
-    class IdentitiesSerializer < Serializer
+    class IdentityNumbersSerializer < Serializer
       attribute(:status) { object[:tc_kimlik_no_dogrula_result] }
     end
   end

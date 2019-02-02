@@ -2,7 +2,7 @@
 
 module Services
   module Kps
-    class Queries < Base
+    class Queries
       ARGS = {
         addresses: {
           operation: :adres_sorgula,
@@ -20,11 +20,19 @@ module Services
       }
     end
 
-    class Verifications < Base
+    module Verifications
       ARGS = {
-        identities: {
+        identity_cards: {
+          operation: :kisi_ve_cuzdan_dogrula,
+          result: %i[kisi_ve_cuzdan_dogrula_response]
+        },
+        identity_numbers: {
           operation: :tc_kimlik_no_dogrula,
           result: %i[tc_kimlik_no_dogrula_response]
+        },
+        foreign_nationals: {
+          operation: :yabanci_kimlik_no_dogrula,
+          result: %i[yabanci_kimlik_no_dogrula_response]
         }
       }
     end
