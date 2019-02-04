@@ -8,9 +8,8 @@ Rails.application.routes.draw do
   namespace :kps, defaults: { format: :json } do
     resources(:verifications) do
       collection do
-        get :foreign_nationals
-        get :identity_cards
-        get :identity_numbers
+        get :id_cards
+        get :id_numbers
       end
     end
 
