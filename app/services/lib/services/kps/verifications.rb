@@ -14,7 +14,7 @@ module Services
         %i[card_serial card_number tckk_serial].each do |param|
           turkish_national = true if option[param]
         end
-        
+
         if turkish_national
           id_cards_by_turkish_nationals(option)
         else
@@ -41,15 +41,15 @@ module Services
       def id_cards_by_turkish_nationals(**option)
         client = Client.new(ENV['KPS_PUBLICV2_WSDL_URL'])
         args = {
-            TCKimlikNo: option[:id_number],
-            Ad: option[:first_name].to_s.upcase(:turkic),
-            Soyad: option[:last_name].to_s.upcase(:turkic),
-            DogumGun: option[:day_of_birth],
-            DogumAy: option[:month_of_birth],
-            DogumYil: option[:year_of_birth],
-            CuzdanSeri: option[:card_serial],
-            CuzdanNo: option[:card_number],
-            TCKKSeriNo: option[:tckk_serial]
+          TCKimlikNo: option[:id_number],
+          Ad: option[:first_name].to_s.upcase(:turkic),
+          Soyad: option[:last_name].to_s.upcase(:turkic),
+          DogumGun: option[:day_of_birth],
+          DogumAy: option[:month_of_birth],
+          DogumYil: option[:year_of_birth],
+          CuzdanSeri: option[:card_serial],
+          CuzdanNo: option[:card_number],
+          TCKKSeriNo: option[:tckk_serial]
         }
 
         if option[:tckk_serial]

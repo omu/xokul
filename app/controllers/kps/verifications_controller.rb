@@ -5,6 +5,7 @@ module Kps
     include ActionsResource
 
     # rubocop:disable Metrics/AbcSize
+    # rubocop:disable Metrics/MethodLength
     def id_cards
       render_as_json Services::Kps::Verifications.id_cards(
         id_number: id_cards_params.require(:id_number),
@@ -19,6 +20,7 @@ module Kps
       )
     end
     # rubocop:enable Metrics/AbcSize
+    # rubocop:enable Metrics/MethodLength
 
     def id_numbers
       render_as_json Services::Kps::Verifications.id_numbers(
