@@ -44,7 +44,7 @@ Kişiye ait çeşitli doğrulamalar yapan arayüze sahiptir.
 
 **Not:** Yabancı ve Türk uyruklu kimlik doğrulamaları tek bir endpoint üzerinden
 yapılmaktadır. Bu yüzden `/id_cards` endpoint'i için her iki doğrulamada da
-aşağıdaki parametreler zorunlu iken sadece Türk uyrukluları doğrulamalarken
+aşağıdaki parametreler zorunlu iken sadece Türk uyrukluları doğrularken
 `serial` ve `number` eklenmelidir. Doğrulanan kişi için `document_number`
 kullanılacak ise `serial` ve `number` kullanmayın.
 
