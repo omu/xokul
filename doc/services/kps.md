@@ -33,17 +33,29 @@ Endpoints:
 
 Kişiye ait çeşitli doğrulamalar yapan arayüze sahiptir.
 
-|Action             |Method|Required parameters|Description|
-|-------------------|------|-------------------|-----------|
-|`identity_cards`   |GET   |`id_number`, `first_name`, `last_name`, `day_of_birth`, `month_of_birth`, `year_of_birth`, `card_serial_code`, `card_number`|Kişinin kimlik kartını doğrular
-|`identity_numbers` |GET   |`id_number`, `first_name`, `last_name`, `year_of_birth`                                                                     |Kişinin kimlik numarasını doğrular
-|`foreign_nationals`|GET   |`id_number`, `first_name`, `last_name`, `day_of_birth`, `month_of_birth`, `year_of_birth`                                   |Yabancı uyruklu kişi doğrular
+|Action      |Method|Required parameters|Description|
+|------------|------|-------------------|-----------|
+|`id_cards`  |GET   |`id_number`, `first_name`, `last_name`, `day_of_birth`, `month_of_birth`, `year_of_birth`, `serial`, `number`, `document_number`|Kişinin kimlik kartını doğrular
+|`id_numbers`|GET   |`id_number`, `first_name`, `last_name`, `year_of_birth`                                                                         |Kişinin kimlik numarasını doğrular
 
-- `card_serial_code`: Kimlik kartı üzerindeki seri numarası
-- `card_number`: Kimlik kartı üzerindeki kart numarası
+- `serial`: Kimlik kartı üzerindeki seri numarası
+- `number`: Kimlik kartı üzerindeki kart numarası
+- `document_number`: Dijital kimlik kartları üzerindeki seri numarası
+
+**Not:** Yabancı ve Türk uyruklu kimlik doğrulamaları tek bir endpoint üzerinden
+yapılmaktadır. Bu yüzden `/id_cards` endpoint'i için her iki doğrulamada da
+aşağıdaki parametreler zorunlu iken sadece Türk uyrukluları doğrularken
+`serial` ve `number` eklenmelidir. Doğrulanan kişi için `document_number`
+kullanılacak ise `serial` ve `number` kullanmayın.
+
+- `id_number`
+- `first_name`
+- `last_name`
+- `day_of_birth`
+- `month_of_birth`
+- `year_of_birth`
 
 Endpoints:
 
-- https://api.omu.sh/kps/verifications/identity_cards
-- https://api.omu.sh/kps/verifications/identity_numbers
-- https://api.omu.sh/kps/verifications/identity_foreign_nationals
+- https://api.omu.sh/kps/verifications/id_cards
+- https://api.omu.sh/kps/verifications/id_numbers

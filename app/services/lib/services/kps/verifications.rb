@@ -11,7 +11,7 @@ module Services
       def id_cards(**option)
         turkish_national = false
 
-        %i[card_serial card_number tckk_serial].each do |param|
+        %i[serial number document_number].each do |param|
           turkish_national = true if option[param]
         end
 
@@ -47,12 +47,12 @@ module Services
           DogumGun: option[:day_of_birth],
           DogumAy: option[:month_of_birth],
           DogumYil: option[:year_of_birth],
-          CuzdanSeri: option[:card_serial],
-          CuzdanNo: option[:card_number],
-          TCKKSeriNo: option[:tckk_serial]
+          CuzdanSeri: option[:serial],
+          CuzdanNo: option[:number],
+          TCKKSeriNo: option[:document_number]
         }
 
-        if option[:tckk_serial]
+        if option[:document_number]
           args.delete(:CuzdanSeri)
           args.delete(:CuzdanNo)
         end
