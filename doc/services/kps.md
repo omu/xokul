@@ -57,6 +57,5 @@ kullanılacak ise `serial` ve `number` kullanmayın.
 
 Endpoints:
 
-- https://api.omu.sh/kps/verifications/identity_cards
-- https://api.omu.sh/kps/verifications/identity_numbers
-- https://api.omu.sh/kps/verifications/identity_foreign_nationals
+- https://api.omu.sh/kps/verifications/id_cards
+- https://api.omu.sh/kps/verifications/id_numbers
