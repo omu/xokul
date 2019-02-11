@@ -14,9 +14,9 @@ module Kps
         day_of_birth: id_cards_params.require(:day_of_birth),
         month_of_birth: id_cards_params.require(:month_of_birth),
         year_of_birth: id_cards_params.require(:year_of_birth),
-        card_serial: id_cards_params[:card_serial],
-        card_number: id_cards_params[:card_number],
-        tckk_serial: id_cards_params[:tckk_serial]
+        serial: id_cards_params[:serial],
+        number: id_cards_params[:number],
+        document_number: id_cards_params[:document_number]
       )
     end
     # rubocop:enable Metrics/AbcSize
@@ -36,7 +36,7 @@ module Kps
     def id_cards_params
       params.require(:verification).permit(
         :id_number, :first_name, :last_name, :day_of_birth, :month_of_birth,
-        :year_of_birth, :card_serial, :card_number, :tckk_serial
+        :year_of_birth, :serial, :number, :document_number
       )
     end
 
