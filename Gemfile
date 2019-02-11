@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.0'
+ruby File.read(File.expand_path('.ruby-version', __dir__))
 
 gem 'active_model_serializers'
 gem 'bootsnap', '>= 1.1.0', require: false

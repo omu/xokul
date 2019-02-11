@@ -22,17 +22,17 @@ module Services
 
     module Verifications
       ARGS = {
-        identity_cards: {
+        id_cards_by_turkish_nationals: {
           operation: :kisi_ve_cuzdan_dogrula,
-          result: %i[kisi_ve_cuzdan_dogrula_response]
+          result: %i[kisi_ve_cuzdan_dogrula_response kisi_ve_cuzdan_dogrula_result]
         },
-        identity_numbers: {
+        id_numbers: {
           operation: :tc_kimlik_no_dogrula,
           result: %i[tc_kimlik_no_dogrula_response]
         },
-        foreign_nationals: {
+        id_cards_by_foreign_nationals: {
           operation: :yabanci_kimlik_no_dogrula,
-          result: %i[yabanci_kimlik_no_dogrula_response]
+          result: %i[yabanci_kimlik_no_dogrula_response yabanci_kimlik_no_dogrula_result]
         }
       }
     end
