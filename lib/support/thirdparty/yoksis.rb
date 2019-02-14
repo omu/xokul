@@ -6,3 +6,9 @@ require_relative 'yoksis/reference'
 require_relative 'yoksis/resume'
 require_relative 'yoksis/staff'
 require_relative 'yoksis/unit'
+
+module Thirdparty
+  module Yoksis
+    Reference.endpoint = 'https://servisler.yok.gov.tr/ws/Referanslarv1?WSDL'
+  end
+end
