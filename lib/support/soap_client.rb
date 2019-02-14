@@ -1,21 +1,28 @@
 # frozen_string_literal: true
 
 class SoapClient
-  class Error < StandardError; end
+  Error      = Class.new(StandardError)
+  SavonError = Class.new(Error)
 
-  class SavonError < Error; end
-
-  Response = Struct.new(:savon_response) do
+  class Response
     delegate :header, :body, to: :savon_response
     delegate :dig, to: :body
+
+    def initialize(savon_response)
+      @savon_response = savon_response
+    end
+
+    def inspect
+      "#<#{self.class}:0x00%x>" % (object_id << 1)
+    end
   end
 
   private_constant :Response
 
   delegate :operations, to: :@savon_object
 
-  def initialize(wsdl_url, **savon_options)
-    @savon_object = Savon.client(wsdl: wsdl_url, **savon_options)
+  def initialize(wsdl_url, **option)
+    @savon_object = Savon.client(wsdl: wsdl_url, **option)
   end
 
   def request(operation, message: {})
