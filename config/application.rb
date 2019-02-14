@@ -22,7 +22,7 @@ module Xokul
     config.api_only = true
 
     reloader.to_prepare do
-      require_dependency Rails.root.join('app', 'services', 'lib', 'services.rb')
+      require_dependency Rails.root.join('lib', 'support.rb')
     end
   end
 end
