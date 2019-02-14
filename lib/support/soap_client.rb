@@ -28,9 +28,13 @@ class SoapClient
     raise SavonError, err
   end
 
-  def configure(&block)
-    savon_object.globals.instance_eval(&block) if block_given?
+  def configure(&blk)
+    savon_object.globals.instance_eval(&blk) if block_given?
     self
+  end
+
+  def inspect
+    "#<#{self.class}:0x00%x>" % (object_id << 1)
   end
 
   protected
