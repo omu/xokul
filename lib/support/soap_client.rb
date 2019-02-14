@@ -5,7 +5,7 @@ class SoapClient
   SavonError = Class.new(Error)
 
   class Response
-    delegate :header, :body, to: :savon_response
+    delegate :header, :body, to: :@savon_response
     delegate :dig, to: :body
 
     def initialize(savon_response)
@@ -13,7 +13,7 @@ class SoapClient
     end
 
     def inspect
-      "#<#{self.class}:0x00%x>" % (object_id << 1)
+      format("#<#{self.class}:0x0000%<id>x>", id: (object_id << 1))
     end
   end
 
@@ -41,7 +41,7 @@ class SoapClient
   end
 
   def inspect
-    "#<#{self.class}:0x00%x>" % (object_id << 1)
+    format("#<#{self.class}:0x0000%<id>x>", id: (object_id << 1))
   end
 
   protected
