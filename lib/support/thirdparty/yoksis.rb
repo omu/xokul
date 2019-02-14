@@ -9,6 +9,8 @@ require_relative 'yoksis/unit'
 
 module Thirdparty
   module Yoksis
-    Reference.endpoint = 'https://servisler.yok.gov.tr/ws/Referanslarv1?WSDL'
+    Reference.configure do |config|
+      config.endpoint = 'https://servisler.yok.gov.tr/ws/Referanslarv1?WSDL'
+    end
   end
 end
