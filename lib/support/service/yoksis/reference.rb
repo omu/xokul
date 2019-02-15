@@ -2,14 +2,14 @@
 
 module Service
   module Yoksis
-    class Reference
-      include ActiveSupport::Configurable
-      include Singleton
-
-      config_accessor :endpoint, instance_writer: false
+    class Reference < Endpoint
+      name     'reference'
+      synopsis 'YOKSIS Referanslar endpoint. See https://yoksis.yok.gov.tr'
+      version  '1'
+      url      'https://servisler.yok.gov.tr/ws/Referanslarv1?WSDL'
 
       def initialize
-        @client = SoapClient.new(endpoint)
+        @client = SoapClient.new(url)
       end
 
       def administrative_functions

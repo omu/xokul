@@ -10,7 +10,7 @@ require_relative 'yoksis/unit'
 module Service
   module Yoksis
     include ActiveSupport::Configurable
-    
+
     config_accessor :username, :password, :client_id, :client_secret
   end
 end
