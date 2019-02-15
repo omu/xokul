@@ -9,7 +9,6 @@ require_relative 'yoksis/unit'
 
 module Service
   module Yoksis
-    # This is an easy way to read a credential from Rails credentials.
     CREDENTIALS = Rails.application.credentials.yoksis
 
     Reference.configure do |config|
