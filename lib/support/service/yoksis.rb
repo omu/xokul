@@ -7,7 +7,7 @@ require_relative 'yoksis/resume'
 require_relative 'yoksis/staff'
 require_relative 'yoksis/unit'
 
-module Thirdparty
+module Service
   module Yoksis
     # This is an easy way to read a credential from Rails credentials.
     CREDENTIALS = Rails.application.credentials.yoksis

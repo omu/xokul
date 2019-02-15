@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Thirdparty
+module Service
   module Yoksis
     class Staff
       include ActiveSupport::Configurable
