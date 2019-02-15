@@ -3,6 +3,7 @@
 require_relative 'service/detsis'
 require_relative 'service/mernis'
 require_relative 'service/yoksis'
+require_relative 'service/tenant'
 
 module Service
   Yoksis.configure do |config|
