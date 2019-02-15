@@ -3,8 +3,8 @@
 module Service
   module Yoksis
     class Reference < Endpoint
-      name     'reference'
-      synopsis 'YOKSIS Referanslar endpoint. See https://yoksis.yok.gov.tr'
+      name     'references'
+      synopsis 'YOKSIS Referanslar endpoint. See also https://yoksis.yok.gov.tr'
       version  '1'
       url      'https://servisler.yok.gov.tr/ws/Referanslarv1?WSDL'
 
