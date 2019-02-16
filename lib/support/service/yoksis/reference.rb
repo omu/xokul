@@ -4,9 +4,8 @@ module Service
   module Yoksis
     class Reference < Endpoint
       name     'references'
-      synopsis 'YOKSIS Referanslar endpoint. See also https://yoksis.yok.gov.tr'
+      synopsis 'YOKSIS Referanslar endpoint'
       version  '1'
-      url      'https://servisler.yok.gov.tr/ws/Referanslarv1?WSDL'
 
       def initialize
         @client = SoapClient.new(url)

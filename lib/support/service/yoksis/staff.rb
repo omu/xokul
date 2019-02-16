@@ -2,11 +2,10 @@
 
 module Service
   module Yoksis
-    class Staff
-      include ActiveSupport::Configurable
-
-      config_accessor :endpoint, :cliend_id, :client_secret,
-                      instance_writer: false
+    class Staff < Endpoint
+      name     'staff'
+      synopsis 'YOKSIS UniversiteAkademikPersonel endpoint'
+      version  '1'
     end
   end
 end
