@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
-require_relative 'service/endpoint'
+require_relative 'endpoint'
+require_relative 'tenant'
+
 require_relative 'service/detsis'
 require_relative 'service/mernis'
 require_relative 'service/yoksis'
-require_relative 'service/tenant'
 
 module Service
   Yoksis.configure do |config|
