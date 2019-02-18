@@ -11,7 +11,7 @@ Xokul is an API project that aims to manage all third party services and complex
 Documentation
 -------------
 
-There are two type of documents for the project. See [`doc/services`](/doc/services) for technical documents. You can also visit [here](https://developer.omu.edu.tr) for API documentation.
+There are two type of documents for the project. See [`doc/services`](/doc/services) for technical documents. You can also visit [here](https://developer.omu.edu.tr) for API documentation
 
 Installation
 ------------
