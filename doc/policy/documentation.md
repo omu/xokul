@@ -30,7 +30,7 @@ Xokul'un geliştirme dokümanları yer alır.
 
 ### `operations`
 
-Xokul'un operasyon dokümanları yer alır. Dokümanlar her bir bileşenin kurulum,
+Xokul'un operasyon dokümanları yer alır. Dokümanlar, her bir bileşenin kurulum,
 konuşlandırma, yükseltme ve yedekleme süreçlerini barındırır.
 
 ### `policy`
@@ -52,7 +52,7 @@ Kurallar
   ---
   ```
 
-- CI'da doküman stili kontrol edilmektedir. Yerel geliştirme ortamınızda
+- [FIXME] CI'da doküman stili kontrol edilmektedir. Yerel geliştirme ortamınızda
   kullanmak için aşağıdaki araç ve editör eklentilerine bakın
 
   - [Atom](https://atom.io/packages/linter-markdownlint)
