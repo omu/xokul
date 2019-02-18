@@ -6,7 +6,7 @@ Başlıca doküman türleri aşağıdaki gibidir.
 
 | Tür                        | Açıklama                                              |
 |:---------------------------|:------------------------------------------------------|
-| [basics](basics)           | Problemi ve mimariyi anlatan genel dokümanlar         |
+| [basics](basics)           | Problemi, çözümü ve mimariyi anlatan temel dokümanlar |
 | [development](development) | Geliştirici ve katkıcılar için geliştirme dokümanları |
 | [operations](operations)   | Operatör ve sistem yöneticileri için dokümanlar       |
 | [policy](policy)           | Kural ve poliçe dokümanları                           |
