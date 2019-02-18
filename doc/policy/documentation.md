@@ -13,7 +13,7 @@ bulunun.
 
 | Tür                           | Açıklama                                              |
 |:------------------------------|:------------------------------------------------------|
-| [basics](../basics)           | Problemi ve mimariyi anlatan genel dokümanlar         |
+| [basics](../basics)           | Problemi, çözümü ve mimariyi anlatan temel dokümanlar |
 | [development](../development) | Geliştirici ve katkıcılar için geliştirme dokümanları |
 | [operations](../operations)   | Operatör ve sistem yöneticileri için dokümanlar       |
 | [policy](../policy)           | Kural ve poliçe dokümanları                           |
@@ -21,13 +21,13 @@ bulunun.
 
 *Dokümanlara [docs.omu.sh](doc.omu.sh) üzerinden de ulaşabilirsiniz.*
 
-Kurallar
+Kurallar 
 --------
 
-- Doküman formatı Markdown olmalı
+- Doküman Markdown formatında yazılmalı
 - Dosya isimleri tutarlı ve İngilizce olmalı
-- Dosya isimlerinde ayraç olarak hypen (`-`) kullanılmalı
-- Her dokümanda aşağıdaki gibi bir YAML front-matter olmalı
+- Dosya isimlerinde ayraç olarak hypen (-) kullanılmalı
+- Her dokümanda aşağıdaki gibi bir YAML front-matter bulunmalı
 
   ```markdown
   ---
@@ -36,16 +36,12 @@ Kurallar
   ---
   ```
 
-- [FIXME] CI'da doküman stili kontrol edilmektedir. Yerel geliştirme ortamınızda
-  kullanmak için aşağıdaki araç ve editör eklentilerine bakın
+- Markdown dosyaları CI'da statik analiz
+  [aracı](https://github.com/markdownlint/markdownlint) tarafından kontrol
+  edilir. Depoda belirlenen kurallar çerçevesinde buna dikkat edin
 
-  - [Atom](https://atom.io/packages/linter-markdownlint)
-  - [Sublime Text](https://github.com/jonlabelle/SublimeLinter-contrib-markdownlint)
-  - [VSCode](https://github.com/DavidAnson/vscode-markdownlint)
-  - [Vim](https://github.com/plasticboy/vim-markdown)
-  - [Generic Tool](https://github.com/markdownlint/markdownlint)
-
-- Yeni eklenen veya isim/başlık değişikliğine uğrayan dokümanların indeks kaydını
-  [burada](https://github.com/omu/xokul/blob/master/doc/README.md) yapın/düzeltin
-- Dokümanlarda sade ve teknik bir dil kullanın
+- Yeni eklenen ve/veya isim değişikliğine uğrayan dokümanların indeks kaydını
+  [burada](https://github.com/omu/xokul/blob/master/doc/README.md)
+  yapın/düzeltin
+- Sade ve teknik bir dil kullanın
 - Teknik terimleri Türkçeleştirmekten kaçının
