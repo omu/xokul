@@ -7,35 +7,19 @@ Dokümantasyon
 =============
 
 Dokümanlar, [`doc`](https://github.com/omu/xokul/tree/master/doc) dizini
-altında, kategorize edilmiş şekilde tutulmaktadır. 
+altında, türlerine göre sınıflandırılmış şekilde tutulmaktadır. Mevcut türlerin
+dışındaki katkılar için öncelikle **iş kaydı** açarak doküman türü önerisinde
+bulunun.
 
-Kategorizasyon
---------------
+| Tür                        | Açıklama                                              |
+|:---------------------------|:------------------------------------------------------|
+| [basics](basics)           | Problemi ve mimariyi anlatan genel dokümanlar         |
+| [development](development) | Geliştirici ve katkıcılar için geliştirme dokümanları |
+| [operations](operations)   | Operatör ve sistem yöneticileri için dokümanlar       |
+| [policy](policy)           | Kural ve poliçe dokümanları                           |
+| [api](api)                 | API dokümanları                                       |
 
-Kategorizasyon oldukça detaylı ve esnektir. Mevcut kategorilerin dışındaki
-katkılar için öncelikle iş kaydı açarak kategori önerisinde bulunun.
-
-### `api`
-
-Xokul tarafından ekspoze edilen API uçlarının
-dokümanları yer alır.
-
-### `basics`
-
-Xokul'a ait problem tanımı, çözüm ve mimari gibi temel dokümanlar yer alır.
-
-### `development`
-
-Xokul'un geliştirme dokümanları yer alır.
-
-### `operations`
-
-Xokul'un operasyon dokümanları yer alır. Dokümanlar, her bir bileşenin kurulum,
-konuşlandırma, yükseltme ve yedekleme süreçlerini barındırır.
-
-### `policy`
-
-Proje ve depo organizasyonuna ait çeşitli kural ve poliçe dokümanları yer alır.
+*Dokümanlara [docs.omu.sh](doc.omu.sh) üzerinden de ulaşabilirsiniz.*
 
 Kurallar
 --------
