@@ -11,13 +11,13 @@ altında, türlerine göre sınıflandırılmış şekilde tutulmaktadır. Mevcu
 dışındaki katkılar için öncelikle **iş kaydı** açarak doküman türü önerisinde
 bulunun.
 
-| Tür                        | Açıklama                                              |
-|:---------------------------|:------------------------------------------------------|
-| [basics](basics)           | Problemi ve mimariyi anlatan genel dokümanlar         |
-| [development](development) | Geliştirici ve katkıcılar için geliştirme dokümanları |
-| [operations](operations)   | Operatör ve sistem yöneticileri için dokümanlar       |
-| [policy](policy)           | Kural ve poliçe dokümanları                           |
-| [api](api)                 | API dokümanları                                       |
+| Tür                           | Açıklama                                              |
+|:------------------------------|:------------------------------------------------------|
+| [basics](../basics)           | Problemi ve mimariyi anlatan genel dokümanlar         |
+| [development](../development) | Geliştirici ve katkıcılar için geliştirme dokümanları |
+| [operations](../operations)   | Operatör ve sistem yöneticileri için dokümanlar       |
+| [policy](../policy)           | Kural ve poliçe dokümanları                           |
+| [api](../api)                 | API dokümanları                                       |
 
 *Dokümanlara [docs.omu.sh](doc.omu.sh) üzerinden de ulaşabilirsiniz.*
 
