@@ -7,16 +7,14 @@ module Service
 
       attr_accessor(*ATTRIBUTES)
 
+      delegate :to_json, to: :to_h
+
       def to_h
         Hash[
           ATTRIBUTES.zip(
             ATTRIBUTES.map { |attribute| send(attribute) }
           )
         ]
-      end
-
-      def to_json
-        to_h.to_json
       end
     end
 
