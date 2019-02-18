@@ -56,6 +56,7 @@ Tüm dokümanlar için aşağıdaki navigatörü kullanabilirsiniz.
      - [Database](operations/upgrading/database.md)
      - [Kong](operations/upgrading/kong.md)
 1. [**Policy**](policy)
+   - [Documentation](policy/documentation.md)
    - [Release](policy/release.md)
    - [Security](policy/security.md)
 1. [API](api)
