@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-module Service
+module Services
   module Yoksis
     class Staff < Endpoint
       name     'staff'
-      synopsis 'YOKSIS Üniversite Akademik Personel endpoint'
+      synopsis 'YOKSIS `Akademik Personel` endpoint'
       version  '1'
     end
   end

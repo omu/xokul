@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Service
+module Services
   class Endpoint
     class Meta
       ATTRIBUTES = %i[name synopsis version].freeze

@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require_relative 'yoksis/graduate'
+require_relative 'yoksis/graduates'
 require_relative 'yoksis/meb'
-require_relative 'yoksis/reference'
+require_relative 'yoksis/references'
 require_relative 'yoksis/resume'
 require_relative 'yoksis/staff'
-require_relative 'yoksis/unit'
+require_relative 'yoksis/units'
 
-module Service
+module Services
   module Yoksis
     include ActiveSupport::Configurable
 

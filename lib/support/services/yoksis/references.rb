@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-module Service
+module Services
   module Yoksis
-    class Reference < Endpoint
+    class References < Endpoint
       name     'references'
-      synopsis 'YOKSIS Referanslar endpoint'
+      synopsis 'YOKSIS `Referanslar` endpoint'
       version  '1'
 
       def initialize

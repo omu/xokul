@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require_relative 'endpoint'
-require_relative 'tenant'
+require_relative 'services/endpoint'
+require_relative 'services/service'
 
-require_relative 'service/detsis'
-require_relative 'service/mernis'
-require_relative 'service/yoksis'
+require_relative 'services/detsis'
+require_relative 'services/mernis'
+require_relative 'services/yoksis'
 
-module Service
+module Services
   Yoksis.configure do |config|
     config.username      = Tenant.credentials.yoksis[:username]
     config.password      = Tenant.credentials.yoksis[:password]
