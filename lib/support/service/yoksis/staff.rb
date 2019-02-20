@@ -4,7 +4,7 @@ module Service
   module Yoksis
     class Staff < Endpoint
       name     'staff'
-      synopsis 'YOKSIS UniversiteAkademikPersonel endpoint'
+      synopsis 'YOKSIS Üniversite Akademik Personel endpoint'
       version  '1'
     end
   end
