@@ -3,9 +3,12 @@
 module Services
   module Yoksis
     class Resume < Endpoint
-      name     'resume'
-      synopsis 'YOKSIS `Özgeçmiş` endpoint'
-      version  '2'
+      configure do |config|
+        config.name     = 'resume'
+        config.url      = 'http://servisler.yok.gov.tr/ws/ozgecmisv1?WSDL'
+        config.synopsis = 'YOKSIS Özgeçmiş endpoint'
+        config.version  = '2'
+      end
     end
   end
 end

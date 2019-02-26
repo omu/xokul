@@ -3,9 +3,12 @@
 module Services
   module Yoksis
     class Graduates < Endpoint
-      name     'graduates'
-      synopsis 'YOKSIS `Mezun Sorgulama` endpoint'
-      version  '2'
+      configure do |config|
+        config.name     = 'graduates'
+        config.url      = 'https://servisler.yok.gov.tr/ws/TcKimlikNoileMezunOgrenciSorgulav2?WSDL'
+        config.synopsis = 'YOKSIS Mezun Sorgulama endpoint'
+        config.version  = '2'
+      end
     end
   end
 end

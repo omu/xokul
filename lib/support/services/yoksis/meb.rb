@@ -3,9 +3,12 @@
 module Services
   module Yoksis
     class MEB < Endpoint
-      name     'meb'
-      synopsis 'YOKSIS `MEB Mezun Sorgulama` endpoint'
-      version  '2'
+      configure do |config|
+        config.name     = 'meb'
+        config.url      = 'https://servisler.yok.gov.tr/ws/mebmezunsorgulav2?WSDL'
+        config.synopsis = 'YOKSIS MEB Mezun Sorgulama endpoint'
+        config.version  = '2'
+      end
     end
   end
 end

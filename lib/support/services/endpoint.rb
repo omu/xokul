@@ -2,36 +2,20 @@
 
 module Services
   class Endpoint
-    class Meta
-      ATTRIBUTES = %i[name synopsis version].freeze
+    include ActiveSupport::Configurable
 
-      attr_accessor(*ATTRIBUTES)
+    config_accessor :name, :url, :version, :synopsis, instance_writer: false
 
-      delegate :to_json, to: :to_h
+    def initialize
+      @client = SoapClient.new(config.url)
 
-      def to_h
-        Hash[
-          ATTRIBUTES.zip(
-            ATTRIBUTES.map { |attribute| send(attribute) }
-          )
-        ]
-      end
+      after_initialize
     end
 
-    module DSL
-      Meta::ATTRIBUTES.each do |attribute|
-        define_method(attribute) { |arg| meta.send("#{attribute}=", arg) }
-      end
-    end
+    def after_initialize; end
 
-    extend DSL
+    protected
 
-    def self.meta
-      @meta ||= Meta.new
-      yield @meta if block_given?
-      @meta
-    end
-
-    private_constant :Meta, :DSL
+    attr_reader :client
   end
 end

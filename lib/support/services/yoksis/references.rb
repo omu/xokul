@@ -3,12 +3,11 @@
 module Services
   module Yoksis
     class References < Endpoint
-      name     'references'
-      synopsis 'YOKSIS `Referanslar` endpoint'
-      version  '1'
-
-      def initialize
-        @client = SoapClient.new(url)
+      configure do |config|
+        config.name     = 'references'
+        config.url      = 'https://servisler.yok.gov.tr/ws/Referanslarv1?WSDL'
+        config.synopsis = 'YOKSIS Referanslar endpoint'
+        config.version  = '1'
       end
 
       def administrative_functions
@@ -106,14 +105,6 @@ module Services
       def university_types
         client.request(:get_universite_turu)
       end
-
-      protected
-
-      attr_reader :client
-    end
-
-    def self.reference
-      Reference.instance
     end
   end
 end
