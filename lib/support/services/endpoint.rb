@@ -4,7 +4,7 @@ module Services
   class Endpoint
     include ActiveSupport::Configurable
     
-    attr_reader :client
+    attr_reader :conn
     config_accessor :synopsis, :version, :url, instance_writer: false
     
     def initialize
