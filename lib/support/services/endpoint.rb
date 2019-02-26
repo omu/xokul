@@ -8,7 +8,7 @@ module Services
     config_accessor :synopsis, :version, :url, instance_writer: false
     
     def initialize
-      @conn = Connection.new(url)
+      @conn = SoapClient.new(url)
     end
 
     protected :config, :conn
