@@ -3,18 +3,14 @@
 module Services
   class Endpoint
     include ActiveSupport::Configurable
-
-    config_accessor :name, :url, :version, :synopsis, instance_writer: false
-
+    
+    attr_reader :client
+    config_accessor :synopsis, :version, :url, instance_writer: false
+    
     def initialize
-      @client = SoapClient.new(config.url)
-      after_initialize
+      @conn = Connection.new(url)
     end
 
-    def after_initialize; end
-
-    protected
-
-    attr_reader :client
+    protected :config, :conn
   end
 end

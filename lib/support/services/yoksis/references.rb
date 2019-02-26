@@ -4,10 +4,9 @@ module Services
   module Yoksis
     class References < Endpoint
       configure do |config|
-        config.name     = 'references'
-        config.url      = 'https://servisler.yok.gov.tr/ws/Referanslarv1?WSDL'
         config.synopsis = 'YOKSIS Referanslar endpoint'
         config.version  = '1'
+        config.url      = 'https://servisler.yok.gov.tr/ws/Referanslarv1?WSDL'
       end
 
       def administrative_functions
