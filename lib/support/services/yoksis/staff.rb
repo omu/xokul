@@ -6,7 +6,7 @@ module Services
       configure do |config|
         config.name     = 'staff'
         config.url      = 'http://servisler.yok.gov.tr/ws/UniversiteAkademikPersonelv1?WSDL'
-        config.synopsis = 'YOKSIS `Akademik Personel` endpoint'
+        config.synopsis = 'YOKSIS Akademik Personel endpoint'
         config.version  = '1'
       end
     end

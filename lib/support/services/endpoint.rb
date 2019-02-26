@@ -8,7 +8,6 @@ module Services
 
     def initialize
       @client = SoapClient.new(config.url)
-
       after_initialize
     end
 
