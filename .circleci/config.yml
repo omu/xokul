@@ -45,6 +45,9 @@ jobs:
       - restore_cache: *restore-bundle-dir
       - run: bundle --path vendor/bundle
       - run:
+          name: Installing markdownlint-cli package
+          command: npm install -g markdownlint-cli
+      - run:
           name: Running static analysis checks
           command: bundle exec rake static_analysis:all
   deploy-master:
@@ -57,16 +60,6 @@ jobs:
           command: |
             git remote add beta dokku@app.omu.sh:xokul &&
             git push beta master
-  deploy-unstable:
-    machine:
-      enabled: true
-    steps:
-      - checkout
-      - run:
-          name: Deploy unstable branch to Dokku
-          command: |
-            git remote add beta dokku@app.omu.sh:xokul-unstable &&
-            git push beta unstable:master
 workflows:
   version: 2
   build:
@@ -84,9 +77,3 @@ workflows:
           filters:
             branches:
               only: master
-      - deploy-unstable:
-          requires:
-            - static-analysis
-          filters:
-            branches:
-              only: unstable
