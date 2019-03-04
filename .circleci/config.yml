@@ -46,7 +46,7 @@ jobs:
       - run: bundle --path vendor/bundle
       - run:
           name: Installing markdownlint-cli package
-          command: npm install -g markdownlint-cli
+          command: sudo npm install -g markdownlint-cli
       - run:
           name: Running static analysis checks
           command: bundle exec rake static_analysis:all
