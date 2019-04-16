@@ -13,14 +13,14 @@ class Client
 
   def request(operation, args: {})
     Response.new(savon.call(operation, message: args.deep_stringify_keys))
-  rescue Savon::HTTPError => err
-    raise HTTPError, err
-  rescue Savon::SOAPFault => err
-    raise SOAPError, err
-  rescue Savon::UnknownOperationError => err
-    raise UnknownOperationError, err
-  rescue SocketError => err
-    raise TCPError, err
+  rescue Savon::HTTPError => e
+    raise HTTPError, e
+  rescue Savon::SOAPFault => e
+    raise SOAPError, e
+  rescue Savon::UnknownOperationError => e
+    raise UnknownOperationError, e
+  rescue SocketError => e
+    raise TCPError, e
   end
 
   def add_soap_header(key, value)
