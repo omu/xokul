@@ -11,30 +11,42 @@ module Services
     def sub_functionalities
       Connection.request 'AltFonksiyonListesi'
     end
-    
+
     def buildings
       Connection.request 'BinaListesi'
+    end
+
+    def classrooms(building_id)
+      Connection.request 'DerslikListesi', binaid: building_id
+    end
+
+    def characteristics
+      Connection.request 'KarakteristikListesi'
+    end
+
+    def syllabuses(classroom_id, year, academic_term)
+      Connection.request 'DerslikDersProgramiListesi', derslikid: classroom_id, yil: year, donem: academic_term
     end
 
     module Connection
       WSDL_URL = 'https://meksis.gov.tr/Services/meksisservice.svc/rest'
       HEADER   = {
-        'Accept':        'application/json',
-        'Content-Type':  'application/json',
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
         'Authorization': "Basic #{Rails.application.credentials.meksis[:basic_auth]}"
       }.freeze
-      PARAMS   = {
+      PARAMS = {
         universiteid: Rails.application.credentials.meksis[:university_id].to_i,
-        kullanici:    Rails.application.credentials.meksis[:username],
-        sifre:        Rails.application.credentials.meksis[:password]
+        kullanici: Rails.application.credentials.meksis[:username],
+        sifre: Rails.application.credentials.meksis[:password]
       }.freeze
 
       module_function
 
-      def request(operation)
+      def request(operation, **args)
         resp = RestClient.post(
           "#{WSDL_URL}/#{operation}Rest",
-          header: HEADER, payload: PARAMS.to_json, use_ssl: true
+          header: HEADER, payload: PARAMS.merge(args).to_json, use_ssl: true
         )
 
         resp.error!
@@ -42,5 +54,7 @@ module Services
         JSON.parse(resp.decode["#{operation}RestResult"])
       end
     end
+
+    private_constant :Connection
   end
 end
