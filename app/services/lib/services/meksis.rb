@@ -32,8 +32,8 @@ module Services
       Connection.request 'KarakteristikListesi'
     end
 
-    def departments_by_unit(unit_id)
-      Connection.request 'AkademiIdariBirimeGoreBolumListesi', akademikbirimid: unit_id
+    def departments(unit_id)
+      Connection.request 'AkademikIdariBirimeGoreBolumListesi', akademikbirimid: unit_id
     end
 
     def syllabuses(syllabus_id)
