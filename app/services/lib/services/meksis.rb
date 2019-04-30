@@ -4,6 +4,14 @@ module Services
   module Meksis
     module_function
 
+    def administrative_departments
+      Connection.request 'AkademikIdariBolumListesi'
+    end
+
+    def administrative_units
+      Connection.request 'AkademikIdariBirimListesi'
+    end
+
     def main_functionalities
       Connection.request 'AnaFonksiyonListesi'
     end
@@ -24,8 +32,24 @@ module Services
       Connection.request 'KarakteristikListesi'
     end
 
-    def syllabuses(classroom_id, year, academic_term)
-      Connection.request 'DerslikDersProgramiListesi', derslikid: classroom_id, yil: year, donem: academic_term
+    def departments_by_unit(unit_id)
+      Connection.request 'AkademiIdariBirimeGoreBolumListesi', akademikbirimid: unit_id
+    end
+
+    def syllabuses(syllabus_id)
+      Connection.request 'DersProgramiListesi', dersprogramid: syllabus_id
+    end
+
+    def syllabuses_by_classroom(classroom_id, year, term)
+      Connection.request 'DerslikDersProgramiListesi', derslikid: classroom_id, year: year, term: term
+    end
+
+    def syllabuses_by_unit(unit_id, year, term)
+      Connection.request 'AkademikBirimeGoreDersProgramiListesi', akademikidaribirimid: unit_id, yil: year, donem: term
+    end
+
+    def syllabuses_by_department(unit_id, year, term)
+      Connection.request 'AkademikBolumeGoreDersProgramiListesi', akademikidaribolumid: unit_id, yil: year, donem: term
     end
 
     module Connection
