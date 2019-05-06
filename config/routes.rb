@@ -21,6 +21,22 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :meksis, defaults: { format: :json } do
+    collection do
+      get :administrative_departments
+      get :administrative_units
+      get :buildings
+      get :characteristics
+      get :classrooms
+      get :classroom_syllabuses
+      get :departments
+      get :department_syllabuses
+      get :main_functionalities
+      get :sub_functionalities
+      get :unit_syllabuses
+    end
+  end
+
   namespace :osym, defaults: { format: :json } do
     resources(:examination) do
       collection do
