@@ -28,9 +28,12 @@ Rails.application.routes.draw do
       get :buildings
       get :characteristics
       get :classrooms
+      get :classroom_syllabuses
       get :departments
+      get :department_syllabuses
       get :main_functionalities
       get :sub_functionalities
+      get :unit_syllabuses
     end
   end
 

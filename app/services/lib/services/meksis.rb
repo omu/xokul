@@ -12,6 +12,22 @@ module Services
       Connection.request 'AkademikIdariBirimListesi'
     end
 
+    def buildings
+      Connection.request 'BinaListesi'
+    end
+
+    def characteristics
+      Connection.request 'KarakteristikListesi'
+    end
+
+    def classrooms(building_id)
+      Connection.request 'DerslikListesi', binaid: building_id
+    end
+
+    def departments(unit_id)
+      Connection.request 'AkademikIdariBirimeGoreBolumListesi', akademikbirimid: unit_id
+    end
+
     def main_functionalities
       Connection.request 'AnaFonksiyonListesi'
     end
@@ -20,36 +36,20 @@ module Services
       Connection.request 'AltFonksiyonListesi'
     end
 
-    def buildings
-      Connection.request 'BinaListesi'
-    end
-
-    def classrooms(building_id)
-      Connection.request 'DerslikListesi', binaid: building_id
-    end
-
-    def characteristics
-      Connection.request 'KarakteristikListesi'
-    end
-
-    def departments(unit_id)
-      Connection.request 'AkademikIdariBirimeGoreBolumListesi', akademikbirimid: unit_id
-    end
-
     def syllabuses(syllabus_id)
       Connection.request 'DersProgramiListesi', dersprogramid: syllabus_id
     end
 
     def syllabuses_by_classroom(classroom_id, year, term)
-      Connection.request 'DerslikDersProgramiListesi', derslikid: classroom_id, year: year, term: term
-    end
-
-    def syllabuses_by_unit(unit_id, year, term)
-      Connection.request 'AkademikBirimeGoreDersProgramiListesi', akademikidaribirimid: unit_id, yil: year, donem: term
+      Connection.request 'DerslikDersProgramiListesi', derslikid: classroom_id, yil: year, donem: term
     end
 
     def syllabuses_by_department(unit_id, year, term)
       Connection.request 'AkademikBolumeGoreDersProgramiListesi', akademikidaribolumid: unit_id, yil: year, donem: term
+    end
+
+    def syllabuses_by_unit(unit_id, year, term)
+      Connection.request 'AkademikBirimeGoreDersProgramiListesi', akademikidaribirimid: unit_id, yil: year, donem: term
     end
 
     module Connection
