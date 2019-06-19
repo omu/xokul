@@ -14,6 +14,9 @@ gem 'rails', '~> 5.2.1', '>= 5.2.1.1'
 gem 'rollbar'
 gem 'savon'
 
+# This is a workaround until the issue will be closed. See: https://github.com/liufengyun/hashdiff/issues/45
+gem 'hashdiff', ['>= 1.0.0.beta1', '< 2.0.0']
+
 group :beta, :development, :test do
   gem 'brakeman', require: false
   gem 'bundler-audit', require: false
