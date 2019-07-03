@@ -31,8 +31,8 @@ Rails.application.routes.draw do
       get :classroom_syllabuses
       get :departments
       get :department_syllabuses
-      get :main_functionalities
-      get :sub_functionalities
+      get :main_functions
+      get :sub_functions
       get :unit_syllabuses
     end
   end
