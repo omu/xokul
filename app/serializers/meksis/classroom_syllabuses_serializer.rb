@@ -17,7 +17,7 @@ module Meksis
     attribute(:department_name) { string     object['BolumAdi']                                             }
     attribute(:grade)           { integer    object['Sinif']                                                }
     attribute(:branch)          { integer    object['Sube']                                                 }
-    attribute(:capacıty)        { integer    object['OgrenciSayisi']                                        }
+    attribute(:capacity)        { integer    object['OgrenciSayisi']                                        }
     attribute(:building_name)   { string     object['BinaAdi']                                              }
   end
 end

@@ -15,8 +15,8 @@ module Meksis
     attribute(:width)                 { float   object['En']              }
     attribute(:volume)                { float   object['Hacim']           }
     attribute(:elevation)             { float   object['Yukseklik']       }
-    attribute(:usage_area)            { float   object['KullanimAlani']   }
-    attribute(:main_functionality_id) { integer object['AnaFonksiyonID']  }
-    attribute(:sub_functionality_id)  { integer object['AltFonksiyonID']  }
+    attribute(:available_space)       { float   object['KullanimAlani']   }
+    attribute(:main_function_id)      { integer object['AnaFonksiyonID']  }
+    attribute(:sub_function_id)       { integer object['AltFonksiyonID']  }
   end
 end
