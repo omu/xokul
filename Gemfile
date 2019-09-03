@@ -9,7 +9,7 @@ gem 'active_model_serializers'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'pg', '~> 0.18.2'
 gem 'puma', '~> 3.11'
-gem 'rails', '~> 5.2.1', '>= 5.2.1.1'
+gem 'rails', '~> 6.0'
 gem 'savon', '~> 2.11', '>= 2.11.1'
 
 group :development, :test do
@@ -18,6 +18,7 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'pry-rails'
   gem 'rubocop'
+  gem 'rubocop-rails'
   gem 'webmock'
 end
 
