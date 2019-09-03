@@ -31,8 +31,8 @@ class SoapClient
     Response.new(
       savon_object.call(operation, message: message.deep_stringify_keys)
     )
-  rescue Savon::Error => err
-    raise SavonError, err
+  rescue Savon::Error => e
+    raise SavonError, e
   end
 
   def configure(&blk)
