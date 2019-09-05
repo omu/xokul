@@ -1,20 +1,13 @@
-# frozen_string_literal: true
-
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'rails/test_help'
 
-Dir[Rails.root.join('test', 'support', '**', '*.rb')].each do |file|
-  require file
-end
+class ActiveSupport::TestCase
+  # Run tests in parallel with specified workers
+  parallelize(workers: :number_of_processors)
 
-module ActiveSupport
-  class TestCase
-    fixtures :all
+  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
+  fixtures :all
 
-    def assert_kod_ad(object)
-      assert object.key?(:kod)
-      assert object.key?(:ad)
-    end
-  end
+  # Add more helper methods to be used by all tests here...
 end
