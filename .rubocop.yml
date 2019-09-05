@@ -1,0 +1,24 @@
+inherit_from: .rubocop_common.yml
+
+require: rubocop-rails
+
+Rails:
+  Enabled: true
+Rails/UnknownEnv:
+  Environments:
+    - development
+    - production
+    - test
+AllCops:
+  TargetRubyVersion: 2.6
+  # Do not exclude files from ALL COPS unless it's really necessary!
+  Exclude:
+    - bin/**/*
+    - config/environments/*.rb
+    - config/routes.rb
+    - db/schema.rb
+    - db/migrate/*.rb
+    - node_modules/**/*
+    - tmp/**/*
+    - vendor/bundle/**/*
+    - Vagrantfile
