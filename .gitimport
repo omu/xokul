@@ -9,3 +9,9 @@
       target: .
     - source: etc/rubocop/rubocop.yml
       target: .rubocop_common.yml
+    - source: lib/tasks/ci/audit.rake
+    - source: lib/tasks/ci/brakeman.rake
+    - source: lib/tasks/ci/gitimport.rake
+    - source: lib/tasks/ci/liche.rake
+    - source: lib/tasks/ci/markdownlint.rake
+    - source: lib/tasks/ci/rubocop.rake
