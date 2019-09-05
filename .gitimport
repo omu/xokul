@@ -1,0 +1,5 @@
+ 
+- remote: https://github.com/github/gitignore
+  files:
+    - source: Rails.gitignore
+      target: .gitignore
