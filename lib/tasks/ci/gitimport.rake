@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
+require 'mkmf'
+
 namespace :ci do
-  desc 'Check gitimport for any updates.'
+  desc 'Check for any updates via gitimport.'
   task :gitimport do
     if find_executable('git-import')
       sh 'git-import'
       sh 'git diff --quiet --exit-code **/*' do |ok, _|
-        abort "Some of your files are outdated. You need to get updates via git-import." unless ok
+        abort 'Update your files fetched with gitimport.' unless ok
       end
     else
       warn 'git-import not installed.'
