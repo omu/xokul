@@ -208,9 +208,9 @@ module Services
           status: %i[get_arastirma_sertifka_bilgisi_v1_response sonuc durum_kodu]
         },
         citations: {
-          operation: :get_atif_sayilari_v1,
-          result: %i[get_atif_sayilari_v1_response atif_sayi_listesi],
-          status: %i[get_atif_sayilari_v1_response sonuc durum_kodu],
+          operation: :getir_atif_sayilari,
+          result: %i[getir_atif_sayilari_response doc_atif_sayilari],
+          status: %i[getir_atif_sayilari_response sonuc durum_kodu],
         },
         designs: {
           operation: :get_tasarim_bilgisi_v1,
@@ -238,14 +238,14 @@ module Services
           status: %i[getir_yabanci_dil_listesi_response sonuc durum_kodu],
         },
         incentive_applications: {
-          operation: :get_tesvik_basvuru_varmi_v1,
-          result: %i[get_tesvik_basvuru_varmi_v1_response basvuru_durumu],
-          status: %i[get_tesvik_basvuru_varmi_v1_response sonuc durum_kodu],
+          operation: :getir_basvuru_durum,
+          result: %i[getir_basvuru_durum_response basvuru_durum],
+          status: %i[getir_basvuru_durum_response sonuc durum_kodu],
         },
         incentive_activity_declarations: {
-          operation: :get_tesvik_faaliyet_beyan_v1,
-          result: %i[get_tesvik_faaliyet_beyan_v1_response tesvik_beyan_listesi],
-          status: %i[get_tesvik_faaliyet_beyan_v1_response sonuc durum_kodu],
+          operation: :getir_beyan_tesvik,
+          result: %i[getir_beyan_tesvik_response doc_tesvik_beyan],
+          status: %i[getir_beyan_tesvik_response sonuc durum_kodu],
         },
         lectures: {
           operation: :getir_ders_listesi,
