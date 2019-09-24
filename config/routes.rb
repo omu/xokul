@@ -59,13 +59,19 @@ Rails.application.routes.draw do
         get :countries
         get :districts
         get :entrance_types
+        get :formations
         get :gender
+        get :indexes
         get :kod_bid
         get :martyrs_relatives
         get :nationalities
         get :cities
+        get :staff_appointment_types
+        get :staff_duty_types
+        get :staff_dropout_types
         get :staff_titles
         get :student_disability_types
+        get :student_doykm_types
         get :student_drop_out_types
         get :student_education_levels
         get :student_entrance_point_types
