@@ -61,12 +61,18 @@ Askerlik bilgilerini sunan arayüze sahiptir.
 |`countries`                   |GET   |-                  |Ülke referansları
 |`districts`                   |GET   |`city_code`        |İlçe referansları
 |`entrance_types`              |GET   |-                  |Giriş türü referansları
+|`formations`                  |GET   |-                  |Formasyon alanları referansı
 |`gender`                      |GET   |-                  |Cinsiyet referansları
+|`indexes`                     |GET   |-                  |Endeks listesi referansı
 |`kod_bid`                     |GET   |-                  |-
 |`martyrs_relatives`           |GET   |-                  |Şehit veya gazi yakını referansları
 |`nationalities`               |GET   |-                  |Uyruk referansları
+|`staff_appointment_types`     |GET   |-                  |Personel atanma türleri referansı
+|`staff_dropout_types`         |GET   |-                  |Personel ayrılma nedenleri referansı
+|`staff_duty_types`            |GET   |-                  |Personel görev referansları
 |`staff_titles`                |GET   |-                  |Kadro görev ve ünvan referansları
 |`student_disability_types`    |GET   |-                  |Öğrenci engel durumu türleri referansları
+|`student_doykm_type`          |GET   |-                  |-
 |`student_dropout_types`       |GET   |-                  |Öğrenci ayrılma türleri referansları
 |`student_education_levels`    |GET   |-                  |Öğrenci eğitim seviyesi referansları
 |`student_entrance_point_types`|GET   |-                  |Öğrenci giriş puan türleri referansları
