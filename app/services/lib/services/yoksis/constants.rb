@@ -58,10 +58,20 @@ module Services
           result: %i[get_giris_turu_response referanslar],
           status: %i[get_giris_turu_response sonuc durum_aciklama],
         },
+        formations: {
+          operation: :get_formasyon_alanlar,
+          result: %i[get_formasyon_alanlar_response referanslar],
+          status: %i[get_formasyon_alanlar_response sonuc durum_aciklama],
+        },
         gender: {
           operation: :get_mernis_cinsiyet,
           result: %i[get_mernis_cinsiyet_response referanslar],
           status: %i[get_mernis_cinsiyet_response sonuc durum_aciklama],
+        },
+        indexes: {
+          operation: :get_endeks_listesi,
+          result: %i[get_endeks_listesi_response referanslar],
+          status: %i[get_endeks_listesi_response sonuc durum_aciklama],
         },
         kod_bid: {
           operation: :get_kod_bid,
@@ -78,6 +88,21 @@ module Services
           result: %i[get_mernis_uyruk_response referanslar],
           status: %i[get_mernis_uyruk_response sonuc durum_aciklama],
         },
+        staff_duty_types: {
+          operation: :get_personel_gorev,
+          result: %i[get_personel_gorev_response referanslar],
+          status: %i[get_personel_gorev_response sonuc durum_aciklama],
+        },
+        staff_appointment_types: {
+          operation: :get_personel_atanma,
+          result: %i[get_personel_atanma_response referanslar],
+          status: %i[get_personel_atanma_response sonuc durum_aciklama],
+        },
+        staff_dropout_types: {
+          operation: :get_personel_ayrilma,
+          result: %i[get_personel_ayrilma_response referanslar],
+          status: %i[get_personel_ayrilma_response sonuc durum_aciklama],
+        },
         staff_titles: {
           operation: :get_kadro_gorev_unvan,
           result: %i[get_kadro_gorev_unvan_response referanslar],
@@ -87,6 +112,11 @@ module Services
           operation: :get_ogrenci_engel_turu,
           result: %i[get_ogrenci_engel_turu_response referanslar],
           status: %i[get_ogrenci_engel_turu_response sonuc durum_aciklama],
+        },
+        student_doykm_types: {
+          operation: :get_ogrenci_doykm,
+          result: %i[get_ogrenci_doykm_response referanslar],
+          status: %i[get_ogrenci_doykm_response sonuc durum_aciklama],
         },
         student_drop_out_types: {
           operation: :get_ogrenci_ayrilma_nedeni,
