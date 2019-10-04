@@ -13,7 +13,8 @@ module Services
     end
 
     def buildings
-      Connection.request 'BinaListesi'
+      buildings = Sensitive.read('db/encrypted_data/buildings.json')
+      JSON.parse(buildings)
     end
 
     def characteristics
