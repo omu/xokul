@@ -28,11 +28,11 @@ module Services
       Connection.request 'AkademikIdariBirimeGoreBolumListesi', akademikbirimid: unit_id
     end
 
-    def main_functions
+    def main_place_types
       Connection.request 'AnaFonksiyonListesi'
     end
 
-    def sub_functions
+    def sub_place_types
       Connection.request 'AltFonksiyonListesi'
     end
 
