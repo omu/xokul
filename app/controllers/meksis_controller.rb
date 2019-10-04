@@ -27,12 +27,12 @@ class MeksisController < ApplicationController
     render_as_json Services::Meksis.departments(departments_params[:unit_id])
   end
 
-  def main_functions
-    render_as_json Services::Meksis.main_functions
+  def main_place_types
+    render_as_json Services::Meksis.main_place_types
   end
 
-  def sub_functions
-    render_as_json Services::Meksis.sub_functions
+  def sub_place_types
+    render_as_json Services::Meksis.sub_place_types
   end
 
   def classroom_syllabuses
