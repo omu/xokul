@@ -47,4 +47,3 @@ module Sensitive
     )
   end
 end
-
