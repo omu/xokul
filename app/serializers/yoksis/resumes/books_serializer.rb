@@ -22,7 +22,7 @@ module Yoksis
       attribute(:isbn)                      { string         object[:isbn]                                 }
       attribute(:keywords)                  { split_string   object[:anahtar_kelime]                       }
       attribute(:last_update)               { parse_datetime object[:guncelleme_tarihi]                    }
-      attribute(:name)                      { integer        object[:kitap_adi]                            }
+      attribute(:name)                      { string         object[:kitap_adi]                            }
       attribute(:number_of_authors)         { integer        object[:yazar_sayisi]                         }
       attribute(:number_of_citations)       { integer        object[:atif_sayisi]                          }
       attribute(:number_of_copy)            { integer        object[:kacinci_basim]                        }
