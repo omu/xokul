@@ -37,7 +37,7 @@ module Yoksis
       attribute(:type_of_release_id)        { integer        object[:basim_turu]                           }
       attribute(:type_of_release_name)      { string         object[:basim_turu_ad]                        }
       attribute(:year)                      { integer        object[:yil]                                  }
-      attribute(:yoksis_id)                 { integer        object[:y_id]                                 }
+      attribute(:yoksis_id)                 { integer        object[:yayin_id]                             }
     end
   end
 end
