@@ -69,7 +69,8 @@ module Services
       end
 
       def resumes_result(method)
-        @resumes.dig(*ARGS.dig(method, :result))
+        result = @resumes.dig(*ARGS.dig(method, :result))
+        [result].flatten
       end
 
       def params_with_defaults(**params)
