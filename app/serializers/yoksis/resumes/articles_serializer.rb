@@ -14,12 +14,12 @@ module Yoksis
       attribute(:country_id)                { integer        object[:ulke]                                 }
       attribute(:country_name)              { string         object[:ulke_adi]                             }
       attribute(:discipline)                { string         object[:alan_bilgisi]                         }
-      attribute(:doi)                       { integer        object[:doi]                                  }
+      attribute(:doi)                       { string         object[:doi]                                  }
       attribute(:first_page)                { integer        object[:ilk_sayfa]                            }
       attribute(:incentive_point)           { float          object[:tesv_puan]                            }
       attribute(:index)                     { string         object[:endeks]                               }
       attribute(:index_id)                  { integer        object[:endeks_id]                            }
-      attribute(:issn)                      { integer        object[:issn]                                 }
+      attribute(:issn)                      { string         object[:issn]                                 }
       attribute(:issue)                     { integer        object[:sayi]                                 }
       attribute(:journal_name)              { string         object[:dergi_adi]                            }
       attribute(:keywords)                  { split_string   object[:anahtar_kelime]                       }
