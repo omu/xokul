@@ -217,7 +217,7 @@ module Kps
           expire_date:              new_identity_card_informations[:son_gecerlilik_tarih] && build_date(*new_identity_card_informations[:son_gecerlilik_tarih].values_at(:yil, :ay, :gun)),
           place_of_birth:           string(new_identity_card_informations[:dogum_yer]),
           registry_number:          integer(new_identity_card_informations[:kayit_no]),
-          serial_number:            integer(new_identity_card_informations[:seri_no]),
+          serial_number:            string(new_identity_card_informations[:seri_no]),
           admission_reason:         new_identity_card_informations[:basvuru_neden] && {
             code:                   integer(new_identity_card_informations.dig(:basvuru_neden, :kod)),
             description:            string(new_identity_card_informations.dig(:basvuru_neden, :aciklama)),

@@ -15,11 +15,5 @@ AllCops:
     - Vagrantfile
 Documentation:
   Enabled: false
-Rails/UnknownEnv:
-  Environments:
-    - production
-    - development
-    - test
-    - beta
 Metrics/LineLength:
   Max: 120
