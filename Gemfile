@@ -22,12 +22,9 @@ group :beta, :development, :test do
   gem 'bundler-audit', require: false
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'pry-rails'
-  gem 'reek'
   gem 'rubocop'
   gem 'rubocop-performance'
   gem 'rubocop-rails'
-  gem 'vcr'
-  gem 'webmock'
 end
 
 group :development do
