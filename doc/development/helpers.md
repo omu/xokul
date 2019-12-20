@@ -8,7 +8,8 @@ SOAP Client
 
 ### Client
 
-Client, SOAP istek ve yanıtları için [`savon`](https://savonrb.com) istemcisinin sarmalandığı bir sınıftır. İhtiyaç duyulmasının sebebi, tutarsız servis yanıtlarındaki kirliliği yönetmek ve hata denetimini genişletmektir. 
+Client, SOAP istek ve yanıtları için [`savon`](https://savonrb.com) istemcisinin sarmalandığı bir sınıftır. İhtiyaç
+duyulmasının sebebi, tutarsız servis yanıtlarındaki kirliliği yönetmek ve hata denetimini genişletmektir.
 
 Gerçekleme, `lib/client` dizini altındadır.
 
@@ -56,7 +57,8 @@ SOAP isteklerinden dönen yanıtları temsil eder.
 
 #### `dig(*args)`
 
-Yanıt gövdesi daima `Hash` nesnesidir. Bu metod, hash nesnesinde değeri alınmak istenen `key`e giden yolu (path) argüman olarak alır.
+Yanıt gövdesi daima `Hash` nesnesidir. Bu metod, hash nesnesinde değeri alınmak istenen `key`e giden yolu (path)
+argüman olarak alır.
 
 ```ruby
 response.dig(:foo, :bar, :baz)
@@ -71,7 +73,8 @@ Code base'in çeşitli yerlerinde kullanılan yardımcıları içerir. Tüm ger�
 
 #### `safe_to_i`
 
-String, Integer ve Nil nesneleri için kullanılabilir. Serializer katmanında tipe bağlı hataları absorbe etmek için ihtiyaç duyuldu.
+String, Integer ve Nil nesneleri için kullanılabilir. Serializer katmanında tipe bağlı hataları absorbe etmek için
+ihtiyaç duyuldu.
 
 - String nesnelerinde `to_i` metoduyla aynı işi yapar
 - Nil nesnelerinde yine `nil` döndürür

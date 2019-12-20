@@ -3,7 +3,6 @@ Xokul
 
 [![Beta](https://assets.omu.sh/badge/beta.svg)](https://baum.omu.edu.tr "BAUM
 Beta")
-[![CircleCI](https://circleci.com/gh/omu/xokul/tree/master.svg?style=svg&circle-token=35d56d8f2a30dabd31232fa0426841724b2e5789)](https://circleci.com/gh/omu/xokul/tree/master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/603a4334a88c4b0bb1e042e101d8ea55)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=omu/xokul&amp;utm_campaign=Badge_Grade)
 
 Xokul is an API only project that aims to centralize many APIs provided by the Turkish government offices behind a
