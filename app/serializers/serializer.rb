@@ -9,14 +9,14 @@ class Serializer < ActiveModel::Serializer
       ActiveModel::Type::Boolean.new.cast(object.downcase)
     else
       warn "#{object} is not an Float or convertable type. Returned nil."
-      return
+      nil
     end
   end
 
   def float(object)
     case object
     when NilClass
-      return
+      nil
     when Float
       object
     when Nori::StringWithAttributes, String
@@ -25,21 +25,21 @@ class Serializer < ActiveModel::Serializer
       object.to_f
     else
       warn "#{object} is not an Float or convertable type. Returned nil."
-      return
+      nil
     end
   end
 
   def integer(object)
     case object
     when NilClass
-      return
+      nil
     when Integer
       object
     when Float, Nori::StringWithAttributes, String
       object.to_i
     else
       warn "#{object} is not an Integer or convertable type. Returned nil."
-      return
+      nil
     end
   end
 
@@ -59,15 +59,15 @@ class Serializer < ActiveModel::Serializer
 
   def string(object, block = nil, case_conversion: true)
     str = case object
-    when NilClass
-      return
-    when String, Nori::StringWithAttributes
-      object
-    when Float, Integer
-      object.to_s
-    else
-      warn "#{object} is not an String or convertable type. Returned nil."
-      return
+          when NilClass
+            return
+          when String, Nori::StringWithAttributes
+            object
+          when Float, Integer
+            object.to_s
+          else
+            warn "#{object} is not an String or convertable type. Returned nil."
+            return
     end
 
     str = case_conversion ? str.titleize_turkish : str

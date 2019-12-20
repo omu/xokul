@@ -9,7 +9,7 @@ module Yoksis
       attribute(:international_book_citation) { integer        object[:uluslar_kit_atf]                      }
       attribute(:last_update)                 { parse_datetime object[:guncelleme_tarihi]                    }
       attribute(:national_book_citation)      { integer        object[:ulusal_kit_atf]                       }
-      attribute(:other_citations)             { string         object[:diger_atif],   case_conversion: false }
+      attribute(:other_citations)             { string         object[:diger_atif], case_conversion: false }
       attribute(:scope_index)                 { integer        object[:alan_indeks_atf]                      }
       attribute(:ssci_index)                  { integer        object[:ssci_indeks_atf]                      }
       attribute(:term)                        { integer        object[:donem]                                }

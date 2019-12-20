@@ -33,7 +33,6 @@ module Yoksis
         build_date year, month, day
       end
 
-
       attribute :end_date do
         next unless object[:bit_tar]
 

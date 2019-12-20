@@ -26,7 +26,7 @@ module Services
       @client.add_namespace 'xmlns:kay', 'http://kaysis.gov.tr/'
       @client.add_soap_header(
         'kay:BbServiceAuthentication',
-        'kay:KurumID' => username,
+        'kay:KurumID'  => username,
         'kay:Password' => password
       )
     end

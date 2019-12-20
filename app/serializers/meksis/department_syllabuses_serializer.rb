@@ -1,11 +1,12 @@
+# frozen_string_literal: true
 
 module Meksis
   class DepartmentSyllabusesSerializer < Serializer
     attribute(:id)              { integer    object['DersprogramID']                                        }
     attribute(:lecture_name)    { string     object['DersAdi']                                              }
     attribute(:lecture_code)    { string     object['DersKodu']                                             }
-    attribute(:start_date)      { parse_date Time.at((object['DersBaslamaTarihi'])[/([0-9]+)/].to_i / 1000) }
-    attribute(:end_date)        { parse_date Time.at((object['DersBitisTarihi'])[/([0-9]+)/].to_i / 1000)   }
+    attribute(:start_date)      { parse_date Time.zone.at(object['DersBaslamaTarihi'][/([0-9]+)/].to_i / 1000) }
+    attribute(:end_date)        { parse_date Time.zone.at(object['DersBitisTarihi'][/([0-9]+)/].to_i / 1000)   }
     attribute(:start_time)      { string     object['BaslamaSaatiDetay']                                    }
     attribute(:end_time)        { string     object['BitisSaatiDetay']                                      }
     attribute(:classroom_id)    { integer    object['DerslikID']                                            }
