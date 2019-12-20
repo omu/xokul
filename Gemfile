@@ -5,12 +5,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby File.read(File.expand_path('.ruby-version', __dir__))
 
-gem 'active_model_serializers', '0.10.9'
+gem 'active_model_serializers', '~> 0.10.10'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'pagy', '~> 0.6.0'
 gem 'pg', '~> 0.18.2'
 gem 'puma', '~> 3.11'
-gem 'rails', '~> 5.2.1', '>= 5.2.1.1'
+gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 gem 'rollbar'
 gem 'savon'
 
