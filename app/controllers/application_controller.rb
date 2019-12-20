@@ -21,12 +21,12 @@ class ApplicationController < ActionController::API
   def services_error(exception)
     logger.error exception
 
-    render json: { status: exception.code, error: exception },
+    render json:   { status: exception.code, error: exception },
            status: exception.code
   end
 
   def render_as_json(data)
     serializer_type = data.is_a?(Array) ? :each_serializer : :serializer
-    render json: data, "#{serializer_type}": action_serializer
+    render json: data.to_json, "#{serializer_type}": action_serializer
   end
 end

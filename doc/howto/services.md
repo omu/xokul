@@ -1,7 +1,8 @@
 Services
 ========
 
-Servisler, depo kökünden itibaren `app/services` dizini altında konumlandırılmıştır. Tüm servisler tek bir gem gibi davranır ve dizin yapısı ona göre ayarlanmıştır.
+Servisler, depo kökünden itibaren `app/services` dizini altında konumlandırılmıştır. Tüm servisler tek bir gem gibi
+davranır ve dizin yapısı ona göre ayarlanmıştır.
 
 Servis
 ------
@@ -42,7 +43,8 @@ Endpoint
 ### Endpoint ekleme
 
 - `lib/services/service` altında `endpoint.rb` dosyası oluştur
-- Eğer servis SOAP ise gerçeklemede yeniden yazılmış olan [Client](https://github.com/omu/xokul/blob/dev/doc/development/helpers.md#soap-client)'ı kullan
+- Eğer servis SOAP ise gerçeklemede yeniden yazılmış olan
+  [Client](https://github.com/omu/xokul/blob/dev/doc/development/helpers.md#soap-client)'ı kullan
 - Eğer servis REST ise REST istemcisini basit şekilde `service.rb` veya `endpoint.rb` dosyasında gerçekle
 - Metot eklemek için dokümanın [bu bölümünü](#metot-ekleme) incele
 - `lib/services/service.rb` dosyasında endpoint'i `require` et

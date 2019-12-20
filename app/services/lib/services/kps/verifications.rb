@@ -29,9 +29,9 @@ module Services
           ARGS.dig(__method__, :operation),
           args: {
             TCKimlikNo: option[:id_number],
-            Ad: option[:first_name].to_s.upcase(:turkic),
-            Soyad: option[:last_name].to_s.upcase(:turkic),
-            DogumYili: option[:year_of_birth]
+            Ad:         option[:first_name].to_s.upcase(:turkic),
+            Soyad:      option[:last_name].to_s.upcase(:turkic),
+            DogumYili:  option[:year_of_birth]
           }
         )
 
@@ -42,13 +42,13 @@ module Services
         client = Client.new(ENV['KPS_PUBLICV2_WSDL_URL'])
         args = {
           TCKimlikNo: option[:id_number],
-          Ad: option[:first_name].to_s.upcase(:turkic),
-          Soyad: option[:last_name].to_s.upcase(:turkic),
-          DogumGun: option[:day_of_birth],
-          DogumAy: option[:month_of_birth],
-          DogumYil: option[:year_of_birth],
+          Ad:         option[:first_name].to_s.upcase(:turkic),
+          Soyad:      option[:last_name].to_s.upcase(:turkic),
+          DogumGun:   option[:day_of_birth],
+          DogumAy:    option[:month_of_birth],
+          DogumYil:   option[:year_of_birth],
           CuzdanSeri: option[:serial],
-          CuzdanNo: option[:number],
+          CuzdanNo:   option[:number],
           TCKKSeriNo: option[:document_number]
         }
 
@@ -72,10 +72,10 @@ module Services
           ARGS.dig(__method__, :operation),
           args: {
             KimlikNo: option[:id_number],
-            Ad: option[:first_name].to_s.upcase,
-            Soyad: option[:last_name].to_s.upcase,
+            Ad:       option[:first_name].to_s.upcase,
+            Soyad:    option[:last_name].to_s.upcase,
             DogumGun: option[:day_of_birth],
-            DogumAy: option[:month_of_birth],
+            DogumAy:  option[:month_of_birth],
             DogumYil: option[:year_of_birth]
           }
         )

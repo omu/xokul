@@ -5,7 +5,7 @@ module Yoksis
     class AcademicDutiesSerializer < Serializer
       attribute(:academic_status_id)    { integer        object[:akademik_durum]                                   }
       attribute(:academic_status_name)  { string         object[:akademik_durum_adi]                               }
-      attribute(:academic_unit_name)    { string         object[:akademik_birim_adi], ->(p) { p.gsub(/\/*$/, '') } }
+      attribute(:academic_unit_name)    { string         object[:akademik_birim_adi], ->(p) { p.gsub(%r{/*$}, '') } }
       attribute(:activity_id)           { integer        object[:aktif_pasif]                                      }
       attribute(:activity_name)         { string         object[:aktif_pasif_ad]                                   }
       attribute(:country_id)            { integer        object[:ulke_id]                                          }
