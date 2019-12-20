@@ -1,19 +1,31 @@
-require: rubocop-performance
-AllCops:
+inherit_from: .rubocop_common.yml
+
+require:
+  - rubocop-rails
+  - rubocop-minitest
+
+Rails:
+  Enabled: true
+Rails/UnknownEnv:
+  Environments:
+    - development
+    - production
+    - test
+Metrics/BlockLength:
   Exclude:
+    - config/routes/**/*
+AllCops:
+  TargetRubyVersion: 2.6
+  # Do not exclude files from ALL COPS unless it's really necessary!
+  Exclude:
+    - app/**/constants.rb
+    - app/serializers/**/*.rb
     - bin/**/*
-    - config/puma.rb
-    - vendor/bundle/**/*
+    - tmp/**/*
     - db/schema.rb
     - db/migrate/*.rb
-    - config/environments/development.rb
-    - config/environments/production.rb
-    - config/environments/test.rb
+    - config/environments/*.rb
     - config/routes.rb
-    - app/services/**/constants.rb
-    - app/serializers/**/*.rb
+    - node_modules/**/*
     - Vagrantfile
-Documentation:
-  Enabled: false
-Metrics/LineLength:
-  Max: 120
+    - vendor/bundle/**/*
