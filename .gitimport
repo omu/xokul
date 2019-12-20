@@ -7,3 +7,7 @@
       target: .rubocop_common.yml
     - source: etc/markdownlint/markdownlint.yml
       target: .markdownlint_common.yml
+- remote: https://github.com/github/gitignore
+  files:
+    - source: Rails.gitignore
+      target: .gitignore
