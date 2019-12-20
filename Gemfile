@@ -13,16 +13,19 @@ gem 'puma', '~> 3.11'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 gem 'rollbar'
 gem 'savon'
+gem 'webpacker'
 
 # This is a workaround until the issue will be closed. See: https://github.com/liufengyun/hashdiff/issues/45
 gem 'hashdiff', ['>= 1.0.0.beta1', '< 2.0.0']
 
-group :beta, :development, :test do
+group :development, :test do
   gem 'brakeman', require: false
-  gem 'bundler-audit', require: false
+  gem 'bundler-audit'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'dotenv-rails'
   gem 'pry-rails'
   gem 'rubocop'
+  gem 'rubocop-minitest'
   gem 'rubocop-performance'
   gem 'rubocop-rails'
 end
