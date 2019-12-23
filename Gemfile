@@ -7,9 +7,9 @@ ruby File.read(File.expand_path('.ruby-version', __dir__))
 
 gem 'active_model_serializers', '~> 0.10.10'
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'pagy', '~> 0.6.0'
-gem 'pg', '~> 0.18.2'
-gem 'puma', '~> 3.11'
+gem 'pagy', '~> 3.7.1'
+gem 'pg', '~> 1.1.4'
+gem 'puma', '~> 4.3'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 gem 'rollbar'
 gem 'savon'
@@ -31,6 +31,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'listen', '>= 3.0.5', '< 3.3'
   gem 'web-console', '>= 3.3.0'
 end
