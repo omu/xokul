@@ -1,0 +1,1230 @@
+openapi: 3.0.0
+info:
+  title: YÖKSİS API
+  version: '1.0'
+  description: |
+    Bu dokümanda YÖKSİS tarafından sağlanan servislerin "endpoint"lerini, bunların
+    dokümanlarını ve test verilerini bulacaksınız.
+    
+    API istekleri için https://api.omu.sh/yoksis adresini kullanın.
+    
+    > Servisi kullanmaya başlamadan önce yetkilendirilmiş bir API token almanız
+    > gerekmektedir. Bunun için öncelikle **Authentication** dokümanına bakın.
+  license:
+    name: MIT
+    url: 'https://opensource.org/licenses/MIT'
+  contact:
+    name: Bilgisayar Araştırmaları ve Uygulama Merkezi
+    url: 'https://baum.omu.edu.tr'
+    email: contact@baum.omu.edu.tr
+servers:
+  - url: 'https://api.omu.sh/mock/yoksis'
+paths:
+  /references/administrative_functions:
+    get:
+      summary: İdari Görevler
+      tags: []
+      operationId: get-references-administrative_functions
+      description: İdari görev referansları listesini al.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  title: Reference
+                  type: object
+                  description: Referanslar için baz model.
+                  x-examples:
+                    Example:
+                      code: 0
+                      name: string
+                  properties:
+                    code:
+                      type: number
+                      description: Referansı temsil eden tekil kod
+                      minimum: 0
+                    name:
+                      type: string
+                      description: Referans adı
+                  required:
+                    - code
+                    - name
+              examples:
+                Example 1:
+                  value:
+                    - code: 1
+                      name: Rector
+                    - code: 2
+                      name: Dean
+                    - code: 3
+                      name: Head of the Department
+  /references/administrative_units:
+    get:
+      summary: İdari Birimler
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  title: Reference
+                  type: object
+                  description: Referanslar için baz model.
+                  x-examples:
+                    Example:
+                      code: 0
+                      name: string
+                  properties:
+                    code:
+                      type: number
+                      description: Referansı temsil eden tekil kod
+                      minimum: 0
+                    name:
+                      type: string
+                      description: Referans adı
+                  required:
+                    - code
+                    - name
+              examples:
+                Example 1:
+                  value:
+                    - code: 1
+                      name: Council of Higher Education
+                    - code: 2
+                      name: University of ACME
+                    - code: 3
+                      name: Rectorship
+      operationId: get-references-administrative_units
+      description: İdari birim referansları listesini al.
+  /references/cities:
+    get:
+      summary: Şehirler
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  title: Reference
+                  type: object
+                  description: Referanslar için baz model.
+                  x-examples:
+                    Example:
+                      code: 0
+                      name: string
+                  properties:
+                    code:
+                      type: number
+                      description: Referansı temsil eden tekil kod
+                      minimum: 0
+                    name:
+                      type: string
+                      description: Referans adı
+                  required:
+                    - code
+                    - name
+              examples:
+                Example 1:
+                  value:
+                    - code: 1
+                      name: Gotham City
+                    - code: 2
+                      name: Metropolis
+                    - code: 3
+                      name: Riverdale
+                Example 2:
+                  value:
+                    - code: 101
+                      name: Basin City
+                    - code: 102
+                      name: Star City
+                    - code: 103
+                      name: Central City
+      operationId: get-references-cities
+      description: Şehir referansları listesini al.
+  /references/countries:
+    get:
+      summary: Ülkeler
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  title: Reference
+                  type: object
+                  description: Referanslar için baz model.
+                  x-examples:
+                    Example:
+                      code: 0
+                      name: string
+                  properties:
+                    code:
+                      type: number
+                      description: Referansı temsil eden tekil kod
+                      minimum: 0
+                    name:
+                      type: string
+                      description: Referans adı
+                  required:
+                    - code
+                    - name
+              examples:
+                Example 1:
+                  value:
+                    - code: 1
+                      name: Atlantis
+                    - code: 2
+                      name: Bacteria
+                    - code: 3
+                      name: Marley
+                Example 2:
+                  value:
+                    - code: 101
+                      name: Dinotopia
+                    - code: 102
+                      name: Eurasia
+                    - code: 103
+                      name: Oceania
+      operationId: get-references-countries
+      description: Ülke referansları listesini al.
+  /references/entrance_types:
+    get:
+      summary: Giriş Türleri
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  title: Reference
+                  type: object
+                  description: Referanslar için baz model.
+                  x-examples:
+                    Example:
+                      code: 0
+                      name: string
+                  properties:
+                    code:
+                      type: number
+                      description: Referansı temsil eden tekil kod
+                      minimum: 0
+                    name:
+                      type: string
+                      description: Referans adı
+                  required:
+                    - code
+                    - name
+              examples:
+                Example 1:
+                  value:
+                    - code: 1
+                      name: Erasmus
+                    - code: 2
+                      name: Farabi
+                    - code: 3
+                      name: Mevlana
+      operationId: get-references-entrance_types
+      description: Giriş türü referansları listesini al.
+  /references/formations:
+    get:
+      summary: Formasyonlar
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  title: Reference
+                  type: object
+                  description: Referanslar için baz model.
+                  x-examples:
+                    Example:
+                      code: 0
+                      name: string
+                  properties:
+                    code:
+                      type: number
+                      description: Referansı temsil eden tekil kod
+                      minimum: 0
+                    name:
+                      type: string
+                      description: Referans adı
+                  required:
+                    - code
+                    - name
+              examples:
+                Example 1:
+                  value:
+                    - code: 1
+                      name: Biology
+                    - code: 2
+                      name: Geography
+                    - code: 3
+                      name: Philosophy
+      operationId: get-references-formations
+      description: Formasyon referansları listesini al.
+  /references/gender:
+    get:
+      summary: Cinsiyetler
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  title: Reference
+                  type: object
+                  description: Referanslar için baz model.
+                  x-examples:
+                    Example:
+                      code: 0
+                      name: string
+                  properties:
+                    code:
+                      type: number
+                      description: Referansı temsil eden tekil kod
+                      minimum: 0
+                    name:
+                      type: string
+                      description: Referans adı
+                  required:
+                    - code
+                    - name
+              examples:
+                Example 1:
+                  value:
+                    - code: 1
+                      name: Female
+                    - code: 2
+                      name: Male
+      operationId: get-references-gender
+      description: Cinsiyet referansları listesini al.
+  /references/index_types:
+    get:
+      summary: İndeks Türleri
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  title: Reference
+                  type: object
+                  description: Referanslar için baz model.
+                  x-examples:
+                    Example:
+                      code: 0
+                      name: string
+                  properties:
+                    code:
+                      type: number
+                      description: Referansı temsil eden tekil kod
+                      minimum: 0
+                    name:
+                      type: string
+                      description: Referans adı
+                  required:
+                    - code
+                    - name
+              examples:
+                Example 1:
+                  value:
+                    - code: 1
+                      name: AHCI
+                    - code: 2
+                      name: SCI
+                    - code: 3
+                      name: SSCI
+      operationId: get-references-indexes
+      description: İndeks türü referansları listesini al.
+    parameters: []
+  /references/martyrs_relatives:
+    get:
+      summary: Şehit ve/veya Gazi Yakınları
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  title: Reference
+                  type: object
+                  description: Referanslar için baz model.
+                  x-examples:
+                    Example:
+                      code: 0
+                      name: string
+                  properties:
+                    code:
+                      type: number
+                      description: Referansı temsil eden tekil kod
+                      minimum: 0
+                    name:
+                      type: string
+                      description: Referans adı
+                  required:
+                    - code
+                    - name
+              examples:
+                Example 1:
+                  value:
+                    - code: 1
+                      name: 'Yes'
+                    - code: 2
+                      name: 'No'
+      operationId: get-references-martyrs_relatives
+      description: Şehit ve/veya gazi yakını referansları listesini al.
+  /references/nationalities:
+    get:
+      summary: Uyruklar
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  title: Reference
+                  type: object
+                  description: Referanslar için baz model.
+                  x-examples:
+                    Example:
+                      code: 0
+                      name: string
+                  properties:
+                    code:
+                      type: number
+                      description: Referansı temsil eden tekil kod
+                      minimum: 0
+                    name:
+                      type: string
+                      description: Referans adı
+                  required:
+                    - code
+                    - name
+              examples:
+                Example 1:
+                  value:
+                    - code: 1
+                      name: Atlantis
+                    - code: 2
+                      name: Bacteria
+                    - code: 3
+                      name: Marley
+                Example 2:
+                  value:
+                    - code: 101
+                      name: Dinotopia
+                    - code: 102
+                      name: Eurasia
+                    - code: 103
+                      name: Oceania
+      operationId: get-references-nationalities
+      description: Uyruk referansları listesini al.
+  /references/staff_appointment_types:
+    get:
+      summary: Görevli Atama Türleri
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  title: Reference
+                  type: object
+                  description: Referanslar için baz model.
+                  x-examples:
+                    Example:
+                      code: 0
+                      name: string
+                  properties:
+                    code:
+                      type: number
+                      description: Referansı temsil eden tekil kod
+                      minimum: 0
+                    name:
+                      type: string
+                      description: Referans adı
+                  required:
+                    - code
+                    - name
+              examples:
+                Example 1:
+                  value:
+                    - code: 1
+                      name: DUS
+                    - code: 2
+                      name: EUS
+                    - code: 3
+                      name: TUS
+      operationId: get-references-staff_appointment_types
+      description: Görevli atama türü referansları listesini al.
+  /references/staff_duty_types:
+    get:
+      summary: Personel Görev Türleri
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  title: Reference
+                  type: object
+                  description: Referanslar için baz model.
+                  x-examples:
+                    Example:
+                      code: 0
+                      name: string
+                  properties:
+                    code:
+                      type: number
+                      description: Referansı temsil eden tekil kod
+                      minimum: 0
+                    name:
+                      type: string
+                      description: Referans adı
+                  required:
+                    - code
+                    - name
+              examples:
+                Example 1:
+                  value:
+                    - code: 1
+                      name: DUS
+                    - code: 2
+                      name: EUS
+                    - code: 3
+                      name: TUS
+        '':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Reference'
+              examples:
+                example-1:
+                  value:
+                    - code: 1
+                      name: Dean
+                    - code: 2
+                      name: Faculty Secretary
+                    - code: 3
+                      name: Head of Department
+      operationId: get-references-staff_dropout_types
+      description: Personel görev türü referansları listesini al.
+    parameters: []
+  /references/staff_titles:
+    get:
+      summary: Personel Unvanları
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  title: Reference
+                  type: object
+                  description: Referanslar için baz model.
+                  x-examples:
+                    Example:
+                      code: 0
+                      name: string
+                  properties:
+                    code:
+                      type: number
+                      description: Referansı temsil eden tekil kod
+                      minimum: 0
+                    name:
+                      type: string
+                      description: Referans adı
+                  required:
+                    - code
+                    - name
+              examples:
+                Example 1:
+                  value:
+                    - code: 1
+                      name: Associate Professor
+                    - code: 2
+                      name: Professor
+                    - code: 3
+                      name: Researcher
+      operationId: get-references-staff_titles
+      description: Personel unvan referansları listesini al.
+  /references/student_disability_types:
+    get:
+      summary: Öğrenci Engel Türleri
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  title: Reference
+                  type: object
+                  description: Referanslar için baz model.
+                  x-examples:
+                    Example:
+                      code: 0
+                      name: string
+                  properties:
+                    code:
+                      type: number
+                      description: Referansı temsil eden tekil kod
+                      minimum: 0
+                    name:
+                      type: string
+                      description: Referans adı
+                  required:
+                    - code
+                    - name
+              examples:
+                Example 1:
+                  value:
+                    - code: 1
+                      name: Hearing impaired
+                    - code: 2
+                      name: Mentally disabled
+                    - code: 3
+                      name: Partially-sighted
+      operationId: get-references-student_disability_types
+      description: Öğrenci engel türü referansları listesini al.
+  /references/student_dropout_types:
+    get:
+      summary: Öğrenci Ayrılma Türleri
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  title: Reference
+                  type: object
+                  description: Referanslar için baz model.
+                  x-examples:
+                    Example:
+                      code: 0
+                      name: string
+                  properties:
+                    code:
+                      type: number
+                      description: Referansı temsil eden tekil kod
+                      minimum: 0
+                    name:
+                      type: string
+                      description: Referans adı
+                  required:
+                    - code
+                    - name
+              examples:
+                Example 1:
+                  value:
+                    - code: 1
+                      name: Farabi
+                    - code: 2
+                      name: Mevlana
+                    - code: 3
+                      name: Internal Transfer
+      operationId: get-references-student_dropout_types
+      description: Öğrenci ayrılma türü referansları listesini al.
+  /references/student_education_levels:
+    get:
+      summary: Öğrenci Eğitim Dereceleri
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  title: Reference
+                  type: object
+                  description: Referanslar için baz model.
+                  x-examples:
+                    Example:
+                      code: 0
+                      name: string
+                  properties:
+                    code:
+                      type: number
+                      description: Referansı temsil eden tekil kod
+                      minimum: 0
+                    name:
+                      type: string
+                      description: Referans adı
+                  required:
+                    - code
+                    - name
+              examples:
+                Example 1:
+                  value:
+                    - code: 1
+                      name: Associate Degree
+                    - code: 2
+                      name: Undergraduate
+                    - code: 3
+                      name: Postgraduate
+      operationId: get-references-student_education_levels
+      description: Öğrenci eğitim derecesi referansları listesini al.
+  /references/student_entrance_point_types:
+    get:
+      summary: Öğrenci Giriş Puan Türleri
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  title: Reference
+                  type: object
+                  description: Referanslar için baz model.
+                  x-examples:
+                    Example:
+                      code: 0
+                      name: string
+                  properties:
+                    code:
+                      type: number
+                      description: Referansı temsil eden tekil kod
+                      minimum: 0
+                    name:
+                      type: string
+                      description: Referans adı
+                  required:
+                    - code
+                    - name
+              examples:
+                Example 1:
+                  value:
+                    - code: 1
+                      name: MF
+                    - code: 2
+                      name: SAY
+                    - code: 3
+                      name: SOZ
+      operationId: get-references-student_entrance_point_types
+      description: Öğrenci giriş puan türü referansları listesini al.
+  /references/student_entrance_types:
+    get:
+      summary: Öğrenci Giriş Türleri
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  title: Reference
+                  type: object
+                  description: Referanslar için baz model.
+                  x-examples:
+                    Example:
+                      code: 0
+                      name: string
+                  properties:
+                    code:
+                      type: number
+                      description: Referansı temsil eden tekil kod
+                      minimum: 0
+                    name:
+                      type: string
+                      description: Referans adı
+                  required:
+                    - code
+                    - name
+              examples:
+                Example 1:
+                  value:
+                    - code: 1
+                      name: DGS
+                    - code: 2
+                      name: Farabi
+                    - code: 3
+                      name: Internal Transfer
+      operationId: get-references-student_entrance_types
+      description: Öğrenci giriş türü referansları listesini al.
+  /references/student_grades:
+    get:
+      summary: Öğrenci Sınıf Türleri
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  title: Reference
+                  type: object
+                  description: Referanslar için baz model.
+                  x-examples:
+                    Example:
+                      code: 0
+                      name: string
+                  properties:
+                    code:
+                      type: number
+                      description: Referansı temsil eden tekil kod
+                      minimum: 0
+                    name:
+                      type: string
+                      description: Referans adı
+                  required:
+                    - code
+                    - name
+              examples:
+                Example 1:
+                  value:
+                    - code: 1
+                      name: Freshman
+                    - code: 2
+                      name: Sophomore
+                    - code: 3
+                      name: Junior
+                    - code: 4
+                      name: Senior
+      operationId: get-references-student_grades
+      description: Öğrenci sınıf türü referansları listesini al.
+  /references/student_grading_systems:
+    get:
+      summary: Öğrenci Notlandırma Sistemleri
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  title: Reference
+                  type: object
+                  description: Referanslar için baz model.
+                  x-examples:
+                    Example:
+                      code: 0
+                      name: string
+                  properties:
+                    code:
+                      type: number
+                      description: Referansı temsil eden tekil kod
+                      minimum: 0
+                    name:
+                      type: string
+                      description: Referans adı
+                  required:
+                    - code
+                    - name
+              examples:
+                Example 1:
+                  value:
+                    - code: 1
+                      name: Average
+                    - code: 2
+                      name: Excellent
+                    - code: 3
+                      name: Good
+      operationId: get-references-student_grading_systems
+      description: Öğrenci notlandırma sistemi referansları listesini al.
+  /references/student_punishment_types:
+    get:
+      summary: Öğrenci Ceza Türleri
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  title: Reference
+                  type: object
+                  description: Referanslar için baz model.
+                  x-examples:
+                    Example:
+                      code: 0
+                      name: string
+                  properties:
+                    code:
+                      type: number
+                      description: Referansı temsil eden tekil kod
+                      minimum: 0
+                    name:
+                      type: string
+                      description: Referans adı
+                  required:
+                    - code
+                    - name
+              examples:
+                Example 1:
+                  value:
+                    - code: 1
+                      name: Prisoner
+                    - code: 2
+                      name: Reprimand
+                    - code: 3
+                      name: Rusticated
+      operationId: get-references-student_punishment_types
+      description: Öğrenci ceza türü referansları listesini al.
+  /references/studentship_rights:
+    get:
+      summary: Öğrencilik Hakkı Türleri
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  title: Reference
+                  type: object
+                  description: Referanslar için baz model.
+                  x-examples:
+                    Example:
+                      code: 0
+                      name: string
+                  properties:
+                    code:
+                      type: number
+                      description: Referansı temsil eden tekil kod
+                      minimum: 0
+                    name:
+                      type: string
+                      description: Referans adı
+                  required:
+                    - code
+                    - name
+              examples:
+                Example 1:
+                  value:
+                    - code: 1
+                      name: 'Yes'
+                    - code: 2
+                      name: 'No'
+      operationId: get-references-studentship_rights
+      description: Öğrencilik hakkı türü referansları listesini al.
+  /references/studentship_statuses:
+    get:
+      summary: Öğrencilik Durumu Türleri
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  title: Reference
+                  type: object
+                  description: Referanslar için baz model.
+                  x-examples:
+                    Example:
+                      code: 0
+                      name: string
+                  properties:
+                    code:
+                      type: number
+                      description: Referansı temsil eden tekil kod
+                      minimum: 0
+                    name:
+                      type: string
+                      description: Referans adı
+                  required:
+                    - code
+                    - name
+              examples:
+                Example 1:
+                  value:
+                    - code: 1
+                      name: Active
+                    - code: 2
+                      name: Passive
+                    - code: 3
+                      name: Punished
+      operationId: get-references-studentship_statuses
+      description: Öğrencilik durumu türü referansları listesini al.
+  /references/unit_instruction_languages:
+    get:
+      summary: Öğrenim Dili Türleri
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  title: Reference
+                  type: object
+                  description: Referanslar için baz model.
+                  x-examples:
+                    Example:
+                      code: 0
+                      name: string
+                  properties:
+                    code:
+                      type: number
+                      description: Referansı temsil eden tekil kod
+                      minimum: 0
+                    name:
+                      type: string
+                      description: Referans adı
+                  required:
+                    - code
+                    - name
+              examples:
+                Example 1:
+                  value:
+                    - code: 1
+                      name: Turkish
+                    - code: 2
+                      name: English
+                    - code: 3
+                      name: French
+      operationId: get-references-unit_instruction_languages
+      description: Öğrenim dili türü referanslarını al.
+  /references/unit_statuses:
+    get:
+      summary: Birim Durumu Türleri
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  title: Reference
+                  type: object
+                  description: Referanslar için baz model.
+                  x-examples:
+                    Example:
+                      code: 0
+                      name: string
+                  properties:
+                    code:
+                      type: number
+                      description: Referansı temsil eden tekil kod
+                      minimum: 0
+                    name:
+                      type: string
+                      description: Referans adı
+                  required:
+                    - code
+                    - name
+              examples:
+                Example 1:
+                  value:
+                    - code: 1
+                      name: Active
+                    - code: 2
+                      name: Passive
+                    - code: 3
+                      name: Archived
+      operationId: get-references-unit_statuses
+      description: Birim durumu türü referansları listesini al.
+  /references/unit_types:
+    get:
+      summary: Birim Türleri
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  title: Reference
+                  type: object
+                  description: Referanslar için baz model.
+                  x-examples:
+                    Example:
+                      code: 0
+                      name: string
+                  properties:
+                    code:
+                      type: number
+                      description: Referansı temsil eden tekil kod
+                      minimum: 0
+                    name:
+                      type: string
+                      description: Referans adı
+                  required:
+                    - code
+                    - name
+              examples:
+                Example 1:
+                  value:
+                    - code: 1
+                      name: Faculty
+                    - code: 2
+                      name: Institution
+                    - code: 3
+                      name: University
+      operationId: get-references-unit_types
+      description: Birim türü referansları listesini al.
+  /references/university_types:
+    get:
+      summary: Üniversite Türleri
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  title: Reference
+                  type: object
+                  description: Referanslar için baz model.
+                  x-examples:
+                    Example:
+                      code: 0
+                      name: string
+                  properties:
+                    code:
+                      type: number
+                      description: Referansı temsil eden tekil kod
+                      minimum: 0
+                    name:
+                      type: string
+                      description: Referans adı
+                  required:
+                    - code
+                    - name
+              examples:
+                Example 1:
+                  value:
+                    - code: 1
+                      name: Foundation Universities
+                    - code: 2
+                      name: State Universities
+                    - code: 3
+                      name: Others
+      operationId: get-references-university_types
+      description: Üniversite türü referansları listesini al.
+  /references/unit_instruction_types:
+    get:
+      summary: Öğrenim Türleri
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  title: Reference
+                  type: object
+                  description: Referanslar için baz model.
+                  x-examples:
+                    Example:
+                      code: 0
+                      name: string
+                  properties:
+                    code:
+                      type: number
+                      description: Referansı temsil eden tekil kod
+                      minimum: 0
+                    name:
+                      type: string
+                      description: Referans adı
+                  required:
+                    - code
+                    - name
+              examples:
+                Example 1:
+                  value:
+                    - code: 1
+                      name: Daytime Education
+                    - code: 2
+                      name: Distance Education
+                    - code: 3
+                      name: Open Education
+      operationId: get-references-unit_instruction_types
+      description: Öğrenim türü referansları listesini al.
+components:
+  schemas:
+    Reference:
+      title: Reference
+      type: object
+      description: Referanslar için baz model.
+      x-examples:
+        Example:
+          code: 0
+          name: string
+      properties:
+        code:
+          type: number
+          description: Referansı temsil eden tekil kod
+          minimum: 0
+        name:
+          type: string
+          description: Referans adı
+      required:
+        - code
+        - name
+  securitySchemes: {}
