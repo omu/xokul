@@ -27,6 +27,6 @@ class ApplicationController < ActionController::API
 
   def render_as_json(data)
     serializer_type = data.is_a?(Array) ? :each_serializer : :serializer
-    render json: data.to_json, "#{serializer_type}": action_serializer
+    render "#{serializer_type}": action_serializer, json: data, root: 'hash'
   end
 end
