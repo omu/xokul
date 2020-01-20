@@ -1,7 +1,8 @@
 KPS
 ===
 
-KPS servisi, SOAP arayüzünü kullanarak [KPS](https://kimlikdogrulama.nvi.gov.tr) tarafından sunulan servislerle haberleşir.
+KPS servisi, SOAP arayüzünü kullanarak [KPS](https://kimlikdogrulama.nvi.gov.tr) tarafından sunulan servislerle
+haberleşir.
 
 Endpoints
 ---------
@@ -24,8 +25,8 @@ Kimlik ve adres sorguları yapan arayüze sahiptir.
 
 Endpoints:
 
-- https://api.omu.sh/kps/queries/addresses
-- https://api.omu.sh/kps/queries/identities
+- [Adresler](https://api.omu.sh/kps/queries/addresses)
+- [Kimlik Bilgileri](https://api.omu.sh/kps/queries/identities)
 
 **Not**: Bu endpoint'in altındaki tüm action'lar gerçeklenmiştir.
 
@@ -42,11 +43,9 @@ Kişiye ait çeşitli doğrulamalar yapan arayüze sahiptir.
 - `number`: Kimlik kartı üzerindeki kart numarası
 - `document_number`: Dijital kimlik kartları üzerindeki seri numarası
 
-**Not:** Yabancı ve Türk uyruklu kimlik doğrulamaları tek bir endpoint üzerinden
-yapılmaktadır. Bu yüzden `/id_cards` endpoint'i için her iki doğrulamada da
-aşağıdaki parametreler zorunlu iken sadece Türk uyrukluları doğrularken
-`serial` ve `number` eklenmelidir. Doğrulanan kişi için `document_number`
-kullanılacak ise `serial` ve `number` kullanmayın.
+**Not:** Yabancı ve Türk uyruklu kimlik doğrulamaları tek bir endpoint üzerinden yapılmaktadır. Bu yüzden `/id_cards`
+endpoint'i için her iki doğrulamada da aşağıdaki parametreler zorunlu iken sadece Türk uyrukluları doğrularken `serial`
+ve `number` eklenmelidir. Doğrulanan kişi için `document_number` kullanılacak ise `serial` ve `number` kullanmayın.
 
 - `id_number`
 - `first_name`
@@ -57,5 +56,5 @@ kullanılacak ise `serial` ve `number` kullanmayın.
 
 Endpoints:
 
-- https://api.omu.sh/kps/verifications/id_cards
-- https://api.omu.sh/kps/verifications/id_numbers
+- [Kimlik Kartları](https://api.omu.sh/kps/verifications/id_cards)
+- [Kimlik Numaraları](https://api.omu.sh/kps/verifications/id_numbers)

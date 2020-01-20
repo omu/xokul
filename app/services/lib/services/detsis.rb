@@ -6,38 +6,107 @@ module Services
 
     WSDL_URL = 'https://bbws.kaysis.gov.tr/DETSISServis.asmx?WSDL'
 
-    RESPONSE_PATH = %i[
-      kendi_tum_birimleri_getir_ws_response
-      kendi_tum_birimleri_getir_ws_result
-      sonuclar
-      kurum_birim_ws
-    ].freeze
-
-    ERROR_PATH = %i[
-      kendi_tum_birimleri_getir_ws_response
-      kendi_tum_birimleri_getir_ws_result
-      sonuc_hatali
-    ].freeze
-
-    private_constant :RESPONSE_PATH, :ERROR_PATH
+    # rubocop:disable Layout/LineLength
+    ARGS = {
+      active_kep_addresses:               {
+        operation: :aktif_kep_adreslerini_getir,
+        result:    %i[aktif_kep_adreslerini_getir_response aktif_kep_adreslerini_getir_result sonuclar kep_bilgileri_ws],
+        status:    %i[aktif_kep_adreslerini_getir_response aktif_kep_adreslerini_getir_result sonuc_hatali]
+      },
+      officiers:                          {
+        operation: :detsis_islem_yetkilisi_bilgileri_ws,
+        result:    %i[detsis_islem_yetkilisi_bilgileri_ws_response detsis_islem_yetkilisi_bilgileri_ws_result sonuclar detsis_kullanici],
+        status:    %i[detsis_islem_yetkilisi_bilgileri_ws_response detsis_islem_yetkilisi_bilgileri_ws_result sonuc_hatali]
+      },
+      parent_establishments_budget_types: {
+        operation: :ana_kurumlar_butce_turleri_getir_ws,
+        result:    %i[ana_kurumlar_butce_turleri_getir_ws_response ana_kurumlar_butce_turleri_getir_ws_result sonuclar ana_kurumlar_butce_turleri],
+        status:    %i[ana_kurumlar_butce_turleri_getir_ws_response ana_kurumlar_butce_turleri_getir_ws_result sonuc_hatali]
+      },
+      parent_establishments_contacts:     {
+        operation: :anakurum_iletisim_bilgileri_ws,
+        result:    %i[anakurum_iletisim_bilgileri_ws_response anakurum_iletisim_bilgileri_ws_result sonuclar iletisim_bilgileri_ws],
+        status:    %i[anakurum_iletisim_bilgileri_ws_response anakurum_iletisim_bilgileri_ws_result sonuc_hatali]
+      },
+      parent_establishments:              {
+        operation: :ana_kurumlari_getir_kurum_birim_ws,
+        result:    %i[ana_kurumlari_getir_kurum_birim_ws_response ana_kurumlari_getir_kurum_birim_ws_result sonuclar kurum_birim_ws],
+        status:    %i[ana_kurumlari_getir_kurum_birim_ws_response ana_kurumlari_getir_kurum_birim_ws_result sonuc_hatali]
+      },
+      place_codes:                        {
+        operation: :tum_yer_kodlari_getir_ws,
+        result:    %i[tum_yer_kodlari_getir_ws_response tum_yer_kodlari_getir_ws_result sonuclar res_yer_kodlari],
+        status:    %i[tum_yer_kodlari_getir_ws_response tum_yer_kodlari_getir_ws_result sonuc_hatali]
+      },
+      sdp_codes:                          {
+        operation: :kurum_sdp_kodlari_getir_ws,
+        result:    %i[kurum_sdp_kodlari_getir_ws_response kurum_sdp_kodlari_getir_ws_result sonuclar kodlar_ws_obj],
+        status:    %i[kurum_sdp_kodlari_getir_ws_response kurum_sdp_kodlari_getir_ws_result sonuc_hatali]
+      },
+      type_one_codes:                     {
+        operation: :tum_tip1_kodlari_getir_ws,
+        result:    %i[tum_tip1_kodlari_getir_ws_response tum_tip1_kodlari_getir_ws_result sonuclar res_kurum_birim_tipleri1],
+        status:    %i[tum_tip1_kodlari_getir_ws_response tum_tip1_kodlari_getir_ws_result sonuc_hatali]
+      },
+      type_two_codes:                     {
+        operation: :tum_tip2_kodlari_getir_ws,
+        result:    %i[tum_tip2_kodlari_getir_ws_response tum_tip2_kodlari_getir_ws_result sonuclar res_kurum_birim_tipleri2],
+        status:    %i[tum_tip2_kodlari_getir_ws_response tum_tip2_kodlari_getir_ws_result sonuc_hatali]
+      },
+      units:                              {
+        operation: :kendi_tum_birimleri_getir_ws,
+        result:    %i[kendi_tum_birimleri_getir_ws_response kendi_tum_birimleri_getir_ws_result sonuclar kurum_birim_ws],
+        status:    %i[kendi_tum_birimleri_getir_ws_response kendi_tum_birimleri_getir_ws_result sonuc_hatali]
+      }
+    }.freeze
+    # rubocop:enable Layout/LineLength
 
     def initialize(username, password)
       @client = Client.new(WSDL_URL)
       @client.add_namespace 'xmlns:kay', 'http://kaysis.gov.tr/'
       @client.add_soap_header(
         'kay:BbServiceAuthentication',
-        'kay:KurumID' => username,
+        'kay:KurumID'  => username,
         'kay:Password' => password
       )
     end
 
-    def units
-      response = client.request(:kendi_tum_birimleri_getir_ws)
+    ARGS.keys.each do |method|
+      define_method(method) do
+        next if method.eql?(:sdp_codes)
 
-      raise InvalidResponseError if response.dig(*ERROR_PATH)
-      raise NoContentError unless response.dig(*RESPONSE_PATH, &:present?)
+        @response = client.request(ARGS.dig(method, :operation))
 
-      response.dig(*RESPONSE_PATH)
+        raise InvalidResponseError if response_has_error?(method)
+        raise NoContentError unless response_has_body?(method)
+
+        result(method)
+      end
+    end
+
+    def sdp_codes(administrative_identity_code)
+      @response = client.request(
+        ARGS.dig(:sdp_codes, :operation), args: { IdariKimlikKodu: administrative_identity_code }
+      )
+
+      raise InvalidResponseError if response_has_error?(:sdp_codes)
+      raise NoContentError unless response_has_body?(:sdp_codes)
+
+      result(:sdp_codes)
+    end
+
+    private
+
+    def response_has_error?(method)
+      @response.dig(*ARGS.dig(method, :status)).eql?('false')
+    end
+
+    def response_has_body?(method)
+      @response.dig(*ARGS.dig(method, :result), &:present?)
+    end
+
+    def result(method)
+      @response.dig(*ARGS.dig(method, :result))
     end
 
     protected

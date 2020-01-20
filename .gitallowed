@@ -1,0 +1,5 @@
+\bdatabase\.yml
+\bGemfile\.lock
+\bmeksis\.rb
+\byarn\.lock
+^README.md:[6-8]:

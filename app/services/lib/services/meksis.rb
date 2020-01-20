@@ -56,14 +56,14 @@ module Services
     module Connection
       WSDL_URL = 'https://meksis.gov.tr/Services/meksisservice.svc/rest'
       HEADER   = {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
+        'Accept':        'application/json',
+        'Content-Type':  'application/json',
         'Authorization': "Basic #{Rails.application.credentials.meksis[:basic_auth]}"
       }.freeze
       PARAMS = {
         universiteid: Rails.application.credentials.meksis[:university_id].to_i,
-        kullanici: Rails.application.credentials.meksis[:username],
-        sifre: Rails.application.credentials.meksis[:password]
+        kullanici:    Rails.application.credentials.meksis[:username],
+        sifre:        Rails.application.credentials.meksis[:password]
       }.freeze
 
       module_function

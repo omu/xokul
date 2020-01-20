@@ -1,29 +1,47 @@
-**Açıklama**
+#### Bu PR'in yaptığı işi/değişikliği ve bu işi/değişikliği neden yaptığını açıklayın
 
-<!--
-Pull request içeriğini anlatın.
--->
+[//]: # (Kısa ve net bir şekilde bu PR'e neden ihtiyaç var?)
+[//]: # (Ne iş/değişiklik yapıyor?)
 
-**Kapatacağı iş kaydı**
+#### İlgili/kapatılacak iş kayıtları
 
-<!--
-Pull request merge edildiğinde kapatacağı veya etkileyeceği iş kayıtlarını
+[//]: # (PR merge edildiğinde hangi iş kayıtları kapatılacak ise `Closes`, `Fixes` gibi anahtar kelimeler ile birlikte ID numaralarını listele)
+[//]: # (Kapatılmayan ancak referans verilecek iş kayıtları için `References` anahtar kelimesini kullan)
 
-Closes #ID
-Fixes #ID
+#### Teknik borç kayıtları
 
-gibi anahtar kelimelerle belirtin.
--->
+[//]: # (PR ile geliştirilen çözümün eksiklikleri varsa "Teknik borç" türünde iş kayıtları oluşturulmalı)
+[//]: # (İş kaydını ön izlemeye al ve aşağıda görüntülenen bağlantıyı yeni sekmede aç)
+[//]: # (Bu şekilde oluşturulan kayıtları `References` anahtar kelimesiyle listele)
+[//]: # (DİKKAT! TEKNİK BORÇ YOKSA AŞAĞIDAKİ SATIRI N/A İLE DEĞİŞTİRİN VEYA SİLİN!)
 
-**Veritabanına etkileri**
+[Teknik borç](../issues/new?labels=debt&template=debt.md)
 
-<!--
-Pull request merge edildiğinde veritabanını etkiliyorsa bu etkileri açıklayın.
--->
+#### Veritabanına etkileri
 
-**Kontrol listesi**
+[//]: # (PR merge edildiğinde veritabanı üzerinde herhangi bir düzenleme gerekecek mi?)
+[//]: # (Örnek: migration, seed, add/drop)
 
-- [ ] PR başlığının sadece ilk harfi büyük, yazım kurallarına uygun ve emir kipinde
-- [ ] [Katkı sağlama dokümanına](https://github.com/omu/xokul/CONTRIBUTING.md) uygun
-- [ ] Test coverage, kod kalite vb. tüm entegrasyonlar başarıyla geçiyor ve negatif etki (düşüş) yaratmıyor
-- [ ] Gerekli etiketler verildi
+#### Sistem etkileri
+
+[//]: # (PR merge edildiğinde sunucular üzerinde herhangi bir düzenleme gerekecek mi?)
+[//]: # (Örnek: yeni paket kurulması, buildpack eklenmesi)
+
+#### Kontrol listesi
+
+- [ ] [Katkı sağlama dokümanını](../blob/master/.github/CONTRIBUTING.md) okudum
+- [ ] İş kaydının başlığı kurallara (sadece ilk harf büyük, emir kipinde problem cümlesi) uygun
+- [ ] Yapılan iş/değişikliği dokümante ettim
+- [ ] Yapılan iş/değişikliğin testlerini yazdım
+- [ ] Test coverage oranını kontrol ettim
+- [ ] Kod kalitesi (karma) ve test suite dahil olmak üzere tüm entegre kontroller başarıyla geçiyor
+- [ ] Kendimi bu PR'e assign ettim
+- [ ] Yapılan iş/değişiklik ile ilgili proje üyelerinden review talep ettim
+- [ ] Gerekli etiketlemeyi (ör. bug) yaptım
+
+#### Ek içerik
+
+[//]: # (Kaynaklar)
+[//]: # (Dış bağlantılar)
+[//]: # (Ekran görüntüleri)
+[//]: # (Örnek çözümler)

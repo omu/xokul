@@ -30,7 +30,7 @@ module Yoksis
         build_date year, month, day
       end
 
-      attribute :end_date  do
+      attribute :end_date do
         next unless object[:bittar]
 
         year, month, day = object[:bittar].split('.').reverse

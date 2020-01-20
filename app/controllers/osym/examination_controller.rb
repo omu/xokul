@@ -13,8 +13,8 @@ module Osym
     def result_informations
       render_as_json @examination.result_informations(
         id_number: secure_params.require(:id_number),
-        year: secure_params.require(:year),
-        group_id: secure_params.require(:group_id)
+        year:      secure_params.require(:year),
+        group_id:  secure_params.require(:group_id)
       )
     end
 
