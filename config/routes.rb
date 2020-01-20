@@ -2,6 +2,15 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   namespace :detsis, defaults: { format: :json } do
+    get :active_kep_addresses
+    get :officiers
+    get :parent_establishments_budget_types
+    get :parent_establishments_contacts
+    get :parent_establishments
+    get :place_codes
+    get :sdp_codes
+    get :type_one_codes
+    get :type_two_codes
     get :units
   end
 
