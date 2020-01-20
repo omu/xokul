@@ -38,7 +38,7 @@ class DetsisController < ApplicationController
   end
 
   def sdp_codes
-    render_as_json @detsis.sdp_codes sdp_codes_params[:identity_code]
+    render_as_json @detsis.sdp_codes sdp_codes_params[:administrative_identity_code]
   end
 
   def units
@@ -55,6 +55,6 @@ class DetsisController < ApplicationController
   end
 
   def sdp_codes_params
-    params.require(:detsi).permit(:identity_code)
+    params.require(:detsi).permit(:administrative_identity_code)
   end
 end
