@@ -20,7 +20,7 @@ class DetsisController < ApplicationController
   def parent_establishments_contacts
     render_as_json @detsis.parent_establishments_contacts
   end
-  
+
   def officiers
     render_as_json @detsis.officiers
   end
@@ -44,7 +44,7 @@ class DetsisController < ApplicationController
   def units
     render_as_json @detsis.units
   end
-  
+
   private
 
   def set_detsis

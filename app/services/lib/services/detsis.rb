@@ -6,6 +6,7 @@ module Services
 
     WSDL_URL = 'https://bbws.kaysis.gov.tr/DETSISServis.asmx?WSDL'
 
+    # rubocop:disable Layout/LineLength
     ARGS = {
       active_kep_addresses:               {
         operation: :aktif_kep_adreslerini_getir,
@@ -58,6 +59,7 @@ module Services
         status:    %i[kendi_tum_birimleri_getir_ws_response kendi_tum_birimleri_getir_ws_result sonuc_hatali]
       }
     }.freeze
+    # rubocop:enable Layout/LineLength
 
     def initialize(username, password)
       @client = Client.new(WSDL_URL)
@@ -83,7 +85,9 @@ module Services
     end
 
     def sdp_codes(administrative_identity_code)
-      @response = client.request(ARGS.dig(:sdp_codes, :operation), args: { IdariKimlikKodu: administrative_identity_code })
+      @response = client.request(
+        ARGS.dig(:sdp_codes, :operation), args: { IdariKimlikKodu: administrative_identity_code }
+      )
 
       raise InvalidResponseError if response_has_error?(:sdp_codes)
       raise NoContentError unless response_has_body?(:sdp_codes)
