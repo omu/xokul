@@ -1,4 +1,5 @@
 \bdatabase\.yml
+\bsdp_codes\.json\.enc
 \bGemfile\.lock
 \bmeksis\.rb
 \byarn\.lock
