@@ -41,6 +41,10 @@ class DetsisController < ApplicationController
     render_as_json @detsis.sdp_codes sdp_codes_params[:administrative_identity_code]
   end
 
+  def sdp_code_references
+    render json: @detsis.sdp_code_references
+  end
+
   def units
     render_as_json @detsis.units
   end
