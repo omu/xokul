@@ -165,7 +165,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    rollbar (2.23.1)
+    rollbar (2.23.2)
     rubocop (0.79.0)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
