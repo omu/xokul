@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get :parent_establishments
     get :place_codes
     get :sdp_codes
+    get :sdp_code_references
     get :type_one_codes
     get :type_two_codes
     get :units

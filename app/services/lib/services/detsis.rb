@@ -95,6 +95,11 @@ module Services
       result(:sdp_codes)
     end
 
+    def sdp_code_references
+      references = Sensitive.read('db/encrypted_data/sdp_codes.json')
+      JSON.parse(references)
+    end
+
     private
 
     def response_has_error?(method)
