@@ -13,7 +13,6 @@ gem 'puma', '~> 4.3'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 gem 'rollbar'
 gem 'savon'
-gem 'webpacker'
 
 # This is a workaround until the issue will be closed. See: https://github.com/liufengyun/hashdiff/issues/45
 gem 'hashdiff', ['>= 1.0.0.beta1', '< 2.0.0']
