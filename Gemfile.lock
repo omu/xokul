@@ -117,7 +117,7 @@ GEM
     nokogiri (1.10.7)
       mini_portile2 (~> 2.4.0)
     nori (2.6.0)
-    pagy (3.7.2)
+    pagy (3.7.3)
     parallel (1.19.1)
     parser (2.7.0.2)
       ast (~> 2.4.0)
@@ -231,7 +231,7 @@ DEPENDENCIES
   dotenv-rails
   hashdiff (>= 1.0.0.beta1, < 2.0.0)
   listen (>= 3.0.5, < 3.3)
-  pagy (~> 3.7.2)
+  pagy (~> 3.7.3)
   pg (~> 1.2.1)
   pry-rails
   puma (~> 4.3)
