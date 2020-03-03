@@ -5,7 +5,7 @@ require_relative 'lib/xokul/client/version'
 Gem::Specification.new do |spec|
   spec.name        = 'xokul-client'
   spec.summary     = 'Simple client for the Xokul API'
-  spec.description = 'Ruby toolkit kit for working with the Xokul API'
+  spec.description = 'Ruby toolkit for working with the Xokul API'
   spec.version     = Xokul::Client::VERSION
 
   spec.license = 'MIT'
