@@ -1,11 +1,15 @@
-require "test_helper"
+# frozen_string_literal: true
 
-class Xokul::ClientTest < Minitest::Test
-  def test_that_it_has_a_version_number
-    refute_nil ::Xokul::Client::VERSION
-  end
+require 'test_helper'
 
-  def test_it_does_something_useful
-    assert false
+module Xokul
+  class ClientTest < Minitest::Test
+    def test_that_it_has_a_version_number
+      assert_not_nil ::Xokul::Client::VERSION
+    end
+
+    def test_it_does_something_useful
+      assert false
+    end
   end
 end
