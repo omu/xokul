@@ -1,4 +1,6 @@
-require "xokul/client/version"
+# frozen_string_literal: true
+
+require 'xokul/client/version'
 
 module Xokul
   module Client
