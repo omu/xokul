@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require_relative 'lib/xokul/client/version'
+require_relative 'lib/xokul/version'
 
 Gem::Specification.new do |spec|
   spec.name        = 'xokul-client'
   spec.summary     = 'Simple client for the Xokul API'
   spec.description = 'Ruby toolkit for working with the Xokul API'
-  spec.version     = Xokul::Client::VERSION
+  spec.version     = Xokul::VERSION
 
   spec.license = 'MIT'
   
