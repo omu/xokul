@@ -10,7 +10,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'pagy', '~> 3.7.3'
 gem 'pg', '~> 1.2.1'
 gem 'puma', '~> 4.3'
-gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
+gem 'rails', '~> 6.0.3'
 gem 'rollbar'
 gem 'savon'
 gem 'webpacker'
