@@ -7,10 +7,12 @@ ruby File.read(File.expand_path('.ruby-version', __dir__))
 
 gem 'active_model_serializers', '~> 0.10.10'
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'pagy', '~> 3.7.3'
+gem 'pagy', '~> 3.8.1'
 gem 'pg', '~> 1.2.1'
+gem 'pagy', '~> 3.7.3'
+gem 'pg', '~> 1.2.3'
 gem 'puma', '~> 4.3'
-gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
+gem 'rails', '~> 6.0.3'
 gem 'rollbar'
 gem 'savon'
 gem 'webpacker'
