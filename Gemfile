@@ -10,9 +10,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'pagy', '~> 3.7.3'
 gem 'pg', '~> 1.2.1'
 gem 'puma', '~> 4.3'
-gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
+gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 gem 'rollbar'
-gem 'savon'
+gem 'savon', '>= 2.12.0'
 gem 'webpacker', '>= 4.2.2'
 
 # This is a workaround until the issue will be closed. See: https://github.com/liufengyun/hashdiff/issues/45
@@ -27,7 +27,7 @@ group :development, :test do
   gem 'rubocop'
   gem 'rubocop-minitest'
   gem 'rubocop-performance'
-  gem 'rubocop-rails'
+  gem 'rubocop-rails', '>= 2.4.2'
 end
 
 group :development do
