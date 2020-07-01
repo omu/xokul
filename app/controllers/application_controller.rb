@@ -6,6 +6,7 @@ class ApplicationController < ActionController::API
   rescue_from Client::TCPError,               with: :services_error
   rescue_from Client::UnknownOperationError,  with: :services_error
   rescue_from Services::InvalidResponseError, with: :services_error
+  rescue_from Services::Error,                with: :services_error
   rescue_from Services::NoContentError,       with: :services_error
 
   rescue_from ActionController::ParameterMissing do |exception|
@@ -20,9 +21,7 @@ class ApplicationController < ActionController::API
 
   def services_error(exception)
     logger.error exception
-
-    render json:   { status: exception.code, error: exception },
-           status: exception.code
+    render json: { error: exception.message }, status: :internal_server_error
   end
 
   def render_as_json(data)
