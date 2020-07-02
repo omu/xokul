@@ -4,31 +4,25 @@ module Yoksis
   class ProspectivesController < ApplicationController
     include ActionsResource
 
-    # rubocop:disable Metrics/AbcSize
+    # rubocop:disable Metrics/MethodLength
     def students
       r = if prospectives_params[:id_number].present?
-            prospectives.student(
-              prospectives_params[:id_number],
-              prospectives_params[:type],
-              prospectives_params[:year]
-            )
+            student_details
           else
-            prospectives.students(**common_params)
+            registration_type = prospectives_params[:registration_type]&.to_sym
+            case registration_type
+            when :online
+              online_registered_students
+            when :manual
+              manual_registered_students
+            else
+              prospectives.students(**common_params)
+            end
           end
 
       render_as_json r
     end
-    # rubocop:enable Metrics/AbcSize
-
-    def through_electronic
-      r = prospectives.students(common_params.merge(online: true))
-      render_as_json r
-    end
-
-    def without_electronics
-      r = prospectives.students(common_params.merge(online: false))
-      render_as_json r
-    end
+    # rubocop:enable Metrics/MethodLength
 
     def photo
       r = prospectives.photo(prospectives_params[:id_number])
@@ -45,7 +39,7 @@ module Yoksis
     end
 
     def prospectives_params
-      params.require(:prospective).permit(:type, :year, :online, :id_number, :page, :per_page)
+      params.require(:prospective).permit(:type, :year, :online, :id_number, :registration_type, :page, :per_page)
     end
 
     def common_params
@@ -58,6 +52,22 @@ module Yoksis
       q[:per_page] = params[:per_page] if params[:per_page]
 
       q
+    end
+
+    def online_registered_students
+      prospectives.students(common_params.merge(online: true))
+    end
+
+    def manual_registered_students
+      prospectives.students(common_params.merge(online: false))
+    end
+
+    def student_details
+      prospectives.student(
+        prospectives_params[:id_number],
+        prospectives_params[:type],
+        prospectives_params[:year]
+      )
     end
   end
 end
