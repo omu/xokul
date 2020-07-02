@@ -50,13 +50,13 @@ module Services
           return response.body if skip_decode
 
           r = (JSON.parse response.body).deep_symbolize_keys
-          headers = {
-            'current-page': r[:number],
-            'page-items':   r[:numberOfElements],
-            'total-pages':  r[:totalPages],
-            'total-count':  r[:totalElements]
+          meta = {
+            current_page: r[:number],
+            page_items:   r[:numberOfElements],
+            total_pages:  r[:totalPages],
+            total_count:  r[:totalElements]
           }
-          [r[:content], headers]
+          { data: r[:content], meta: meta }
         else
           raise Error, response.body.force_encoding('utf-8').tr('"', '')
         end

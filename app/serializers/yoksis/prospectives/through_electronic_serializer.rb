@@ -2,7 +2,7 @@
 
 module Yoksis
   module Prospectives
-    class OnlineRegistrationsSerializer < StudentsSerializer
+    class ThroughElectronicSerializer < StudentsSerializer
     end
   end
 end

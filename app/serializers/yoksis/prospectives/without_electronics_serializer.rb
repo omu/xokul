@@ -2,7 +2,7 @@
 
 module Yoksis
   module Prospectives
-    class ManualRegistrationsSerializer < StudentsSerializer
+    class WithoutElectronicsSerializer < StudentsSerializer
     end
   end
 end

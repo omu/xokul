@@ -104,8 +104,8 @@ Rails.application.routes.draw do
         get :students
 
         scope :students do
-          get :online_registrations, to: 'prospectives#online_registrations'
-          get :manual_registrations, to: 'prospectives#manual_registrations'
+          get :through_electronic, to: 'prospectives#through_electronic'
+          get :without_electronics, to: 'prospectives#without_electronics'
           get :photo, to: 'prospectives#photo'
         end
       end
