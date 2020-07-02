@@ -99,6 +99,16 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :prospectives, only: %i[] do
+      collection do
+        get :students
+
+        scope :students do
+          get :photo, to: 'prospectives#photo'
+        end
+      end
+    end
+
     resources :resumes do
       collection do
         get :academic_duties

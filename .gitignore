@@ -58,6 +58,14 @@ node_modules/
 /public/packs-test
 /public/assets
 
+# Ignore misc.
+/coverage
+mkmf.log
+.vagrant*/
+.env
+.envrc
+/.local/
+
 # Ignore yarn files
 /yarn-error.log
 yarn-debug.log*
@@ -66,3 +74,7 @@ yarn-debug.log*
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
+
+# RuboCop generates leftover config file when a common configuration is
+# inherited from a remote source. To avoid this, we have to ignore the file.
+/.rubocop-*-yml
