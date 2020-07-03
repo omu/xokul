@@ -14,6 +14,10 @@ module Yoksis
       render_as_json @references.districts(city_code: secure_params.require(:city_code))
     end
 
+    def placement_types
+      render json: { data: { general: 'Genel', additional_score: 'Ek Puanlı' } }
+    end
+
     private
 
     def set_references

@@ -76,6 +76,7 @@ Rails.application.routes.draw do
         get :martyrs_relatives
         get :nationalities
         get :cities
+        get :placement_types
         get :staff_appointment_types
         get :staff_duty_types
         get :staff_dropout_types
