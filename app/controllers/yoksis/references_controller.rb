@@ -18,6 +18,10 @@ module Yoksis
       render json: { data: { general: 'Genel', additional_score: 'Ek Puanlı' } }
     end
 
+    def term_types
+      render json: { data: @references.term_types }
+    end
+
     private
 
     def set_references

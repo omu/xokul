@@ -4,6 +4,7 @@ module Services
   module Yoksis
     class References
       WSDL_URL = 'https://servisler.yok.gov.tr/ws/Referanslarv1?WSDL'
+      TERM_TYPES_ENDPOINT = 'http://servisler.yok.gov.tr/rest/schema/donemTur'
 
       ARGS.each_key do |method|
         define_method method do
@@ -27,6 +28,14 @@ module Services
         reference_result :districts
       end
 
+      def term_types
+        xpath = %w[schema simpleType restriction enumeration]
+        parser = Nori.new(delete_namespace_attributes: true, strip_namespaces: true)
+        response = RestClient.get(TERM_TYPES_ENDPOINT)
+        collection = parser.parse(response.body).dig(*xpath)
+        collection.map { |object| object.values }.flatten
+      end
+      
       private
 
       def reference_has_error?(method)

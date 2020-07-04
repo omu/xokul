@@ -92,6 +92,7 @@ Rails.application.routes.draw do
         get :student_punishment_types
         get :student_studentship_rights
         get :student_studentship_statuses
+        get :term_types
         get :unit_instruction_languages
         get :unit_instruction_types
         get :unit_statuses
