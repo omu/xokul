@@ -93,7 +93,7 @@ GEM
     httpi (2.4.4)
       rack
       socksify
-    i18n (1.8.3)
+    i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     jsonapi-renderer (0.2.2)
     listen (3.2.1)
