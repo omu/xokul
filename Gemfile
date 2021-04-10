@@ -23,10 +23,10 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails', '>= 2.7.5'
   gem 'pry-rails'
-  gem 'rubocop'
-  gem 'rubocop-minitest'
-  gem 'rubocop-performance'
-  gem 'rubocop-rails'
+  gem 'rubocop', '>= 0.86.0'
+  gem 'rubocop-minitest', '>= 0.9.0'
+  gem 'rubocop-performance', '>= 1.6.1'
+  gem 'rubocop-rails', '>= 2.6.0'
 end
 
 group :development do
