@@ -10,9 +10,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'pagy', '~> 3.8.1'
 gem 'pg', '~> 1.2.3'
 gem 'puma', '~> 4.3'
-gem 'rails', '~> 6.0.3'
+gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'rollbar'
-gem 'savon'
+gem 'savon', '>= 2.12.0'
 
 # This is a workaround until the issue will be closed. See: https://github.com/liufengyun/hashdiff/issues/45
 gem 'hashdiff', ['>= 1.0.0.beta1', '< 2.0.0']
@@ -31,5 +31,5 @@ end
 
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.3'
-  gem 'web-console', '>= 4.0.1'
+  gem 'web-console', '>= 4.0.3'
 end
