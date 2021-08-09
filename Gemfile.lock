@@ -167,7 +167,7 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (2.1.1)
-    rexml (3.2.4)
+    rexml (3.2.5)
     rollbar (2.26.0)
     rubocop (0.86.0)
       parallel (~> 1.10)
