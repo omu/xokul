@@ -121,7 +121,7 @@ GEM
     nori (2.6.0)
     pagy (3.8.2)
     parallel (1.19.2)
-    parser (2.7.1.4)
+    parser (3.0.3.1)
       ast (~> 2.4.1)
     pg (1.2.3)
     pry (0.13.1)
