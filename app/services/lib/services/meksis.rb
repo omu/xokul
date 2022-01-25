@@ -54,7 +54,7 @@ module Services
     end
 
     module Connection
-      WSDL_URL = 'https://meksis.gov.tr/Services/meksisservice.svc/rest'
+      WSDL_URL = 'https://meksis.sbb.gov.tr/Services/meksisservice.svc/rest'
       HEADER   = {
         'Accept':        'application/json',
         'Content-Type':  'application/json',
