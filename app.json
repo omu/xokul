@@ -7,7 +7,7 @@
   ],
   "scripts": {
     "dokku": {
-      "postdeploy": "bundle exec rails db:migrate"
+      "predeploy": "bundle install -j4 --path /app/vendor/bundle --without development:test && bundle exec rails db:migrate"
     }
   }
 }
