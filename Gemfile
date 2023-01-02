@@ -9,7 +9,7 @@ gem 'active_model_serializers', '~> 0.10.10'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'pagy', '~> 3.8.1'
 gem 'pg', '~> 1.2.3'
-gem 'puma', '~> 4.3'
+gem 'puma', '~> 6.0'
 gem 'rails', '~> 6.0.3'
 gem 'rollbar'
 gem 'savon'
