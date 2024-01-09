@@ -3,7 +3,7 @@
 module Services
   module Yoksis
     class Units
-      WSDL_URL = 'https://servisler.yok.gov.tr/ws/UniversiteBirimlerv4?WSDL'
+      WSDL_URL = 'https://servisler.yok.gov.tr/ws/yuksekogretim/egitim?wsdl'
 
       def changes(day:, month:, year:)
         @changes = client.request(
@@ -19,7 +19,7 @@ module Services
 
       def names(unit_id:)
         @names = client.request(
-          ARGS.dig(:names, :operation), args: { BIRIM_ID: unit_id }
+          ARGS.dig(:names, :operation), args: { BirimId: unit_id }
         )
 
         raise InvalidResponseError if names_has_error?
@@ -39,7 +39,7 @@ module Services
 
       def programs(unit_id:)
         @programs = client.request(
-          ARGS.dig(:programs, :operation), args: { BIRIM_ID: unit_id }
+          ARGS.dig(:programs, :operation), args: { BirimId: unit_id }
         )
 
         raise InvalidResponseError if programs_has_error?
@@ -50,7 +50,7 @@ module Services
 
       def subunits(unit_id:)
         @subunits = client.request(
-          ARGS.dig(:subunits, :operation), args: { BIRIM_ID: unit_id }
+          ARGS.dig(:subunits, :operation), args: { BirimId: unit_id }
         )
 
         raise InvalidResponseError if subunits_has_error?
@@ -62,7 +62,7 @@ module Services
       private
 
       def changes_has_error?
-        @changes.dig(*ARGS.dig(:changes, :status)) != 'Başarılı'
+        @changes.dig(*ARGS.dig(:changes, :status)) != '1'
       end
 
       def changes_has_response?
@@ -75,7 +75,7 @@ module Services
       end
 
       def names_has_error?
-        @names.dig(*ARGS.dig(:names, :status)) != 'Başarılı'
+        @names.dig(*ARGS.dig(:names, :status)) != '1'
       end
 
       def names_has_response?
@@ -88,7 +88,7 @@ module Services
       end
 
       def universities_has_error?
-        @universities.dig(*ARGS.dig(:universities, :status)) != 'Başarılı'
+        @universities.dig(*ARGS.dig(:universities, :status)) != '1'
       end
 
       def universities_has_response?
@@ -103,7 +103,7 @@ module Services
       end
 
       def programs_has_error?
-        @programs.dig(*ARGS.dig(:programs, :status)) != 'Başarılı'
+        @programs.dig(*ARGS.dig(:programs, :status)) != '1'
       end
 
       def programs_has_response?
@@ -116,7 +116,7 @@ module Services
       end
 
       def subunits_has_error?
-        @subunits.dig(*ARGS.dig(:subunits, :status)) != 'Başarılı'
+        @subunits.dig(*ARGS.dig(:subunits, :status)) != '1'
       end
 
       def subunits_has_response?

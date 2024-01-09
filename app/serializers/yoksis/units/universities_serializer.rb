@@ -5,7 +5,7 @@ module Yoksis
     class UniversitiesSerializer < Serializer
       attribute(:address)      { string  object[:adres]                                                             }
       attribute(:email)        { string  object[:eposta]                                                            }
-      attribute(:english_name) { string  object[:birim_adi_ingilizce], ->(p) { p.titleize }, case_conversion: false }
+      attribute(:english_name) { string  object[:birim_ingilizce_adi], ->(p) { p.titleize }, case_conversion: false }
       attribute(:fax)          { string  object[:faks]                                                              }
       attribute(:name)         { string  object[:birim_adi]                                                         }
       attribute(:phone)        { string  object[:telefon]                                                           }

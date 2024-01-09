@@ -3,12 +3,12 @@
 module Services
   module Yoksis
     class References
-      WSDL_URL = 'https://servisler.yok.gov.tr/ws/Referanslarv1?WSDL'
+      WSDL_URL = 'https://servisler.yok.gov.tr/ws/yuksekogretim/egitim?wsdl'
       TERM_TYPES_ENDPOINT = 'http://servisler.yok.gov.tr/rest/schema/donemTur'
 
       ARGS.each_key do |method|
         define_method method do
-          @reference = client.request(ARGS.dig(method, :operation))
+          @reference = client.request(ARGS.dig(method, :operation), args: { Kod: ARGS.dig(method, :code) })
 
           raise InvalidResponseError if reference_has_error? method
           raise NoContentError unless reference_has_response? method
@@ -19,7 +19,7 @@ module Services
 
       def districts(city_code:)
         @reference = client.request(
-          ARGS.dig(:districts, :operation), args: { ILKODU: city_code }
+          ARGS.dig(:districts, :operation), args: { Kod: ARGS.dig(__method__, :code), Id: city_code }
         )
 
         raise InvalidResponseError if reference_has_error? :districts
@@ -35,11 +35,11 @@ module Services
         collection = parser.parse(response.body).dig(*xpath)
         collection.map { |object| object.values }.flatten
       end
-      
+
       private
 
       def reference_has_error?(method)
-        @reference.dig(*ARGS.dig(method, :status)) != 'Başarılı'
+        @reference.dig(*ARGS.dig(method, :status)) != '1'
       end
 
       def reference_has_response?(method)

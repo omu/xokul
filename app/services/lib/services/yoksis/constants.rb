@@ -27,166 +27,53 @@ module Services
       }.freeze
     end
     class References < Base
+      reference_parameters = {
+        operation: :referans_deger,
+        result: %i[referans_deger_response referans],
+        status: %i[referans_deger_response sonuc sonuc_kod],
+      }
       ARGS = {
-        administrative_functions: {
-          operation: :get_personel_gorev,
-          result: %i[get_personel_gorev_response referanslar],
-          status: %i[get_personel_gorev_response sonuc durum_aciklama],
-        },
-        administrative_units: {
-          operation: :get_idari_birimler,
-          result: %i[get_idari_birimler_response idari_birimler],
-          status: %i[get_idari_birimler_response sonuc durum_aciklama],
-        },
-        cities: {
-          operation: :get_il_getir,
-          result: %i[get_il_getir_response il_kodu],
-          status: %i[get_il_getir_response sonuc durum_aciklama],
-        },
-        countries: {
-          operation: :get_mernis_ulke,
-          result: %i[get_mernis_ulke_response referanslar],
-          status: %i[get_mernis_ulke_response sonuc durum_aciklama],
-        },
+        academic_year: reference_parameters.merge(code: 31),
+        administrative_functions: reference_parameters.merge(code: 26),
+        cities: reference_parameters.merge(code: 29),
+        countries: reference_parameters.merge(code: 8),
+        course_register_types: reference_parameters.merge(code: 34),
+        course_status: reference_parameters.merge(code: 33),
+        course_term: reference_parameters.merge(code: 35),
+        credit_types: reference_parameters.merge(code: 38),
+        final_status: reference_parameters.merge(code: 37),
+        formations: reference_parameters.merge(code: 5),
+        gender: reference_parameters.merge(code: 10),
+        indexes: reference_parameters.merge(code: 4),
+        kod_bid: reference_parameters.merge(code: 7),
+        martyrs_relatives: reference_parameters.merge(code: 15),
+        nationalities: reference_parameters.merge(code: 9),
+        staff_duty_types: reference_parameters.merge(code: 26),
+        staff_appointment_types: reference_parameters.merge(code: 24),
+        staff_dropout_types: reference_parameters.merge(code: 25),
+        staff_titles: reference_parameters.merge(code: 6),
+        student_disability_types: reference_parameters.merge(code: 14),
+        student_drop_out_types: reference_parameters.merge(code: 11),
+        student_education_levels: reference_parameters.merge(code: 13),
+        student_entrance_point_types: reference_parameters.merge(code: 16),
+        student_entrance_types: reference_parameters.merge(code: 17),
+        student_grades: reference_parameters.merge(code: 20),
+        student_grading_systems: reference_parameters.merge(code: 12),
+        student_punishment_types: reference_parameters.merge(code: 2),
+        student_studentship_rights: reference_parameters.merge(code: 18),
+        student_studentship_statuses: reference_parameters.merge(code: 19),
+        term: reference_parameters.merge(code: 36),
+        unit_instruction_languages: reference_parameters.merge(code: 21),
+        unit_instruction_types: reference_parameters.merge(code: 22),
+        unit_statuses: reference_parameters.merge(code: 0),
+        unit_types: reference_parameters.merge(code: 1),
+        university_types: reference_parameters.merge(code: 27),
+        yoksis_country: reference_parameters.merge(code: 28),
         districts: {
-          operation: :get_ilce_getir,
-          result: %i[get_ilce_getir_response ilce_kodlari],
-          status: %i[get_ilce_getir_response sonuc durum_aciklama],
-        },
-        entrance_types: {
-          operation: :get_giris_turu,
-          result: %i[get_giris_turu_response referanslar],
-          status: %i[get_giris_turu_response sonuc durum_aciklama],
-        },
-        formations: {
-          operation: :get_formasyon_alanlar,
-          result: %i[get_formasyon_alanlar_response referanslar],
-          status: %i[get_formasyon_alanlar_response sonuc durum_aciklama],
-        },
-        gender: {
-          operation: :get_mernis_cinsiyet,
-          result: %i[get_mernis_cinsiyet_response referanslar],
-          status: %i[get_mernis_cinsiyet_response sonuc durum_aciklama],
-        },
-        indexes: {
-          operation: :get_endeks_listesi,
-          result: %i[get_endeks_listesi_response referanslar],
-          status: %i[get_endeks_listesi_response sonuc durum_aciklama],
-        },
-        kod_bid: {
-          operation: :get_kod_bid,
-          result: %i[get_kod_bid_response referanslar],
-          status: %i[get_kod_bid_response sonuc durum_aciklama],
-        },
-        martyrs_relatives: {
-          operation: :get_ogrenci_gazi_sehit_yakini,
-          result: %i[get_ogrenci_gazi_sehit_yakini_response referanslar],
-          status: %i[get_ogrenci_gazi_sehit_yakini_response sonuc durum_aciklama],
-        },
-        nationalities: {
-          operation: :get_mernis_uyruk,
-          result: %i[get_mernis_uyruk_response referanslar],
-          status: %i[get_mernis_uyruk_response sonuc durum_aciklama],
-        },
-        staff_duty_types: {
-          operation: :get_personel_gorev,
-          result: %i[get_personel_gorev_response referanslar],
-          status: %i[get_personel_gorev_response sonuc durum_aciklama],
-        },
-        staff_appointment_types: {
-          operation: :get_personel_atanma,
-          result: %i[get_personel_atanma_response referanslar],
-          status: %i[get_personel_atanma_response sonuc durum_aciklama],
-        },
-        staff_dropout_types: {
-          operation: :get_personel_ayrilma,
-          result: %i[get_personel_ayrilma_response referanslar],
-          status: %i[get_personel_ayrilma_response sonuc durum_aciklama],
-        },
-        staff_titles: {
-          operation: :get_kadro_gorev_unvan,
-          result: %i[get_kadro_gorev_unvan_response referanslar],
-          status: %i[get_kadro_gorev_unvan_response sonuc durum_aciklama],
-        },
-        student_disability_types: {
-          operation: :get_ogrenci_engel_turu,
-          result: %i[get_ogrenci_engel_turu_response referanslar],
-          status: %i[get_ogrenci_engel_turu_response sonuc durum_aciklama],
-        },
-        student_doykm_types: {
-          operation: :get_ogrenci_doykm,
-          result: %i[get_ogrenci_doykm_response referanslar],
-          status: %i[get_ogrenci_doykm_response sonuc durum_aciklama],
-        },
-        student_drop_out_types: {
-          operation: :get_ogrenci_ayrilma_nedeni,
-          result: %i[get_ogrenci_ayrilma_nedeni_response referanslar],
-          status: %i[get_ogrenci_ayrilma_nedeni_response sonuc durum_aciklama],
-        },
-        student_education_levels: {
-          operation: :get_ogrenci_doykm,
-          result: %i[get_ogrenci_doykm_response referanslar],
-          status: %i[get_ogrenci_doykm_response sonuc durum_aciklama],
-        },
-        student_entrance_point_types: {
-          operation: :get_ogrenci_giris_puan_turu,
-          result: %i[get_ogrenci_giris_puan_turu_response referanslar],
-          status: %i[get_ogrenci_giris_puan_turu_response sonuc durum_aciklama],
-        },
-        student_entrance_types: {
-          operation: :get_ogrenci_giris_turu,
-          result: %i[get_ogrenci_giris_turu_response referanslar],
-          status: %i[get_ogrenci_giris_turu_response sonuc durum_aciklama],
-        },
-        student_grades: {
-          operation: :get_ogrenci_sinif,
-          result: %i[get_ogrenci_sinif_response referanslar],
-          status: %i[get_ogrenci_sinif_response sonuc durum_aciklama],
-        },
-        student_grading_systems: {
-          operation: :get_ogrenci_diploma_not_sistemi,
-          result: %i[get_ogrenci_diploma_not_sistemi_response referanslar],
-          status: %i[get_ogrenci_diploma_not_sistemi_response sonuc durum_aciklama],
-        },
-        student_punishment_types: {
-          operation: :get_ceza_turu,
-          result: %i[get_ceza_turu_response referanslar],
-          status: %i[get_ceza_turu_response sonuc durum_aciklama],
-        },
-        student_studentship_rights: {
-          operation: :get_ogrenci_ogrencilik_hakki,
-          result: %i[get_ogrenci_ogrencilik_hakki_response referanslar],
-          status: %i[get_ogrenci_ogrencilik_hakki_response sonuc durum_aciklama],
-        },
-        student_studentship_statuses: {
-          operation: :get_ogrencilik_statusu,
-          result: %i[get_ogrencilik_statusu_response referanslar],
-          status: %i[get_ogrencilik_statusu_response sonuc durum_aciklama],
-        },
-        unit_instruction_languages: {
-          operation: :get_ogrenim_dili,
-          result: %i[get_ogrenim_dili_response referanslar],
-          status: %i[get_ogrenim_dili_response sonuc durum_aciklama],
-        },
-        unit_instruction_types: {
-          operation: :get_ogrenim_turu,
-          result: %i[get_ogrenim_turu_response referanslar],
-          status: %i[get_ogrenim_turu_response sonuc durum_aciklama],
-        },
-        unit_statuses: {
-          operation: :get_aktiflik_durumu,
-          result: %i[get_aktiflik_durumu_response referanslar],
-          status: %i[get_aktiflik_durumu_response sonuc durum_aciklama],
-        },
-        unit_types: {
-          operation: :get_birim_turu,
-          result: %i[get_birim_turu_response referanslar],
-          status: %i[get_birim_turu_response sonuc durum_aciklama],
-        },
-        university_types: {
-          operation: :get_universite_turu,
-          result: %i[get_universite_turu_response referanslar],
-          status: %i[get_universite_turu_response sonuc durum_aciklama],
+          operation: :referans_alt_deger,
+          code: 30,
+          result: %i[referans_alt_deger_response referans],
+          status: %i[referans_alt_deger_response sonuc sonuc_kod],
         },
       }.freeze
     end
@@ -359,29 +246,29 @@ module Services
     class Units < Base
       ARGS = {
         changes: {
-          operation: :tarihten_birim_degisiklik_getirv4,
-          result: %i[tarihten_birim_degisiklik_getirv4_response birimler],
-          status: %i[tarihten_birim_degisiklik_getirv4_response sonuc durum_aciklama],
+          operation: :birim_degisiklik,
+          result: %i[birim_degisiklik_response birim],
+          status: %i[birim_degisiklik_response sonuc sonuc_kod],
         },
         names: {
-          operation: :i_dden_birim_adi_getirv4,
-          result: %i[i_dden_birim_adi_getirv4_response birim],
-          status: %i[i_dden_birim_adi_getirv4_response sonuc durum_aciklama],
+          operation: :birim,
+          result: %i[birim_response birim],
+          status: %i[birim_response sonuc sonuc_kod],
         },
         universities: {
-          operation: :universiteleri_getirv4,
-          result: %i[universiteleri_getirv4_response universiteler],
-          status: %i[universiteleri_getirv4_response sonuc durum_aciklama],
+          operation: :birim_universite,
+          result: %i[birim_universite_response universite],
+          status: %i[birim_universite_response sonuc sonuc_kod],
         },
         programs: {
-          operation: :alt_birimdeki_programlari_getirv4,
-          result: %i[alt_birimdeki_programlari_getirv4_response birimler],
-          status: %i[alt_birimdeki_programlari_getirv4_response sonuc durum_aciklama],
+          operation: :birim_program,
+          result: %i[birim_program_response birim],
+          status: %i[birim_program_response sonuc sonuc_kod],
         },
         subunits: {
-          operation: :alt_birimleri_getirv4,
-          result: %i[alt_birimleri_getirv4_response birimler],
-          status: %i[alt_birimleri_getirv4_response sonuc durum_aciklama],
+          operation: :birim_tum_alt,
+          result: %i[birim_tum_alt_response birim],
+          status: %i[birim_tum_alt_response sonuc sonuc_kod],
         },
       }.freeze
     end
