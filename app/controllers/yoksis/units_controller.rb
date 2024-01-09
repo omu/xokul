@@ -30,7 +30,12 @@ module Yoksis
     private
 
     def set_units
-      @units = Services::Yoksis::Units.new
+      @units = Services::Yoksis::Units.new(
+        basic_auth: [
+          Rails.application.credentials.yoksis[:client_id],
+          Rails.application.credentials.yoksis[:client_secret]
+        ]
+      )
     end
 
     def changes_params
