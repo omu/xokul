@@ -25,7 +25,12 @@ module Yoksis
     private
 
     def set_references
-      @references = Services::Yoksis::References.new
+      @references = Services::Yoksis::References.new(
+        basic_auth: [
+          Rails.application.credentials.yoksis[:client_id],
+          Rails.application.credentials.yoksis[:client_secret]
+        ]
+      )
     end
 
     def secure_params
