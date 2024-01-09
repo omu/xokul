@@ -246,29 +246,29 @@ module Services
     class Units < Base
       ARGS = {
         changes: {
-          operation: :tarihten_birim_degisiklik_getirv4,
-          result: %i[tarihten_birim_degisiklik_getirv4_response birimler],
-          status: %i[tarihten_birim_degisiklik_getirv4_response sonuc durum_aciklama],
+          operation: :birim_degisiklik,
+          result: %i[birim_degisiklik_response birim],
+          status: %i[birim_degisiklik_response sonuc sonuc_kod],
         },
         names: {
-          operation: :i_dden_birim_adi_getirv4,
-          result: %i[i_dden_birim_adi_getirv4_response birim],
-          status: %i[i_dden_birim_adi_getirv4_response sonuc durum_aciklama],
+          operation: :birim,
+          result: %i[birim_response birim],
+          status: %i[birim_response sonuc sonuc_kod],
         },
         universities: {
-          operation: :universiteleri_getirv4,
-          result: %i[universiteleri_getirv4_response universiteler],
-          status: %i[universiteleri_getirv4_response sonuc durum_aciklama],
+          operation: :birim_universite,
+          result: %i[birim_universite_response universite],
+          status: %i[birim_universite_response sonuc sonuc_kod],
         },
         programs: {
-          operation: :alt_birimdeki_programlari_getirv4,
-          result: %i[alt_birimdeki_programlari_getirv4_response birimler],
-          status: %i[alt_birimdeki_programlari_getirv4_response sonuc durum_aciklama],
+          operation: :birim_program,
+          result: %i[birim_program_response birim],
+          status: %i[birim_program_response sonuc sonuc_kod],
         },
         subunits: {
-          operation: :alt_birimleri_getirv4,
-          result: %i[alt_birimleri_getirv4_response birimler],
-          status: %i[alt_birimleri_getirv4_response sonuc durum_aciklama],
+          operation: :birim_tum_alt,
+          result: %i[birim_tum_alt_response birim],
+          status: %i[birim_tum_alt_response sonuc sonuc_kod],
         },
       }.freeze
     end
