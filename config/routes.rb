@@ -64,9 +64,15 @@ Rails.application.routes.draw do
 
     resources :references do
       collection do
+        get :academic_years
         get :administrative_functions
         get :administrative_units
         get :countries
+        get :course_register_types
+        get :course_statuses
+        get :course_terms
+        get :credit_types
+        get :final_statuses
         get :districts
         get :entrance_types
         get :formations
@@ -92,12 +98,14 @@ Rails.application.routes.draw do
         get :student_punishment_types
         get :student_studentship_rights
         get :student_studentship_statuses
+        get :terms
         get :term_types
         get :unit_instruction_languages
         get :unit_instruction_types
         get :unit_statuses
         get :unit_types
         get :university_types
+        get :yoksis_countries
       end
     end
 
